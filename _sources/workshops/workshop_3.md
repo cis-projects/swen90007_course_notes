@@ -126,4 +126,4 @@ managing resources.
 
 ## Time for a Demo
 
-You can download the demo file [here](resources/demo.zip).
+You can download the demo file ![here](resources/demo.zip).
