@@ -7,15 +7,11 @@
 ```
 
 ```{note}
-Purpose of today's workshop is to begin working on part 2 of the project. 
+Purpose of today's workshop is to begin working on part 2 of the project and discuss Java web development.
 ```
 
 ## Part 1 results
 Part 1 will be marked within 2 weeks of submission. We will discuss common mistakes in next week's workshop.
-
-```{note}
-Today, we will discuss Java web development.
-```
 
 ## Java Web Development
 
@@ -23,7 +19,7 @@ You will build your application on Java Servlets and Java Server Pages (JSPs) - 
 building blocks for modern day Java web frameworks.  
 
 ```{tip}
-Modern Java frameworks (like Spring, Struts, Hibernate, etc) abstract the role of servlets.*
+Modern Java frameworks (like Spring, Struts, Hibernate, etc) abstract the role of servlets.
 ```
 
 In this subject, you will learn the building blocks, which will allow you to develop an appreciation for the role of 
@@ -39,9 +35,9 @@ A servlet is used to implement web applications and is simply a class which resp
 
 Servlets provide a low-level API for receiving and responding to HTTP requests.
 
-Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to handle 
-the request obtained from the web server, process the request, produce the response, then send response back to the web 
-server.
+Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to 
+handle the request obtained from the web server, process the request, produce the response, then send response 
+back to the web server.
 
 ### JSPs
 
