@@ -312,42 +312,47 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="step-3-setup-postgresql">
 <h1>Step 3: Setup PostgreSQL<a class="headerlink" href="#step-3-setup-postgresql" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
 <div class="section" id="download-postgresql">
 <h2>Download PostgreSQL<a class="headerlink" href="#download-postgresql" title="Permalink to this headline">¶</a></h2>
 <p>Download the PostgreSQL Database installer:</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">Download PostgreSQL Database</a></p>
-</div></blockquote>
+<div class="admonition-resource admonition">
+<p class="admonition-title">Resource</p>
+<p><a class="reference external" href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">Download PostgreSQL Database</a></p>
+</div>
 <p>Double-click on the installer file, an installation wizard will appear and guide you through multiple steps where you
 can choose different options that you would like to have in PostgreSQL.</p>
 <p>Click the Next button:</p>
 <p><img alt="" src="../_images/3_postgresql_setup_1.png" /></p>
 <p>Select software components to install:</p>
 <ul class="simple">
-<li><p>The PostgreSQL Server to install the PostgreSQL database server</p></li>
+<li><p>The PostgreSQL Server to install the PostgreSQL database server.</p></li>
 <li><p>pgAdmin to install the PostgreSQL database GUI.</p></li>
 <li><p>Command Line Tools to install command-line tools such as psql, pg_restore, etc. These tools allow you to interact
 with the PostgreSQL database server using the command-line interface.</p></li>
 </ul>
 <p><img alt="" src="../_images/3_postgresql_setup_2.png" /></p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
 <p>You do not need to download Stack Builder.</p>
+</div>
 <p>Select the database directory to store the data or accept the default folder. Click the Next button to go to the next
 step:</p>
 <p><img alt="" src="../_images/3_postgresql_setup_3.png" /></p>
-<p>Enter a password for the database superuser (<em>postgres</em>).</p>
+<p>Enter a password for the database superuser <em>postgres</em>.</p>
 <p>Enter a port number on which the PostgreSQL database server will listen. The default port is 5432.</p>
 <p><img alt="" src="../_images/3_postgresql_setup_4.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Make sure you remember/write down this password. You will need it again to create a connection to your database.</p>
+</div>
 <p>Then, continue to the end of installation.</p>
 <p><img alt="" src="../_images/3_postgresql_setup_5.png" /></p>
 <p>Once the installation finishes, you can test it’s been installed successfully by finding pgAdmin in your Applications
 folder and launching it.<br />
-When you open PostgreSQL for the first time, you’ll be asked to input your super user password.</p>
+When you open PostgreSQL for the first time, you’ll be asked to input your superuser password.</p>
 <p>When you finish your project and deploy it to Heroku, you do not need the local DB server. You are going to need to
 connect your application to the server on Heroku. These steps will come later.</p>
 </div>
-<hr class="docutils" />
 <div class="section" id="create-a-database">
 <h2>Create a Database<a class="headerlink" href="#create-a-database" title="Permalink to this headline">¶</a></h2>
 <p>The pgAdmin application allows you to interact with the PostgreSQL database server using a GUI.</p>
@@ -357,10 +362,10 @@ connect your application to the server on Heroku. These steps will come later.</
 <p>Enter a name for the database:</p>
 <p><img alt="" src="../_images/3_postgresql_setup_7.png" /></p>
 <p>You have created a local database that you can use while developing your project.</p>
-<hr class="docutils" />
-<blockquote>
-<div><p>Please proceed to <a class="reference internal" href="4_create_project.html"><span class="doc std std-doc">Step 4: Create Project in IntelliJ</span></a>.</p>
-</div></blockquote>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s Next</p>
+<p>Please proceed to <a class="reference internal" href="4_create_project.html"><span class="doc std std-doc">Step 4: Create Project in IntelliJ</span></a>.</p>
+</div>
 </div>
 </div>
 

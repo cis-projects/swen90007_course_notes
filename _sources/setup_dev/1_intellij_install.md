@@ -3,7 +3,7 @@
 To obtain a student license for the IntelliJ Professional Edition, follow the steps in this link:
 
 ````{admonition} Resource
-[IntelliJ Professional Edition](https://www.jetbrains.com/community/education/#students)
+[IntelliJ Professional Edition student license](https://www.jetbrains.com/community/education/#students)
 ````
 
 ```{tip}
@@ -27,7 +27,7 @@ java -version
 
 If not, download a JDK:
 ```{admonition} Resource
-[here](https://www.oracle.com/uk/java/technologies/javase-downloads.html).
+[Java Development Kit](https://www.oracle.com/uk/java/technologies/javase-downloads.html).
 ```
 
 ```{admonition} What's Next

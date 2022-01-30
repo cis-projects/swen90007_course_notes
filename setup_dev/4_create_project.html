@@ -276,23 +276,25 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="step-4-create-project-in-intellij">
 <h1>Step 4: Create Project in IntelliJ<a class="headerlink" href="#step-4-create-project-in-intellij" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<blockquote>
-<div><p>First confirm you have a Java Virtual Machine (JVM) installed on your machine. For Macs, the JVM can normally be found
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>First confirm you have a Java Virtual Machine (JVM) installed on your machine. For Macs, the JVM can normally be found
 in the following directory: {Macintosh HD}/Library/Java/JavaVirtualMachines. If there is no JVM installed on your
 machine, please download one first before attempting these steps.</p>
-</div></blockquote>
+</div>
 <p>Launch IntelliJ and select New Project:</p>
 <p><img alt="" src="../_images/4_create_project_1.png" /></p>
 <p>Select Java Enterprise and enter the information as shown below.</p>
-<blockquote>
-<div><p>Make sure you create the project in a directory you will remember. You will need to push it to GitHub.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Make sure you create the project in a directory you will remember. You will need to push it to GitHub.</p>
+</div>
 <p><img alt="" src="../_images/4_create_project_2.png" /></p>
-<blockquote>
-<div><p>IntelliJ comes bundled with Java Enterprise Edition. If it’s not in this list, it means the installation was likely
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>IntelliJ comes bundled with Java Enterprise Edition. If it’s not in this list, it means the installation was likely
 corrupted. Try uninstalling and re-installing IntelliJ.</p>
-</div></blockquote>
+</div>
 <p>In the same window, select New to create a new Application Server:</p>
 <p><img alt="" src="../_images/4_create_project_3.png" /></p>
 <p>Select Tomcat Server:</p>
@@ -309,14 +311,15 @@ Open:</p>
 <p>Make sure Servlet is selected then select Finish:</p>
 <p><img alt="" src="../_images/4_create_project_9.png" /></p>
 <p>IntelliJ will create a HelloWorld Servlet project by default.</p>
-<blockquote>
-<div><p>Once IntelliJ has finished creating the project (this could take a minute or more), you should test Tomcat has
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Once IntelliJ has finished creating the project (this could take a minute or more), you should test Tomcat has
 been set up successfully.</p>
-</div></blockquote>
+</div>
 <p>In the upper-right corner, select Run on the Tomcat configuration:</p>
 <p><img alt="" src="../_images/4_create_project_10.png" /></p>
-<details>
-<summary>If you cannot select run configuration</summary>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <p>Select Add Configuration:</p>
 <p><img alt="" src="../_images/6_github_clone_4.png" /></p>
 <p>Add a new TomCat local configuration:</p>
@@ -337,22 +340,23 @@ been set up successfully.</p>
 <p><img alt="" src="../_images/6_github_clone_12.png" /></p>
 <p>Select demo:war exploded:</p>
 <p><img alt="" src="../_images/6_github_clone_13.png" /></p>
-<blockquote>
-<div><p><em>A Web application can be deployed to the TomCat server as an exploded directory where files and folders are presented
-in the file system as separate items. A WAR file is a Web Archive file. An exploded WAR file means the structure is the
-exact same as an archive file but not zipped into an archive form.</em></p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A Web application can be deployed to the TomCat server as an exploded directory where files and folders
+are presented in the file system as separate items. A WAR file is a Web Archive file. An exploded WAR file means
+the structure is the exact same as an archive file but not zipped into an archive form.*</p>
+</div>
 <p>Select Apply then OK:</p>
 <p><img alt="" src="../_images/6_github_clone_14.png" /></p>
-</details>
+</div>
 <p>The project should be deployed to localhost:</p>
 <p><img alt="" src="../_images/4_create_project_11.png" /></p>
 <p>To shut down the server, return to IntelliJ and select Stop:</p>
 <p><img alt="" src="../_images/4_create_project_12.png" /></p>
-<hr class="docutils" />
-<blockquote>
-<div><p>Please proceed to <a class="reference internal" href="5_github_setup.html"><span class="doc std std-doc">Step 5: Setup GitHub Repository</span></a>.</p>
-</div></blockquote>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s Next</p>
+<p>Please proceed to <a class="reference internal" href="5_github_setup.html"><span class="doc std std-doc">Step 5: Setup GitHub Repository</span></a>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

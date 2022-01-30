@@ -2,7 +2,10 @@
 
 TomCat provides an HTTP web server environment in which Java code can run.
 
-To download TomCat 9, please click [here](https://tomcat.apache.org/download-90.cgi)
+To download TomCat 9:
+````{admonition} Resource
+[TomCat 9](https://tomcat.apache.org/download-90.cgi)
+````
 
 Unzip the downloaded file somewhere easy to access (for example, your home directory).
 
@@ -30,4 +33,8 @@ C:\Users\oliveirae\apache-tomcat-9.0.50\bin>shutdown.bat
 *Testing Tomcat Installation*  
 
 Open any web browser like Google Chrome. Go to 'http://localhost:8080'. You should see Tomcat page.
+```
+
+```{admonition} What's Next
+Please proceed to [Step 3: PostgreSQL Setup](3_postgresql_setup.md).
 ```
