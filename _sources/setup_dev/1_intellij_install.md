@@ -4,7 +4,20 @@
 
 To obtain a student license for the IntelliJ Professional Edition, follow the steps in this link:
 
-[Free Educational Licenses - IntelliJ](https://www.jetbrains.com/community/education/#students)
+````{panels}
+Content of the left panel.
+
+{badge}`example-badge,badge-primary`
+
+---
+
+```{link-button} https://www.jetbrains.com/community/education/#students
+:text: Clickable right panel
+:type: ref
+:classes: stretched-link
+```
+
+````
 
 ```{tip}
 The Professional Edition contains many more features than the free version and is the recommended IntelliJ IDE to use.
