@@ -118,9 +118,10 @@ Third, open IntelliJ and create a new *.puml file:
 
 Fourth, copy the below into a new markdown file.
 
-```{admonition} Domain Model *.puml File
+::::{admonition} Domain Model *.puml File
 :class: dropdown
 
+```
 @startuml
 
 
@@ -213,6 +214,8 @@ class Submissions {
 
 @enduml
 ```
+
+::::
 
 ```{tip}
 Click [here](https://plantuml.com/class-diagram) to learn more about class diagrams in PlantUML.
