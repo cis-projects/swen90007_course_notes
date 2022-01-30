@@ -1,6 +1,6 @@
 # Workshop 1
 
-```{note}
+```{admonition} Today's Workshop
 The purpose of workshop 1 is to introduce yourself and get to know your tutor and teammates.
 ```
 
@@ -21,6 +21,7 @@ modelling architectures.
 ### Learning Outcomes
 
 On completion of this subject the student is expected to:
+
 - Analyse large scale and distributed systems and select appropriate architectures for them
 - Evaluate architectures both qualitatively and quantitatively
 - Make suitable trade-offs between different architectures
@@ -36,8 +37,9 @@ There are 4 parts for assessments in this subject
 | 3    | The ability to have multiple users in the application will be enabled. This gives place to concurrency issues that you must address.           | 35%       |
 | 4    | Produce a report reflecting on the performance of your system.                                                                                 | 10%       |
 
-```{warning}
-Hurdle requirement: To pass the subject, students must obtain at least 50% (50/100) in the team based project.
+```{admonition} Hurdle requirement
+:class: warning
+To pass the subject, students must obtain at least 50% (50/100) in the team based project.
 ```
 
 ## Tutorials
@@ -58,7 +60,7 @@ as it allows your question to be answered by any teaching staff (which will get 
 
 ### Frequently Asked Questions (FAQs)
 
-There is a list of FAQs available in the left-hand side of these course notes.
+There is a list of FAQs available in the left-hand side menu of these course notes.
 
 ## GitHub
 
@@ -123,87 +125,136 @@ Fourth, copy the below into a new markdown file.
 
 
 Exam "1" -- "1..*" Question : contains >
+
 Exam "1" -- "*" Grade : relates to >
+
 Submissions "*" -- "*" Question : answers >
+
 User "1" -- "*" Exam : creates >
+
 User "1..*" -- "0..*" Subject : teaches >
+
 User "1..*" -- "0..*" Subject : takes >
+
 User "*" -- "1" Submissions : submits >
+
 Subject "1" -- "0..*" Exam : includes >
+
 Submissions "0..*" -- "1" Exam : belongs to >
+
 Question <|-- MultipleChoiceQuestion
+
 MultipleChoiceQuestion "1" -- "2..*" Option : includes >
 
 class User {
+
   id
+
   firstName
+  
   lastName
+  
   email
 }
 
 class Grade {
+
   marks
+  
 }
 
 class User {
+
 }
 
 class User {
+
 }
 
 class User {
+
 }
 
 class Subject {
+
   id
+
   name
+
   code
+
   year
+
 }
 
 class Exam {
+
   id
+
   title
+
 }
 
 class Question {
+
 }
 
 class MultipleChoiceQuestion {
+
 }
 
 class Option {
+
 }
 
 class Submissions {
+
 }
 
 @enduml
+```
+
+```{tip}
+Click [here](https://plantuml.com/class-diagram) to learn more about class diagrams in PlantUML.
 ```
 
 ```{admonition} Use Cases Diagram *.puml File
 :class: dropdown
 
 @startuml
-' https://plantuml.com/use-case-diagram
 
 left to right direction
 
 actor Admin
+
 actor Student
+
 actor Instructor
 
 package "Examination Application" {
+
     usecase "Login" as UC1
+
     usecase "Create exam" as UC2
+
     usecase "Take exam" as UC3
+
 }
 
 Admin --> UC1
+
 Student --> UC1
+
 Instructor --> UC1
+
 Instructor --> UC2
+
 Student --> UC3
 
 @enduml
 ```
+
+```{tip}
+Click [here](https://plantuml.com/use-case-diagram) to learn more about class diagrams in PlantUML.
+```
+    
