@@ -1,8 +1,6 @@
 # Step 8: Deploy Project to Heroku
 
----
-
-### Set Up Repository to Work with Heroku
+## Set Up Repository to Work with Heroku
 
 Open the project in IntelliJ and right-click on the project outermost folder and select New -> File:
 
@@ -38,19 +36,22 @@ web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar $WEBAPP_RUNNER_OPT
 
 ![](resources/8_heroku_deploy_15.png)
 
----
+## Deploy to Heroku
 
-### Deploy to Heroku
+```{caution}
+There are a number of ways to deploy the application to Heroku. You will need to decide as a team which option to 
+choose.
 
-> There are a number of ways to deploy the application to Heroku. You will need to decide as a team which option to 
-> choose.
-> ***Note that the methods are not cross-compatible - you cannot deploy with more than one option without making changes 
-> to the project and the repository.***
+***Note that the methods are not cross-compatible - you cannot deploy with more than one option without making changes 
+to the project and the repository.***
+```
 
-<details>
-<summary>Option 1: Deploy From GitHub</summary>
+`````{admonition} Option 1: Deploy From GitHub
+:class: note, dropdown
 
-> Only one team member needs to set this up.
+```{note}
+Only one team member needs to set this up.
+```
 
 Hooking Heroku into your GitHub repository is an easy choice and reduces work for all team members, as it does not
 require them to set up anything for deployment.
@@ -70,19 +71,17 @@ Enter an application name and select Create App:
 ![](resources/8_heroku_deploy_9.png)
 
 Update the pom.xml file to add the Heroku webapp-runner dependency:
-````
+```
 <artifactItem>
     <groupId>com.heroku</groupId>
     <artifactId>webapp-runner</artifactId>
     <version>9.0.41.0</version>
     <destFileName>webapp-runner.jar</destFileName>
 <artifactItem>
-````
+```
 The full file is below for ease. You *should not* paste the entire file as it will overwrite your local properties.
-<details>
-<summary>pom.xml file</summary>
-
-````
+````{admonition} pom.xml File
+:class: note, dropdown
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -153,7 +152,6 @@ The full file is below for ease. You *should not* paste the entire file as it wi
     </build>
 </project>
 ````
-</details>
 
 > Push this change to the repository.
 
@@ -191,8 +189,7 @@ It will take up a minute or two to build, but once done, select View to view you
 ![](resources/8_heroku_deploy_24.png)
 
 > Now the code on the branch selected will be deployed to Heroku.
-
-</details>
+`````
 
 <details>
 <summary>Option 2: Deploy From Terminal/IDE</summary>

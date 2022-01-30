@@ -269,11 +269,13 @@
   <a class="reference internal nav-link" href="#deploy-to-heroku">
    Deploy to Heroku
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
-   Set Up the PostgreSQL Database
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
+     Set Up the PostgreSQL Database
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -304,11 +306,13 @@
   <a class="reference internal nav-link" href="#deploy-to-heroku">
    Deploy to Heroku
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
-   Set Up the PostgreSQL Database
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
+     Set Up the PostgreSQL Database
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -321,7 +325,6 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="step-8-deploy-project-to-heroku">
 <h1>Step 8: Deploy Project to Heroku<a class="headerlink" href="#step-8-deploy-project-to-heroku" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
 <div class="section" id="set-up-repository-to-work-with-heroku">
 <h2>Set Up Repository to Work with Heroku<a class="headerlink" href="#set-up-repository-to-work-with-heroku" title="Permalink to this headline">¶</a></h2>
 <p>Open the project in IntelliJ and right-click on the project outermost folder and select New -&gt; File:</p>
@@ -345,20 +348,21 @@
 </div>
 <p><img alt="" src="../_images/8_heroku_deploy_15.png" /></p>
 </div>
-<hr class="docutils" />
 <div class="section" id="deploy-to-heroku">
 <h2>Deploy to Heroku<a class="headerlink" href="#deploy-to-heroku" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>There are a number of ways to deploy the application to Heroku. You will need to decide as a team which option to
-choose.
-<em><strong>Note that the methods are not cross-compatible - you cannot deploy with more than one option without making changes
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>There are a number of ways to deploy the application to Heroku. You will need to decide as a team which option to
+choose.</p>
+<p><em><strong>Note that the methods are not cross-compatible - you cannot deploy with more than one option without making changes
 to the project and the repository.</strong></em></p>
-</div></blockquote>
-<details>
-<summary>Option 1: Deploy From GitHub</summary>
-<blockquote>
-<div><p>Only one team member needs to set this up.</p>
-</div></blockquote>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Option 1: Deploy From GitHub</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only one team member needs to set this up.</p>
+</div>
 <p>Hooking Heroku into your GitHub repository is an easy choice and reduces work for all team members, as it does not
 require them to set up anything for deployment.
 If you choose to hook Heroku to the main branch of the repository, it will rebuild the application on every push to
@@ -380,80 +384,79 @@ introduces a new bug).</strong></em></p>
 </pre></div>
 </div>
 <p>The full file is below for ease. You <em>should not</em> paste the entire file as it will overwrite your local properties.</p>
-<details>
-<summary>pom.xml file</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
-         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+<div class="note dropdown admonition">
+<p class="admonition-title">pom.xml File</p>
+<?xml version="1.0" encoding="UTF-8"?>
+<p><project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;groupId&gt;com.example&lt;/groupId&gt;
+&lt;artifactId&gt;demo&lt;/artifactId&gt;
+&lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+&lt;name&gt;demo&lt;/name&gt;
+&lt;packaging&gt;war&lt;/packaging&gt;
 
-    &lt;groupId&gt;com.example&lt;/groupId&gt;
-    &lt;artifactId&gt;demo&lt;/artifactId&gt;
-    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-    &lt;name&gt;demo&lt;/name&gt;
-    &lt;packaging&gt;war&lt;/packaging&gt;
+&lt;properties&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+    &lt;junit.version&gt;5.7.1&lt;/junit.version&gt;
+&lt;/properties&gt;
 
-    &lt;properties&gt;
-        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
-        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
-        &lt;junit.version&gt;5.7.1&lt;/junit.version&gt;
-    &lt;/properties&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+        &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+        &lt;version&gt;4.0.1&lt;/version&gt;
+        &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+        &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
+        &lt;version&gt;${junit.version}&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+        &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
+        &lt;version&gt;${junit.version}&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
 
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
-            &lt;version&gt;4.0.1&lt;/version&gt;
-            &lt;scope&gt;provided&lt;/scope&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
-            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
-            &lt;version&gt;${junit.version}&lt;/version&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
-            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
-            &lt;version&gt;${junit.version}&lt;/version&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-
-    &lt;build&gt;
-        &lt;plugins&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-                &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
-                &lt;executions&gt;
-                    &lt;execution&gt;
-                        &lt;phase&gt;package&lt;/phase&gt;
-                        &lt;goals&gt;&lt;goal&gt;copy&lt;/goal&gt;&lt;/goals&gt;
-                        &lt;configuration&gt;
-                            &lt;artifactItems&gt;
-                                &lt;artifactItem&gt;
-                                    &lt;groupId&gt;com.heroku&lt;/groupId&gt;
-                                    &lt;artifactId&gt;webapp-runner&lt;/artifactId&gt;
-                                    &lt;version&gt;9.0.41.0&lt;/version&gt;
-                                    &lt;destFileName&gt;webapp-runner.jar&lt;/destFileName&gt;
-                                &lt;/artifactItem&gt;
-                            &lt;/artifactItems&gt;
-                        &lt;/configuration&gt;
-                    &lt;/execution&gt;
-                &lt;/executions&gt;
-            &lt;/plugin&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;com.heroku.sdk&lt;/groupId&gt;
-                &lt;artifactId&gt;heroku-maven-plugin&lt;/artifactId&gt;
-                &lt;version&gt;3.0.3&lt;/version&gt;
-            &lt;/plugin&gt;
-        &lt;/plugins&gt;
-    &lt;/build&gt;
-&lt;/project&gt;
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;phase&gt;package&lt;/phase&gt;
+                    &lt;goals&gt;&lt;goal&gt;copy&lt;/goal&gt;&lt;/goals&gt;
+                    &lt;configuration&gt;
+                        &lt;artifactItems&gt;
+                            &lt;artifactItem&gt;
+                                &lt;groupId&gt;com.heroku&lt;/groupId&gt;
+                                &lt;artifactId&gt;webapp-runner&lt;/artifactId&gt;
+                                &lt;version&gt;9.0.41.0&lt;/version&gt;
+                                &lt;destFileName&gt;webapp-runner.jar&lt;/destFileName&gt;
+                            &lt;/artifactItem&gt;
+                        &lt;/artifactItems&gt;
+                    &lt;/configuration&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;com.heroku.sdk&lt;/groupId&gt;
+            &lt;artifactId&gt;heroku-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;3.0.3&lt;/version&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
 </pre></div>
 </div>
-</details>
+</project>
+</div>
 <blockquote>
 <div><p>Push this change to the repository.</p>
 </div></blockquote>
@@ -479,7 +482,7 @@ decide)</em>:</p>
 <blockquote>
 <div><p>Now the code on the branch selected will be deployed to Heroku.</p>
 </div></blockquote>
-</details>
+</div>
 <details>
 <summary>Option 2: Deploy From Terminal/IDE</summary>
 <blockquote>
@@ -606,10 +609,9 @@ with only one click. <em><strong>This is entirely optional.</strong></em></p>
 <div><p>Even after deploying to Heroku, you can still use the local TomCat configuration we created in
 <a class="reference internal" href="4_create_project.html"><span class="doc std std-doc">Step 4: Setup PostgreSQL</span></a> to deploy changes locally before pushing to Heroku.</p>
 </div></blockquote>
-</div>
 <hr class="docutils" />
 <div class="section" id="set-up-the-postgresql-database">
-<h2>Set Up the PostgreSQL Database<a class="headerlink" href="#set-up-the-postgresql-database" title="Permalink to this headline">¶</a></h2>
+<h3>Set Up the PostgreSQL Database<a class="headerlink" href="#set-up-the-postgresql-database" title="Permalink to this headline">¶</a></h3>
 <p>We can no longer use the local instance of the PostgreSQL database, so we have to migrate to a Heroku managed PostgreSQL
 instance.</p>
 <p>Log into Heroku and select the application. Then select Resources:</p>
@@ -641,6 +643,7 @@ see thousands of other databases managed by Heroku. Select Save:</p>
 <p>It should return a successful query, and the table should now be visible once you refresh:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_38.png" /></p>
 <hr class="docutils" />
+</div>
 </div>
 </div>
 
