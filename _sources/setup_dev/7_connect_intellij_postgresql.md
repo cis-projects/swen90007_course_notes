@@ -1,8 +1,6 @@
 # Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
 
----
-
-### Add PostgreSQL Maven Dependency
+## Add PostgreSQL Maven Dependency
 
 You must update the pom.xml file to include the Maven dependency for PostgreSQL:
 ````
@@ -12,11 +10,12 @@ You must update the pom.xml file to include the Maven dependency for PostgreSQL:
     <version>42.2.14</version>
 </dependency>
 ````
-The full file is below for ease. You *should not* paste the entire file as it will overwrite your local properties.
-<details>
-<summary>pom.xml file</summary>
 
-````
+The full file is below for ease. You *should not* paste the entire file as it will overwrite your local properties.
+````{admonition} pom.xml File
+:class: note, dropdown
+
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -91,10 +90,10 @@ The full file is below for ease. You *should not* paste the entire file as it wi
         </plugins>
     </build>
 </project>
+```
 ````
-</details>
 
-### Add PostgreSQL to IntelliJ
+## Add PostgreSQL to IntelliJ
 
 To connect the project to the local instance of PostgreSQL, open the Database view:
 
@@ -132,8 +131,9 @@ The newly created table should be viewable in pgAdmin:
 
 ![](resources/7_connect_intellij_postgresql_9.png)
 
----
+```{admonition} What's Next
+The next step is to deploy the application to Heroku. This does not need to be done now - in fact we recommend you 
+begin developing the application prior to deployment.
 
-> The next step is to deploy the application to Heroku. This does not need to be done now - in fact we recommend you 
-> begin developing the application prior to deployment.
-> However, if you wish to proceed now please proceed to [Step 8: Deploy Project to Heroku](8_heroku_deploy.md).
+However, if you wish to proceed now please proceed to [Step 8: Deploy Project to Heroku](8_heroku_deploy.md).
+```

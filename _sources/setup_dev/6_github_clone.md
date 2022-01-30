@@ -1,11 +1,10 @@
 # Step 6: Clone GitHub Repository
 
----
-
 At this point, the repository should have been created and can now be cloned by all team members.
 You now need to clone the repository to your machine and set up TomCat to run the artifacts.
 
-Follow these steps to clone the repository to a folder on your computer: [view instructions](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository)
+Follow these steps to clone the repository to a folder on your computer: 
+[view instructions](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository)
 
 Once you have cloned the repository, launch IntelliJ and select Open:
 
@@ -57,9 +56,12 @@ Select Artifact:
 Select demo:war exploded:
 
 ![](resources/6_github_clone_13.png)
-> *A Web application can be deployed to the TomCat server as an exploded directory where files and folders are presented 
-in the file system as separate items. A WAR file is a Web Archive file. An exploded WAR file means the structure is the 
-exact same as an archive file but not zipped into an archive form.*
+
+```{note}
+A Web application can be deployed to the TomCat server as an exploded directory where files and folders are 
+presented in the file system as separate items. A WAR file is a Web Archive file. An exploded WAR file means 
+the structure is the exact same as an archive file but not zipped into an archive form.*
+```
 
 Select Apply then OK:
 
@@ -78,6 +80,6 @@ The program is now deployed to localhost:
 
 ![](resources/6_github_clone_17.png)
 
----
-
-> Please proceed to [Step 7: Connect IntelliJ Project to PostgreSQL](7_connect_intellij_postgresql.md).
+```{admonition} What's Next
+Please proceed to [Step 7: Connect IntelliJ Project to PostgreSQL](7_connect_intellij_postgresql.md).
+```

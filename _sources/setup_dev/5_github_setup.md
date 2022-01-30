@@ -1,9 +1,12 @@
 # Step 5: Setup GitHub Repository
 
-> You should have been invited to the GitHub set up for this project. Make sure you create a repository inside the team on Classrooms.
-> *Make sure you set the repository as private* to avoid others plagiarising your work. You **will** be help responsible 
+```{important}
+You should have been invited to the GitHub set up for this project. Make sure you create a repository inside the team on Classrooms.
+
+*Make sure you set the repository as private* to avoid others plagiarising your work. You **will** be help responsible 
 under the university's academic integrity policy if someone plagiarises off your work (even if you were unaware they were
 plagiarising).  
+```
 
 Once you have created a repository, open a terminal window. Navigate into the project you created in step 3.
 
@@ -30,6 +33,6 @@ git push
 
 Once done, your repository will have the project you have just created in IntelliJ.
 
----
-
-> Please proceed to [Step 6: Clone GitHub Repository](6_github_clone.md).
+```{admonition} What's Next
+Please proceed to [Step 6: Clone GitHub Repository](6_github_clone.md).
+```

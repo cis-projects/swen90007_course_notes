@@ -312,7 +312,6 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="step-7-connect-intellij-project-to-local-postgresql-instance">
 <h1>Step 7: Connect IntelliJ Project to Local PostgreSQL Instance<a class="headerlink" href="#step-7-connect-intellij-project-to-local-postgresql-instance" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
 <div class="section" id="add-postgresql-maven-dependency">
 <h2>Add PostgreSQL Maven Dependency<a class="headerlink" href="#add-postgresql-maven-dependency" title="Permalink to this headline">¶</a></h2>
 <p>You must update the pom.xml file to include the Maven dependency for PostgreSQL:</p>
@@ -324,8 +323,8 @@
 </pre></div>
 </div>
 <p>The full file is below for ease. You <em>should not</em> paste the entire file as it will overwrite your local properties.</p>
-<details>
-<summary>pom.xml file</summary>
+<div class="note dropdown admonition">
+<p class="admonition-title">pom.xml File</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -402,7 +401,7 @@
 &lt;/project&gt;
 </pre></div>
 </div>
-</details>
+</div>
 </div>
 <div class="section" id="add-postgresql-to-intellij">
 <h2>Add PostgreSQL to IntelliJ<a class="headerlink" href="#add-postgresql-to-intellij" title="Permalink to this headline">¶</a></h2>
@@ -424,12 +423,12 @@
 <p><img alt="" src="../_images/7_connect_intellij_postgresql_8.png" /></p>
 <p>The newly created table should be viewable in pgAdmin:</p>
 <p><img alt="" src="../_images/7_connect_intellij_postgresql_9.png" /></p>
-<hr class="docutils" />
-<blockquote>
-<div><p>The next step is to deploy the application to Heroku. This does not need to be done now - in fact we recommend you
-begin developing the application prior to deployment.
-However, if you wish to proceed now please proceed to <a class="reference internal" href="8_heroku_deploy.html"><span class="doc std std-doc">Step 8: Deploy Project to Heroku</span></a>.</p>
-</div></blockquote>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s Next</p>
+<p>The next step is to deploy the application to Heroku. This does not need to be done now - in fact we recommend you
+begin developing the application prior to deployment.</p>
+<p>However, if you wish to proceed now please proceed to <a class="reference internal" href="8_heroku_deploy.html"><span class="doc std std-doc">Step 8: Deploy Project to Heroku</span></a>.</p>
+</div>
 </div>
 </div>
 
