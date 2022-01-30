@@ -124,140 +124,98 @@ Fourth, copy the below into a new markdown file.
 ```
 @startuml
 
-
 Exam "1" -- "1..*" Question : contains >
-
 Exam "1" -- "*" Grade : relates to >
-
 Submissions "*" -- "*" Question : answers >
-
 User "1" -- "*" Exam : creates >
-
 User "1..*" -- "0..*" Subject : teaches >
-
 User "1..*" -- "0..*" Subject : takes >
-
 User "*" -- "1" Submissions : submits >
-
 Subject "1" -- "0..*" Exam : includes >
-
 Submissions "0..*" -- "1" Exam : belongs to >
-
 Question <|-- MultipleChoiceQuestion
-
 MultipleChoiceQuestion "1" -- "2..*" Option : includes >
 
 class User {
-
   id
-
   firstName
-  
   lastName
-  
   email
 }
 
 class Grade {
-
   marks
-  
 }
 
 class User {
-
 }
 
 class User {
-
 }
 
 class User {
-
 }
 
 class Subject {
-
   id
-
   name
-
   code
-
   year
-
 }
 
 class Exam {
-
   id
-
   title
-
 }
 
 class Question {
-
 }
 
 class MultipleChoiceQuestion {
-
 }
 
 class Option {
-
 }
 
 class Submissions {
-
 }
 
 @enduml
 ```
-
 ::::
 
 ```{tip}
 Click [here](https://plantuml.com/class-diagram) to learn more about class diagrams in PlantUML.
 ```
 
-```{admonition} Use Cases Diagram *.puml File
+::::{admonition} Use Cases Diagram *.puml File
 :class: dropdown
 
+```
 @startuml
 
 left to right direction
 
 actor Admin
-
 actor Student
-
 actor Instructor
 
 package "Examination Application" {
-
     usecase "Login" as UC1
-
     usecase "Create exam" as UC2
-
     usecase "Take exam" as UC3
-
 }
 
 Admin --> UC1
-
 Student --> UC1
-
 Instructor --> UC1
-
 Instructor --> UC2
-
 Student --> UC3
 
 @enduml
 ```
+::::
 
 ```{tip}
 Click [here](https://plantuml.com/use-case-diagram) to learn more about class diagrams in PlantUML.
 ```
-    

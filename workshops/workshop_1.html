@@ -568,92 +568,60 @@ that your computer will use to convert the text into graphics.</p>
 <p class="admonition-title">Domain Model *.puml File</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@startuml</span>
 
-
 <span class="n">Exam</span> <span class="s2">&quot;1&quot;</span> <span class="o">--</span> <span class="s2">&quot;1..*&quot;</span> <span class="n">Question</span> <span class="p">:</span> <span class="n">contains</span> <span class="o">&gt;</span>
-
 <span class="n">Exam</span> <span class="s2">&quot;1&quot;</span> <span class="o">--</span> <span class="s2">&quot;*&quot;</span> <span class="n">Grade</span> <span class="p">:</span> <span class="n">relates</span> <span class="n">to</span> <span class="o">&gt;</span>
-
 <span class="n">Submissions</span> <span class="s2">&quot;*&quot;</span> <span class="o">--</span> <span class="s2">&quot;*&quot;</span> <span class="n">Question</span> <span class="p">:</span> <span class="n">answers</span> <span class="o">&gt;</span>
-
 <span class="n">User</span> <span class="s2">&quot;1&quot;</span> <span class="o">--</span> <span class="s2">&quot;*&quot;</span> <span class="n">Exam</span> <span class="p">:</span> <span class="n">creates</span> <span class="o">&gt;</span>
-
 <span class="n">User</span> <span class="s2">&quot;1..*&quot;</span> <span class="o">--</span> <span class="s2">&quot;0..*&quot;</span> <span class="n">Subject</span> <span class="p">:</span> <span class="n">teaches</span> <span class="o">&gt;</span>
-
 <span class="n">User</span> <span class="s2">&quot;1..*&quot;</span> <span class="o">--</span> <span class="s2">&quot;0..*&quot;</span> <span class="n">Subject</span> <span class="p">:</span> <span class="n">takes</span> <span class="o">&gt;</span>
-
 <span class="n">User</span> <span class="s2">&quot;*&quot;</span> <span class="o">--</span> <span class="s2">&quot;1&quot;</span> <span class="n">Submissions</span> <span class="p">:</span> <span class="n">submits</span> <span class="o">&gt;</span>
-
 <span class="n">Subject</span> <span class="s2">&quot;1&quot;</span> <span class="o">--</span> <span class="s2">&quot;0..*&quot;</span> <span class="n">Exam</span> <span class="p">:</span> <span class="n">includes</span> <span class="o">&gt;</span>
-
 <span class="n">Submissions</span> <span class="s2">&quot;0..*&quot;</span> <span class="o">--</span> <span class="s2">&quot;1&quot;</span> <span class="n">Exam</span> <span class="p">:</span> <span class="n">belongs</span> <span class="n">to</span> <span class="o">&gt;</span>
-
 <span class="n">Question</span> <span class="o">&lt;|--</span> <span class="n">MultipleChoiceQuestion</span>
-
 <span class="n">MultipleChoiceQuestion</span> <span class="s2">&quot;1&quot;</span> <span class="o">--</span> <span class="s2">&quot;2..*&quot;</span> <span class="n">Option</span> <span class="p">:</span> <span class="n">includes</span> <span class="o">&gt;</span>
 
 <span class="k">class</span> <span class="nc">User</span> <span class="p">{</span>
-
   <span class="nb">id</span>
-
   <span class="n">firstName</span>
-  
   <span class="n">lastName</span>
-  
   <span class="n">email</span>
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">Grade</span> <span class="p">{</span>
-
   <span class="n">marks</span>
-  
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">User</span> <span class="p">{</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">User</span> <span class="p">{</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">User</span> <span class="p">{</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">Subject</span> <span class="p">{</span>
-
   <span class="nb">id</span>
-
   <span class="n">name</span>
-
   <span class="n">code</span>
-
   <span class="n">year</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">Exam</span> <span class="p">{</span>
-
   <span class="nb">id</span>
-
   <span class="n">title</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">Question</span> <span class="p">{</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">MultipleChoiceQuestion</span> <span class="p">{</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">Option</span> <span class="p">{</span>
-
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">Submissions</span> <span class="p">{</span>
-
 <span class="p">}</span>
 
 <span class="nd">@enduml</span>
@@ -666,26 +634,29 @@ that your computer will use to convert the text into graphics.</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Use Cases Diagram *.puml File</p>
-<p>&#64;startuml</p>
-<p>left to right direction</p>
-<p>actor Admin</p>
-<p>actor Student</p>
-<p>actor Instructor</p>
-<p>package “Examination Application” {</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>usecase &quot;Login&quot; as UC1
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@startuml</span>
 
-usecase &quot;Create exam&quot; as UC2
+<span class="n">left</span> <span class="n">to</span> <span class="n">right</span> <span class="n">direction</span>
 
-usecase &quot;Take exam&quot; as UC3
+<span class="n">actor</span> <span class="n">Admin</span>
+<span class="n">actor</span> <span class="n">Student</span>
+<span class="n">actor</span> <span class="n">Instructor</span>
+
+<span class="n">package</span> <span class="s2">&quot;Examination Application&quot;</span> <span class="p">{</span>
+    <span class="n">usecase</span> <span class="s2">&quot;Login&quot;</span> <span class="k">as</span> <span class="n">UC1</span>
+    <span class="n">usecase</span> <span class="s2">&quot;Create exam&quot;</span> <span class="k">as</span> <span class="n">UC2</span>
+    <span class="n">usecase</span> <span class="s2">&quot;Take exam&quot;</span> <span class="k">as</span> <span class="n">UC3</span>
+<span class="p">}</span>
+
+<span class="n">Admin</span> <span class="o">--&gt;</span> <span class="n">UC1</span>
+<span class="n">Student</span> <span class="o">--&gt;</span> <span class="n">UC1</span>
+<span class="n">Instructor</span> <span class="o">--&gt;</span> <span class="n">UC1</span>
+<span class="n">Instructor</span> <span class="o">--&gt;</span> <span class="n">UC2</span>
+<span class="n">Student</span> <span class="o">--&gt;</span> <span class="n">UC3</span>
+
+<span class="nd">@enduml</span>
 </pre></div>
 </div>
-<p>}</p>
-<p>Admin –&gt; UC1</p>
-<p>Student –&gt; UC1</p>
-<p>Instructor –&gt; UC1</p>
-<p>Instructor –&gt; UC2</p>
-<p>Student –&gt; UC3</p>
-<p>&#64;enduml</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
