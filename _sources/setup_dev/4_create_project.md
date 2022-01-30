@@ -63,7 +63,7 @@ In the upper-right corner, select Run on the Tomcat configuration:
 
 ![](resources/4_create_project_10.png)
 
-````{note} If You Cannot Select Run Configuration
+````{admonition} If You Cannot Select Run Configuration
 :class: dropdown
 
 Select Add Configuration:

@@ -25,9 +25,9 @@ Confirm you have a Java Development Kit (JDK) installed. Open a terminal window 
 java -version
 ```
 
-If not, download a JDK:
+If not:
 ```{admonition} Resource
-[Java Development Kit](https://www.oracle.com/uk/java/technologies/javase-downloads.html).
+[Download a JDK](https://www.oracle.com/uk/java/technologies/javase-downloads.html).
 ```
 
 ```{admonition} What's Next
