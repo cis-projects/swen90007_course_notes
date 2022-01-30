@@ -5,18 +5,7 @@
 To obtain a student license for the IntelliJ Professional Edition, follow the steps in this link:
 
 ````{panels}
-Content of the left panel.
-
-{badge}`example-badge,badge-primary`
-
----
-
-```{link-button} https://www.jetbrains.com/community/education/#students
-:text: Clickable right panel
-:type: ref
-:classes: stretched-link
-```
-
+[IntelliJ Professional Edition](https://www.jetbrains.com/community/education/#students)
 ````
 
 ```{tip}
