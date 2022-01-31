@@ -154,7 +154,7 @@ The full file is below for ease. You *should not* paste the entire file as it wi
 </project>
 ````
 
-> Push this change to the repository.
+Push this change to the repository.
 
 Login to Heroku and select the Application:
 
@@ -172,7 +172,9 @@ Once connected, select drop-down menu and choose the GitHub Classroom SWEN900072
 
 ![](resources/8_heroku_deploy_39.png)
 
-> You must be Admin of the project repository in order for Heroku to be able to connect to it.
+```{important}
+You must be Admin of the project repository in order for Heroku to be able to connect to it.
+```
 
 Select Search. Once Heroku finds the repository, select Connect:
 
@@ -189,13 +191,15 @@ It will take up a minute or two to build, but once done, select View to view you
 
 ![](resources/8_heroku_deploy_24.png)
 
-> Now the code on the branch selected will be deployed to Heroku.
+Now the code on the branch selected will be deployed to Heroku.
 `````
 
 <details>
 <summary>Option 2: Deploy From Terminal/IDE</summary>
 
-> All team members should set this up in order to deploy the application.
+```{important}
+All team members should set this up in order to deploy the application.
+```
 
 Download and install the Heroku CLI [here](https://devcenter.heroku.com/articles/heroku-cli).
 
@@ -220,7 +224,7 @@ The full file is below for ease. You *should not* paste the entire file as it wi
 <details>
 <summary>pom.xml file</summary>
 
-````
+````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -329,21 +333,21 @@ It will take a few minutes to build, but once done, the application will be view
 Now everytime you make changes and want to deploy, you can select Run Configuration.
 </details>
 
-<details>
-<summary>Option 3: Deploy Using WAR File</summary>
+````{admonition} Option 3: Deploy Using WAR File
+:class: note, dropdown
 
 This is not covered, but you can find details [here](https://devcenter.heroku.com/articles/war-deployment#deployment-with-the-heroku-cli).
-</details>
+````
 
-> Even after deploying to Heroku, you can still use the local TomCat configuration we created in 
-> [Step 4: Setup PostgreSQL](4_create_project.md) to deploy changes locally before pushing to Heroku.
+```{note}
+Even after deploying to Heroku, you can still use the local TomCat configuration we created in 
+[Step 4: Setup PostgreSQL](4_create_project.md) to deploy changes locally before pushing to Heroku.
+```
 
----
+## Set Up the PostgreSQL Database
 
-### Set Up the PostgreSQL Database
-
-We can no longer use the local instance of the PostgreSQL database, so we have to migrate to a Heroku managed PostgreSQL 
-instance.
+We can no longer use the local instance of the PostgreSQL database, so we have to migrate to a Heroku managed 
+PostgreSQL instance.
 
 Log into Heroku and select the application. Then select Resources:
 
@@ -399,5 +403,3 @@ Enter a random SQL query and click the Run icon:
 It should return a successful query, and the table should now be visible once you refresh:
 
 ![](resources/8_heroku_deploy_38.png)
-
----

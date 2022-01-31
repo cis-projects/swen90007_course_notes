@@ -269,13 +269,11 @@
   <a class="reference internal nav-link" href="#deploy-to-heroku">
    Deploy to Heroku
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
-     Set Up the PostgreSQL Database
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
+   Set Up the PostgreSQL Database
+  </a>
  </li>
 </ul>
 
@@ -306,13 +304,11 @@
   <a class="reference internal nav-link" href="#deploy-to-heroku">
    Deploy to Heroku
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
-     Set Up the PostgreSQL Database
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-the-postgresql-database">
+   Set Up the PostgreSQL Database
+  </a>
  </li>
 </ul>
 
@@ -457,9 +453,7 @@ introduces a new bug).</strong></em></p>
 </div>
 </project>
 </div>
-<blockquote>
-<div><p>Push this change to the repository.</p>
-</div></blockquote>
+<p>Push this change to the repository.</p>
 <p>Login to Heroku and select the Application:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_16.png" /></p>
 <p>Select Deploy:</p>
@@ -468,9 +462,10 @@ introduces a new bug).</strong></em></p>
 <p><img alt="" src="../_images/8_heroku_deploy_20.png" /></p>
 <p>Once connected, select drop-down menu and choose the GitHub Classroom SWEN900072021:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_39.png" /></p>
-<blockquote>
-<div><p>You must be Admin of the project repository in order for Heroku to be able to connect to it.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You must be Admin of the project repository in order for Heroku to be able to connect to it.</p>
+</div>
 <p>Select Search. Once Heroku finds the repository, select Connect:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_18.png" /></p>
 <p><img alt="" src="../_images/8_heroku_deploy_19.png" /></p>
@@ -479,15 +474,14 @@ decide)</em>:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_23.png" /></p>
 <p>It will take up a minute or two to build, but once done, select View to view your application:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_24.png" /></p>
-<blockquote>
-<div><p>Now the code on the branch selected will be deployed to Heroku.</p>
-</div></blockquote>
+<p>Now the code on the branch selected will be deployed to Heroku.</p>
 </div>
 <details>
 <summary>Option 2: Deploy From Terminal/IDE</summary>
-<blockquote>
-<div><p>All team members should set this up in order to deploy the application.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>All team members should set this up in order to deploy the application.</p>
+</div>
 <p>Download and install the Heroku CLI <a class="reference external" href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</p>
 <p>Before we can deploy to Heroku, we must create a Heroku application. <em>This part should only be done by one team member
 (each team member does not need to have their own Heroku application)</em>.</p>
@@ -507,60 +501,60 @@ The code to add to the pom file is:</p>
 <p>The full file is below for ease. You <em>should not</em> paste the entire file as it will overwrite your local properties.</p>
 <details>
 <summary>pom.xml file</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
-         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
-    &lt;groupId&gt;com.example&lt;/groupId&gt;
-    &lt;artifactId&gt;demo&lt;/artifactId&gt;
-    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-    &lt;name&gt;demo&lt;/name&gt;
-    &lt;packaging&gt;war&lt;/packaging&gt;
+    <span class="nt">&lt;groupId&gt;</span>com.example<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>demo<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;name&gt;</span>demo<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
 
-    &lt;properties&gt;
-        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
-        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
-        &lt;junit.version&gt;5.7.1&lt;/junit.version&gt;
-    &lt;/properties&gt;
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;junit.version&gt;</span>5.7.1<span class="nt">&lt;/junit.version&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
 
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
-            &lt;version&gt;4.0.1&lt;/version&gt;
-            &lt;scope&gt;provided&lt;/scope&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
-            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
-            &lt;version&gt;${junit.version}&lt;/version&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
-            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
-            &lt;version&gt;${junit.version}&lt;/version&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>4.0.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>junit-jupiter-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${junit.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>junit-jupiter-engine<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${junit.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
 
-    &lt;build&gt;
-        &lt;plugins&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-                &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
-                &lt;version&gt;3.3.1&lt;/version&gt;
-            &lt;/plugin&gt;
-            &lt;plugin&gt;
-                &lt;groupId&gt;com.heroku.sdk&lt;/groupId&gt;
-                &lt;artifactId&gt;heroku-maven-plugin&lt;/artifactId&gt;
-                &lt;version&gt;3.0.3&lt;/version&gt;
-            &lt;/plugin&gt;
-        &lt;/plugins&gt;
-    &lt;/build&gt;
-&lt;/project&gt;
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-war-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.3.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.heroku.sdk<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>heroku-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.0.3<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
 </pre></div>
 </div>
 </details>
@@ -601,19 +595,20 @@ with only one click. <em><strong>This is entirely optional.</strong></em></p>
 <p><img alt="" src="../_images/8_heroku_deploy_7.png" /></p>
 <p>Now everytime you make changes and want to deploy, you can select Run Configuration.</p>
 </details>
-<details>
-<summary>Option 3: Deploy Using WAR File</summary>
+<div class="note dropdown admonition">
+<p class="admonition-title">Option 3: Deploy Using WAR File</p>
 <p>This is not covered, but you can find details <a class="reference external" href="https://devcenter.heroku.com/articles/war-deployment#deployment-with-the-heroku-cli">here</a>.</p>
-</details>
-<blockquote>
-<div><p>Even after deploying to Heroku, you can still use the local TomCat configuration we created in
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even after deploying to Heroku, you can still use the local TomCat configuration we created in
 <a class="reference internal" href="4_create_project.html"><span class="doc std std-doc">Step 4: Setup PostgreSQL</span></a> to deploy changes locally before pushing to Heroku.</p>
-</div></blockquote>
-<hr class="docutils" />
+</div>
+</div>
 <div class="section" id="set-up-the-postgresql-database">
-<h3>Set Up the PostgreSQL Database<a class="headerlink" href="#set-up-the-postgresql-database" title="Permalink to this headline">¶</a></h3>
-<p>We can no longer use the local instance of the PostgreSQL database, so we have to migrate to a Heroku managed PostgreSQL
-instance.</p>
+<h2>Set Up the PostgreSQL Database<a class="headerlink" href="#set-up-the-postgresql-database" title="Permalink to this headline">¶</a></h2>
+<p>We can no longer use the local instance of the PostgreSQL database, so we have to migrate to a Heroku managed
+PostgreSQL instance.</p>
 <p>Log into Heroku and select the application. Then select Resources:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_25.png" /></p>
 <p>Search and select Heroku PostgreSQL:</p>
@@ -642,8 +637,6 @@ see thousands of other databases managed by Heroku. Select Save:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_37.png" /></p>
 <p>It should return a successful query, and the table should now be visible once you refresh:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_38.png" /></p>
-<hr class="docutils" />
-</div>
 </div>
 </div>
 
