@@ -82,6 +82,7 @@ Update the pom.xml file to add the Heroku webapp-runner dependency:
 The full file is below for ease. You *should not* paste the entire file as it will overwrite your local properties.
 ````{admonition} pom.xml File
 :class: note, dropdown
+
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
