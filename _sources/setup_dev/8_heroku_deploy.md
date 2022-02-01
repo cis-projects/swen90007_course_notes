@@ -211,7 +211,7 @@ All team members should set this up in order to deploy the application.
 Download and install the Heroku CLI:
 
 ```{admonition} Resource
-[Download Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+[Download Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 ```
 
 Before we can deploy to Heroku, we must create a Heroku application. *This part should only be done by one 
@@ -313,6 +313,7 @@ mvn clean heroku:deploy-war
 It will take a few minutes to build:
 
 ![](resources/8_heroku_deploy_2.png)
+
 Now you can go to the URL above, and your project will be deployed.
 
 ```{important}
@@ -351,7 +352,8 @@ Now everytime you make changes and want to deploy, you can select Run Configurat
 ````{admonition} Option 3: Deploy Using WAR File
 :class: note, dropdown
 
-This is not covered, but you can find details [here](https://devcenter.heroku.com/articles/war-deployment#deployment-with-the-heroku-cli).
+This is not covered, but you can find details on the 
+[Heroku Developer Centre](https://devcenter.heroku.com/articles/war-deployment#deployment-with-the-heroku-cli).
 ````
 
 ```{note}
