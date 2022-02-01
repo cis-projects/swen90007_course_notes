@@ -1,4 +1,4 @@
-## Create Your First Web Application
+# Create Your First Web Application
 
 This tutorial has been made for students unfamiliar with creating web applications. It will familiarise you with
 IntelliJ, Java Servlet Pages (JSPs), Maven, and PostgreSQL.
@@ -14,12 +14,16 @@ Below is a list of extra resources you can use to become more familiar with them
 | PostgreSQL                        | Database                                                                                                                            | 1. PostgreSQL tutorial: [view](https://www.postgresqltutorial.com)</br>2. PostgreSQL tutorials and exercises: [view](https://www.postgresql.org/docs/online-resources/)                            |
 | Java Database Connectivity (JDBC) | An application programming interface (API) for the programming language Java, which defines how a client may access a database.     |                                                                                                                                                                                                    |
 | Java Servlet Pages (JSPs)         | Server-side programming technology that enables the creation of dynamic, platform-independent method for building Web applications. |                                                                                                                                                                                                    |
-| TomCat                            | Server and container to execute Java web applications.                                                                              |                                                                                                                                                                                                    |
+| Tomcat                            | Server and container to execute Java web applications.                                                                              |                                                                                                                                                                                                    |
 
-> If you first want to learn the theory behind servlets, JSPs, and containers, check out [JSPs and Servlets](jsp_servlets.md).
+```{note}
+If you first want to learn the theory behind servlets, JSPs, and containers, check out 
+[JSPs and Servlets](jsp_servlets.md).
+```
 
-<details>
-<summary>Create a Web Application in IntelliJ</summary>
+````{admonition} Create a Web Application in IntelliJ
+:class: note, dropdown
+
 Please complete the below steps to create your first project:
 
 [Step 1: Install IntelliJ Professional Edition](../../2021/project/setup_dev/1_intellij_install.md)
@@ -29,8 +33,8 @@ Please complete the below steps to create your first project:
 [Step 3: Setup PostgreSQL](../../2021/project/setup_dev/3_postgresql_setup.md)
 
 [Step 4: Create Project in IntelliJ](../../2021/project/setup_dev/4_create_project.md)
+````
 
-</details>
 <details>
 <summary>Create a Servlet</summary>
 
