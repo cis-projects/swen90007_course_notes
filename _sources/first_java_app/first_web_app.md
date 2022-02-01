@@ -6,15 +6,15 @@ IntelliJ, Java Servlet Pages (JSPs), Maven, and PostgreSQL.
 For some people, this may be the first time you have encountered the tools we will be using in the project.
 Below is a list of extra resources you can use to become more familiar with them.
 
-| Tool | Use | Resources |
-| --- | --- | --- |
-| GitHub | Version control | 1. An interactive and visual tool to learn git commands: [view](https://learngitbranching.js.org)</br>2. GitHub Learning Lab: [view](https://lab.github.com/githubtraining/introduction-to-github)|
-| Maven | Build automation tool | Learn how to use Maven in 5-minutes: [view](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)|
-| Heroku | Platform as a Service (PaaS) | Developer Centre: [view](https://devcenter.heroku.com/categories/reference)|
-| PostgreSQL | Database | 1. PostgreSQL tutorial: [view](https://www.postgresqltutorial.com)</br>2. PostgreSQL tutorials and exercises: [view](https://www.postgresql.org/docs/online-resources/)|
-| Java Database Connectivity (JDBC) | An application programming interface (API) for the programming language Java, which defines how a client may access a database. | |
-| Java Servlet Pages (JSPs) | Server-side programming technology that enables the creation of dynamic, platform-independent method for building Web applications. | |
-| TomCat | Server and container to execute Java web applications. | |
+| Tool                              | Use                                                                                                                                 | Resources                                                                                                                                                                                          |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GitHub                            | Version control                                                                                                                     | 1. An interactive and visual tool to learn git commands: [view](https://learngitbranching.js.org)</br>2. GitHub Learning Lab: [view](https://lab.github.com/githubtraining/introduction-to-github) |
+| Maven                             | Build automation tool                                                                                                               | Learn how to use Maven in 5-minutes: [view](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)                                                                            |
+| Heroku                            | Platform as a Service (PaaS)                                                                                                        | Developer Centre: [view](https://devcenter.heroku.com/categories/reference)                                                                                                                        |
+| PostgreSQL                        | Database                                                                                                                            | 1. PostgreSQL tutorial: [view](https://www.postgresqltutorial.com)</br>2. PostgreSQL tutorials and exercises: [view](https://www.postgresql.org/docs/online-resources/)                            |
+| Java Database Connectivity (JDBC) | An application programming interface (API) for the programming language Java, which defines how a client may access a database.     |                                                                                                                                                                                                    |
+| Java Servlet Pages (JSPs)         | Server-side programming technology that enables the creation of dynamic, platform-independent method for building Web applications. |                                                                                                                                                                                                    |
+| TomCat                            | Server and container to execute Java web applications.                                                                              |                                                                                                                                                                                                    |
 
 > If you first want to learn the theory behind servlets, JSPs, and containers, check out [JSPs and Servlets](jsp_servlets.md).
 

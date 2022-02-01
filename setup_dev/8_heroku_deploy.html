@@ -481,15 +481,19 @@ decide)</em>:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_24.png" /></p>
 <p>Now the code on the branch selected will be deployed to Heroku.</p>
 </div>
-<details>
-<summary>Option 2: Deploy From Terminal/IDE</summary>
+<div class="note dropdown admonition">
+<p class="admonition-title">Option 2: Deploy From Terminal/IDE</summary></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>All team members should set this up in order to deploy the application.</p>
 </div>
-<p>Download and install the Heroku CLI <a class="reference external" href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</p>
-<p>Before we can deploy to Heroku, we must create a Heroku application. <em>This part should only be done by one team member
-(each team member does not need to have their own Heroku application)</em>.</p>
+<p>Download and install the Heroku CLI:</p>
+<div class="admonition-resource admonition">
+<p class="admonition-title">Resource</p>
+<p><a class="reference external" href="https://devcenter.heroku.com/articles/heroku-cli">Download Heroku CLI</a>.</p>
+</div>
+<p>Before we can deploy to Heroku, we must create a Heroku application. <em>This part should only be done by one
+team member (each team member does not need to have their own Heroku application)</em>.</p>
 <p>Once you have installed the Heroku CLI, open a terminal and log into Heroku:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">heroku</span> <span class="n">login</span>
 </pre></div>
@@ -504,65 +508,65 @@ The code to add to the pom file is:</p>
 </pre></div>
 </div>
 <p>The full file is below for ease. You <em>should not</em> paste the entire file as it will overwrite your local properties.</p>
-<details>
-<summary>pom.xml file</summary>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
-         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+<div class="note dropdown admonition">
+<p class="admonition-title">pom.xml File</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
-    <span class="nt">&lt;groupId&gt;</span>com.example<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>demo<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;name&gt;</span>demo<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
+    &lt;groupId&gt;com.example&lt;/groupId&gt;
+    &lt;artifactId&gt;demo&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;demo&lt;/name&gt;
+    &lt;packaging&gt;war&lt;/packaging&gt;
 
-    <span class="nt">&lt;properties&gt;</span>
-        <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
-        <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
-        <span class="nt">&lt;junit.version&gt;</span>5.7.1<span class="nt">&lt;/junit.version&gt;</span>
-    <span class="nt">&lt;/properties&gt;</span>
+    &lt;properties&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;junit.version&gt;5.7.1&lt;/junit.version&gt;
+    &lt;/properties&gt;
 
-    <span class="nt">&lt;dependencies&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>4.0.1<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>junit-jupiter-api<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${junit.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>junit-jupiter-engine<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${junit.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;/dependencies&gt;</span>
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;4.0.1&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
 
-    <span class="nt">&lt;build&gt;</span>
-        <span class="nt">&lt;plugins&gt;</span>
-            <span class="nt">&lt;plugin&gt;</span>
-                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-                <span class="nt">&lt;artifactId&gt;</span>maven-war-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;version&gt;</span>3.3.1<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;/plugin&gt;</span>
-            <span class="nt">&lt;plugin&gt;</span>
-                <span class="nt">&lt;groupId&gt;</span>com.heroku.sdk<span class="nt">&lt;/groupId&gt;</span>
-                <span class="nt">&lt;artifactId&gt;</span>heroku-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;version&gt;</span>3.0.3<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;/plugin&gt;</span>
-        <span class="nt">&lt;/plugins&gt;</span>
-    <span class="nt">&lt;/build&gt;</span>
-<span class="nt">&lt;/project&gt;</span>
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.3.1&lt;/version&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;com.heroku.sdk&lt;/groupId&gt;
+                &lt;artifactId&gt;heroku-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.0.3&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
 </pre></div>
 </div>
-</details>
+</div>
 <p>Open a terminal window again, navigate to the root of the Git repository.<br />
 To create the repository as a Heroku application, enter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">heroku</span> <span class="n">create</span>
@@ -570,9 +574,10 @@ To create the repository as a Heroku application, enter:</p>
 </div>
 <p>This will create the application on Heroku:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_1.png" /></p>
-<blockquote>
-<div><p><em>You can rename the application (and change the URL) by logging into Heroku and going to settings.</em></p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can rename the application (and change the URL) by logging into Heroku and going to settings.</p>
+</div>
 <p>To deploy it to the URL above, enter the following into terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="n">clean</span> <span class="n">heroku</span><span class="p">:</span><span class="n">deploy</span><span class="o">-</span><span class="n">war</span>
 </pre></div>
@@ -580,11 +585,12 @@ To create the repository as a Heroku application, enter:</p>
 <p>It will take a few minutes to build:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_2.png" />
 Now you can go to the URL above, and your project will be deployed.</p>
-<blockquote>
-<div><p>Each time you want to deploy to Heroku, you need to run these same commands.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each time you want to deploy to Heroku, you need to run these same commands.</p>
+</div>
 <p>To make life easier, you can create a Heroku configuration in IntelliJ to allow you to deploy changes to the application
-with only one click. <em><strong>This is entirely optional.</strong></em></p>
+with only one click. This is entirely optional.</p>
 <p>Open the project in IntelliJ and select Add Configuration:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_3.png" /></p>
 <p>Select the icon for Add and then scroll down and select Maven:</p>
@@ -599,14 +605,14 @@ with only one click. <em><strong>This is entirely optional.</strong></em></p>
 <p>It will take a few minutes to build, but once done, the application will be viewable at the URL:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_7.png" /></p>
 <p>Now everytime you make changes and want to deploy, you can select Run Configuration.</p>
-</details>
+</div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Option 3: Deploy Using WAR File</p>
 <p>This is not covered, but you can find details <a class="reference external" href="https://devcenter.heroku.com/articles/war-deployment#deployment-with-the-heroku-cli">here</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Even after deploying to Heroku, you can still use the local TomCat configuration we created in
+<p>Even after deploying to Heroku, you can still use the local Tomcat configuration created in
 <a class="reference internal" href="4_create_project.html"><span class="doc std std-doc">Step 4: Setup PostgreSQL</span></a> to deploy changes locally before pushing to Heroku.</p>
 </div>
 </div>
