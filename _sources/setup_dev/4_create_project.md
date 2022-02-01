@@ -70,7 +70,7 @@ Select Add Configuration:
 
 ![](resources/6_github_clone_4.png)
 
-Add a new TomCat local configuration:
+Add a new Tomcat local configuration:
 
 ![](resources/6_github_clone_5.png)
 
@@ -82,7 +82,7 @@ Select the Open icon:
 
 ![](resources/6_github_clone_7.png)
 
-Select the folder where you unzipped the TomCat directory in [Step 2: Download Tomcat](2_tomcat_download.md):
+Select the folder where you unzipped the Tomcat directory in [Step 2: Download Tomcat](2_tomcat_download.md):
 
 ![](resources/6_github_clone_8.png)
 
@@ -106,7 +106,7 @@ Select demo:war exploded:
 ![](resources/6_github_clone_13.png)
 
 ```{note}
-A Web application can be deployed to the TomCat server as an exploded directory where files and folders 
+A Web application can be deployed to the Tomcat server as an exploded directory where files and folders 
 are presented in the file system as separate items. A WAR file is a Web Archive file. An exploded WAR file means 
 the structure is the exact same as an archive file but not zipped into an archive form.*
 ```

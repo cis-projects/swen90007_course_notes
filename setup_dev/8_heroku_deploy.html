@@ -140,7 +140,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_tomcat_download.html">
-   Step 2: Download TomCat
+   Step 2: Download Tomcat
   </a>
  </li>
  <li class="toctree-l1">
@@ -350,8 +350,8 @@
 <p class="admonition-title">Caution</p>
 <p>There are a number of ways to deploy the application to Heroku. You will need to decide as a team which option to
 choose.</p>
-<p><em><strong>Note that the methods are not cross-compatible - you cannot deploy with more than one option without making changes
-to the project and the repository.</strong></em></p>
+<p>These methods are not cross-compatible - you cannot deploy with more than one option without making changes
+to the project and the repository.</p>
 </div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Option 1: Deploy From GitHub</p>
@@ -362,10 +362,14 @@ to the project and the repository.</strong></em></p>
 <p>Hooking Heroku into your GitHub repository is an easy choice and reduces work for all team members, as it does not
 require them to set up anything for deployment.
 If you choose to hook Heroku to the main branch of the repository, it will rebuild the application on every push to
-main. <em><strong>Be careful about pushing changes to GitHub after project submission. Changes will be automatically deployed
+main.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Be careful about pushing changes to GitHub after project submission. Changes will be automatically deployed
 and might impact the markers’ ability to mark your project (i.e., if it
-introduces a new bug).</strong></em></p>
-<p>First create a Heroku account <a class="reference external" href="https://www.heroku.com">here</a>. <em><strong>Only one team member needs to do this.</strong></em></p>
+introduces a new bug).</p>
+</div>
+<p>First create a Heroku account <a class="reference external" href="https://www.heroku.com">here</a>. Only one team member needs to do this.</p>
 <p>Select Create New Application:</p>
 <p><img alt="" src="../_images/8_heroku_deploy_8.png" /></p>
 <p>Enter an application name and select Create App:</p>
@@ -382,76 +386,77 @@ introduces a new bug).</strong></em></p>
 <p>The full file is below for ease. You <em>should not</em> paste the entire file as it will overwrite your local properties.</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">pom.xml File</p>
-<?xml version="1.0" encoding="UTF-8"?>
-<p><project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;groupId&gt;com.example&lt;/groupId&gt;
-&lt;artifactId&gt;demo&lt;/artifactId&gt;
-&lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-&lt;name&gt;demo&lt;/name&gt;
-&lt;packaging&gt;war&lt;/packaging&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
-&lt;properties&gt;
-    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
-    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
-    &lt;junit.version&gt;5.7.1&lt;/junit.version&gt;
-&lt;/properties&gt;
+    &lt;groupId&gt;com.example&lt;/groupId&gt;
+    &lt;artifactId&gt;demo&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;demo&lt;/name&gt;
+    &lt;packaging&gt;war&lt;/packaging&gt;
 
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-        &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
-        &lt;version&gt;4.0.1&lt;/version&gt;
-        &lt;scope&gt;provided&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
-        &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
-        &lt;version&gt;${junit.version}&lt;/version&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
-        &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
-        &lt;version&gt;${junit.version}&lt;/version&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
+    &lt;properties&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;junit.version&gt;5.7.1&lt;/junit.version&gt;
+    &lt;/properties&gt;
 
-&lt;build&gt;
-    &lt;plugins&gt;
-        &lt;plugin&gt;
-            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-            &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
-            &lt;executions&gt;
-                &lt;execution&gt;
-                    &lt;phase&gt;package&lt;/phase&gt;
-                    &lt;goals&gt;&lt;goal&gt;copy&lt;/goal&gt;&lt;/goals&gt;
-                    &lt;configuration&gt;
-                        &lt;artifactItems&gt;
-                            &lt;artifactItem&gt;
-                                &lt;groupId&gt;com.heroku&lt;/groupId&gt;
-                                &lt;artifactId&gt;webapp-runner&lt;/artifactId&gt;
-                                &lt;version&gt;9.0.41.0&lt;/version&gt;
-                                &lt;destFileName&gt;webapp-runner.jar&lt;/destFileName&gt;
-                            &lt;/artifactItem&gt;
-                        &lt;/artifactItems&gt;
-                    &lt;/configuration&gt;
-                &lt;/execution&gt;
-            &lt;/executions&gt;
-        &lt;/plugin&gt;
-        &lt;plugin&gt;
-            &lt;groupId&gt;com.heroku.sdk&lt;/groupId&gt;
-            &lt;artifactId&gt;heroku-maven-plugin&lt;/artifactId&gt;
-            &lt;version&gt;3.0.3&lt;/version&gt;
-        &lt;/plugin&gt;
-    &lt;/plugins&gt;
-&lt;/build&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;4.0.1&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;phase&gt;package&lt;/phase&gt;
+                        &lt;goals&gt;&lt;goal&gt;copy&lt;/goal&gt;&lt;/goals&gt;
+                        &lt;configuration&gt;
+                            &lt;artifactItems&gt;
+                                &lt;artifactItem&gt;
+                                    &lt;groupId&gt;com.heroku&lt;/groupId&gt;
+                                    &lt;artifactId&gt;webapp-runner&lt;/artifactId&gt;
+                                    &lt;version&gt;9.0.41.0&lt;/version&gt;
+                                    &lt;destFileName&gt;webapp-runner.jar&lt;/destFileName&gt;
+                                &lt;/artifactItem&gt;
+                            &lt;/artifactItems&gt;
+                        &lt;/configuration&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;com.heroku.sdk&lt;/groupId&gt;
+                &lt;artifactId&gt;heroku-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.0.3&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
 </pre></div>
 </div>
-</project>
 </div>
 <p>Push this change to the repository.</p>
 <p>Login to Heroku and select the Application:</p>

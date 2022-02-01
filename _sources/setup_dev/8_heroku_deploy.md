@@ -42,8 +42,8 @@ web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar $WEBAPP_RUNNER_OPT
 There are a number of ways to deploy the application to Heroku. You will need to decide as a team which option to 
 choose.
 
-***Note that the methods are not cross-compatible - you cannot deploy with more than one option without making changes 
-to the project and the repository.***
+These methods are not cross-compatible - you cannot deploy with more than one option without making changes 
+to the project and the repository.
 ```
 
 `````{admonition} Option 1: Deploy From GitHub
@@ -56,11 +56,16 @@ Only one team member needs to set this up.
 Hooking Heroku into your GitHub repository is an easy choice and reduces work for all team members, as it does not
 require them to set up anything for deployment.
 If you choose to hook Heroku to the main branch of the repository, it will rebuild the application on every push to
-main. ***Be careful about pushing changes to GitHub after project submission. Changes will be automatically deployed
-and might impact the markers' ability to mark your project (i.e., if it
-introduces a new bug).***
+main.
 
-First create a Heroku account [here](https://www.heroku.com). ***Only one team member needs to do this.***
+
+```{caution} 
+Be careful about pushing changes to GitHub after project submission. Changes will be automatically deployed
+and might impact the markers' ability to mark your project (i.e., if it
+introduces a new bug).
+```
+
+First create a Heroku account [here](https://www.heroku.com). Only one team member needs to do this.
 
 Select Create New Application:
 
@@ -83,6 +88,7 @@ The full file is below for ease. You *should not* paste the entire file as it wi
 ````{admonition} pom.xml File
 :class: note, dropdown
 
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -152,6 +158,7 @@ The full file is below for ease. You *should not* paste the entire file as it wi
         </plugins>
     </build>
 </project>
+```
 ````
 
 Push this change to the repository.
