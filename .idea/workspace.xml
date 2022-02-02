@@ -3,32 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e7ea4344-5fe1-4e0d-a31f-30b5a66f705a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/introduction/introduction.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/introduction/introduction.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_1.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_1.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_2.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_2.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_3.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_3.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_4.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/workshops/workshop_4.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/README.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/README.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_1.md" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_2.md" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_3.md" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_4.md" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_4.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/introduction/introduction.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/introduction/introduction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/workshops/workshop_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/workshops/workshop_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/workshops/workshop_3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/workshops/workshop_4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_toc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_toc.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshops/resources/demo.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshops/workshop_1.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshops/workshop_2.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshops/workshop_3.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshops/workshop_4.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_4.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +55,7 @@
       <workItem from="1643446628657" duration="366000" />
       <workItem from="1643447033118" duration="6696000" />
       <workItem from="1643576352882" duration="11148000" />
-      <workItem from="1643755608376" duration="11525000" />
+      <workItem from="1643755608376" duration="12724000" />
     </task>
     <servers />
   </component>
