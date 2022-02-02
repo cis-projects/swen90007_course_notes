@@ -13,7 +13,7 @@
 You should be taking minutes of weekly group meetings.
 ```
 
-```{note}
+```{admonition} Today's Workshop
 Purpose of today's workshop is to continue working on part 1 of the project.
 ```
 

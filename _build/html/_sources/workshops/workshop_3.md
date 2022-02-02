@@ -6,7 +6,7 @@
 - Completed set up of development environment to progress part 2
 ```
 
-```{note}
+```{admonition} Today's Workshop
 Purpose of today's workshop is to begin working on part 2 of the project and discuss Java web development.
 ```
 
@@ -127,5 +127,5 @@ managing resources.
 ## Time for a Demo
 
 ```{attention}
-You can download the demo file <a href="resources/demo.zip" download="demo.zip">here</a>.
+You can download the demo file from the repository.
 ```

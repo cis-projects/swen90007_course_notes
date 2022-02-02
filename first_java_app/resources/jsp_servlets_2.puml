@@ -1,0 +1,18 @@
+@startuml
+
+left to right direction
+
+package "Web Application" {
+    [Server]
+    [Container]
+    [Servlet]
+}
+
+[Client] --> [Server] : request
+[Server] --> [Container]
+[Container] --> [Servlet]
+[Servlet] ..> [Container]
+[Container] ..> [Server]
+[Server] ..> [Client]
+
+@enduml

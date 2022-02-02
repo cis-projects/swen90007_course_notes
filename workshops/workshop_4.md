@@ -11,10 +11,7 @@ Some teams leave deployment to Heroku until the last week or two (after local de
 It's unlikely teaching staff will be able to provide much help, if you reach out a few days before submission.
 ```
 
-## Purpose of Today's Workshop
-
-```{note}
+```{admonition} Today's Workshop
+The purpose of today's workshop is to discuss common mistakes for part 1 of the project.
 Part 1 results will be released within 2 weeks of submission.
 ```
-
-The purpose of today's workshop is to discuss common mistakes for part 1 of the project.

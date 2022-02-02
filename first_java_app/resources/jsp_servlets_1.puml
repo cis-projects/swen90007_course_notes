@@ -1,0 +1,19 @@
+@startuml
+
+left to right direction
+
+package "Web Application" {
+    [View]
+    [Model]
+    [Controller]
+}
+database PostgreSQL
+
+[Client] --> [Controller] : request
+[Controller] --> [Model]
+[Model] --> PostgreSQL
+[Model] ..> [Controller]
+[Controller] --> [View]
+[View] --> [Client] : response
+
+@enduml
