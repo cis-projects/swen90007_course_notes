@@ -257,7 +257,7 @@ There are 2 ways you can install Maven dependencies in IntelliJ.
 :class: note, dropdown
 
 ```{note}
-Use this method if you know the ````artifactId````, groupId, and ````version```` of the dependency you wish 
+Use this method if you know the ````artifactId````, ````groupId````, and ````version```` of the dependency you wish 
 to use.
 ```
 
