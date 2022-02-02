@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction" href="../setup_dev/introduction.html" />
-    <link rel="prev" title="Create Your First Web Application" href="first_web_app.html" />
+    <link rel="next" title="Create Your First Web Application" href="first_web_app.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -134,14 +134,14 @@
    Introduction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="first_web_app.html">
-   Create Your First Web Application
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    JSPs and Servlets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="first_web_app.html">
+   Create Your First Web Application
   </a>
  </li>
 </ul>
@@ -309,23 +309,6 @@
   <a class="reference internal nav-link" href="#java-server-pages">
    Java Server Pages
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-vs-html">
-     JSPs vs HTML
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-vs-javascript">
-     JSPs vs. JavaScript
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-vs-pure-servlets">
-     JSPs vs. Pure Servlets
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#apache-tomcat">
@@ -334,7 +317,7 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#introduction-to-apache-tomcat">
-     Introduction to Apache TomCat
+     Introduction to Apache Tomcat
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -383,23 +366,6 @@
   <a class="reference internal nav-link" href="#java-server-pages">
    Java Server Pages
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-vs-html">
-     JSPs vs HTML
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-vs-javascript">
-     JSPs vs. JavaScript
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-vs-pure-servlets">
-     JSPs vs. Pure Servlets
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#apache-tomcat">
@@ -408,7 +374,7 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#introduction-to-apache-tomcat">
-     Introduction to Apache TomCat
+     Introduction to Apache Tomcat
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -483,27 +449,28 @@ of an HTTP request:</p>
 <p>A servlet is used to implement web applications and is simply a class which responds to an HTTP request.
 Servlets provide a low-level API for receiving and responding to HTTP requests - in this subject you will be using
 servlets to receive and write HTTP requests and responses.<br />
-There are many frameworks built as a higher-level abstraction of servlets (for example, Spring, Apache Struts, etc.)
-that remove the necessity to manually write and respond to HTTP requests, however, you are not permitted to use these
-frameworks in this subject. This subject will teach you the building blocks of modern Java web applications.</p>
-<p>Servlets run in a servlet container which handles the networking side (for example, parsing an HTTP request, connection
-handling, etc.). See <a class="reference external" href="#tomcat">Tomcat</a>.</p>
+There are many frameworks built as a higher-level abstraction of servlets (for example, Spring, Apache Struts,
+etc.) that remove the necessity to manually write and respond to HTTP requests, however, you are not permitted
+to use these frameworks in this subject. This subject will teach you the building blocks of modern Java
+web applications.</p>
+<p>Servlets run in a servlet container which handles the networking side (for example, parsing an HTTP request,
+connection handling, etc.).</p>
 </div>
 <div class="section" id="java-server-pages">
 <h2>Java Server Pages<a class="headerlink" href="#java-server-pages" title="Permalink to this headline">¶</a></h2>
 <p>Java Server Pages is a server-side programming technology that enables the creation of a dynamic, platform-
 independent method for building web-based applications.</p>
-<div class="section" id="jsps-vs-html">
-<h3>JSPs vs HTML<a class="headerlink" href="#jsps-vs-html" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-jsps-vs-html admonition">
+<p class="admonition-title">JSPs vs HTML</p>
 <p>HTML cannot generate dynamic content.</p>
 </div>
-<div class="section" id="jsps-vs-javascript">
-<h3>JSPs vs. JavaScript<a class="headerlink" href="#jsps-vs-javascript" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-jsps-vs-javascript admonition">
+<p class="admonition-title">JSPs vs. JavaScript</p>
 <p>JavaScript is client-side, whereas JSPs are server-side (JavaScript is also not part of the Java platform - don’t let
 the name fool you).</p>
 </div>
-<div class="section" id="jsps-vs-pure-servlets">
-<h3>JSPs vs. Pure Servlets<a class="headerlink" href="#jsps-vs-pure-servlets" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-jsps-vs-pure-servlets admonition">
+<p class="admonition-title">JSPs vs. Pure Servlets</p>
 <p>JSPs are used in conjunction with servlets.</p>
 </div>
 </div>
@@ -513,7 +480,7 @@ the name fool you).</p>
 <p>Apache Tomcat is an open source Java servlet container that implements several core Java enterprise specs, namely
 Java Servlet and Java Server Pages (JSP).</p>
 <div class="section" id="introduction-to-apache-tomcat">
-<h3>Introduction to Apache TomCat<a class="headerlink" href="#introduction-to-apache-tomcat" title="Permalink to this headline">¶</a></h3>
+<h3>Introduction to Apache Tomcat<a class="headerlink" href="#introduction-to-apache-tomcat" title="Permalink to this headline">¶</a></h3>
 <p>Apache Tomcat acts as both a web server and a servlet container.<br />
 A web server receives a request from a user, finds the resource, and returns a response to the user. This
 response could be another page, image, video, etc.<br />
@@ -545,7 +512,7 @@ managing resources.</p></li>
 </div>
 <div class="section" id="mvc-pattern">
 <h2>MVC Pattern<a class="headerlink" href="#mvc-pattern" title="Permalink to this headline">¶</a></h2>
-<p>Now we will describe how TomCat, servlets, and JSPs are used together in the MVC (model view controller)
+<p>Now we will describe how Tomcat, servlets, and JSPs are used together in the MVC (model view controller)
 pattern. You will be making use of the MVC pattern in this subject in the assignment.</p>
 <p>In this case, the model in MVC is the domain model, the controller in MVC is servlets, and the view in MVC is
 JSPs. You can see the interaction between these elements:</p>
@@ -612,17 +579,17 @@ time on your webpage:</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="first_web_app.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Create Your First Web Application</p>
+            <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../setup_dev/introduction.html" title="next page">
+    <a class='right-next' id="next-link" href="first_web_app.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Create Your First Web Application</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

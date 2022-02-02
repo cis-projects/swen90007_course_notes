@@ -43,30 +43,31 @@ of an HTTP request:
 A servlet is used to implement web applications and is simply a class which responds to an HTTP request.
 Servlets provide a low-level API for receiving and responding to HTTP requests - in this subject you will be using 
 servlets to receive and write HTTP requests and responses.  
-There are many frameworks built as a higher-level abstraction of servlets (for example, Spring, Apache Struts, etc.) 
-that remove the necessity to manually write and respond to HTTP requests, however, you are not permitted to use these 
-frameworks in this subject. This subject will teach you the building blocks of modern Java web applications.
+There are many frameworks built as a higher-level abstraction of servlets (for example, Spring, Apache Struts, 
+etc.) that remove the necessity to manually write and respond to HTTP requests, however, you are not permitted 
+to use these frameworks in this subject. This subject will teach you the building blocks of modern Java 
+web applications.
 
-Servlets run in a servlet container which handles the networking side (for example, parsing an HTTP request, connection 
-handling, etc.). See [Tomcat](#tomcat).
+Servlets run in a servlet container which handles the networking side (for example, parsing an HTTP request, 
+connection handling, etc.).
 
 ## Java Server Pages
 
 Java Server Pages is a server-side programming technology that enables the creation of a dynamic, platform-
 independent method for building web-based applications.
 
-### JSPs vs HTML
-
+```{admonition} JSPs vs HTML
 HTML cannot generate dynamic content.
+```
 
-### JSPs vs. JavaScript
-
+```{admonition} JSPs vs. JavaScript
 JavaScript is client-side, whereas JSPs are server-side (JavaScript is also not part of the Java platform - don't let 
 the name fool you).
+```
 
-### JSPs vs. Pure Servlets
-
+```{admonition} JSPs vs. Pure Servlets
 JSPs are used in conjunction with servlets.
+```
 
 ## Apache Tomcat
 
@@ -75,7 +76,7 @@ When deploying locally (before pushing to Heroku), you will make use of Apache T
 Apache Tomcat is an open source Java servlet container that implements several core Java enterprise specs, namely 
 Java Servlet and Java Server Pages (JSP).
 
-### Introduction to Apache TomCat
+### Introduction to Apache Tomcat
 
 Apache Tomcat acts as both a web server and a servlet container.  
 A web server receives a request from a user, finds the resource, and returns a response to the user. This 
@@ -107,7 +108,7 @@ Apache Tomcat, as a container, handles a number of issues for you:
 
 ## MVC Pattern
 
-Now we will describe how TomCat, servlets, and JSPs are used together in the MVC (model view controller) 
+Now we will describe how Tomcat, servlets, and JSPs are used together in the MVC (model view controller) 
 pattern. You will be making use of the MVC pattern in this subject in the assignment.
 
 In this case, the model in MVC is the domain model, the controller in MVC is servlets, and the view in MVC is 
