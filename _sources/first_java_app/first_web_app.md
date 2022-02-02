@@ -215,7 +215,7 @@ Open a query console:
 Run the follow SQL query to create a new table for users:
 ```sql
 CREATE TABLE users (
-    username    text,
+    username text,
     password text
 );
 ```
