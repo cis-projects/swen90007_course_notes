@@ -21,8 +21,7 @@ If you first want to learn the theory behind servlets, JSPs, and containers, che
 [JSPs and Servlets](jsp_servlets.md).
 ```
 
-````{admonition} Create a Web Application in IntelliJ
-:class: note, dropdown
+## Create a Web Application in IntelliJ
 
 Please complete the below steps to create your first project:
 
@@ -33,10 +32,8 @@ Please complete the below steps to create your first project:
 [Step 3: Setup PostgreSQL](../setup_dev/3_postgresql_setup.md)
 
 [Step 4: Create Project in IntelliJ](../setup_dev/4_create_project.md)
-````
 
-`````{admonition} Create a Servlet
-:class: note, dropdown
+## Create a Servlet
 
 In this example, the project is titled 'test'. Expand the directory as shown below and create a servlet:
 
@@ -77,10 +74,9 @@ You will see the doGet() method you just edited:
 
 ![](resources/first_web_app_6.png)
 
-You just created your first servlet! :boom:
-</details>
-<details>
-<summary>Create a JSP</summary>
+You just created your first servlet!
+
+## Create a JSP
 
 Right click in the webapp directory to create a new JSP:
 
@@ -119,13 +115,11 @@ A browser window should automatically open. Navigate to: localhost:8080/<project
 The Login Servlet is now redirecting you to the login JSP you just created:
 
 ![](resources/first_web_app_13.png)
-`````
 
-`````{admonition} Passing Parameters to a Servlet
-:class: note, dropdown
+### Passing Parameters to a Servlet
 
 There are two ways to pass parameters (arguments) to a servlet:
-````{admonition} Using doGet() Servlet Method
+`````{admonition} Using doGet() Servlet Method
 :class: note, dropdown
 
 Parameters are passed to the doGet() method as URL arguments:
@@ -155,8 +149,9 @@ http://localhost:8080/<project_name>_war_exploded/login?userName=luke&passWord=t
 The servlet will print the values you passed as parameters:
 
 ![](resources/first_web_app_17.png)
-````
-````{admonition} Using doPost() Servlet Method
+`````
+
+`````{admonition} Using doPost() Servlet Method
 :class: note, dropdown
 
 Open index.jsp, remove the text in the body and add:
@@ -183,7 +178,7 @@ writer.println("<h3> Hello from Post: Your user name is: "+user+", Your password
 
 ![](resources/first_web_app_19.png)
 
-Run the TomCat configuration:
+Run the Tomcat configuration:
 
 ![](resources/first_web_app_4.png)
 
@@ -202,9 +197,7 @@ them to HTML:
 ````
 `````
 
-`````{admonition} Create Connection with Local PostgreSQL
-:class: note, dropdown
-
+## Create Connection with Local PostgreSQL
 ```{important}
 Make sure you launch pgAdmin and have the database instance running on your computer otherwise all queries 
 will fail.
@@ -295,12 +288,11 @@ It will take a few seconds to run but then should return a successful query:
 You have now created a table in your local PostgreSQL instance, created a connection to it and queried data stored in 
 the users table.
 You can now build queries on top of this.
-`````
 
-`````{admonition} Connect to Heroku PostgreSQL
-:class: note, dropdown
+## Connect to Heroku PostgreSQL
 
-You must have completed [Step 8: Deploy Project to Heroku](../../2021/project/setup_dev/8_heroku_deploy.md) before attempting this.
+You must have completed [Step 8: Deploy Project to Heroku](../setup_dev/8_heroku_deploy.md) 
+before attempting this.
 
 Now that you've deployed to Heroku, you must change the database credentials in order to access Heroku's PostgreSQL 
 instance.
@@ -318,5 +310,4 @@ try {
 }
 ```
 
-For more help, go to Heroku's Developer Centre: [view](https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java).
-`````
+For more help, go to [Heroku's Developer Centre](https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java).

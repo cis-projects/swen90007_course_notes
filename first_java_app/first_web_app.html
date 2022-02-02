@@ -285,6 +285,46 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-web-application-in-intellij">
+   Create a Web Application in IntelliJ
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-servlet">
+   Create a Servlet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-jsp">
+   Create a JSP
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-parameters-to-a-servlet">
+     Passing Parameters to a Servlet
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-connection-with-local-postgresql">
+   Create Connection with Local PostgreSQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connect-to-heroku-postgresql">
+   Connect to Heroku PostgreSQL
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -297,6 +337,46 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-web-application-in-intellij">
+   Create a Web Application in IntelliJ
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-servlet">
+   Create a Servlet
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-jsp">
+   Create a JSP
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-parameters-to-a-servlet">
+     Passing Parameters to a Servlet
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-connection-with-local-postgresql">
+   Create Connection with Local PostgreSQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connect-to-heroku-postgresql">
+   Connect to Heroku PostgreSQL
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -352,16 +432,16 @@ Below is a list of extra resources you can use to become more familiar with them
 <p>If you first want to learn the theory behind servlets, JSPs, and containers, check out
 <a class="reference internal" href="jsp_servlets.html"><span class="doc std std-doc">JSPs and Servlets</span></a>.</p>
 </div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Create a Web Application in IntelliJ</p>
+<div class="section" id="create-a-web-application-in-intellij">
+<h2>Create a Web Application in IntelliJ<a class="headerlink" href="#create-a-web-application-in-intellij" title="Permalink to this headline">¶</a></h2>
 <p>Please complete the below steps to create your first project:</p>
 <p><a class="reference internal" href="../setup_dev/1_intellij_install.html"><span class="doc std std-doc">Step 1: Install IntelliJ Professional Edition</span></a></p>
 <p><a class="reference internal" href="../setup_dev/2_tomcat_download.html"><span class="doc std std-doc">Step 2: Download Tomcat</span></a></p>
 <p><a class="reference internal" href="../setup_dev/3_postgresql_setup.html"><span class="doc std std-doc">Step 3: Setup PostgreSQL</span></a></p>
 <p><a class="reference internal" href="../setup_dev/4_create_project.html"><span class="doc std std-doc">Step 4: Create Project in IntelliJ</span></a></p>
 </div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Create a Servlet</p>
+<div class="section" id="create-a-servlet">
+<h2>Create a Servlet<a class="headerlink" href="#create-a-servlet" title="Permalink to this headline">¶</a></h2>
 <p>In this example, the project is titled ‘test’. Expand the directory as shown below and create a servlet:</p>
 <p><img alt="" src="../_images/first_web_app_1.png" /></p>
 <p>We are going to create a LoginServlet:</p>
@@ -387,10 +467,10 @@ navigating to: <a class="reference external" href="http://localhost.com:8080/log
 <p><img alt="" src="../_images/first_web_app_5.png" /></p>
 <p>You will see the doGet() method you just edited:</p>
 <p><img alt="" src="../_images/first_web_app_6.png" /></p>
-<p>You just created your first servlet! :boom:</p>
-</details>
-<details>
-<summary>Create a JSP</summary>
+<p>You just created your first servlet!</p>
+</div>
+<div class="section" id="create-a-jsp">
+<h2>Create a JSP<a class="headerlink" href="#create-a-jsp" title="Permalink to this headline">¶</a></h2>
 <p>Right click in the webapp directory to create a new JSP:</p>
 <p><img alt="" src="../_images/first_web_app_8.png" /></p>
 <p>Enter a name for the JSP:</p>
@@ -412,39 +492,32 @@ visible when you navigate to the page:</p>
 <p><img alt="" src="../_images/first_web_app_11.png" /></p>
 <p>The Login Servlet is now redirecting you to the login JSP you just created:</p>
 <p><img alt="" src="../_images/first_web_app_13.png" /></p>
-</div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Passing Parameters to a Servlet</p>
+<div class="section" id="passing-parameters-to-a-servlet">
+<h3>Passing Parameters to a Servlet<a class="headerlink" href="#passing-parameters-to-a-servlet" title="Permalink to this headline">¶</a></h3>
 <p>There are two ways to pass parameters (arguments) to a servlet:</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">Using doGet() Servlet Method</p>
 <p>Parameters are passed to the doGet() method as URL arguments:</p>
-</div>
-<p>?[parameterName1]=[parameterValue1]&amp;[parameterName2]=[parameterValue2]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="n">In</span> <span class="n">the</span> <span class="n">LoginServlet</span><span class="p">,</span> <span class="n">remove</span> <span class="n">the</span> <span class="n">doGet</span><span class="p">()</span> <span class="n">method</span> <span class="n">body</span> <span class="ow">and</span> <span class="n">add</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?[parameterName1]=[parameterValue1]&amp;[parameterName2]=[parameterValue2]
 </pre></div>
 </div>
-<p>response.setContentType(“text/html”);
-System.out.println(“Hello from GET method in LoginServlet”);
-String user = request.getParameter(“userName”);
-String pass = request.getParameter(“passWord”);
-PrintWriter writer = response.getWriter();
-writer.println(“<h3> Hello from Get “+user+ ” ” +pass+ “</h3>”);</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-![](resources/first_web_app_15.png)
-
-As an example, navigate to:
+<p>In the LoginServlet, remove the doGet() method body and add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">setContentType</span><span class="p">(</span><span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Hello from GET method in LoginServlet&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="s2">&quot;userName&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="k">pass</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="s2">&quot;passWord&quot;</span><span class="p">);</span>
+<span class="n">PrintWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">getWriter</span><span class="p">();</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;&lt;h3&gt; Hello from Get &quot;</span><span class="o">+</span><span class="n">user</span><span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span><span class="k">pass</span><span class="o">+</span> <span class="s2">&quot;&lt;/h3&gt;&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a>&lt;project_name&gt;_war_exploded/login?userName=luke&amp;passWord=test</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-![](resources/first_web_app_16.png)
-
-The servlet will print the values you passed as parameters:
-
-![](resources/first_web_app_17.png)
+<p><img alt="" src="../_images/first_web_app_15.png" /></p>
+<p>As an example, navigate to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://localhost:8080/&lt;project_name&gt;_war_exploded/login?userName=luke&amp;passWord=test
 </pre></div>
+</div>
+<p><img alt="" src="../_images/first_web_app_16.png" /></p>
+<p>The servlet will print the values you passed as parameters:</p>
+<p><img alt="" src="../_images/first_web_app_17.png" /></p>
 </div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Using doPost() Servlet Method</p>
@@ -468,7 +541,7 @@ The servlet will print the values you passed as parameters:
 </pre></div>
 </div>
 <p><img alt="" src="../_images/first_web_app_19.png" /></p>
-<p>Run the TomCat configuration:</p>
+<p>Run the Tomcat configuration:</p>
 <p><img alt="" src="../_images/first_web_app_4.png" /></p>
 <p>It should load the index.jsp by default:</p>
 <p><img alt="" src="../_images/first_web_app_20.png" /></p>
@@ -477,10 +550,14 @@ The servlet will print the values you passed as parameters:
 <p>The index.jsp will post your username and password to the doGet() method of the LoginServlet, which, in turn, will print
 them to HTML:</p>
 <p><img alt="" src="../_images/first_web_app_22.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Create Connection with Local PostgreSQL</p>
+</div>
+</div>
+<div class="section" id="create-connection-with-local-postgresql">
+<h2>Create Connection with Local PostgreSQL<a class="headerlink" href="#create-connection-with-local-postgresql" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Make sure you launch pgAdmin and have the database instance running on your computer otherwise all queries
@@ -554,9 +631,10 @@ To open the database view:</p>
 the users table.
 You can now build queries on top of this.</p>
 </div>
-<div class="note dropdown admonition">
-<p class="admonition-title">Connect to Heroku PostgreSQL</p>
-<p>You must have completed <span class="xref myst">Step 8: Deploy Project to Heroku</span> before attempting this.</p>
+<div class="section" id="connect-to-heroku-postgresql">
+<h2>Connect to Heroku PostgreSQL<a class="headerlink" href="#connect-to-heroku-postgresql" title="Permalink to this headline">¶</a></h2>
+<p>You must have completed <a class="reference internal" href="../setup_dev/8_heroku_deploy.html"><span class="doc std std-doc">Step 8: Deploy Project to Heroku</span></a>
+before attempting this.</p>
 <p>Now that you’ve deployed to Heroku, you must change the database credentials in order to access Heroku’s PostgreSQL
 instance.</p>
 <p>Change the JDBCtest class to be:</p>
@@ -571,7 +649,7 @@ instance.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>For more help, go to Heroku’s Developer Centre: <a class="reference external" href="https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java">view</a>.</p>
+<p>For more help, go to <a class="reference external" href="https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java">Heroku’s Developer Centre</a>.</p>
 </div>
 </div>
 
