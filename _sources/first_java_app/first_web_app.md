@@ -35,8 +35,8 @@ Please complete the below steps to create your first project:
 [Step 4: Create Project in IntelliJ](../../2021/project/setup_dev/4_create_project.md)
 ````
 
-<details>
-<summary>Create a Servlet</summary>
+`````{admonition} Create a Servlet
+:class: note, dropdown
 
 In this example, the project is titled 'test'. Expand the directory as shown below and create a servlet:
 
@@ -47,7 +47,8 @@ We are going to create a LoginServlet:
 ![](resources/first_web_app_2.png)
 
 Title the servlet LoginServlet and change the value to be '/login' - the value becomes 
-the URL of the servlet. For example, I can access the servlet by running the TomCat configuration and navigating to:
+the URL of the servlet. For example, I can access the servlet by running the TomCat configuration and 
+navigating to:
 ````
 'localhost.com:8080/login'
 ````
@@ -124,14 +125,14 @@ localhost:8080/<project_name>_war_exploded/login
 The Login Servlet is now redirecting you to the login JSP you just created:
 
 ![](resources/first_web_app_13.png)
+`````
 
-</details>
-<details>
-<summary>Passing parameters to a Servlet</summary>
+`````{admonition} Passing Parameters to a Servlet
+:class: note, dropdown
 
 There are two ways to pass parameters (arguments) to a servlet:
-<details>
-<summary>Using doGet() servlet method</summary>
+````{admonition} Using doGet() Servlet Method
+:class: note, dropdown
 
 Parameters are passed to the doGet() method as URL arguments:
 ````
@@ -160,23 +161,23 @@ http://localhost:8080/<project_name>_war_exploded/login?userName=luke&passWord=t
 The servlet will print the values you passed as parameters:
 
 ![](resources/first_web_app_17.png)
-</details>
-<details>
-<summary>Using doPost() servlet method</summary>
+````
+````{admonition} Using doPost() Servlet Method
+:class: note, dropdown
 
 Open index.jsp, remove the text in the body and add:
-````
+```html
 <form action = "login" method = "post">
     User name: <input type = "text" name = "userName"><br/>
     Password: <input type = "password" name = "passWord"><br/>
     <input type = "submit" value = "Login">
 </form>
-````
+```
 
 ![](resources/first_web_app_18.png)
 
 Open the LoginServlet and add the below into the doPost() method:
-````
+```java
 response.setContentType("text/html");
 System.out.println("Hello from Post method in LoginServlet");
 String user = request.getParameter("userName");
@@ -184,7 +185,7 @@ String pass = request.getParameter("passWord");
 PrintWriter writer = response.getWriter();
 writer.println("<h3> Hello from Post: Your user name is: "+user+", Your password is: " +pass+
         "</h3>");
-````
+```
 
 ![](resources/first_web_app_19.png)
 
@@ -204,13 +205,16 @@ The index.jsp will post your username and password to the doGet() method of the 
 them to HTML:
 
 ![](resources/first_web_app_22.png)
-</details>
-</details>
+````
+`````
 
-<details>
-<summary>Create Connection with Local PostgreSQL</summary>
+`````{admonition} Create Connection with Local PostgreSQL
+:class: note, dropdown
 
-> Make sure you launch pgAdmin and have the database instance running on your computer otherwise all queries will fail.
+```{important}
+Make sure you launch pgAdmin and have the database instance running on your computer otherwise all queries 
+will fail.
+```
 
 You should have already connected to a local PostgreSQL instance.  
 To open the database view:
@@ -222,21 +226,21 @@ Open a query console:
 ![](resources/first_web_app_24.png)
 
 Run the follow SQL query to create a new table for users:
-````
+```sql
 CREATE TABLE users (
     username    text,
     password text
 );
-````
+```
 
 It should return successfully, and you should now be able to see the new table in the database view:
 
 ![](resources/first_web_app_25.png)
 
 Run the following SQL query to create a test user:
-````
+```sql
 INSERT INTO users(username, password) VALUES ('lrosa', 'test');
-````
+```
 
 Create a new Java file and title it whatever you like:
 
@@ -245,7 +249,7 @@ Create a new Java file and title it whatever you like:
 ![](resources/first_web_app_27.png)
 
 Copy this to the newly created file but make sure to change the database URL, user, and password to match your own:
-````
+```java
 import java.sql.*;
 
 public class JDBCtest {
@@ -280,7 +284,7 @@ public class JDBCtest {
         app.connect();
     }
 }
-````
+```
 
 ![](resources/first_web_app_28.png)
 
@@ -297,10 +301,10 @@ It will take a few seconds to run but then should return a successful query:
 You have now created a table in your local PostgreSQL instance, created a connection to it and queried data stored in 
 the users table.
 You can now build queries on top of this.
-</details>
+`````
 
-<details>
-<summary>Connect to Heroku PostgreSQL</summary>
+`````{admonition} Connect to Heroku PostgreSQL
+:class: note, dropdown
 
 You must have completed [Step 8: Deploy Project to Heroku](../../2021/project/setup_dev/8_heroku_deploy.md) before attempting this.
 
@@ -308,7 +312,7 @@ Now that you've deployed to Heroku, you must change the database credentials in 
 instance.
 
 Change the JDBCtest class to be:
-````
+```java
 try {
     DriverManager.registerDriver(new org.postgresql.Driver());
     String DB_CONNECTION = System.getenv().get("JDBC_DATABASE_URL");
@@ -318,8 +322,7 @@ try {
         <write error message here>
     }
 }
-````
+```
 
 For more help, go to Heroku's Developer Centre: [view](https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java).
-
-</details>
+`````
