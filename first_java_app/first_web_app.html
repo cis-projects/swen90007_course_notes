@@ -355,10 +355,10 @@ Below is a list of extra resources you can use to become more familiar with them
 <div class="note dropdown admonition">
 <p class="admonition-title">Create a Web Application in IntelliJ</p>
 <p>Please complete the below steps to create your first project:</p>
-<p><span class="xref myst">Step 1: Install IntelliJ Professional Edition</span></p>
-<p><span class="xref myst">Step 2: Download Tomcat</span></p>
-<p><span class="xref myst">Step 3: Setup PostgreSQL</span></p>
-<p><span class="xref myst">Step 4: Create Project in IntelliJ</span></p>
+<p><a class="reference internal" href="../setup_dev/1_intellij_install.html"><span class="doc std std-doc">Step 1: Install IntelliJ Professional Edition</span></a></p>
+<p><a class="reference internal" href="../setup_dev/2_tomcat_download.html"><span class="doc std std-doc">Step 2: Download Tomcat</span></a></p>
+<p><a class="reference internal" href="../setup_dev/3_postgresql_setup.html"><span class="doc std std-doc">Step 3: Setup PostgreSQL</span></a></p>
+<p><a class="reference internal" href="../setup_dev/4_create_project.html"><span class="doc std std-doc">Step 4: Create Project in IntelliJ</span></a></p>
 </div>
 <div class="note dropdown admonition">
 <p class="admonition-title">Create a Servlet</p>
@@ -367,11 +367,8 @@ Below is a list of extra resources you can use to become more familiar with them
 <p>We are going to create a LoginServlet:</p>
 <p><img alt="" src="../_images/first_web_app_2.png" /></p>
 <p>Title the servlet LoginServlet and change the value to be ‘/login’ - the value becomes
-the URL of the servlet. For example, I can access the servlet by running the TomCat configuration and
-navigating to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;localhost.com:8080/login&#39;</span>
-</pre></div>
-</div>
+the URL of the servlet. For example, I can access the servlet by running the Tomcat configuration and
+navigating to: <a class="reference external" href="http://localhost.com:8080/login">localhost.com:8080/login</a></p>
 <p><img alt="" src="../_images/first_web_app_3.png" /></p>
 <p>In the doGet method, add the following code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">protected</span> <span class="n">void</span> <span class="n">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">)</span> <span class="n">throws</span>
@@ -384,7 +381,7 @@ navigating to:</p>
 </pre></div>
 </div>
 <p><img alt="" src="../_images/first_web_app_7.png" /></p>
-<p>Run the TomCat configuration:</p>
+<p>Run the Tomcat configuration:</p>
 <p><img alt="" src="../_images/first_web_app_4.png" /></p>
 <p>If a browser does not launch, open one and navigate to localhost:8080/&lt;project_name&gt;_war_exploded/login:</p>
 <p><img alt="" src="../_images/first_web_app_5.png" /></p>
@@ -409,12 +406,9 @@ visible when you navigate to the page:</p>
 </pre></div>
 </div>
 <p><img alt="" src="../_images/first_web_app_14.png" /></p>
-<p>Run the TomCat configuration:</p>
+<p>Run the Tomcat configuration:</p>
 <p><img alt="" src="../_images/first_web_app_4.png" /></p>
-<p>A browser window should automatically open. Navigate to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/&lt;</span><span class="n">project_name</span><span class="o">&gt;</span><span class="n">_war_exploded</span><span class="o">/</span><span class="n">login</span>
-</pre></div>
-</div>
+<p>A browser window should automatically open. Navigate to: localhost:8080/&lt;project_name&gt;_war_exploded/login</p>
 <p><img alt="" src="../_images/first_web_app_11.png" /></p>
 <p>The Login Servlet is now redirecting you to the login JSP you just created:</p>
 <p><img alt="" src="../_images/first_web_app_13.png" /></p>
@@ -464,13 +458,13 @@ The servlet will print the values you passed as parameters:
 </div>
 <p><img alt="" src="../_images/first_web_app_18.png" /></p>
 <p>Open the LoginServlet and add the below into the doPost() method:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello from Post method in LoginServlet&quot;</span><span class="p">);</span>
-<span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;userName&quot;</span><span class="p">);</span>
-<span class="n">String</span> <span class="n">pass</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;passWord&quot;</span><span class="p">);</span>
-<span class="n">PrintWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span>
-<span class="n">writer</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;&lt;h3&gt; Hello from Post: Your user name is: &quot;</span><span class="o">+</span><span class="n">user</span><span class="o">+</span><span class="s">&quot;, Your password is: &quot;</span> <span class="o">+</span><span class="n">pass</span><span class="o">+</span>
-        <span class="s">&quot;&lt;/h3&gt;&quot;</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">setContentType</span><span class="p">(</span><span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Hello from Post method in LoginServlet&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="s2">&quot;userName&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="k">pass</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="s2">&quot;passWord&quot;</span><span class="p">);</span>
+<span class="n">PrintWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">getWriter</span><span class="p">();</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;&lt;h3&gt; Hello from Post: Your user name is: &quot;</span><span class="o">+</span><span class="n">user</span><span class="o">+</span><span class="s2">&quot;, Your password is: &quot;</span> <span class="o">+</span><span class="k">pass</span><span class="o">+</span>
+        <span class="s2">&quot;&lt;/h3&gt;&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p><img alt="" src="../_images/first_web_app_19.png" /></p>
@@ -514,38 +508,38 @@ To open the database view:</p>
 <p><img alt="" src="../_images/first_web_app_26.png" /></p>
 <p><img alt="" src="../_images/first_web_app_27.png" /></p>
 <p>Copy this to the newly created file but make sure to change the database URL, user, and password to match your own:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.sql.*</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.sql.</span><span class="o">*</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDBCtest</span> <span class="p">{</span>
-        <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">URL</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">user</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">password</span><span class="o">&gt;</span><span class="p">;</span>
-        <span class="cm">/**</span>
-<span class="cm">         * Connect to the PostgreSQL database</span>
-<span class="cm">         * @return a Connection object</span>
-<span class="cm">         */</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">connect</span><span class="p">()</span> <span class="p">{</span>
-            <span class="n">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;SELECT * FROM users;&quot;</span><span class="p">;</span>
-            <span class="n">PreparedStatement</span> <span class="n">findStatement</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-            <span class="n">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-            <span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span> <span class="nc">JDBCtest</span> <span class="p">{</span>
+        <span class="n">private</span> <span class="n">final</span> <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">URL</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">private</span> <span class="n">final</span> <span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">user</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">private</span> <span class="n">final</span> <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">insert</span> <span class="n">password</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="o">/**</span>
+         <span class="o">*</span> <span class="n">Connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">PostgreSQL</span> <span class="n">database</span>
+         <span class="o">*</span> <span class="nd">@return</span> <span class="n">a</span> <span class="n">Connection</span> <span class="nb">object</span>
+         <span class="o">*/</span>
+        <span class="n">public</span> <span class="n">void</span> <span class="n">connect</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM users;&quot;</span><span class="p">;</span>
+            <span class="n">PreparedStatement</span> <span class="n">findStatement</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+            <span class="n">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+            <span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
             <span class="k">try</span> <span class="p">{</span>
-                <span class="n">DriverManager</span><span class="p">.</span><span class="na">registerDriver</span><span class="p">(</span><span class="k">new</span> <span class="n">org</span><span class="p">.</span><span class="na">postgresql</span><span class="p">.</span><span class="na">Driver</span><span class="p">());</span>
-                <span class="n">conn</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
-                <span class="n">findStatement</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
-                <span class="n">findStatement</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
-                <span class="n">rs</span> <span class="o">=</span> <span class="n">findStatement</span><span class="p">.</span><span class="na">getResultSet</span><span class="p">();</span>
-                <span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
-                <span class="n">String</span> <span class="n">username</span> <span class="o">=</span> <span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+                <span class="n">DriverManager</span><span class="o">.</span><span class="n">registerDriver</span><span class="p">(</span><span class="n">new</span> <span class="n">org</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">Driver</span><span class="p">());</span>
+                <span class="n">conn</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="o">.</span><span class="n">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+                <span class="n">findStatement</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
+                <span class="n">findStatement</span><span class="o">.</span><span class="n">execute</span><span class="p">();</span>
+                <span class="n">rs</span> <span class="o">=</span> <span class="n">findStatement</span><span class="o">.</span><span class="n">getResultSet</span><span class="p">();</span>
+                <span class="n">rs</span><span class="o">.</span><span class="n">next</span><span class="p">();</span>
+                <span class="n">String</span> <span class="n">username</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+            <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
             <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">JDBCtest</span> <span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JDBCtest</span><span class="p">();</span>
-        <span class="n">app</span><span class="p">.</span><span class="na">connect</span><span class="p">();</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">JDBCtest</span> <span class="n">app</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JDBCtest</span><span class="p">();</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -566,12 +560,12 @@ You can now build queries on top of this.</p>
 <p>Now that you’ve deployed to Heroku, you must change the database credentials in order to access Heroku’s PostgreSQL
 instance.</p>
 <p>Change the JDBCtest class to be:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
-    <span class="n">DriverManager</span><span class="p">.</span><span class="na">registerDriver</span><span class="p">(</span><span class="k">new</span> <span class="n">org</span><span class="p">.</span><span class="na">postgresql</span><span class="p">.</span><span class="na">Driver</span><span class="p">());</span>
-    <span class="n">String</span> <span class="n">DB_CONNECTION</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;JDBC_DATABASE_URL&quot;</span><span class="p">);</span>
-    <span class="n">Connection</span> <span class="n">dbConnection</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">DB_CONNECTION</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="n">DriverManager</span><span class="o">.</span><span class="n">registerDriver</span><span class="p">(</span><span class="n">new</span> <span class="n">org</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">Driver</span><span class="p">());</span>
+    <span class="n">String</span> <span class="n">DB_CONNECTION</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">getenv</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;JDBC_DATABASE_URL&quot;</span><span class="p">);</span>
+    <span class="n">Connection</span> <span class="n">dbConnection</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="o">.</span><span class="n">getConnection</span><span class="p">(</span><span class="n">DB_CONNECTION</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">dbConnection</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
         <span class="o">&lt;</span><span class="n">write</span> <span class="n">error</span> <span class="n">message</span> <span class="n">here</span><span class="o">&gt;</span>
     <span class="p">}</span>
 <span class="p">}</span>

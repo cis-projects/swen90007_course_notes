@@ -26,13 +26,13 @@ If you first want to learn the theory behind servlets, JSPs, and containers, che
 
 Please complete the below steps to create your first project:
 
-[Step 1: Install IntelliJ Professional Edition](../../2021/project/setup_dev/1_intellij_install.md)
+[Step 1: Install IntelliJ Professional Edition](../setup_dev/1_intellij_install.md)
 
-[Step 2: Download Tomcat](../../2021/project/setup_dev/2_tomcat_download.md)
+[Step 2: Download Tomcat](../setup_dev/2_tomcat_download.md)
 
-[Step 3: Setup PostgreSQL](../../2021/project/setup_dev/3_postgresql_setup.md)
+[Step 3: Setup PostgreSQL](../setup_dev/3_postgresql_setup.md)
 
-[Step 4: Create Project in IntelliJ](../../2021/project/setup_dev/4_create_project.md)
+[Step 4: Create Project in IntelliJ](../setup_dev/4_create_project.md)
 ````
 
 `````{admonition} Create a Servlet
@@ -47,11 +47,8 @@ We are going to create a LoginServlet:
 ![](resources/first_web_app_2.png)
 
 Title the servlet LoginServlet and change the value to be '/login' - the value becomes 
-the URL of the servlet. For example, I can access the servlet by running the TomCat configuration and 
-navigating to:
-````
-'localhost.com:8080/login'
-````
+the URL of the servlet. For example, I can access the servlet by running the Tomcat configuration and 
+navigating to: localhost.com:8080/login
 
 ![](resources/first_web_app_3.png)
 
@@ -68,7 +65,7 @@ ServletException, IOException {
 
 ![](resources/first_web_app_7.png)
 
-Run the TomCat configuration:
+Run the Tomcat configuration:
 
 ![](resources/first_web_app_4.png)
 
@@ -111,14 +108,11 @@ response.sendRedirect("login.jsp");
 
 ![](resources/first_web_app_14.png)
 
-Run the TomCat configuration:
+Run the Tomcat configuration:
 
 ![](resources/first_web_app_4.png)
 
-A browser window should automatically open. Navigate to:
-````
-localhost:8080/<project_name>_war_exploded/login
-````
+A browser window should automatically open. Navigate to: localhost:8080/<project_name>_war_exploded/login
 
 ![](resources/first_web_app_11.png)
 
@@ -177,7 +171,7 @@ Open index.jsp, remove the text in the body and add:
 ![](resources/first_web_app_18.png)
 
 Open the LoginServlet and add the below into the doPost() method:
-```java
+```
 response.setContentType("text/html");
 System.out.println("Hello from Post method in LoginServlet");
 String user = request.getParameter("userName");
@@ -249,7 +243,7 @@ Create a new Java file and title it whatever you like:
 ![](resources/first_web_app_27.png)
 
 Copy this to the newly created file but make sure to change the database URL, user, and password to match your own:
-```java
+```
 import java.sql.*;
 
 public class JDBCtest {
@@ -312,7 +306,7 @@ Now that you've deployed to Heroku, you must change the database credentials in 
 instance.
 
 Change the JDBCtest class to be:
-```java
+```
 try {
     DriverManager.registerDriver(new org.postgresql.Driver());
     String DB_CONNECTION = System.getenv().get("JDBC_DATABASE_URL");
