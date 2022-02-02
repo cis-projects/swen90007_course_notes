@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Maven" href="maven.html" />
+    <link rel="prev" title="Create Your First Web Application" href="first_web_app.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,7 +128,7 @@
   First Java Web Application
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="introduction.html">
    Introduction
@@ -140,6 +142,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="first_web_app.html">
    Create Your First Web Application
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to Java and PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="maven.html">
+   Introduction to Maven
   </a>
  </li>
 </ul>
@@ -192,6 +204,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../setup_dev/8_heroku_deploy.html">
    Step 8: Deploy Project to Heroku
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Frequently Asked Questions (FAQs)
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra_tools/tools_and_plugins.html">
+   Useful Tools and IntelliJ Plugins
   </a>
  </li>
 </ul>
@@ -294,51 +318,24 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of Contents
+  <a class="reference internal nav-link" href="#opening-a-connection">
+   Opening a Connection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-the-database">
+   Querying the Database
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#opening-a-connection">
-     1. Opening a Connection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#querying-the-database">
-     2. Querying the Database
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resultset">
      ResultSet
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#closing-a-connection">
-     3. Closing a Connection
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Opening a Connection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Querying the Database
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     ResultSet
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#closing-a-connection">
    Closing a Connection
   </a>
  </li>
@@ -363,51 +360,24 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of Contents
+  <a class="reference internal nav-link" href="#opening-a-connection">
+   Opening a Connection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-the-database">
+   Querying the Database
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#opening-a-connection">
-     1. Opening a Connection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#querying-the-database">
-     2. Querying the Database
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resultset">
      ResultSet
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#closing-a-connection">
-     3. Closing a Connection
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Opening a Connection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Querying the Database
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     ResultSet
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#closing-a-connection">
    Closing a Connection
   </a>
  </li>
@@ -423,29 +393,16 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-java-and-postgresql">
 <h1>Introduction to Java and PostgreSQL<a class="headerlink" href="#introduction-to-java-and-postgresql" title="Permalink to this headline">¶</a></h1>
 <p>This is a demo for students who are new to using Java to query an SQL database.</p>
-<blockquote>
-<div><p>Before attempting these steps, make sure you have completed Steps 1-7 in <span class="xref myst">Setup Development Environment</span>.</p>
-</div></blockquote>
-<div class="section" id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Before attempting these steps, make sure you have completed Steps 1-7 in
+<a class="reference internal" href="../setup_dev/introduction.html"><span class="doc std std-doc">Setup Development Environment</span></a>.</p>
+</div>
 <div class="section" id="opening-a-connection">
-<h3>1. <a class="reference external" href="#opening-a-connection">Opening a Connection</a><a class="headerlink" href="#opening-a-connection" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="querying-the-database">
-<h3>2. <a class="reference external" href="#querying-the-database">Querying the Database</a><a class="headerlink" href="#querying-the-database" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="resultset">
-<h3>        <a class="reference external" href="#resultset">ResultSet</a><a class="headerlink" href="#resultset" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="closing-a-connection">
-<h3>3. <a class="reference external" href="#closing-a-connection">Closing a Connection</a><a class="headerlink" href="#closing-a-connection" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>Opening a Connection<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Opening a Connection<a class="headerlink" href="#opening-a-connection" title="Permalink to this headline">¶</a></h2>
 <p>Create a class named <code class="docutils literal notranslate"><span class="pre">DBConnection</span></code>:</p>
-<p><img alt="" src="first_java_app/resources/1_java_postgresql.png?raw=true" /></p>
-<p><img alt="" src="first_java_app/resources/2_java_postgresql.png?raw=true" /></p>
+<p><img alt="" src="../_images/1_java_postgresql.png" /></p>
+<p><img alt="" src="../_images/2_java_postgresql.png" /></p>
 <p>Copy the below into the new class:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.sql.</span><span class="o">*</span><span class="p">;</span>
 
@@ -456,9 +413,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>Replace the URL, user, and password with the details of your local PostgreSQL instance.</p>
-</div></blockquote>
+<p>Replace the URL, user, and password with the details of your local PostgreSQL instance.</p>
 <p>We’ll demonstrate how to create a connection to the database by using a connection method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="n">Connection</span> <span class="n">connection</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
@@ -476,13 +431,13 @@
 anywhere else to return a connection to the database).<br />
 We’ll demonstrate an example of this.</p>
 </div>
-<div class="section" id="id2">
-<h2>Querying the Database<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>I have created a database table called user with two rows (username and password) in order to demonstrate how to query
-the database using Java.</p>
-<p><img alt="" src="first_java_app/resources/3_java_postgresql.png?raw=true" /></p>
-<p>Create another method in the Connection class called <code class="docutils literal notranslate"><span class="pre">query()</span></code>. We will use this method to query a username and
-password in the database:</p>
+<div class="section" id="querying-the-database">
+<h2>Querying the Database<a class="headerlink" href="#querying-the-database" title="Permalink to this headline">¶</a></h2>
+<p>I have created a database table called user with two rows (username and password) in order to demonstrate
+how to query the database using Java.</p>
+<p><img alt="" src="../_images/3_java_postgresql.png" /></p>
+<p>Create another method in the Connection class called <code class="docutils literal notranslate"><span class="pre">query()</span></code>. We will use this method to query a
+username and password in the database:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">query</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM users WHERE username = ? AND password = ?;&quot;</span><span class="p">;</span>
     <span class="n">PreparedStatement</span> <span class="n">findStatement</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
@@ -512,20 +467,20 @@ password in the database:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You can see above, we are creating a query to search for a user in the database with username = lrosa and password =
-test.<br />
+<p>You can see above, we are creating a query to search for a user in the database with username = lrosa and
+password = test.<br />
 This will return a result as the username and password have been correctly specified and exist in the database.</p>
-<div class="section" id="id3">
-<h3>ResultSet<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="resultset">
+<h3>ResultSet<a class="headerlink" href="#resultset" title="Permalink to this headline">¶</a></h3>
 <p>We have used a ResultSet above to view the entries returned from the database.<br />
-<code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> is used to store the data returned from the database table after the execution of SQL statements.
-The object of ResultSet maintains a cursor pointed at the result data - by default, the cursor is positioned before the
-first row of the result data.<br />
-The <code class="docutils literal notranslate"><span class="pre">next()</span></code> method is used to move the cursor to the next position (row) in a forward direction.
+<code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> is used to store the data returned from the database table after the execution of SQL
+statements. The object of ResultSet maintains a cursor pointed at the result data - by default, the cursor is
+positioned before the first row of the result data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">next()</span></code> method is used to move the cursor to the next position (row) in a forward direction.
 I.e., when the data is first returned, the cursor of the <code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> is at position 0:</p>
-<p><img alt="" src="first_java_app/resources/4_java_postgresql.png?raw=true" /></p>
+<p><img alt="" src="../_images/4_java_postgresql.png" /></p>
 <p>Calling <code class="docutils literal notranslate"><span class="pre">rs.next()</span></code> returns TRUE (as there is &gt;0 rows) and moves the cursor to position 1:</p>
-<p><img alt="" src="first_java_app/resources/5_java_postgresql.png?raw=true" /></p>
+<p><img alt="" src="../_images/5_java_postgresql.png" /></p>
 <p>Now you are pointing at row 1 and you can directly pull out the values for username or password.<br />
 There are 2 ways of doing this, you can query based on column name or column number.<br />
 First, let’s demonstrate column name (copy this into the <code class="docutils literal notranslate"><span class="pre">query()</span></code> method you made above):</p>
@@ -548,20 +503,22 @@ First, let’s demonstrate column name (copy this into the <code class="docutils
 <p>At this point, you have moved the cursor to position (row) 1 and the ResultSet only contains 1 row.
 That means, if you try to call <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(rs.next())</span></code> again, it will return FALSE as the ResultSet pointer has now
 moved past the last row of the data returned from the database:</p>
-<p><img alt="" src="first_java_app/resources/6_java_postgresql.png?raw=true" /></p>
-<blockquote>
-<div><p>Alternatively, if you expect to pull more than one row from the database, you can replace the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(rs.next())</span></code>
-with <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(rs.next())</span></code> and the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement will continue executing until the <code class="docutils literal notranslate"><span class="pre">ResultSet</span></code>
-reaches the final row and returns FALSE.</p>
-</div></blockquote>
+<p><img alt="" src="../_images/6_java_postgresql.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Alternatively, if you expect to pull more than one row from the database, you can replace the
+<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(rs.next())</span></code> with <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(rs.next())</span></code> and the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement will continue
+executing until the <code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> reaches the final row and returns FALSE.</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Closing a Connection<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>It is very important that you close resources after using them, especially as the dev version of Heroku only has 10
-threads (processes) it can use to create connections to the database. I.e., if you create more than 10 connections to
-the database without closing them, your application will freeze and hang indefinitely (until Heroku/PostgreSQL decides
-to terminate the already executed threads - this could be minutes, hours, days, who knows).</p>
+</div>
+<div class="section" id="closing-a-connection">
+<h2>Closing a Connection<a class="headerlink" href="#closing-a-connection" title="Permalink to this headline">¶</a></h2>
+<p>It is very important that you close resources after using them, especially as the dev version of Heroku only
+has 10 threads (processes) it can use to create connections to the database. I.e., if you create more than 10
+connections to the database without closing them, your application will freeze and hang indefinitely
+(until Heroku/PostgreSQL decides to terminate the already executed threads - this could be minutes, hours,
+days, who knows).</p>
 <p>To do this, after each query to the database, add a <code class="docutils literal notranslate"><span class="pre">finally</span></code> clause (using the same example as above):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
     <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">using</span> <span class="n">the</span> <span class="n">method</span> <span class="n">we</span> <span class="n">created</span> <span class="n">above</span> <span class="n">to</span> <span class="k">return</span> <span class="n">a</span> <span class="n">connection</span> <span class="n">to</span> <span class="n">the</span> <span class="n">database</span> <span class="n">to</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">query</span>
@@ -625,7 +582,21 @@ to terminate the already executed threads - this could be minutes, hours, days, 
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="first_web_app.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Create Your First Web Application</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="maven.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Maven</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

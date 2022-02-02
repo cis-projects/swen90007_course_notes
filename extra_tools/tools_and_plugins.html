@@ -51,6 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Step 8: Deploy Project to Heroku" href="../setup_dev/8_heroku_deploy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -128,18 +129,28 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
+  <a class="reference internal" href="../first_java_app/introduction.html">
    Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="jsp_servlets.html">
+  <a class="reference internal" href="../first_java_app/jsp_servlets.html">
    JSPs and Servlets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="first_web_app.html">
+  <a class="reference internal" href="../first_java_app/first_web_app.html">
    Create Your First Web Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../first_java_app/java_postgresql.html">
+   Introduction to Java and PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../first_java_app/maven.html">
+   Introduction to Maven
   </a>
  </li>
 </ul>
@@ -200,6 +211,18 @@
   Frequently Asked Questions (FAQs)
  </span>
 </p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Useful Tools and IntelliJ Plugins
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Frequently Asked Questions (FAQs)
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">
@@ -247,7 +270,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/first_java_app/tools_and_plugins.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/extra_tools/tools_and_plugins.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -267,7 +290,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Ffirst_java_app/tools_and_plugins.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fextra_tools/tools_and_plugins.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -293,17 +316,12 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Useful Tools and IntelliJ Plugins
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intellij-plugins">
    IntelliJ Plugins
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tools">
    Tools
   </a>
@@ -328,17 +346,12 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Useful Tools and IntelliJ Plugins
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intellij-plugins">
    IntelliJ Plugins
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tools">
    Tools
   </a>
@@ -352,14 +365,12 @@
             
               <div>
                 
-  <div class="section" id="useful-tools-and-intellij-plugins">
+  <div class="tex2jax_ignore mathjax_ignore section" id="useful-tools-and-intellij-plugins">
 <h1>Useful Tools and IntelliJ Plugins<a class="headerlink" href="#useful-tools-and-intellij-plugins" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<p>We have created a list of some of our favourite plugins for IntelliJ which should hopefully help you as you complete
-your project:</p>
-</div>
+<p>We have created a list of some of our favourite plugins for IntelliJ which should hopefully help you as you
+complete your project.</p>
 <div class="section" id="intellij-plugins">
-<h1>IntelliJ Plugins<a class="headerlink" href="#intellij-plugins" title="Permalink to this headline">¶</a></h1>
+<h2>IntelliJ Plugins<a class="headerlink" href="#intellij-plugins" title="Permalink to this headline">¶</a></h2>
 <p>All of these plugins are more easily installed by opening IntelliJ then selecting IntelliJ IDEA -&gt; Preferences -&gt;
 Plugins. Search the marketplace and install them directly into IntelliJ.</p>
 <table class="colwidths-auto table">
@@ -394,7 +405,7 @@ Plugins. Search the marketplace and install them directly into IntelliJ.</p>
 </table>
 </div>
 <div class="section" id="tools">
-<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -410,6 +421,7 @@ Plugins. Search the marketplace and install them directly into IntelliJ.</p>
 </tbody>
 </table>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -424,7 +436,7 @@ Plugins. Search the marketplace and install them directly into IntelliJ.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./first_java_app"
+            path: "./extra_tools"
         },
         predefinedOutput: true
     }
@@ -435,7 +447,14 @@ Plugins. Search the marketplace and install them directly into IntelliJ.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../setup_dev/8_heroku_deploy.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Step 8: Deploy Project to Heroku</p>
+        </div>
+    </a>
 </div>
             
         </div>

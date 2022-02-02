@@ -5,7 +5,7 @@ help you develop your first web application.
 
 ## [First Web Application](first_web_app.md)
 
-This guide gives you an overview of the tools you will use during development (TomCat, Heroku, Maven, etc.). It 
+This guide gives you an overview of the tools you will use during development (Tomcat, Heroku, Maven, etc.). It 
 also provides a walk-through guide to creating your first Servlet and JSP, passing parameters between Servlets and 
 JSPs, and querying your application's database.
 
@@ -23,6 +23,6 @@ specifies projects using the POM file, as well as how to add dependencies in you
 
 This is a demo for students who are new to using Java to query an SQL database.
 
-## [Tools and Plugins](tools_and_plugins.md)
+## [Tools and Plugins](../extra_tools/tools_and_plugins.md)
 
 Some of the teaching team's favourite tools and plugins for IntelliJ to help you as you complete your project.

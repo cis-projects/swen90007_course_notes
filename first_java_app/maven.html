@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="../setup_dev/introduction.html" />
+    <link rel="prev" title="Introduction to Java and PostgreSQL" href="java_postgresql.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,7 +128,7 @@
   First Java Web Application
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="introduction.html">
    Introduction
@@ -140,6 +142,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="first_web_app.html">
    Create Your First Web Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="java_postgresql.html">
+   Introduction to Java and PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to Maven
   </a>
  </li>
 </ul>
@@ -192,6 +204,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../setup_dev/8_heroku_deploy.html">
    Step 8: Deploy Project to Heroku
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Frequently Asked Questions (FAQs)
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra_tools/tools_and_plugins.html">
+   Useful Tools and IntelliJ Plugins
   </a>
  </li>
 </ul>
@@ -294,32 +318,25 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   <strong>
-    Table of Contents
-   </strong>
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-maven-is-used">
+   Why Maven is Used
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maven-project-structure">
+   Maven Project Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pom-file">
+   POM File
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#introduction">
-     1. Introduction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-maven-is-used">
-     2. Why Maven is Used
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maven-project-structure">
-     3. Maven Project Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pom-file">
-     4. POM File
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#group-id">
      Group ID
@@ -339,101 +356,31 @@
     <a class="reference internal nav-link" href="#packaging">
      Packaging
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#war-packaging-goals">
-     WAR Packaging Goals
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dependencies">
-     Dependencies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adding-a-new-dependency-in-intellij">
-     Adding a New Dependency in IntelliJ
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maven-compile">
-     5. Maven Compile
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     6. References
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Why Maven is Used
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Maven Project Structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   POM File
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Group ID
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Artifact ID
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Version
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Packaging
-    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
+      <a class="reference internal nav-link" href="#war-packaging-goals">
        WAR Packaging Goals
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
+    <a class="reference internal nav-link" href="#dependencies">
      Dependencies
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Adding a New Dependency in IntelliJ
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adding-a-new-dependency-in-intellij">
+       Adding a New Dependency in IntelliJ
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id12">
+  <a class="reference internal nav-link" href="#maven-compile">
    Maven Compile
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id13">
-   References
   </a>
  </li>
 </ul>
@@ -457,32 +404,25 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   <strong>
-    Table of Contents
-   </strong>
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-maven-is-used">
+   Why Maven is Used
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maven-project-structure">
+   Maven Project Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pom-file">
+   POM File
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#introduction">
-     1. Introduction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-maven-is-used">
-     2. Why Maven is Used
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maven-project-structure">
-     3. Maven Project Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pom-file">
-     4. POM File
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#group-id">
      Group ID
@@ -502,101 +442,31 @@
     <a class="reference internal nav-link" href="#packaging">
      Packaging
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#war-packaging-goals">
-     WAR Packaging Goals
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dependencies">
-     Dependencies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adding-a-new-dependency-in-intellij">
-     Adding a New Dependency in IntelliJ
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maven-compile">
-     5. Maven Compile
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     6. References
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Why Maven is Used
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Maven Project Structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   POM File
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Group ID
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Artifact ID
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Version
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Packaging
-    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
+      <a class="reference internal nav-link" href="#war-packaging-goals">
        WAR Packaging Goals
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
+    <a class="reference internal nav-link" href="#dependencies">
      Dependencies
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Adding a New Dependency in IntelliJ
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adding-a-new-dependency-in-intellij">
+       Adding a New Dependency in IntelliJ
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id12">
+  <a class="reference internal nav-link" href="#maven-compile">
    Maven Compile
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id13">
-   References
   </a>
  </li>
 </ul>
@@ -610,56 +480,14 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-maven">
 <h1>Introduction to Maven<a class="headerlink" href="#introduction-to-maven" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="table-of-contents">
-<h2><strong>Table of Contents</strong><a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="introduction">
-<h3>1. <a class="reference external" href="#introduction">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="why-maven-is-used">
-<h3>2. <a class="reference external" href="#why-maven-is-used">Why Maven is Used</a><a class="headerlink" href="#why-maven-is-used" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="maven-project-structure">
-<h3>3. <a class="reference external" href="#maven-project-structure">Maven Project Structure</a><a class="headerlink" href="#maven-project-structure" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="pom-file">
-<h3>4. <a class="reference external" href="#pom-file">POM File</a><a class="headerlink" href="#pom-file" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="group-id">
-<h3>         <a class="reference external" href="#group-id">Group ID</a><a class="headerlink" href="#group-id" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="artifact-id">
-<h3>         <a class="reference external" href="#artifact-id">Artifact ID</a><a class="headerlink" href="#artifact-id" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="version">
-<h3>         <a class="reference external" href="#version">Version</a><a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="packaging">
-<h3>         <a class="reference external" href="#packaging">Packaging</a><a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="war-packaging-goals">
-<h3>         <a class="reference external" href="#war-packaging-goals">WAR Packaging Goals</a><a class="headerlink" href="#war-packaging-goals" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="dependencies">
-<h3>         <a class="reference external" href="#dependencies">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="adding-a-new-dependency-in-intellij">
-<h3>         <a class="reference external" href="#adding-a-new-dependency-in-intellij">Adding a New Dependency in IntelliJ</a><a class="headerlink" href="#adding-a-new-dependency-in-intellij" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="maven-compile">
-<h3>5. <a class="reference external" href="#maven-compile">Maven Compile</a><a class="headerlink" href="#maven-compile" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="references">
-<h3>6. <a class="reference external" href="#references">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>Introduction<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In the project, you will make use of Apache Maven.</p>
 <p>Maven is a tool that is used for building and managing any Java-based project.
 It is a standard way to build projects and provides a clear definition of what the project consists of.</p>
 </div>
-<div class="section" id="id2">
-<h2>Why Maven is Used<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="why-maven-is-used">
+<h2>Why Maven is Used<a class="headerlink" href="#why-maven-is-used" title="Permalink to this headline">¶</a></h2>
 <p>When developing an application, we face a number of challenges:</p>
 <ol class="simple">
 <li><p>Adding JARs of project dependencies,</p></li>
@@ -676,8 +504,8 @@ It is a standard way to build projects and provides a clear definition of what t
 </ul>
 <p>In doing so, it automates project builds and saves a countless amount of time.</p>
 </div>
-<div class="section" id="id3">
-<h2>Maven Project Structure<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="maven-project-structure">
+<h2>Maven Project Structure<a class="headerlink" href="#maven-project-structure" title="Permalink to this headline">¶</a></h2>
 <p>Maven projects all have a common project structure. Having a common directory layout allows users familiar with one
 Maven project to immediately feel at home in another Maven project.</p>
 <p>A Maven’s project structure looks like this:</p>
@@ -705,16 +533,16 @@ Maven project to immediately feel at home in another Maven project.</p>
 subdirectory for each type: main for the main build artifact, resources for images or other resources, text for unit
 tests, and webapp for the site.</p>
 </div>
-<div class="section" id="id4">
-<h2>POM File<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pom-file">
+<h2>POM File<a class="headerlink" href="#pom-file" title="Permalink to this headline">¶</a></h2>
 <p>All Maven projects contain a project object model (POM) file - it is a one-stop-shop for all things concerning the
 project.</p>
 <p>Maven builds a project using a standardised POM file and a set of plugins. As Maven uses a templated POM file, it means
 once you familiarise yourself with one Maven project, you know how all Maven projects build. This saves time when
 navigating many projects.</p>
 <p>All the elements directly under the POM’s project element are:</p>
-<details>
-<summary>POM file</summary>
+<div class="note dropdown admonition">
+<p class="admonition-title">POM File</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
   xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -757,7 +585,7 @@ navigating many projects.</p>
 &lt;/project&gt;
 </pre></div>
 </div>
-</details>
+</div>
 <p>A project’s POM file does not need to define all of these elements. At a bare minimum, it must define the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">project</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">xsi</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
   <span class="n">xsi</span><span class="p">:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s2">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="o">&gt;</span>
@@ -769,28 +597,28 @@ navigating many projects.</p>
 <span class="o">&lt;/</span><span class="n">project</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<div class="section" id="id5">
-<h3>Group ID<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="group-id">
+<h3>Group ID<a class="headerlink" href="#group-id" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">groupId</span></code> is unique amongst an organisation or a project.</p>
 <p>It defines where your project lives in the local Maven repository. For example, the project above has a <code class="docutils literal notranslate"><span class="pre">groupId</span></code>
 of <code class="docutils literal notranslate"><span class="pre">org.codehaus.mojo</span></code> and so is accessible at <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo</span></code>.</p>
 </div>
-<div class="section" id="id6">
-<h3>Artifact ID<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="artifact-id">
+<h3>Artifact ID<a class="headerlink" href="#artifact-id" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">artifactId</span></code> is the name the project is known by.<br />
 In addition, it further specifies where the project resides in the Maven repository. For example, the project above has
 an <code class="docutils literal notranslate"><span class="pre">artifactId</span></code> of <code class="docutils literal notranslate"><span class="pre">my-project</span></code> - this means the project resides in
 <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo/my-project</span></code>.</p>
 </div>
-<div class="section" id="id7">
-<h3>Version<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="version">
+<h3>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">version</span></code> number allows users to delineate versions of the same project. After each release, you might like to
 iterate the <code class="docutils literal notranslate"><span class="pre">version</span></code> of your project allowing developers to know which project you are referring to.<br />
 Additionally, the <code class="docutils literal notranslate"><span class="pre">version</span></code> fully specifies the path to the project in the Maven repository. For example, the
 above project is <code class="docutils literal notranslate"><span class="pre">version</span></code> 1.0 and so resides in <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo/my-project/1.0</span></code>.</p>
 </div>
-<div class="section" id="id8">
-<h3>Packaging<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="packaging">
+<h3>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h3>
 <p>If you have created the web application using IntelliJ, the POM file will specify WAR packaging.
 WAR (Web Application Resource) files are used to package web applications to deploy them to servlets.
 WAR files have a pre-defined structure that must be followed:</p>
@@ -811,8 +639,8 @@ WAR files have a pre-defined structure that must be followed:</p>
 internal structure that must be followed).</p>
 <p>Specifying the correct packaging is important as it defines the default list of goals which execute on each
 corresponding build lifecycle stage for a particular package structure. For example, the goals on WAR packaging are:</p>
-<div class="section" id="id9">
-<h4>WAR Packaging Goals<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="war-packaging-goals">
+<h4>WAR Packaging Goals<a class="headerlink" href="#war-packaging-goals" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">phases</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">process</span><span class="o">-</span><span class="n">resources</span><span class="o">&gt;</span>
     <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">resources</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.6</span><span class="p">:</span><span class="n">resources</span>
@@ -843,21 +671,22 @@ corresponding build lifecycle stage for a particular package structure. For exam
 </div>
 <p>A brief explanation of each goal:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">process-resources</span></code> - validate the project is correct and all necessary information is available</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">compile</span></code> - compile the source code of the project</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code> - test the compiled source code using a suitable unit testing framework. These tests should not require
-the code be packaged or deployed</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">package</span></code> - take the compiled code and package it in its distributable format, such as a JAR.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">install</span></code> - install the package into the local repository, for use as a dependency in other projects locally</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">deploy</span></code> - done in the build environment, copies the final package to the remote repository for sharing with
+<li><p><code class="docutils literal notranslate"><span class="pre">process-resources</span></code>: validate the project is correct and all necessary information is available.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile</span></code>: compile the source code of the project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code>: test the compiled source code using a suitable unit testing framework. These tests should not
+require the code be packaged or deployed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package</span></code>: take the compiled code and package it in its distributable format, such as a JAR.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install</span></code>: install the package into the local repository, for use as a dependency in other projects
+locally.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deploy</span></code>: done in the build environment, copies the final package to the remote repository for sharing with
 other developers and projects.</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>Dependencies<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p>Dependency management is a core feature of Maven. The dependency management section is a mechanism for centralising
-dependency information.
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Dependency management is a core feature of Maven. The dependency management section is a mechanism for
+centralising dependency information.
 This feature is facilitated by reading the dependencies specified in the POM file.</p>
 <p>For example, in the project we have specified a PostgreSQL dependency:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
@@ -869,65 +698,65 @@ This feature is facilitated by reading the dependencies specified in the POM fil
 <span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Maven downloads and links the dependencies on compilation, as well as on other goals that require them. As an added
-bonus, Maven brings in the dependencies of those dependencies (transitive dependencies), allowing your list to focus
-solely on the dependencies your project requires.</p>
+<p>Maven downloads and links the dependencies on compilation, as well as on other goals that require them. As an
+added bonus, Maven brings in the dependencies of those dependencies (transitive dependencies), allowing your
+list to focus solely on the dependencies your project requires.</p>
 <p>The dependencies in the POM file are copied as JARs from the central Maven repository into your computer’s local
 Maven repository.</p>
-<blockquote>
-<div><p>The Maven repository in most instances is created as a hidden directory on your computer. You should never need to
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Maven repository in most instances is created as a hidden directory on your computer. You should never need to
 access it.<br />
-<strong>If you are on a Linux machine</strong> and did want to access the local Maven repository, open a file explorer window,
+If you are on a Linux machine and did want to access the local Maven repository, open a file explorer window,
 and hold <code class="docutils literal notranslate"><span class="pre">shift</span></code> + <code class="docutils literal notranslate"><span class="pre">command</span></code> + <code class="docutils literal notranslate"><span class="pre">full</span> <span class="pre">stop</span></code> to display hidden files and folders.<br />
 Then navigate to the Maven repository, which usually resides at: /&lt;home_directory&gt;/.m2</p>
-</div></blockquote>
-<p>The central Maven repository, which you can use to search for Maven dependencies is: <a class="reference external" href="https://search.maven.org">view</a>.</p>
 </div>
-<div class="section" id="id11">
-<h3>Adding a New Dependency in IntelliJ<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>You can search for Maven dependencies is in the <a class="reference external" href="https://search.maven.org">central Maven repository</a>.</p>
+<div class="section" id="adding-a-new-dependency-in-intellij">
+<h4>Adding a New Dependency in IntelliJ<a class="headerlink" href="#adding-a-new-dependency-in-intellij" title="Permalink to this headline">¶</a></h4>
 <p>There are 2 ways you can install Maven dependencies in IntelliJ.</p>
-<details>
-<summary>1. Install via IntelliJ Template</summary>
-<blockquote>
-<div><p>Use this method if you know the <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, groupId, and <code class="docutils literal notranslate"><span class="pre">version</span></code> of the dependency you wish to use.</p>
-</div></blockquote>
+<div class="note dropdown admonition">
+<p class="admonition-title">1. Install via IntelliJ Template</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use this method if you know the <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, groupId, and <code class="docutils literal notranslate"><span class="pre">version</span></code> of the dependency you wish
+to use.</p>
+</div>
 <p>Open your project in IntelliJ and select Code from the menu. Then select Generate:</p>
-<p><img alt="" src="first_java_app/resources/maven_1.png?raw=true" /></p>
+<p><img alt="" src="../_images/maven_1.png" /></p>
 <p>Select Dependency Template:</p>
-<p><img alt="" src="first_java_app/resources/maven_2.png?raw=true" /></p>
+<p><img alt="" src="../_images/maven_2.png" /></p>
 <p>A dependency template will be autogenerated in the POM file, and a pop-up will appear to allow you to search for
 dependencies:</p>
-<p><img alt="" src="first_java_app/resources/maven_3.png?raw=true" /></p>
+<p><img alt="" src="../_images/maven_3.png" /></p>
 <p>You will need to specify <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, and <code class="docutils literal notranslate"><span class="pre">version</span></code>. If you do not know these, use method 2.</p>
 <p>Once you add the dependency, right-click on a project folder and select Reload Project:</p>
-<p><img alt="" src="first_java_app/resources/maven_4.png?raw=true" /></p>
-</details>
-<details>
-<summary>2. Install via Maven Central Repository</summary>
+<p><img alt="" src="../_images/maven_4.png" /></p>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">2. Install via Maven Central Repository</p>
 <p>Navigate to <a class="reference external" href="https://search.maven.org">Maven Central Repository</a>.
 As an example, we will search for the PostgreSQL JAR. Search and select the JAR you want:</p>
-<p><img alt="" src="first_java_app/resources/maven_5.png?raw=true" /></p>
+<p><img alt="" src="../_images/maven_5.png" /></p>
 <p>When you select the JAR you want, it will display the <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, and <code class="docutils literal notranslate"><span class="pre">version</span></code>:</p>
-<p><img alt="" src="first_java_app/resources/maven_6.png?raw=true" /></p>
+<p><img alt="" src="../_images/maven_6.png" /></p>
 <p>Open your project in IntelliJ and select Code from the menu. Then select Generate:</p>
-<p><img alt="" src="first_java_app/resources/maven_1.png?raw=true" /></p>
+<p><img alt="" src="../_images/maven_1.png" /></p>
 <p>Select Dependency Template:</p>
-<p><img alt="" src="first_java_app/resources/maven_2.png?raw=true" /></p>
-<p>A dependency template will be autogenerated. Now enter the <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, and <code class="docutils literal notranslate"><span class="pre">version</span></code> you
-retrieved from the Maven Central Repository (above):</p>
-<p><img alt="" src="first_java_app/resources/maven_3.png?raw=true" /></p>
+<p><img alt="" src="../_images/maven_2.png" /></p>
+<p>A dependency template will be autogenerated. Now enter the <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">version</span></code> you retrieved from the Maven Central Repository (above):</p>
+<p><img alt="" src="../_images/maven_3.png" /></p>
 <p>Once you add the dependency, right-click on a project folder and select Reload Project:</p>
-<p><img alt="" src="first_java_app/resources/maven_4.png?raw=true" /></p>
-</details>
-<blockquote>
-<div><p>It’s that easy!</p>
-</div></blockquote>
+<p><img alt="" src="../_images/maven_4.png" /></p>
 </div>
 </div>
-<div class="section" id="id12">
-<h2>Maven Compile<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
-<p>When you build a project, the project is compiled and a <code class="docutils literal notranslate"><span class="pre">target</span></code> directory is created; the target directory is
-used to house all output of the build.</p>
+</div>
+</div>
+<div class="section" id="maven-compile">
+<h2>Maven Compile<a class="headerlink" href="#maven-compile" title="Permalink to this headline">¶</a></h2>
+<p>When you build a project, the project is compiled and a <code class="docutils literal notranslate"><span class="pre">target</span></code> directory is created; the target directory
+is used to house all output of the build.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── target
 │    ├── classes
 │    │ └── com
@@ -952,15 +781,15 @@ used to house all output of the build.</p>
 │        └── annotations
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">target/&lt;artifactId&gt;-&lt;version&gt;-SNAPSHOT.war</span></code> file created contains all the necessary resources to run the project (as discussed above). When you
-execute run in TomCat (or push to Heroku), the WAR file is exploded.</p>
-</div>
-<div class="section" id="id13">
-<h2>References<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">target/&lt;artifactId&gt;-&lt;version&gt;-SNAPSHOT.war</span></code> file created contains all the necessary resources to run
+the project (as discussed above). When you execute run in TomCat (or push to Heroku), the WAR file is exploded.</p>
+<div class="admonition-extra-resources admonition">
+<p class="admonition-title">Extra Resources</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://maven.apache.org/what-is-maven.html">What is Maven</a></p></li>
 <li><p><a class="reference external" href="https://maven.apache.org/pom.html">POM basics</a></p></li>
 </ol>
+</div>
 </div>
 </div>
 
@@ -988,7 +817,21 @@ execute run in TomCat (or push to Heroku), the WAR file is exploded.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="java_postgresql.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction to Java and PostgreSQL</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../setup_dev/introduction.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

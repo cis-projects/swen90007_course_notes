@@ -1,9 +1,7 @@
-## Useful Tools and IntelliJ Plugins
+# Useful Tools and IntelliJ Plugins
 
----
-
-We have created a list of some of our favourite plugins for IntelliJ which should hopefully help you as you complete
-your project:
+We have created a list of some of our favourite plugins for IntelliJ which should hopefully help you as you 
+complete your project.
 
 ## IntelliJ Plugins
 All of these plugins are more easily installed by opening IntelliJ then selecting IntelliJ IDEA -> Preferences ->
