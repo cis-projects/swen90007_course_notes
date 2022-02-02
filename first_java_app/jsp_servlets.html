@@ -445,13 +445,12 @@ Creating a web application using the Java framework means your application is sc
 <p>Before we get into JSPs and Servlets, a quick reminder about HTTP…</p>
 <p>There are two main HTTP methods you will make use of during the semester: GET and POST. These are HTML methods
 (not Java) and are used under different circumstances:</p>
-<ol class="simple">
+<ol>
 <li><p>The GET method is used to request a resource from the server to send back as a response.<br />
 Data you send with a GET method is appended to the URL: <code class="docutils literal notranslate"><span class="pre">/test/demo_form.jsp?name=value&amp;id=value</span></code><br />
 In this case, <code class="docutils literal notranslate"><span class="pre">/test/demo_form</span></code> is the path to the resource on the server and everything after <code class="docutils literal notranslate"><span class="pre">?</span></code> are
 request parameters.
-This means:</p></li>
-</ol>
+This means:</p>
 <ul class="simple">
 <li><p>GET requests can be cached,</p></li>
 <li><p>GET requests remain in the browser history,</p></li>
@@ -460,7 +459,7 @@ This means:</p></li>
 <li><p>GET requests have length restrictions, and</p></li>
 <li><p>GET requests are only used to request data (not modify).</p></li>
 </ul>
-<ol>
+</li>
 <li><p>The POST method is used to send form data and request a resource from the server. The data sent is stored in the body
 of an HTTP request:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">demo_form</span><span class="o">.</span><span class="n">jsp</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
@@ -469,14 +468,14 @@ of an HTTP request:</p>
 </pre></div>
 </div>
 <p>This means:</p>
-</li>
-</ol>
 <ul class="simple">
 <li><p>POST requests are never cached,</p></li>
 <li><p>POST requests do not remain in the browser history,</p></li>
 <li><p>POST requests cannot be bookmarked, and</p></li>
 <li><p>POST requests have no restrictions on data length.</p></li>
 </ul>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="servlets">

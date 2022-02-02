@@ -18,12 +18,12 @@ There are two main HTTP methods you will make use of during the semester: GET an
    In this case, ````/test/demo_form```` is the path to the resource on the server and everything after ````?```` are
    request parameters.
    This means:
-- GET requests can be cached,
-- GET requests remain in the browser history,
-- GET requests can be bookmarked,
-- GET requests should never be used when dealing with sensitive data (as the request parameters are sent in the URL),
-- GET requests have length restrictions, and
-- GET requests are only used to request data (not modify).
+   - GET requests can be cached,
+   - GET requests remain in the browser history,
+   - GET requests can be bookmarked,
+   - GET requests should never be used when dealing with sensitive data (as the request parameters are sent in the URL),
+   - GET requests have length restrictions, and
+   - GET requests are only used to request data (not modify).
 2. The POST method is used to send form data and request a resource from the server. The data sent is stored in the body 
 of an HTTP request:
    ````
@@ -32,10 +32,10 @@ of an HTTP request:
    name=value&course=value
    ````
    This means:
-- POST requests are never cached,
-- POST requests do not remain in the browser history,
-- POST requests cannot be bookmarked, and
-- POST requests have no restrictions on data length.
+   - POST requests are never cached,
+   - POST requests do not remain in the browser history,
+   - POST requests cannot be bookmarked, and
+   - POST requests have no restrictions on data length.
 `````
 
 ## Servlets
