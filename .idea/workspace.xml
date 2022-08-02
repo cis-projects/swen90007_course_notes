@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e7ea4344-5fe1-4e0d-a31f-30b5a66f705a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup_dev/1_intellij_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/setup_dev/1_intellij_install.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,7 @@
       <workItem from="1643755608376" duration="12724000" />
       <workItem from="1644730186650" duration="2031000" />
       <workItem from="1645578026417" duration="219000" />
+      <workItem from="1659418713592" duration="1636000" />
     </task>
     <servers />
   </component>
