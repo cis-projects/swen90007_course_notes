@@ -14,7 +14,7 @@ You can install the Professional Edition of IntelliJ while you wait for your edu
 IntelliJ has a free 30-day trial period:
 
 ```{admonition} Resource
-[Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)
+[Download IntelliJ 2021.3 IDEA](https://www.jetbrains.com/idea/download/other.html)
 ```
 
 Follow the prompts of the installer - IntelliJ comes bundled with Java Enterprise Edition which is what you need to 
@@ -27,7 +27,7 @@ java -version
 
 If not:
 ```{admonition} Resource
-[Download a JDK](https://www.oracle.com/uk/java/technologies/javase-downloads.html).
+[Download JDK 11](https://www.oracle.com/au/java/technologies/javase/jdk11-archive-downloads.html).
 ```
 
 ```{admonition} What's Next
