@@ -2,130 +2,51 @@
 
 ```{admonition} By Now You Should Have
 :class: important
-- Completed part 1
-- Completed set up of development environment to progress part 2
+- Accepted the GitHub invitation.
+- Created a team and repository in GitHub.
+- Begun work on part 1 submission.
+- Begun set up of development environment (see GitHub resources detailing steps to set up local environment).
+```
+
+```{admonition} Reminder
+:class: important
+You should be taking minutes of weekly group meetings.
 ```
 
 ```{admonition} Today's Workshop
-Purpose of today's workshop is to begin working on part 2 of the project and discuss Java web development.
+Purpose of today's workshop is to continue working on part 1 of the project.
 ```
 
-## Part 1 results
-Part 1 will be marked within 2 weeks of submission. We will discuss common mistakes in next week's workshop.
+## GitHub tags
 
-## Java Web Development
+To submit part 1, there are a number of things you need to do:
 
-You will build your application on Java Servlets and Java Server Pages (JSPs) - a low-level API that that is the 
-building blocks for modern day Java web frameworks.  
-
-```{tip}
-Modern Java frameworks (like Spring, Struts, Hibernate, etc) abstract the role of servlets.
+- Save all documents for submission in your repository.
+- Create a release tag *before the deadline*.
+```{caution}
+Teaching team can see when you create a tag and we will check to make sure it is before the deadline.
 ```
-
-In this subject, you will learn the building blocks, which will allow you to develop an appreciation for the role of 
-frameworks. Learning frameworks would tie your knowledge to that framework, and would not teach you enough about Java 
-fundamentals.
-If you wish to learn one of these frameworks, there are many free resources online.
-
-### Servlets
-
-![](resources/servlet.png)
-
-A servlet is used to implement web applications and is simply a class which responds to an HTTP request.
-
-Servlets provide a low-level API for receiving and responding to HTTP requests.
-
-Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to 
-handle the request obtained from the web server, process the request, produce the response, then send response 
-back to the web server.
-
-### JSPs
-
-Java Server Pages (JSP) is a server-side programming technology that enables the creation of a dynamic, platform 
-independent method for building Web-based applications
-
-![](resources/jsp.png)
-
-```{important}
-*JSP introduces Java into HTML.*
-
-**JSPs vs. HTML**  
-HTML cannot contain dynamic information.
-
-**JSPs vs. JavaScript**  
-Server-side vs. client-side (JavaScript is not based on Java!).
-
-**JSPs vs. pure servlets**  
-JSPs are used in conjunction with servlets.
-```
-
-You don't need to use JSPs with servlet... but you should:
-
-![](resources/html_and_servlets.png)
-
-```{tip}
-This is an example of writing HTML in a servlet - it is tedious and does not separate roles of back-end and 
-front-end developers.*
-```
-
-### JSPs + Servlets + Domain Model = MVC Pattern
-
-![](resources/mvc_pattern.png)
-
-```{admonition} Definition
-JSPs (or view) layer represents the output of the application, usually some form of UI. The presentation layer is used 
-to display the Model data fetched by the Controller.
-```
-
-```{admonition} Definition
-Controller layer acts as an interface between View and Model. It receives requests from the View layer and processes 
-them, including the necessary validations.
-```
-
-```{admonition} Definition
-Domain model is the layer which contains business logic of the system, and also represents the state of the 
-application.
-```
-
-#### MVC Pattern In Your Assignment
-
-![](resources/mvc_assignment.png)
-
-### Apache TomCat
+- Submit the project checklist via the LMS. In the checklist, you should include the URL for the GitHub
+tag you created.
 
 ```{note}
-TomCar acts as both a web server and container.
+To learn how to create a tag, please see GitHub documentation [here](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags).
 ```
 
-Web servers are great at serving static pages (but cannot create dynamic pages). This is the role servlets play - they 
-can dynamically create pages to send as a response to the client. Dynamic web pages didn’t exist before the request.
+## Extra Resources for Part 1
 
-Servlets don't have main methods the server can call, so instead when the web server gets a request for a servlet, the 
-server hands the request to the container in which the servlet is deployed. The container gives the HTTP request to the 
-servlet and calls the servlet's doGet() and doPost() methods.
+Software modelling and design is a prerequisite for this subject, so it is expected that students are comfortable and 
+familiar creating use cases and domain models. If you require more help, we recommend these books:
 
-![](resources/apache_tomcat.png)
+- Writing Effective Use Cases by Alistair Cockburn
+- Applying UML Patterns by Craig Larman
 
-#### Benefits of Using TomCat as a Container
+## Team Project Work  
 
-Apache TomCat, as a container, handles several issues for you:
+Now you should (in your teams):
 
-1. Communications support: The container creates an easy way for your server to talk to your servlets. The container 
-knows the protocol to use to speak to the server, so you don't have to make use of an API in your servlets in order to 
-speak to the server.
-2. Lifecycle management: The container controls the life and death of your servlets. It loads classes, instantiates 
-servlets, knows which servlet method to call, and handles garbage collection, so you don't have to worry as much about 
-managing resources.
-3. JSP support: The container translates JSP code into Java.
-
-```{admonition} Extra Resources
-:class: tip
-1. Head First Servlets & JSP by Bryan Basham; and
-2. Check course notes for resources to practice creating your first web project using servlets and JSPs.
-```
-
-## Time for a Demo
-
-```{attention}
-You can download the demo file from the repository.
-```
+- Continue working on part 1.
+- Set up your local development environment. It is important to do this early, so we can address issues, if you 
+encounter any.
+- If you are new to Java, JSPs, servlets or web development, you should work through the learning resources 
+provided. These will help you create your first web project using servlets and JSPs.
