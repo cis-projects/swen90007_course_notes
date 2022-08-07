@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7ea4344-5fe1-4e0d-a31f-30b5a66f705a" name="Changes" comment="">
+    <list default="true" id="e7ea4344-5fe1-4e0d-a31f-30b5a66f705a" name="Changes" comment="Update jupyter book">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup_dev/1_intellij_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/setup_dev/1_intellij_install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workshops/workshop_1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workshops/workshop_2.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workshops/workshop_3.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workshops/workshop_4.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_4.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="org.plantuml.idea.settings.PlantUmlSettingsPage" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -61,7 +65,18 @@
       <workItem from="1644730186650" duration="2031000" />
       <workItem from="1645578026417" duration="219000" />
       <workItem from="1659418713592" duration="1636000" />
+      <workItem from="1659432065618" duration="233000" />
+      <workItem from="1659603687184" duration="798000" />
+      <workItem from="1659869324824" duration="305000" />
     </task>
+    <task id="LOCAL-00001" summary="Update jupyter book">
+      <created>1659432267302</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659432267303</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -77,5 +92,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update jupyter book" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update jupyter book" />
   </component>
 </project>
