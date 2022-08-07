@@ -10,7 +10,6 @@ parts:
       title: SWEN90007 Software Design and Architecture
   - caption: Workshops
     chapters:
-    - file: workshops/workshop_1
     - file: workshops/workshop_2
     - file: workshops/workshop_3
     - file: workshops/workshop_4
