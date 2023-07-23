@@ -32,9 +32,10 @@ There are 4 parts for assessments in this subject
 
 | Part | Description                                                                                                                                    | Weighting |
 |------|------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| 1    | Once you decide on your project description, identify the use cases necessary to meet the requirement specification for the application users. | 15%       |
+| 1A   | Once you decide on your project description, identify the use cases necessary to meet the requirement specification for the application users. | 15%       |
+| 1B   | Develop one use case and deploy your application.                                                                                              | 5%        |
 | 2    | Design and implement your app as described in Application Domain and as defined by the use cases identified in Part 1.                         | 40%       |
-| 3    | The ability to have multiple users in the application will be enabled. This gives place to concurrency issues that you must address.           | 35%       |
+| 3    | The ability to have multiple users in the application will be enabled. This gives place to concurrency issues that you must address.           | 30%       |
 | 4    | Produce a report reflecting on the performance of your system.                                                                                 | 10%       |
 
 ```{admonition} Hurdle requirement
