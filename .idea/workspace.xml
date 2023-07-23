@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e7ea4344-5fe1-4e0d-a31f-30b5a66f705a" name="Changes" comment="Update jupyter book">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/_build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshops/workshop_2.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshops/workshop_4.md" beforeDir="false" afterPath="$PROJECT_DIR$/workshops/workshop_3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_toc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_toc.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,7 @@
       <workItem from="1659869324824" duration="305000" />
       <workItem from="1659869634674" duration="702000" />
       <workItem from="1660025099971" duration="22000" />
-      <workItem from="1690100827692" duration="996000" />
+      <workItem from="1690100827692" duration="2323000" />
     </task>
     <task id="LOCAL-00001" summary="Update jupyter book">
       <created>1659432267302</created>
