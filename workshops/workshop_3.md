@@ -1,17 +1,17 @@
-# Workshop 4
+# Workshop 3
 
 ```{admonition} By Now You Should Have
 :class: important
-- Completed part 1
+- Completed part 1A
 - Completed set up of development environment to progress part 2
 ```
 
 ```{admonition} Today's Workshop
-Purpose of today's workshop is to begin working on part 2 of the project and discuss Java web development.
+Purpose of today's workshop is to begin working on part 1B of the project and discuss Java web development.
 ```
 
-## Part 1 results
-Part 1 will be marked within 2 weeks of submission. We will discuss common mistakes in next week's workshop.
+## Part 1B results
+Part 1B will be marked within 2 weeks of submission. We will discuss common mistakes in next week's workshop.
 
 ## Java Web Development
 
