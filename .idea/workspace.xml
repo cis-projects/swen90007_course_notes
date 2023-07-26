@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/_build/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/environment.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/.doctrees/introduction/introduction.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/_build/.doctrees/introduction/introduction.doctree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/.buildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/.buildinfo 2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/README.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/1_java_postgresql.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/2_java_postgresql.png" beforeDir="false" />
@@ -59,43 +60,75 @@
       <change beforePath="$PROJECT_DIR$/_build/html/_images/7_connect_intellij_postgresql_7.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/7_connect_intellij_postgresql_8.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/7_connect_intellij_postgresql_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_1 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_10.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_11.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_13 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_14 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_15 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_16 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_17 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_18 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_19 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_2 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_20 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_23 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_24 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_25 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_26 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_26.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_28 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_29 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_3 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_30 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_31 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_32 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_33 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_33.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_35 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_36 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_37 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_38 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_39 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_39.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_5 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_6 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_7 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_8 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_9 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/8_heroku_deploy_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/apache_tomcat 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/apache_tomcat.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/first_web_app_1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/first_web_app_10.png" beforeDir="false" />
@@ -130,6 +163,7 @@
       <change beforePath="$PROJECT_DIR$/_build/html/_images/first_web_app_9.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/github_issue.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/html_and_servlets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/jsp 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/jsp.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/jsp_servlets_1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/jsp_servlets_2.png" beforeDir="false" />
@@ -141,20 +175,28 @@
       <change beforePath="$PROJECT_DIR$/_build/html/_images/maven_5.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/maven_6.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/mvc_assignment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/mvc_pattern 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/mvc_pattern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/new_file 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/new_file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/puml 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/puml.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_images/servlet 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_images/servlet.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_panels_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_panels_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/extra_tools/tools_and_plugins 2.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/extra_tools/tools_and_plugins.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/first_java_app/first_web_app 2.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/first_java_app/first_web_app.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/first_java_app/introduction.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/first_java_app/java_postgresql.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/first_java_app/jsp_servlets.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/first_java_app/maven.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/introduction/introduction 2.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/introduction/introduction.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/setup_dev/1_intellij_install 2.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/setup_dev/1_intellij_install.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/setup_dev/2_tomcat_download.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/setup_dev/3_postgresql_setup.md" beforeDir="false" />
@@ -164,66 +206,119 @@
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/setup_dev/7_connect_intellij_postgresql.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/setup_dev/8_heroku_deploy.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/setup_dev/introduction.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_1 2.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_1.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_2.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_3.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_sources/workshops/workshop_4.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/__init__ 2.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/basic 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/basic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/check-solid 2.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/check-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/clipboard.min 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/clipboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/copy-button 2.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/copy-button.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/copybutton 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/copybutton 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/copybutton.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/copybutton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/copybutton_funcs 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/copybutton_funcs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/css/blank 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/css/blank.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/css/index.ff1ffe594081f20da1ef19478df9384b 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/css/theme 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/css/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/doctools 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/doctools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/documentation_options 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/documentation_options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/favicon 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/file 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/images/logo_binder 2.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/images/logo_binder.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/images/logo_colab 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/images/logo_colab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/images/logo_jupyterhub 2.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/images/logo_jupyterhub.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/jquery-3.5.1.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/js/index.be7d3bbb2ef33a8344ce 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/js/index.be7d3bbb2ef33a8344ce.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/language_data 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/language_data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/logo 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/minus 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/minus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/mystnb 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/mystnb.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/panels-variables.06eb56fa6e07937060861dad626602ad 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/plus 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/pygments 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/pygments.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/searchtools 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/searchtools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-book-theme 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-book-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-thebe 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-thebe 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-thebe.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/sphinx-thebe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/togglebutton 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/togglebutton 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/togglebutton.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/togglebutton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore-1.13.1 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore-1.13.1.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/LICENSE 2.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/css/all.min 2.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/css/all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400 2.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400 2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400 2.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400 2.woff2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.eot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400 2.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400 2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400 2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400 2.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400 2.woff2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400.eot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400.woff" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900 2.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900 2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900 2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900 2.woff2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.eot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/webpack-macros 2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/_static/webpack-macros.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/extra_tools/tools_and_plugins.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/first_java_app/first_web_app.html" beforeDir="false" />
@@ -232,10 +327,13 @@
       <change beforePath="$PROJECT_DIR$/_build/html/first_java_app/jsp_servlets.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/first_java_app/maven.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/genindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/index 2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/introduction/introduction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/objects 2.inv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/objects.inv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/searchindex 2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/searchindex.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/setup_dev/1_intellij_install.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/setup_dev/2_tomcat_download.html" beforeDir="false" />
@@ -249,7 +347,6 @@
       <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_1.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/workshops/workshop_4.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_toc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_toc.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -317,6 +414,8 @@
       <workItem from="1690100827692" duration="2921000" />
       <workItem from="1690283706589" duration="1304000" />
       <workItem from="1690287184791" duration="1000" />
+      <workItem from="1690372960470" duration="30000" />
+      <workItem from="1690373013459" duration="97000" />
     </task>
     <task id="LOCAL-00001" summary="Update jupyter book">
       <created>1659432267302</created>

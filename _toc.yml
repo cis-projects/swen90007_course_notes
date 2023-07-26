@@ -20,17 +20,17 @@ parts:
 #    - file: first_java_app/first_web_app
 #    - file: first_java_app/java_postgresql
 #    - file: first_java_app/maven
-  - caption: Project Development Setup
-    chapters:
-    - file: setup_dev/introduction
-    - file: setup_dev/1_intellij_install
-    - file: setup_dev/2_tomcat_download
-    - file: setup_dev/3_postgresql_setup
-    - file: setup_dev/4_create_project
-    - file: setup_dev/5_github_setup
-    - file: setup_dev/6_github_clone
-    - file: setup_dev/7_connect_intellij_postgresql
-    - file: setup_dev/8_heroku_deploy
+#  - caption: Project Development Setup
+#    chapters:
+#    - file: setup_dev/introduction
+#    - file: setup_dev/1_intellij_install
+#    - file: setup_dev/2_tomcat_download
+#    - file: setup_dev/3_postgresql_setup
+#    - file: setup_dev/4_create_project
+#    - file: setup_dev/5_github_setup
+#    - file: setup_dev/6_github_clone
+#    - file: setup_dev/7_connect_intellij_postgresql
+#    - file: setup_dev/8_heroku_deploy
   - caption: Extra Resources
     chapters:
     - file: extra_tools/tools_and_plugins
