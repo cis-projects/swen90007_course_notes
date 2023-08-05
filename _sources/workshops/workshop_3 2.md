@@ -10,8 +10,8 @@
 Purpose of today's workshop is to begin working on part 1B of the project and discuss Java web development.
 ```
 
-## Part 1A results
-Part 1A will be marked within 2 weeks of submission. We will discuss common mistakes in next week's workshop.
+## Part 1B results
+Part 1B will be marked within 2 weeks of submission. We will discuss common mistakes in next week's workshop.
 
 ## Java Web Development
 

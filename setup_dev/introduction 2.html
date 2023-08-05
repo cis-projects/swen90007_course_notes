@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workshop 3 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+    <title>Introduction &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,8 +52,8 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Useful Tools and IntelliJ Plugins" href="../extra_tools/tools_and_plugins.html" />
-    <link rel="prev" title="Workshop 2" href="workshop_2.html" />
+    <link rel="next" title="Step 1: Install IntelliJ Professional Edition" href="1_intellij_install.html" />
+    <link rel="prev" title="Workshop 3" href="../workshops/workshop_3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,20 +114,72 @@
   Workshops
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="workshop_1.html">
+  <a class="reference internal" href="../workshops/workshop_1.html">
    Workshop 1
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="workshop_2.html">
+  <a class="reference internal" href="../workshops/workshop_2.html">
    Workshop 2
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../workshops/workshop_3.html">
+   Workshop 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Project Development Setup
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Workshop 3
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_intellij_install.html">
+   Step 1: Install IntelliJ Professional Edition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_tomcat_download.html">
+   Step 2: Download Tomcat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_postgresql_setup.html">
+   Step 3: Setup PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_create_project.html">
+   Step 4: Create Project in IntelliJ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_github_setup.html">
+   Step 5: Setup GitHub Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_github_clone.html">
+   Step 6: Clone GitHub Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_connect_intellij_postgresql.html">
+   Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_heroku_deploy.html">
+   Step 8: Deploy Project to Heroku
   </a>
  </li>
 </ul>
@@ -183,7 +235,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/workshops/workshop_3.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/setup_dev/introduction.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -203,7 +255,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fworkshops/workshop_3.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fsetup_dev/introduction.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -230,54 +282,59 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-1a-results">
-   Part 1A results
+  <a class="reference internal nav-link" href="#step-1-install-intellij-professional-edition">
+   <span class="xref myst">
+    Step 1: Install IntelliJ Professional Edition
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#java-web-development">
-   Java Web Development
+  <a class="reference internal nav-link" href="#step-2-download-tomcat">
+   <span class="xref myst">
+    Step 2: Download Tomcat
+   </span>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#servlets">
-     Servlets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps">
-     JSPs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-servlets-domain-model-mvc-pattern">
-     JSPs + Servlets + Domain Model = MVC Pattern
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">
-       MVC Pattern In Your Assignment
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-tomcat">
-     Apache TomCat
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#benefits-of-using-tomcat-as-a-container">
-       Benefits of Using TomCat as a Container
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-for-a-demo">
-   Time for a Demo
+  <a class="reference internal nav-link" href="#step-3-setup-postgresql">
+   <span class="xref myst">
+    Step 3: Setup PostgreSQL
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-4-create-project-in-intellij">
+   <span class="xref myst">
+    Step 4: Create Project in IntelliJ
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-5-setup-github-repository">
+   <span class="xref myst">
+    Step 5: Setup GitHub Repository
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-6-clone-github-repository">
+   <span class="xref myst">
+    Step 6: Clone GitHub Repository
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-7-connect-intellij-project-to-local-postgresql-instance">
+   <span class="xref myst">
+    Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-8-deploy-project-to-heroku">
+   <span class="xref myst">
+    Step 8: Deploy Project to Heroku
+   </span>
   </a>
  </li>
 </ul>
@@ -290,7 +347,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Workshop 3</h1>
+                <h1>Introduction</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -301,54 +358,59 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-1a-results">
-   Part 1A results
+  <a class="reference internal nav-link" href="#step-1-install-intellij-professional-edition">
+   <span class="xref myst">
+    Step 1: Install IntelliJ Professional Edition
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#java-web-development">
-   Java Web Development
+  <a class="reference internal nav-link" href="#step-2-download-tomcat">
+   <span class="xref myst">
+    Step 2: Download Tomcat
+   </span>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#servlets">
-     Servlets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps">
-     JSPs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-servlets-domain-model-mvc-pattern">
-     JSPs + Servlets + Domain Model = MVC Pattern
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">
-       MVC Pattern In Your Assignment
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-tomcat">
-     Apache TomCat
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#benefits-of-using-tomcat-as-a-container">
-       Benefits of Using TomCat as a Container
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-for-a-demo">
-   Time for a Demo
+  <a class="reference internal nav-link" href="#step-3-setup-postgresql">
+   <span class="xref myst">
+    Step 3: Setup PostgreSQL
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-4-create-project-in-intellij">
+   <span class="xref myst">
+    Step 4: Create Project in IntelliJ
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-5-setup-github-repository">
+   <span class="xref myst">
+    Step 5: Setup GitHub Repository
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-6-clone-github-repository">
+   <span class="xref myst">
+    Step 6: Clone GitHub Repository
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-7-connect-intellij-project-to-local-postgresql-instance">
+   <span class="xref myst">
+    Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-8-deploy-project-to-heroku">
+   <span class="xref myst">
+    Step 8: Deploy Project to Heroku
+   </span>
   </a>
  </li>
 </ul>
@@ -360,129 +422,55 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="workshop-3">
-<h1>Workshop 3<a class="headerlink" href="#workshop-3" title="Permalink to this headline">¶</a></h1>
-<div class="important admonition">
-<p class="admonition-title">By Now You Should Have</p>
-<ul class="simple">
-<li><p>Completed part 1A</p></li>
-<li><p>Completed set up of development environment to progress part 2</p></li>
-</ul>
-</div>
-<div class="admonition-today-s-workshop admonition">
-<p class="admonition-title">Today’s Workshop</p>
-<p>Purpose of today’s workshop is to begin working on part 1B of the project and discuss Java web development.</p>
-</div>
-<div class="section" id="part-1a-results">
-<h2>Part 1A results<a class="headerlink" href="#part-1a-results" title="Permalink to this headline">¶</a></h2>
-<p>Part 1A will be marked within 2 weeks of submission. We will discuss common mistakes in next week’s workshop.</p>
-</div>
-<div class="section" id="java-web-development">
-<h2>Java Web Development<a class="headerlink" href="#java-web-development" title="Permalink to this headline">¶</a></h2>
-<p>You will build your application on Java Servlets and Java Server Pages (JSPs) - a low-level API that that is the
-building blocks for modern day Java web frameworks.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Modern Java frameworks (like Spring, Struts, Hibernate, etc) abstract the role of servlets.</p>
-</div>
-<p>In this subject, you will learn the building blocks, which will allow you to develop an appreciation for the role of
-frameworks. Learning frameworks would tie your knowledge to that framework, and would not teach you enough about Java
-fundamentals.
-If you wish to learn one of these frameworks, there are many free resources online.</p>
-<div class="section" id="servlets">
-<h3>Servlets<a class="headerlink" href="#servlets" title="Permalink to this headline">¶</a></h3>
-<p><img alt="" src="../_images/servlet.png" /></p>
-<p>A servlet is used to implement web applications and is simply a class which responds to an HTTP request.</p>
-<p>Servlets provide a low-level API for receiving and responding to HTTP requests.</p>
-<p>Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to
-handle the request obtained from the web server, process the request, produce the response, then send response
-back to the web server.</p>
-</div>
-<div class="section" id="jsps">
-<h3>JSPs<a class="headerlink" href="#jsps" title="Permalink to this headline">¶</a></h3>
-<p>Java Server Pages (JSP) is a server-side programming technology that enables the creation of a dynamic, platform
-independent method for building Web-based applications</p>
-<p><img alt="" src="../_images/jsp.png" /></p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p><em>JSP introduces Java into HTML.</em></p>
-<p><strong>JSPs vs. HTML</strong><br />
-HTML cannot contain dynamic information.</p>
-<p><strong>JSPs vs. JavaScript</strong><br />
-Server-side vs. client-side (JavaScript is not based on Java!).</p>
-<p><strong>JSPs vs. pure servlets</strong><br />
-JSPs are used in conjunction with servlets.</p>
-</div>
-<p>You don’t need to use JSPs with servlet… but you should:</p>
-<p><img alt="" src="../_images/html_and_servlets.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This is an example of writing HTML in a servlet - it is tedious and does not separate roles of back-end and
-front-end developers.*</p>
-</div>
-</div>
-<div class="section" id="jsps-servlets-domain-model-mvc-pattern">
-<h3>JSPs + Servlets + Domain Model = MVC Pattern<a class="headerlink" href="#jsps-servlets-domain-model-mvc-pattern" title="Permalink to this headline">¶</a></h3>
-<p><img alt="" src="../_images/mvc_pattern.png" /></p>
-<div class="admonition-definition admonition">
-<p class="admonition-title">Definition</p>
-<p>JSPs (or view) layer represents the output of the application, usually some form of UI. The presentation layer is used
-to display the Model data fetched by the Controller.</p>
-</div>
-<div class="admonition-definition admonition">
-<p class="admonition-title">Definition</p>
-<p>Controller layer acts as an interface between View and Model. It receives requests from the View layer and processes
-them, including the necessary validations.</p>
-</div>
-<div class="admonition-definition admonition">
-<p class="admonition-title">Definition</p>
-<p>Domain model is the layer which contains business logic of the system, and also represents the state of the
-application.</p>
-</div>
-<div class="section" id="mvc-pattern-in-your-assignment">
-<h4>MVC Pattern In Your Assignment<a class="headerlink" href="#mvc-pattern-in-your-assignment" title="Permalink to this headline">¶</a></h4>
-<p><img alt="" src="../_images/mvc_assignment.png" /></p>
-</div>
-</div>
-<div class="section" id="apache-tomcat">
-<h3>Apache TomCat<a class="headerlink" href="#apache-tomcat" title="Permalink to this headline">¶</a></h3>
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>These instructions have been provided to assist your team in setting up for your assignment.</p>
+<p>You do not need to follow these steps, if you are not using these tools. However, these are the only tools
+supported in the subject. If you choose to use different tools (for example, a different IDE or server), teaching
+staff will not provide support.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>TomCat acts as both a web server and container.</p>
+<p>Not all steps must be done by all team members - it is indicated under each step who needs to do it.</p>
 </div>
-<p>Web servers are great at serving static pages (but cannot create dynamic pages). This is the role servlets play - they
-can dynamically create pages to send as a response to the client. Dynamic web pages didn’t exist before the request.</p>
-<p>Servlets don’t have main methods the server can call, so instead when the web server gets a request for a servlet, the
-server hands the request to the container in which the servlet is deployed. The container gives the HTTP request to the
-servlet and calls the servlet’s doGet() and doPost() methods.</p>
-<p><img alt="" src="../_images/apache_tomcat.png" /></p>
-<div class="section" id="benefits-of-using-tomcat-as-a-container">
-<h4>Benefits of Using TomCat as a Container<a class="headerlink" href="#benefits-of-using-tomcat-as-a-container" title="Permalink to this headline">¶</a></h4>
-<p>Apache TomCat, as a container, handles several issues for you:</p>
-<ol class="simple">
-<li><p>Communications support: The container creates an easy way for your server to talk to your servlets. The container
-knows the protocol to use to speak to the server, so you don’t have to make use of an API in your servlets in order to
-speak to the server.</p></li>
-<li><p>Lifecycle management: The container controls the life and death of your servlets. It loads classes, instantiates
-servlets, knows which servlet method to call, and handles garbage collection, so you don’t have to worry as much about
-managing resources.</p></li>
-<li><p>JSP support: The container translates JSP code into Java.</p></li>
-</ol>
-<div class="tip admonition">
-<p class="admonition-title">Extra Resources</p>
-<ol class="simple">
-<li><p>Head First Servlets &amp; JSP by Bryan Basham; and</p></li>
-<li><p>Check course notes for resources to practice creating your first web project using servlets and JSPs.</p></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="time-for-a-demo">
-<h2>Time for a Demo<a class="headerlink" href="#time-for-a-demo" title="Permalink to this headline">¶</a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>You can download the demo file from the repository.</p>
+<p>Please follow the steps in order.</p>
+</div>
+<div class="section" id="step-1-install-intellij-professional-edition">
+<h2><a class="reference internal" href="1_intellij_install.html"><span class="doc std std-doc">Step 1: Install IntelliJ Professional Edition</span></a><a class="headerlink" href="#step-1-install-intellij-professional-edition" title="Permalink to this headline">¶</a></h2>
+<p>Should be done by all team members.</p>
+</div>
+<div class="section" id="step-2-download-tomcat">
+<h2><a class="reference internal" href="2_tomcat_download.html"><span class="doc std std-doc">Step 2: Download Tomcat</span></a><a class="headerlink" href="#step-2-download-tomcat" title="Permalink to this headline">¶</a></h2>
+<p>Should be done by all team members.</p>
+</div>
+<div class="section" id="step-3-setup-postgresql">
+<h2><a class="reference internal" href="3_postgresql_setup.html"><span class="doc std std-doc">Step 3: Setup PostgreSQL</span></a><a class="headerlink" href="#step-3-setup-postgresql" title="Permalink to this headline">¶</a></h2>
+<p>Should be done by all members.</p>
+</div>
+<div class="section" id="step-4-create-project-in-intellij">
+<h2><a class="reference internal" href="4_create_project.html"><span class="doc std std-doc">Step 4: Create Project in IntelliJ</span></a><a class="headerlink" href="#step-4-create-project-in-intellij" title="Permalink to this headline">¶</a></h2>
+<p>Should only be done by one team member.</p>
+</div>
+<div class="section" id="step-5-setup-github-repository">
+<h2><a class="reference internal" href="5_github_setup.html"><span class="doc std std-doc">Step 5: Setup GitHub Repository</span></a><a class="headerlink" href="#step-5-setup-github-repository" title="Permalink to this headline">¶</a></h2>
+<p>Should be done by the team member who did step 4.</p>
+</div>
+<div class="section" id="step-6-clone-github-repository">
+<h2><a class="reference internal" href="6_github_clone.html"><span class="doc std std-doc">Step 6: Clone GitHub Repository</span></a><a class="headerlink" href="#step-6-clone-github-repository" title="Permalink to this headline">¶</a></h2>
+<p>Should be done by all team members (except the team member who did steps 4 and 5).</p>
+</div>
+<div class="section" id="step-7-connect-intellij-project-to-local-postgresql-instance">
+<h2><a class="reference internal" href="7_connect_intellij_postgresql.html"><span class="doc std std-doc">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</span></a><a class="headerlink" href="#step-7-connect-intellij-project-to-local-postgresql-instance" title="Permalink to this headline">¶</a></h2>
+<p>Should be done by all team members.</p>
+</div>
+<div class="section" id="step-8-deploy-project-to-heroku">
+<h2><a class="reference internal" href="8_heroku_deploy.html"><span class="doc std std-doc">Step 8: Deploy Project to Heroku</span></a><a class="headerlink" href="#step-8-deploy-project-to-heroku" title="Permalink to this headline">¶</a></h2>
+<p>Should be done by all team members.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This does not need to be done to set up the project. You can do it now, or you can delay doing this step until you
+have started work on your project.</p>
 </div>
 </div>
 </div>
@@ -500,7 +488,7 @@ managing resources.</p></li>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./workshops"
+            path: "./setup_dev"
         },
         predefinedOutput: true
     }
@@ -512,17 +500,17 @@ managing resources.</p></li>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="workshop_2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../workshops/workshop_3.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Workshop 2</p>
+            <p class="prev-next-title">Workshop 3</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../extra_tools/tools_and_plugins.html" title="next page">
+    <a class='right-next' id="next-link" href="1_intellij_install.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Useful Tools and IntelliJ Plugins</p>
+        <p class="prev-next-title">Step 1: Install IntelliJ Professional Edition</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

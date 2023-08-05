@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Maven &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SWEN90007 Software Design and Architecture Course Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Frequently Asked Questions (FAQs)
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">
+   SWEN90007 Software Design and Architecture
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../workshops/workshop_1.html">
+   Workshop 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../workshops/workshop_2.html">
+   Workshop 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../workshops/workshop_3.html">
+   Workshop 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Project Development Setup
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/1_intellij_install.html">
+   Step 1: Install IntelliJ Professional Edition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/2_tomcat_download.html">
+   Step 2: Download Tomcat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/3_postgresql_setup.html">
+   Step 3: Setup PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/4_create_project.html">
+   Step 4: Create Project in IntelliJ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/5_github_setup.html">
+   Step 5: Setup GitHub Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/6_github_clone.html">
+   Step 6: Clone GitHub Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">
+   Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/8_heroku_deploy.html">
+   Step 8: Deploy Project to Heroku
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra_tools/tools_and_plugins.html">
+   Useful Tools and IntelliJ Plugins
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/first_java_app/maven.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cis-projects/swen90007_course_notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Ffirst_java_app/maven.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-maven-is-used">
+   Why Maven is Used
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maven-project-structure">
+   Maven Project Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pom-file">
+   POM File
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#group-id">
+     Group ID
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#artifact-id">
+     Artifact ID
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version">
+     Version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packaging">
+     Packaging
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#war-packaging-goals">
+       WAR Packaging Goals
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dependencies">
+     Dependencies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adding-a-new-dependency-in-intellij">
+       Adding a New Dependency in IntelliJ
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maven-compile">
+   Maven Compile
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to Maven</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-maven-is-used">
+   Why Maven is Used
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maven-project-structure">
+   Maven Project Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pom-file">
+   POM File
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#group-id">
+     Group ID
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#artifact-id">
+     Artifact ID
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version">
+     Version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packaging">
+     Packaging
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#war-packaging-goals">
+       WAR Packaging Goals
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dependencies">
+     Dependencies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adding-a-new-dependency-in-intellij">
+       Adding a New Dependency in IntelliJ
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maven-compile">
+   Maven Compile
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-maven">
+<h1>Introduction to Maven<a class="headerlink" href="#introduction-to-maven" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In the project, you will make use of Apache Maven.</p>
+<p>Maven is a tool that is used for building and managing any Java-based project.
+It is a standard way to build projects and provides a clear definition of what the project consists of.</p>
+</div>
+<div class="section" id="why-maven-is-used">
+<h2>Why Maven is Used<a class="headerlink" href="#why-maven-is-used" title="Permalink to this headline">¶</a></h2>
+<p>When developing an application, we face a number of challenges:</p>
+<ol class="simple">
+<li><p>Adding JARs of project dependencies,</p></li>
+<li><p>Creating the right project structure for servlets to execute, and</p></li>
+<li><p>Building and deploying the application.</p></li>
+</ol>
+<p>Maven solves all of these problems, it:</p>
+<ul class="simple">
+<li><p>Generates documentation from source code,</p></li>
+<li><p>Compiles source code,</p></li>
+<li><p>Downloads project dependencies,</p></li>
+<li><p>Packages compiled code into WAR, JAR or ZIP files, and</p></li>
+<li><p>Installs the packaged code in a local or remote repository.</p></li>
+</ul>
+<p>In doing so, it automates project builds and saves a countless amount of time.</p>
+</div>
+<div class="section" id="maven-project-structure">
+<h2>Maven Project Structure<a class="headerlink" href="#maven-project-structure" title="Permalink to this headline">¶</a></h2>
+<p>Maven projects all have a common project structure. Having a common directory layout allows users familiar with one
+Maven project to immediately feel at home in another Maven project.</p>
+<p>A Maven’s project structure looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── pom.xml
+├── src
+│    └── main
+│        ├── java
+│        │   └── com
+│        │       └── example
+│        │           └── &lt;project_name&gt;
+│        │               └── &lt;file&gt;.java
+│        ├── test
+│        ├── resources
+│        │   └── images
+│        │       └── &lt;image&gt;.jpg
+│        └── webapp
+│            ├── WEB-INF
+│            │   └── web.xml
+│            ├── &lt;jsp&gt;.jsp
+│            └── jsp
+│                └── &lt;jsp&gt;.jsp
+</pre></div>
+</div>
+<p>The src directory contains all the source material for building the project, its site and so on. It contains a
+subdirectory for each type: main for the main build artifact, resources for images or other resources, text for unit
+tests, and webapp for the site.</p>
+</div>
+<div class="section" id="pom-file">
+<h2>POM File<a class="headerlink" href="#pom-file" title="Permalink to this headline">¶</a></h2>
+<p>All Maven projects contain a project object model (POM) file - it is a one-stop-shop for all things concerning the
+project.</p>
+<p>Maven builds a project using a standardised POM file and a set of plugins. As Maven uses a templated POM file, it means
+once you familiarise yourself with one Maven project, you know how all Maven projects build. This saves time when
+navigating many projects.</p>
+<p>All the elements directly under the POM’s project element are:</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">POM File</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+ 
+  &lt;!-- The Basics --&gt;
+  &lt;groupId&gt;...&lt;/groupId&gt;
+  &lt;artifactId&gt;...&lt;/artifactId&gt;
+  &lt;version&gt;...&lt;/version&gt;
+  &lt;packaging&gt;...&lt;/packaging&gt;
+  &lt;dependencies&gt;...&lt;/dependencies&gt;
+  &lt;parent&gt;...&lt;/parent&gt;
+  &lt;dependencyManagement&gt;...&lt;/dependencyManagement&gt;
+  &lt;modules&gt;...&lt;/modules&gt;
+  &lt;properties&gt;...&lt;/properties&gt;
+ 
+  &lt;!-- Build Settings --&gt;
+  &lt;build&gt;...&lt;/build&gt;
+  &lt;reporting&gt;...&lt;/reporting&gt;
+ 
+  &lt;!-- More Project Information --&gt;
+  &lt;name&gt;...&lt;/name&gt;
+  &lt;description&gt;...&lt;/description&gt;
+  &lt;url&gt;...&lt;/url&gt;
+  &lt;inceptionYear&gt;...&lt;/inceptionYear&gt;
+  &lt;licenses&gt;...&lt;/licenses&gt;
+  &lt;organization&gt;...&lt;/organization&gt;
+  &lt;developers&gt;...&lt;/developers&gt;
+  &lt;contributors&gt;...&lt;/contributors&gt;
+ 
+  &lt;!-- Environment Settings --&gt;
+  &lt;issueManagement&gt;...&lt;/issueManagement&gt;
+  &lt;ciManagement&gt;...&lt;/ciManagement&gt;
+  &lt;mailingLists&gt;...&lt;/mailingLists&gt;
+  &lt;scm&gt;...&lt;/scm&gt;
+  &lt;prerequisites&gt;...&lt;/prerequisites&gt;
+  &lt;repositories&gt;...&lt;/repositories&gt;
+  &lt;pluginRepositories&gt;...&lt;/pluginRepositories&gt;
+  &lt;distributionManagement&gt;...&lt;/distributionManagement&gt;
+  &lt;profiles&gt;...&lt;/profiles&gt;
+&lt;/project&gt;
+</pre></div>
+</div>
+</div>
+<p>A project’s POM file does not need to define all of these elements. At a bare minimum, it must define the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">project</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="n">xmlns</span><span class="p">:</span><span class="n">xsi</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="n">xsi</span><span class="p">:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s2">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">modelVersion</span><span class="o">&gt;</span><span class="mf">4.0.0</span><span class="o">&lt;/</span><span class="n">modelVersion</span><span class="o">&gt;</span>
+ 
+  <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="n">codehaus</span><span class="o">.</span><span class="n">mojo</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">my</span><span class="o">-</span><span class="n">project</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">project</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="group-id">
+<h3>Group ID<a class="headerlink" href="#group-id" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">groupId</span></code> is unique amongst an organisation or a project.</p>
+<p>It defines where your project lives in the local Maven repository. For example, the project above has a <code class="docutils literal notranslate"><span class="pre">groupId</span></code>
+of <code class="docutils literal notranslate"><span class="pre">org.codehaus.mojo</span></code> and so is accessible at <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo</span></code>.</p>
+</div>
+<div class="section" id="artifact-id">
+<h3>Artifact ID<a class="headerlink" href="#artifact-id" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">artifactId</span></code> is the name the project is known by.<br />
+In addition, it further specifies where the project resides in the Maven repository. For example, the project above has
+an <code class="docutils literal notranslate"><span class="pre">artifactId</span></code> of <code class="docutils literal notranslate"><span class="pre">my-project</span></code> - this means the project resides in
+<code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo/my-project</span></code>.</p>
+</div>
+<div class="section" id="version">
+<h3>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">version</span></code> number allows users to delineate versions of the same project. After each release, you might like to
+iterate the <code class="docutils literal notranslate"><span class="pre">version</span></code> of your project allowing developers to know which project you are referring to.<br />
+Additionally, the <code class="docutils literal notranslate"><span class="pre">version</span></code> fully specifies the path to the project in the Maven repository. For example, the
+above project is <code class="docutils literal notranslate"><span class="pre">version</span></code> 1.0 and so resides in <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo/my-project/1.0</span></code>.</p>
+</div>
+<div class="section" id="packaging">
+<h3>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h3>
+<p>If you have created the web application using IntelliJ, the POM file will specify WAR packaging.
+WAR (Web Application Resource) files are used to package web applications to deploy them to servlets.
+WAR files have a pre-defined structure that must be followed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── META-INF
+│     └── MANIFEST.MF
+├── WEB-INF
+│     ├── web.xml
+│     └── jsp
+│          └── helloWorld.jsp
+├── classes
+│     ├── static
+│     ├── templates
+│     └── application.properties
+└── lib
+</pre></div>
+</div>
+<p>WAR files also require a server to execute (unlike JARs which can be run from the command line and do not have an
+internal structure that must be followed).</p>
+<p>Specifying the correct packaging is important as it defines the default list of goals which execute on each
+corresponding build lifecycle stage for a particular package structure. For example, the goals on WAR packaging are:</p>
+<div class="section" id="war-packaging-goals">
+<h4>WAR Packaging Goals<a class="headerlink" href="#war-packaging-goals" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">phases</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">process</span><span class="o">-</span><span class="n">resources</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">resources</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.6</span><span class="p">:</span><span class="n">resources</span>
+  <span class="o">&lt;/</span><span class="n">process</span><span class="o">-</span><span class="n">resources</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nb">compile</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">compiler</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">3.1</span><span class="p">:</span><span class="nb">compile</span>
+  <span class="o">&lt;/</span><span class="nb">compile</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">process</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">resources</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">resources</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.6</span><span class="p">:</span><span class="n">testResources</span>
+  <span class="o">&lt;/</span><span class="n">process</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">resources</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">test</span><span class="o">-</span><span class="nb">compile</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">compiler</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">3.1</span><span class="p">:</span><span class="n">testCompile</span>
+  <span class="o">&lt;/</span><span class="n">test</span><span class="o">-</span><span class="nb">compile</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">test</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">surefire</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.12.4</span><span class="p">:</span><span class="n">test</span>
+  <span class="o">&lt;/</span><span class="n">test</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">package</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">war</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.2</span><span class="p">:</span><span class="n">war</span>
+  <span class="o">&lt;/</span><span class="n">package</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">install</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">install</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.4</span><span class="p">:</span><span class="n">install</span>
+  <span class="o">&lt;/</span><span class="n">install</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">deploy</span><span class="o">&gt;</span>
+    <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">deploy</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.7</span><span class="p">:</span><span class="n">deploy</span>
+  <span class="o">&lt;/</span><span class="n">deploy</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">phases</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>A brief explanation of each goal:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">process-resources</span></code>: validate the project is correct and all necessary information is available.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile</span></code>: compile the source code of the project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code>: test the compiled source code using a suitable unit testing framework. These tests should not
+require the code be packaged or deployed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package</span></code>: take the compiled code and package it in its distributable format, such as a JAR.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install</span></code>: install the package into the local repository, for use as a dependency in other projects
+locally.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deploy</span></code>: done in the build environment, copies the final package to the remote repository for sharing with
+other developers and projects.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Dependency management is a core feature of Maven. The dependency management section is a mechanism for
+centralising dependency information.
+This feature is facilitated by reading the dependencies specified in the POM file.</p>
+<p>For example, in the project we have specified a PostgreSQL dependency:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="n">postgresql</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">postgresql</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">42.2.14</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Maven downloads and links the dependencies on compilation, as well as on other goals that require them. As an
+added bonus, Maven brings in the dependencies of those dependencies (transitive dependencies), allowing your
+list to focus solely on the dependencies your project requires.</p>
+<p>The dependencies in the POM file are copied as JARs from the central Maven repository into your computer’s local
+Maven repository.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Maven repository in most instances is created as a hidden directory on your computer. You should never need to
+access it.<br />
+If you are on a Linux machine and did want to access the local Maven repository, open a file explorer window,
+and hold <code class="docutils literal notranslate"><span class="pre">shift</span></code> + <code class="docutils literal notranslate"><span class="pre">command</span></code> + <code class="docutils literal notranslate"><span class="pre">full</span> <span class="pre">stop</span></code> to display hidden files and folders.<br />
+Then navigate to the Maven repository, which usually resides at: /&lt;home_directory&gt;/.m2</p>
+</div>
+<p>You can search for Maven dependencies is in the <a class="reference external" href="https://search.maven.org">central Maven repository</a>.</p>
+<div class="section" id="adding-a-new-dependency-in-intellij">
+<h4>Adding a New Dependency in IntelliJ<a class="headerlink" href="#adding-a-new-dependency-in-intellij" title="Permalink to this headline">¶</a></h4>
+<p>There are 2 ways you can install Maven dependencies in IntelliJ.</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">1. Install via IntelliJ Template</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use this method if you know the <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, and <code class="docutils literal notranslate"><span class="pre">version</span></code> of the dependency you wish
+to use.</p>
+</div>
+<p>Open your project in IntelliJ and select Code from the menu. Then select Generate:</p>
+<p><img alt="" src="../_images/maven_1.png" /></p>
+<p>Select Dependency Template:</p>
+<p><img alt="" src="../_images/maven_2.png" /></p>
+<p>A dependency template will be autogenerated in the POM file, and a pop-up will appear to allow you to search for
+dependencies:</p>
+<p><img alt="" src="../_images/maven_3.png" /></p>
+<p>You will need to specify <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, and <code class="docutils literal notranslate"><span class="pre">version</span></code>. If you do not know these, use method 2.</p>
+<p>Once you add the dependency, right-click on a project folder and select Reload Project:</p>
+<p><img alt="" src="../_images/maven_4.png" /></p>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">2. Install via Maven Central Repository</p>
+<p>Navigate to <a class="reference external" href="https://search.maven.org">Maven Central Repository</a>.
+As an example, we will search for the PostgreSQL JAR. Search and select the JAR you want:</p>
+<p><img alt="" src="../_images/maven_5.png" /></p>
+<p>When you select the JAR you want, it will display the <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, and <code class="docutils literal notranslate"><span class="pre">version</span></code>:</p>
+<p><img alt="" src="../_images/maven_6.png" /></p>
+<p>Open your project in IntelliJ and select Code from the menu. Then select Generate:</p>
+<p><img alt="" src="../_images/maven_1.png" /></p>
+<p>Select Dependency Template:</p>
+<p><img alt="" src="../_images/maven_2.png" /></p>
+<p>A dependency template will be autogenerated. Now enter the <code class="docutils literal notranslate"><span class="pre">groupId</span></code>, <code class="docutils literal notranslate"><span class="pre">artifactId</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">version</span></code> you retrieved from the Maven Central Repository (above):</p>
+<p><img alt="" src="../_images/maven_3.png" /></p>
+<p>Once you add the dependency, right-click on a project folder and select Reload Project:</p>
+<p><img alt="" src="../_images/maven_4.png" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="maven-compile">
+<h2>Maven Compile<a class="headerlink" href="#maven-compile" title="Permalink to this headline">¶</a></h2>
+<p>When you build a project, the project is compiled and a <code class="docutils literal notranslate"><span class="pre">target</span></code> directory is created; the target directory
+is used to house all output of the build.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── target
+│    ├── classes
+│    │ └── com
+│    │     └── example
+│    │         └── demo
+│    │             └── &lt;java&gt;.class
+│    ├── &lt;artifactId&gt;-&lt;version&gt;-SNAPSHOT
+│    │ ├── META-INF
+│    │ │ └── MANIFEST.MF
+│    │ ├── WEB-INF
+│    │ │ ├── classes
+│    │ │ │ └── com
+│    │ │ │     └── example
+│    │ │ │         └── &lt;artifactId&gt;
+│    │ │ │             └── &lt;java&gt;.class
+│    │ │ ├── lib                                // all dependencies in the POM file are created here
+│    │ │ │ └── &lt;jar&gt;.jar
+│    │ │ └── web.xml
+│    │ └── index.jsp
+│    ├── &lt;artifactId&gt;-&lt;version&gt;-SNAPSHOT.war
+│    └── generated-sources
+│        └── annotations
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">target/&lt;artifactId&gt;-&lt;version&gt;-SNAPSHOT.war</span></code> file created contains all the necessary resources to run
+the project (as discussed above). When you execute run in TomCat (or push to Heroku), the WAR file is exploded.</p>
+<div class="admonition-extra-resources admonition">
+<p class="admonition-title">Extra Resources</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://maven.apache.org/what-is-maven.html">What is Maven</a></p></li>
+<li><p><a class="reference external" href="https://maven.apache.org/pom.html">POM basics</a></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./first_java_app"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By School of Computing and Information Systems, The University of Melbourne<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
