@@ -1,4 +1,4 @@
-# Step 4: Create Project in IntelliJ
+# Step 3: Create Project in IntelliJ
 
 ```{attention}
 First confirm you have a Java Virtual Machine (JVM) installed on your machine. For Macs, the JVM can normally be found 

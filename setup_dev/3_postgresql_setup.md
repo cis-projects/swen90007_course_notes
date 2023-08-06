@@ -1,4 +1,4 @@
-# Step 3: Setup PostgreSQL
+# Step 2: Setup PostgreSQL
 
 ## Download PostgreSQL
 

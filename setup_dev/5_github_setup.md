@@ -1,4 +1,4 @@
-# Step 5: Setup GitHub Repository
+# Step 4: Setup GitHub Repository
 
 ```{important}
 You should have been invited to the GitHub set up for this project. Make sure you create a repository inside the team on Classrooms.

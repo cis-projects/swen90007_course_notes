@@ -1,4 +1,4 @@
-# Step 6: Clone GitHub Repository
+# Step 5: Clone GitHub Repository
 
 At this point, the repository should have been created and can now be cloned by all team members.
 You now need to clone the repository to your machine and set up TomCat to run the artifacts.

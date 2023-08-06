@@ -1,4 +1,4 @@
-# Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
+# Step 6: Connect IntelliJ Project to Local PostgreSQL Instance
 
 ## Add PostgreSQL Maven Dependency
 
