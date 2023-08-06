@@ -34,5 +34,5 @@ git push
 Once done, your repository will have the project you have just created in IntelliJ.
 
 ```{admonition} What's Next
-Please proceed to [Step 6: Clone GitHub Repository](6_github_clone.md).
+Please proceed to [Step 5: Clone GitHub Repository](6_github_clone.md).
 ```

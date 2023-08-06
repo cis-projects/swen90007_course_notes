@@ -7,91 +7,10 @@ You must update the pom.xml file to include the Maven dependency for PostgreSQL:
 <dependency>
     <groupId>org.postgresql</groupId>
     <artifactId>postgresql</artifactId>
-    <version>42.2.14</version>
+    <version>42.2.27</version>
 </dependency>
 ````
 
-The full file is below for ease. You *should not* paste the entire file as it will overwrite your local properties.
-````{admonition} pom.xml File
-:class: note, dropdown
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>demo</name>
-    <packaging>war</packaging>
-
-    <properties>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <junit.version>5.7.1</junit.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.14</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals><goal>copy</goal></goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.heroku</groupId>
-                                    <artifactId>webapp-runner</artifactId>
-                                    <version>9.0.41.0</version>
-                                    <destFileName>webapp-runner.jar</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>3.0.3</version>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
-````
 
 ## Add PostgreSQL to IntelliJ
 
@@ -110,6 +29,9 @@ Select 'PostgreSQL':
 Enter the details of your local PostgreSQL instance:
 
 ![](resources/7_connect_intellij_postgresql_4.png)
+
+Check whether the postgres driver is installed, otherwise install it.
+![](resources/7_connect_intellij_postgresql_10.jpeg)
 
 Select 'Test Connection' to test the details you entered are correct:
 
@@ -132,8 +54,7 @@ The newly created table should be viewable in pgAdmin:
 ![](resources/7_connect_intellij_postgresql_9.png)
 
 ```{admonition} What's Next
-The next step is to deploy the application to Heroku. This does not need to be done now - in fact we recommend you 
-begin developing the application prior to deployment.
-
-However, if you wish to proceed now please proceed to [Step 8: Deploy Project to Heroku](8_heroku_deploy.md).
+The next step is to setup Docker and then deploy the application to Render. We recommend you deploy a sample application
+on Render as Part 1B assessment and start early on this. 
+Proceed to [Step 7: Setup Docker for Java Application](9_setup_docker.md).
 ```
