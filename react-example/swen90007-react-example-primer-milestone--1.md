@@ -2,9 +2,9 @@
 
 We're planning to uses a fair few technologies to build this system, React, PostgreSQL, Java Servlet API, and others; so let's start with installing the main ones.
 
-## Node.js runtime 
+## Node.js runtime
 
-We're developing the UI with React, so we'll first need a Node.js runtime. If you already have Node.js on your local system make sure that you're using the version required below. Otherwise, follow the steps below to install the Node.js runtime. 
+We're developing the UI with React, so we'll first need a Node.js runtime. If you already have Node.js on your local system make sure that you're using the version required below. Otherwise, follow the steps below to install the Node.js runtime.
 
 ### Install
 
@@ -19,7 +19,7 @@ nvm install 18.14.0
 nvm use 18.14.0
 ```
 
-### Verify 
+### Verify
 
 Once you've installed Node.js you can verify your installation like so:
 
@@ -42,17 +42,15 @@ npx --version
 ```
 
 > [!question] What are NPM and NPX?
-> NPM is primarily a package manager for Node.js dependencies (called modules), if we want to make use of external libraries - such as React - we can use NPM to fetch and manage those for us. NPM can also be used to run scripts, and is handy for automating tasks within your project - more on that later. NPX allows us to execute arbitrary node modules, normally you'll do this if you want to run a module managed by NPM, but NPX is not restricted to modules you've installed explicitly, for example `npx https://gist.github.com/Tynael/0861d31ea17796c9a5b4a0162eb3c1e8` will run a module located on GitHub. 
+> NPM is primarily a package manager for Node.js dependencies (called modules), if we want to make use of external libraries - such as React - we can use NPM to fetch and manage those for us. NPM can also be used to run scripts, and is handy for automating tasks within your project - more on that later. NPX allows us to execute arbitrary node modules, normally you'll do this if you want to run a module managed by NPM, but NPX is not restricted to modules you've installed explicitly, for example `npx https://gist.github.com/Tynael/0861d31ea17796c9a5b4a0162eb3c1e8` will run a module located on GitHub.
 
 ## Java and Tomcat
 
-The Set up for Java is identical to the set up detailed [here] with a few minor differences
-
-- [ ] #daily #work/unimelb differences for Java setup ⏳ 2023-08-05
+The Set up for Java is identical to the set up detailed [here](../setup_dev/1_intellij_install.md) and for Tomcat [here](../setup_dev/2_tomcat_download.md)
 
 ## PostgreSQL and pgAdmin
 
-- [ ] #daily #work/unimelb differences for PostgreSQL setup ⏳ 2023-08-05
+For details on how to set up PostgreSQL and pgAdmin follow this [guide](../setup_dev/3_postgresql_setup.md)
 
 ## Visual Studio Code
 
