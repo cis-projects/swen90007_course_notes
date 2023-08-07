@@ -33,10 +33,10 @@ parts:
 #    - file: setup_dev/8_heroku_deploy
   - caption: React Example Project
     chapters:
-      - file: react-example\swen90007-react-example-primer
-      - file: react-example\swen90007-react-example-milestone--1
-      - file: react-example\swen90007-react-example-milestone-0
-      - file: react-example\swen90007-react-example-milestone-1
+    - file: react-example/swen90007-react-example-primer
+    - file: react-example/swen90007-react-example-primer-milestone--1
+    - file: react-example/swen90007-react-example-primer-milestone-0
+    - file: react-example/swen90007-react-example-primer-milestone-1
   - caption: Extra Resources
     chapters:
     - file: extra_tools/tools_and_plugins

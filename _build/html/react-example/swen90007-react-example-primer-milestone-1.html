@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Milestone 1: Deployment &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'react-example/swen90007-react-example-primer-milestone-1';</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Useful Tools and IntelliJ Plugins" href="../extra_tools/tools_and_plugins.html" />
+    <link rel="prev" title="Milestone 0: Hello World" href="swen90007-react-example-primer-milestone-0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frequently Asked Questions (FAQs)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">SWEN90007 Software Design and Architecture</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Milestone 1: Deployment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra_tools/tools_and_plugins.html">Useful Tools and IntelliJ Plugins</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Freact-example/swen90007-react-example-primer-milestone-1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/react-example/swen90007-react-example-primer-milestone-1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Milestone 1: Deployment</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-container-configuration">Declaring container configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-to-render">Deploy to Render</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgres-managed-database">Postgres Managed Database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-service">Web Service</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-site">Static Site</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="milestone-1-deployment">
+<h1>Milestone 1: Deployment<a class="headerlink" href="#milestone-1-deployment" title="Permalink to this heading">#</a></h1>
+<p>By the end of this milestone we will have:</p>
+<ul class="simple">
+<li><p>the system (as implemented in <em>Milestone 1: Hello world</em>) containerised with Docker</p></li>
+<li><p>the system deployed to, and running on, Render’s unified cloud</p></li>
+</ul>
+<div class="caution admonition">
+<p class="admonition-title">Skipping milestones</p>
+<p>This milestone builds upon the implementation contributed by previous milestones, if you’ve skipped those previous milestones, ensure that:</p>
+<ul class="simple">
+<li><p>your development environment is set up appropriately, as demonstrated in <em>Milestone -1: Tools</em></p></li>
+<li><p>you have an appropriately set up PostgreSQL server running locally, with a database and user configured appropriately, as demonstrated in <em>Milestone 0: Hello world</em></p></li>
+<li><p>you’ve checked out the source code contributed by <em>Milestone 0: Hello world</em></p></li>
+</ul>
+</div>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading">#</a></h2>
+<p>Our first object for this milestone will be to <em>containerise</em> the components of our current system so that we can ship them to a cloud environment. We’ll use the hugely popular Docker platform to declare a set of dependency and build instructions that Render can use to serve our components.</p>
+<div class="note admonition">
+<p class="admonition-title">What is Docker, really?</p>
+<p>Docker is a <em>containerisation solution</em>, it provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams “build [their software] once, [and] run [it] anywhere”. Docker works in much the same way, it provides a virtual environment - called a <em>container</em> - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of <strong>any</strong> software (more, or less - there are, of course, limitations to all solutions 😙); from simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution that you can run anywhere, and even share with others. Sounds pretty good right? Modern DevOps thinks so - so much so that containerisation solutions such as Docker are <strong>the</strong> ubiquitous gold-standard for implementing DevOps automation solutions. If you’ve not encountered Docker before, then you’ll undoubtably come across it soon enough - it’s well worth investing your time in building a strong understanding of containerisation.</p>
+</div>
+<section id="install">
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h3>
+<p>If you’ve not a version of Docker running locally, you’ll need to install it; Docker Desktop is a handy UI that ships with the latest docker CLI and daemon, install it <a class="reference external" href="https://www.docker.com/products/docker-desktop/">here</a>. Once installed, you will need to launch Docker Desktop, which will in turn launch Docker services such as the Docker Daemon. Verify your installation by running:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+<p>This command should run a container called <code class="docutils literal notranslate"><span class="pre">hello-world:latest</span></code>, which prints - amongst other things - <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">from</span> <span class="pre">Docker!</span></code> to the console.</p>
+</section>
+<section id="declaring-container-configuration">
+<h3>Declaring container configuration<a class="headerlink" href="#declaring-container-configuration" title="Permalink to this heading">#</a></h3>
+<p>We use Docker to both <em>run</em> and <em>build</em> containers (usually in the reverse order). When we <em>run</em> a container Docker searches for a pre-built Docker <em>image</em> - fetching it from a well known place like <a class="reference external" href="https://hub.docker.com/">DockerHub</a> if it doesn’t exist locally. A Docker image typically declares a program, along with all its dependencies, to be executed by the Docker Daemon within a container. Images are can be <em>built</em> by providing Docker a set of instructions which we normally author as a <a class="reference external" href="https://docs.docker.com/engine/reference/builder/"><em>DockerFile</em></a>.</p>
+<p>We’ll need to provide a Dockerfile for each of the components we want to containerise - and to be able to verify that our Docker configuration locally we’ll also containerise a PostgreSQL image (though we won’t need to deploy this to Render, we’ll use Render’s managed database service instead).</p>
+<p>Before we can begin create our containers and verifying them locally we need to ensure they can communicate, to do this we should run them on a Docker <em>network</em>. Create a simple bridged network called <code class="docutils literal notranslate"><span class="pre">swen90007-react-example</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>bridge<span class="w"> </span>swen90007-react-example
+</pre></div>
+</div>
+<p>The first component to get working with Docker is the PostgreSQL database. Run the following command to start a containerised version of PostgreSQL:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="o">=</span>swen90007-react-example<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>swen90007_react_example<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>swen90007_react_example_owner<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password<span class="w"> </span>--name<span class="w"> </span>database<span class="w"> </span>-dti<span class="w"> </span>-p<span class="w"> </span><span class="m">5433</span>:5432<span class="w"> </span>postgres:13
+</pre></div>
+</div>
+<p>We’ll need to run our database initialisation scripts against this containerised PostgreSQL. Simply start pgAdmin, and create a new server configured to connect to the containerised PostgreSQL - noting that the above Docker run command maps the PostgreSQL port 5432 to 5433 (to avoid conflicts with the existing local PostgreSQL service that has likely already claimed the host’s 5432 port).</p>
+<p><img alt="Connect to containerised PostgreSQL" src="../_images/connect-postgres-server-docker.png" /></p>
+<p>Then load and execute both <code class="docutils literal notranslate"><span class="pre">api/db/init.sql</span></code> and <code class="docutils literal notranslate"><span class="pre">api/db/load.sql</span></code> using pgAdmin’s Query Tool.</p>
+<p>The following is a Dockerfile that will build the JavaEE Webapp API. We’ll version control this Dockerfile with the source code for API, save it as <code class="docutils literal notranslate"><span class="pre">api/Dockerfile</span></code>.</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># build stage</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">maven:3.9-amazoncorretto-17</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+
+<span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-DwarName<span class="o">=</span>react-example-api
+
+<span class="c"># run stage</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">tomcat:10.0.27-jre17</span>
+
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/react-example-api.war<span class="w"> </span><span class="nv">$CATALINA_HOME</span>/webapps/
+</pre></div>
+</div>
+<p>The purpose of this primer is not to teach you how to write Dockerfiles, however there are few key aspects to highlight here:</p>
+<ul class="simple">
+<li><p>we are using a <em>multi-stage build</em> to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the Webapp will be served.</p></li>
+<li><p>Instead of having to figure out how to install Tomcat into a base <em>scratch</em> Docker image, we’ll make use of all the hard work smart people have put into preparing the <code class="docutils literal notranslate"><span class="pre">tomcat:10.0.27-jre17</span></code> base image - and save ourselves a bunch of grief in the process.</p></li>
+</ul>
+<p>Open a command terminal in the <code class="docutils literal notranslate"><span class="pre">/api</span></code> directory and build an image from the Dockerfile above</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>--rm<span class="w"> </span>-t<span class="w"> </span>swen90007-react-example-api<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Then run the image with the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="o">=</span>swen90007-react-example<span class="w"> </span>-dti<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-e<span class="w"> </span><span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s1">&#39;-Djdbc.uri=jdbc:postgresql://database:5432/swen90007_react_example -Djdbc.username=swen90007_react_example_owner -Djdbc.password=password -Dcors.origins.ui=http://localhost:3000&#39;</span><span class="w"> </span>swen90007-react-example-api
+</pre></div>
+</div>
+<p>Open a browser and navigate to <a class="reference external" href="http://localhost:8080/react-example-api/test">http://localhost:8080/react-example-api/test</a>, you should see a familiar response from the containerised JavaEE Webapp.</p>
+<p><img alt="Verify containerised API" src="../_images/verify-containerised-api.png" /></p>
+<div class="note admonition">
+<p class="admonition-title">Why is the <em>test</em> endpoint served on the path <code class="docutils literal notranslate"><span class="pre">/react-example-api/test</span></code>?</p>
+<p>This is decided partly by the design of the template API - the verdict resource is exposed by a Java Servlet listening on <code class="docutils literal notranslate"><span class="pre">/test</span></code> - and partly by the way Tomcat (the web server used in this project) serves our application. Tomcat detects and unpacks <code class="docutils literal notranslate"><span class="pre">.war</span></code> files to be served in a web container. To enable Tomcat to serve multiple applications (or <code class="docutils literal notranslate"><span class="pre">.war</span></code> files) it exposes each application on what is called a <em>context path</em>, which is used to route traffic to the appropriate application. This context path is derived (according to a few simple rules, which we’ll not get into here) from the name of the <code class="docutils literal notranslate"><span class="pre">.war</span></code> file, and should be prepended to the request path as so <code class="docutils literal notranslate"><span class="pre">&lt;context-path&gt;/&lt;the-application-routes&gt;</span></code>. For this project we package our API as a <code class="docutils literal notranslate"><span class="pre">.war</span></code> file called <code class="docutils literal notranslate"><span class="pre">react-example-api.war</span></code>, and so Tomcat exposes our application on the context path <code class="docutils literal notranslate"><span class="pre">/react-example-api</span></code>; and so, if we want to access the <em>verdict</em> endpoint we need to make a request to <code class="docutils literal notranslate"><span class="pre">/react-example-api/test</span></code>.</p>
+</div>
+<p>Congratulations, you’ve containerised the JavaEE Webapp! And, can now move onto deploying the system to Render.</p>
+</section>
+</section>
+<section id="deploy-to-render">
+<h2>Deploy to Render<a class="headerlink" href="#deploy-to-render" title="Permalink to this heading">#</a></h2>
+<p>Renders is a Platform as a Service (PaaS) solution that enables developers to quickly deploy applications to the Render unified cloud. We’ll be deploying all three of our services components to  Render, including a PostgreSQL database, the JavaEE Webapp containerised with Docker, and the simple React UI, implemented in prior milestones.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<p>This guide assumes you have the source code for both the API and UI version controlled in a single private GitHub repository that you own.</p>
+<p>You’ll also need to sign up to <a class="reference external" href="https://render.com/">Render</a>, select <em>Get Started</em> from the top navigation bar and use whatever sign in option you prefer. Once signed in you should be redirected to the <em>Render Dashboard</em>, from which you can begin creating and managing the services required in this guide.</p>
+<div class="caution admonition">
+<p class="admonition-title">Collaborating on Render</p>
+<p>Render’s Free tier does not include <em>Render Teams</em>, which is a feature that allows you to nominate collaborators, who can log into your Render Dashboard and create or manage deployments. This means that your team will need to nominate a team member to be responsible for all Render tasks throughout semester (you might like to rotate this role) - this shouldn’t, however, prevent other team members from deploying their own <em>development</em> or <em>test</em> versions of your team’s application to their own Render accounts. Each team member should, at least, follow and understand the steps in this section of the primer, regardless of whether the team’s application will be deployed to their account or not.</p>
+</div>
+</section>
+</section>
+<section id="postgres-managed-database">
+<h2>Postgres Managed Database<a class="headerlink" href="#postgres-managed-database" title="Permalink to this heading">#</a></h2>
+<p>We’ll deploy our system <em>bottom up</em>, starting with the PostgreSQL database.</p>
+<p>From the Render Dashboard select <em>New +</em> &gt; <em>PostgreSQL</em> to create a new managed PostgreSQL instance.</p>
+<p><img alt="Create database" src="../_images/create-database.png" /></p>
+<p>Enter the following details for your new database</p>
+<p>Name: <code class="docutils literal notranslate"><span class="pre">swen90007-react-example-db</span></code>
+Database: <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code>
+User: <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code>
+Region: Singapore (Southeast Asia) (much closer than the default Oregon region)
+PostgreSQL Version: 13</p>
+<p><img alt="Configure PostgreSQL Render" src="../_images/configure-postgres-render.png" /></p>
+<p>Scroll down, leaving the default instance type configuration set to the Free tier, and select <em>Create Database</em>.</p>
+<p><img alt="Configure PostgreSQL Render continued" src="../_images/create-db-config-continued.png" /></p>
+<p>Render will begin provisioning a shiny new managed database for you - which can take a few minutes, so grab a snack :).</p>
+<p>Once Render has finished provisioning the database the status will change to <em>Available</em>.</p>
+<p><img alt="PostgreSQL Render is ready" src="../_images/postgres-render-ready.png" /></p>
+<p>Let’s pause a moment to verify that we can both, access the database, and that the database is working as expected. As in previous milestones, we’ll do this via pgAdmin. Once you’ve launched pgAdmin you’ll need to configure it to access the Render database. All the information that you need, the hostname of the database container, database name, user and password can be found in the <em>Connections</em> section of our Render database dashboard. Make a note of your database’s connection data, you’ll need it shortly.</p>
+<p><img alt="PostgreSQL connection details" src="../_images/postgres-render-connections.png" /></p>
+<p>In pgAdmin right click on <em>Servers</em> and select <em>Register</em> &gt; <em>Server</em> to register the Render service as a managed server. You’ll need to configure the new server by first providing it a name (this doesn’t need to match the connection data in Render, it should just be something you will recognise in pgAdmin). Then provide the connection details pgAdmin should use to access the Render service.</p>
+<ul class="simple">
+<li><p>Hostname/address:  this should be the <strong>external</strong> hostname of the container to which the Render database has been provisioned, this is essentially the <em>External Database URL</em>, minus the protocol, user and database name information - ie just the hostname. Specifically, your <em>External Database URL</em> will look something like <code class="docutils literal notranslate"><span class="pre">postgres://&lt;user-name&gt;:&lt;password&gt;&#64;&lt;external-hostname&gt;/&lt;database-name&gt;</span></code>, you want just the <code class="docutils literal notranslate"><span class="pre">&lt;external-hostname&gt;</span></code> section.</p></li>
+<li><p>Port: leave this as 5432.</p></li>
+<li><p>Maintenance database: the name of your Render database, see the <em>Connections</em> sections and look for the value of the <em>Database</em> attribute.</p></li>
+<li><p>Username: the name of the user you configured for the Render database, set - in this guild - to <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code>.</p></li>
+<li><p>Password: generated by Render when provisioning the service, find it in the <em>Connections</em> section discussed previously.</p></li>
+</ul>
+<p><img alt="connect to Render PostgreSQL" src="../_images/connect-postgres-server-render.png" /></p>
+<p>Select <em>Save</em> and you should see a new entry appear under the Servers group in pgAdmin. On selecting <em>Save</em>, pgAdmin will attempt to connect to the Render service using the server configuration provided, if it can’t connect it will shout quite loudly that something is wrong, if this is the case confirm that you’ve provided the correct configuration as detailed in Render - noting that some of the configuration is generated during provisioning (the hostname and password, and possibly database name) and <strong>will</strong> differ from the values present in this guide.</p>
+<p><img alt="PostgreSQL Render connected" src="../_images/postgres-database-connected.png" /></p>
+<p>Finally let’s confirm that we can manage the instance by initialising our database with the test schema and dummy data developed in pervious milestones. Right click on the database and select <em>Query Tool</em>. From the Query Tool toolbar select <em>Open File</em> to load the <code class="docutils literal notranslate"><span class="pre">api/db/init.sql</span></code> script, then select <em>Execute/Refresh</em> to run it. Repeat the process for <code class="docutils literal notranslate"><span class="pre">api/db/load.sql</span></code>. The database should now be properly initialised, you can verify this by running a final query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">test</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><img alt="Verify database user" src="../_images/verify-database-user.png" /></p>
+<p>Nice work! You’ve just provisioned a managed PostgreSQL instance on the Render platform, and verified the instance with pgAdmin.</p>
+</section>
+<section id="web-service">
+<h2>Web Service<a class="headerlink" href="#web-service" title="Permalink to this heading">#</a></h2>
+<p>Next we’ll deploy the JavaEE Webapp as a Render Web Service.</p>
+<p>From the Render Dashboard select <em>New +</em> &gt; <em>Web Service</em> to create a new web service that will expose our API.</p>
+<p><img alt="Create Render Web Service" src="../_images/create-render-web-service.png" /></p>
+<p>You’ll need to follow the prompts to connect your Render account to your git repository in the subject’s GitHub organisation. Select <em>Connect GitHub</em>, you may be prompted to then login to GitHub, follow the prompts to install the Render integration to your <em>personal</em> GitHub account and authorise Render to access the repository that you have pushed the latest project code to (see the official <a class="reference external" href="https://render.com/docs/github">Render docs</a>, should you get lost).</p>
+<p><img alt="Link GitHub" src="../_images/link-github.png" /></p>
+<p>Once these systems are properly integrated and authorised you can continue to create the web service by selecting <em>New +</em> &gt; <em>Web Service</em> again, notice that your newly integrated repository will be appear, select <em>Connect</em> for the appropriate repository.</p>
+<p><img alt="Connect repository" src="../_images/connect-repository.png" /></p>
+<p>On the next page provide the following information:</p>
+<ul class="simple">
+<li><p>Name: <code class="docutils literal notranslate"><span class="pre">swen90007-react-example-api</span></code></p></li>
+<li><p>Region: Singapore (Southeast Asia) is probably still the closest</p></li>
+<li><p>Branch: it’s highly likely that the default value, main, is entirely appropriate; this should be the name of the branch in your repository that you plan to merge working features into - ie the branch on which you plan to keep a stable, working version of your software.</p></li>
+<li><p>Root Directory: for this project we’re version controlling the source code for both the API and UI in the same repository, the API code is what we plan to deploy to this web service so we need to configure Render to deploy from the <code class="docutils literal notranslate"><span class="pre">/api</span></code> directory.</p></li>
+<li><p>Runtime: we’re using Docker to simplify our deployments - greatly.</p></li>
+</ul>
+<p><img alt="Configure Web Service" src="../_images/configure-web-service-render.png" /></p>
+<p>We’re almost done, keep the Free tier selected, and then expand the environment variable configuration by selecting <em>Advanced</em>.</p>
+<p><img alt="Web Service Advanced" src="../_images/web-service-tier.png" /></p>
+<p>The web service will need access to the managed PostgreSQL database, which you created previously. The best way to provide this configuration is via environment variables. The <em>Advanced</em> section of the Web Service configuration has a section for entering environment variables, which Render will set when it starts the application. Configure Render to set a <code class="docutils literal notranslate"><span class="pre">JAVA_OPTS</span></code> environment variable with the value below, making sure you replace <code class="docutils literal notranslate"><span class="pre">&lt;your-database-internal-hostname&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;your-database-name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;your-database-username&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;your-database-password&gt;</span></code> with appropriate values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">JAVA_OPTS</span></code>: <code class="docutils literal notranslate"><span class="pre">-Djdbc.uri=jdbc:postgresql://&lt;your-database-internal-hostname&gt;/&lt;your-database-name&gt;</span> <span class="pre">-Djdbc.username=&lt;your-database-username&gt;</span> <span class="pre">-Djdbc.password=&lt;your-database-password&gt;</span> <span class="pre">-Dcors.origins.ui=http://localhost:3000</span></code></p>
+<p><img alt="Configure web service env" src="../_images/configure-render-web-service-env.png" /></p>
+<p>Select <em>Create Web Service</em> and you’ll be redirected to the <em>Web Service dashboard</em>, where you can monitor the application logs. After a short wait your web service should be live. Let’s verify it works as it should by executing a simple GET request. Open your preferred web browser and navigate to the <em>test</em> endpoint at <code class="docutils literal notranslate"><span class="pre">https://&lt;your-web-service-hostname&gt;/react-example-api/test</span></code> - replacing <code class="docutils literal notranslate"><span class="pre">&lt;your-web-service-hostname&gt;</span></code> with (you may have guessed it) the external host name of your web service, find it within your web service settings in the top banner, noting that it’s almost certain that your hostname is different to the one shown below.</p>
+<p><img alt="Verify web service" src="../_images/verify-render-web-service.png" /></p>
+</section>
+<section id="static-site">
+<h2>Static Site<a class="headerlink" href="#static-site" title="Permalink to this heading">#</a></h2>
+<p>Finally, we’ll deploy the React UI as a static site.</p>
+<p>From the Render Dashboard select <em>New +</em> &gt; <em>Static Site</em> to create a new static site from which we will serve the UI for this project.</p>
+<p><img alt="Create static site" src="../_images/create-render-static-site.png" /></p>
+<p>Just like the Web Service from the previous section, we’ll deploy our UI directly from the project repository, select <em>Connect</em> to connect the appropriate project repository. On the next page provide the following values:</p>
+<p>Name: <code class="docutils literal notranslate"><span class="pre">swen90007-react-example-ui</span></code>
+Branch: as with the web service, this should be the name of the branch to which you intend to push stable versions of your software, for most projects this is a branch called <em>main</em>.
+Root Directory: the UI code is located in the <code class="docutils literal notranslate"><span class="pre">/ui</span></code> directory so we’ll need to configure Render to deploy from there.
+Build Command: the UI is a React application that uses the Node Package Manager (NPM) for dependency management and as a build tool. Most React applications managed by NPM - this one included - can be built by invoking the NPM build script as so <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">build</span></code>.
+Publish Directory: the NPM build script compiles the React source code as a set of files (<code class="docutils literal notranslate"><span class="pre">.js</span></code>, <code class="docutils literal notranslate"><span class="pre">.html</span></code> and <code class="docutils literal notranslate"><span class="pre">.css</span></code> files, as well as various other assets, which can served as a static website) written to a <code class="docutils literal notranslate"><span class="pre">./build</span></code> directory.</p>
+<p><img alt="configure static site" src="../_images/configure-render-static-site.png" /></p>
+<p>Like the web service this static site will need to be built and served with a number of environment variables set. These environment variables configure the UI to properly access the API.</p>
+<p><code class="docutils literal notranslate"><span class="pre">REACT_APP_API_BASE_URL</span></code>: <code class="docutils literal notranslate"><span class="pre">https://&lt;your-web-service-hostname&gt;/react-example-api</span></code></p>
+<p><img alt="configure static site env" src="../_images/configure-render-static-site-env.png" /></p>
+<p>Leave the rest of the Advanced configuration as is and select <em>Create Static Site</em>. Once the UI has been built and deployed it should be available at <code class="docutils literal notranslate"><span class="pre">https://&lt;your-static-sites-hostname&gt;</span></code>. We’re not quite done though, if you visit the UI and attempt fetch data from the API you’ll encounter a familiar error.</p>
+<p><img alt="Error static site" src="../_images/error-static-site.png" /></p>
+<p>If you inspect the network calls between the UI and API, you’ll notice that the GET against the <code class="docutils literal notranslate"><span class="pre">/test</span></code> endpoint encounters an error. The reason for this failure is improper CORS configuration on the API.</p>
+<p><img alt="Inspect error of static site" src="../_images/inspect-error-static-site.png" /></p>
+<p>The API is currently configured to only accept requests from <code class="docutils literal notranslate"><span class="pre">https://localhost:3000</span></code>, this configuration has been appropriate when developing locally but, of course, not for our deployment to Render. Now that we have a UI deployed - to an origin provided by Render - let’s update our API’s CORS configuration so that it will accept requests to submit new votes. The origins that the API will accept can be configured by setting the <code class="docutils literal notranslate"><span class="pre">cors.origins.ui</span></code> property. Open the dashboard for your web service and navigate to the <em>Environment</em> section, edit the value of the <code class="docutils literal notranslate"><span class="pre">JAVA_OPTS</span></code> environment variable to declare a <code class="docutils literal notranslate"><span class="pre">cors.origins.ui</span></code> value equal to the hostname of your UI, then select <em>Save Changes</em>.</p>
+<p><img alt="Fix cors web service configuration" src="../_images/fix-cors-web-service-configuration.png" /></p>
+<p>Render will redeploy the API with the new environment configuration. Once your API has been redeployed revisit your UI and click <em>Fetch data</em>, the request should now succeed.</p>
+<p><img alt="verify static site" src="../_images/verify-static-site.png" /></p>
+<p>Congratulations, you’ve just deployed the full React example stack to Render! In the next milestone we’ll spend some time implementing the core features of the application, and get stuck into some more advanced React.</p>
+<div class="danger admonition">
+<p class="admonition-title">Render build time limits</p>
+<p>By default, Render will build and deploy each change to your <em>main</em> branch (or whichever branch you nominated) on GitHub; this is convenient, however, the Free tier on Render has strict <em>build time</em> limits, which you may hit quickly if you are pushing to <em>main</em> often, you should disabled automatic build and deploy if you plan to work on, or merge to, <em>main</em> often</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./react-example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="swen90007-react-example-primer-milestone-0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Milestone 0: Hello World</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../extra_tools/tools_and_plugins.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Useful Tools and IntelliJ Plugins</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-container-configuration">Declaring container configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-to-render">Deploy to Render</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgres-managed-database">Postgres Managed Database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-service">Web Service</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-site">Static Site</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

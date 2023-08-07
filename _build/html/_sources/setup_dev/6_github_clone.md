@@ -1,4 +1,4 @@
-# Step 6: Clone GitHub Repository
+# Step 5: Clone GitHub Repository
 
 At this point, the repository should have been created and can now be cloned by all team members.
 You now need to clone the repository to your machine and set up TomCat to run the artifacts.
@@ -18,68 +18,28 @@ You may be prompted if you want IntelliJ to trust this Maven project, select Tru
 
 ![](resources/6_github_clone_3.png)
 
-Now select Add Configuration:
+In the terminal run `mvn clean package`. This will compile the code and package it into a jar. Upon successful build, you
+can see that a target folder is created and there are two jars present.
 
-![](resources/6_github_clone_4.png)
+![](resources/4_create_project_7_jars.png)
 
-Add a new TomCat local configuration:
-
-![](resources/6_github_clone_5.png)
-
-Select Configure (Application Server may or may not already be populated - ignore it):
-
-![](resources/6_github_clone_6.png)
-
-Select the Open icon:
-
-![](resources/6_github_clone_7.png)
-
-Select the folder where you unzipped the TomCat directory in [Step 2: Download Tomcat](2_tomcat_download.md):
-
-![](resources/6_github_clone_8.png)
-
-Select OK:
-![](resources/6_github_clone_9.png)
-
-Select Deployment:
-
-![](resources/6_github_clone_10.png)
-
-Select the Add icon:
-
-![](resources/6_github_clone_11.png)
-
-Select Artifact:
-
-![](resources/6_github_clone_12.png)
-
-Select demo:war exploded:
-
-![](resources/6_github_clone_13.png)
-
-```{note}
-A Web application can be deployed to the TomCat server as an exploded directory where files and folders are 
-presented in the file system as separate items. A WAR file is a Web Archive file. An exploded WAR file means 
-the structure is the exact same as an archive file but not zipped into an archive form.*
+In the terminal run below command (assuming that you are in the code directory jsp-demo). Note that we are running the jar
+with the dependencies.
 ```
+java -jar target/jsp-demo-jar-with-dependencies.jar 
+```
+![](resources/4_create_project_8_tomcat.png)
 
-Select Apply then OK:
+Alternatively, you can run the main method within the Intellij to avoid running `mvn clean package` or `java -jar` commands.
 
-![](resources/6_github_clone_14.png)
+![](resources/4_create_project_9_main.png)
 
-To test the artifact is being deployed to the server correctly, select Add Configuration then select the newly created 
-TomCat configuration:
+Once you can see that your server is running on port 8080 you can view this in the browser. The project should be
+deployed to localhost:
 
-![](resources/6_github_clone_15.png)
+![](resources/4_create_project_11.png)
 
-Select Run:
-
-![](resources/6_github_clone_16.png)
-
-The program is now deployed to localhost:
-
-![](resources/6_github_clone_17.png)
 
 ```{admonition} What's Next
-Please proceed to [Step 7: Connect IntelliJ Project to PostgreSQL](7_connect_intellij_postgresql.md).
+Please proceed to [Step 6: Connect IntelliJ Project to PostgreSQL](7_connect_intellij_postgresql.md).
 ```

@@ -31,5 +31,5 @@ If not:
 ```
 
 ```{admonition} What's Next
-Please proceed to [Step 2: Download Tomcat](2_tomcat_download.md).
+Please proceed to [Step 2: PostgreSQL Setup](3_postgresql_setup.md).
 ```

@@ -1,4 +1,4 @@
-# Step 3: Setup PostgreSQL
+# Step 2: Setup PostgreSQL
 
 ## Download PostgreSQL
 
@@ -9,7 +9,8 @@ Download the PostgreSQL Database installer:
 ```
 
 Double-click on the installer file, an installation wizard will appear and guide you through multiple steps where you 
-can choose different options that you would like to have in PostgreSQL.
+can choose different options that you would like to have in PostgreSQL. Note, that you can downlaod the recent version 15
+of PostGres instead of 10.
 
 Click the Next button:
 
@@ -51,8 +52,8 @@ Once the installation finishes, you can test it's been installed successfully by
 folder and launching it.  
 When you open PostgreSQL for the first time, you'll be asked to input your superuser password.
 
-When you finish your project and deploy it to Heroku, you do not need the local DB server. You are going to need to 
-connect your application to the server on Heroku. These steps will come later.
+When you finish your project and deploy it to Render, you do not need the local DB server. You are going to need to 
+connect your application to the postgres server on Render. These steps will come later.
 
 ## Create a Database
 
@@ -71,5 +72,5 @@ Enter a name for the database:
 You have created a local database that you can use while developing your project.
 
 ```{admonition} What's Next
-Please proceed to [Step 4: Create Project in IntelliJ](4_create_project.md).
+Please proceed to [Step 3: Create Project in IntelliJ](4_create_project.md).
 ```
