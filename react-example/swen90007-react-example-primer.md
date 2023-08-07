@@ -1,14 +1,14 @@
-# SWEN90007 React Example Primer
+# React Example Project Primer
 
 This primer demonstrates how to build a 2 tier web application utilising Java Servlet, React and PostgreSQL technologies.
 
 ## Using this primer
 
-This primer has been designed to take you from *zero* to a fully functioning system; this includes installing the required tools and numerous code snippets to build the system piece by piece. If you're not familiar with the various tools used in this primer, you may like to follow it from start to finish. However, if you are familiar with many of the tools you may like to simply reverse engineer (with reference to this primer) the final code base, check it out [here](). 
+This primer has been designed to take you from *zero* to a fully functioning system; this includes installing the required tools and numerous code snippets to build the system piece by piece. If you're not familiar with the various tools used in this primer, you may like to follow it from start to finish. However, if you are familiar with many of the tools you may like to simply reverse engineer (with reference to this primer) the final code base, check it out [here]().
 
 ## Requirements
 
-The application we are about to build is simple (very much on purpose), it merely records user votes 'for' and 'against' a topic. 
+The application we are about to build is simple (very much on purpose), it merely records user votes 'for' and 'against' a topic.
 
 The following users exist:
 
@@ -38,27 +38,27 @@ The following outlines the key technologies that comprise the stack. The stack i
 
 ```mermaid
 flowchart
-	
-	subgraph ui[UI]
-		direction LR
-		React
-		HTML
-		CSS
-	end
+ 
+ subgraph ui[UI]
+  direction LR
+  React
+  HTML
+  CSS
+ end
 
-	subgraph api[API]
-		java[Java Servlet API]
-		Tomcat
-		JDBC
-	end
+ subgraph api[API]
+  java[Java Servlet API]
+  Tomcat
+  JDBC
+ end
 
-	subgraph data[Database]
-		database[PostgreSQL]
-	end
-	
-	user --> ui 
-	ui -->|HTTP\nJSON\nJWT| api 
-	api -->|SQL| data
+ subgraph data[Database]
+  database[PostgreSQL]
+ end
+ 
+ user --> ui 
+ ui -->|HTTP\nJSON\nJWT| api 
+ api -->|SQL| data
 ```
 
 ### Primer structure
@@ -85,7 +85,7 @@ Implementing this layered stack is a complicated undertaking. In an effort to ma
 #### Milestone 2: Core functionality
 
 - core voting functionality, such as submitting a vote, and viewing the verdict.
-- beyond React basics, more Hooks, Contexts, and routing 
+- beyond React basics, more Hooks, Contexts, and routing
 - working with JSON
 - database connection pooling
 
@@ -105,4 +105,3 @@ Implementing this layered stack is a complicated undertaking. In an effort to ma
 
 > [!warning] Skipping milestones
 > Each milestone builds upon the implementation contributed by previous milestones. You should plan to complete each milestone in order; however, you may wish to skip early milestones if you're confident in your React, JavaEE or integration abilities. If you do skip early milestones, checkout the source code contributed by the previous milestone - for example, if you plan to start from *Milestone 1: Deployment* checkout the code from *Milestone 0: Hello world*. Note that *Milestone -1: Tools* will take you through installing critical dependencies such as a compatible Java JDK and Node.js runtime, be sure to confirm your local development environment is properly set up before proceeding with any of the other milestones.
-
