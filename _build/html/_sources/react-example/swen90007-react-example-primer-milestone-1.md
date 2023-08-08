@@ -16,48 +16,48 @@ This milestone builds upon the implementation contributed by previous milestones
 
 ## Docker
 
-Our first object for this milestone will be to *containerise* the components of our current system so that we can ship them to a cloud environment. We'll use the hugely popular Docker platform to declare a set of dependency and build instructions that Render can use to serve our components.
+Our first objective for this milestone will be to *containerise* the components of our current system so that we can ship them to a cloud environment. We'll use the hugely popular Docker platform to declare a set of dependency and build instructions that Render can use to serve our components.
 
 :::{admonition} What is Docker, really?
 :class: note
-Docker is a *containerisation solution*, it provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams "build \[their software\] once, \[and\] run \[it\] anywhere". Docker works in much the same way, it provides a virtual environment - called a *container* - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of **any** software (more, or less - there are, of course, limitations to all solutions 😙); from simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution that you can run anywhere, and even share with others. Sounds pretty good right? Modern DevOps thinks so - so much so that containerisation solutions such as Docker are **the** ubiquitous gold-standard for implementing DevOps automation solutions. If you've not encountered Docker before, then you'll undoubtably come across it soon enough - it's well worth investing your time in building a strong understanding of containerisation.
+Docker is a *containerisation solution*, it provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams "build \[their software\] once, \[and\] run \[it\] anywhere". Docker works in much the same way, it provides a virtual environment - called a *container* - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of **any** software (more, or less - there are, of course, limitations to all solutions 😙). From simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution that you can deploy to any environment running Docker, and even share with others. Sounds pretty good right? Modern DevOps thinks so - so much so that containerisation solutions such as Docker are **the** ubiquitous gold-standard for implementing DevOps automation solutions. If you've not encountered Docker before, then you'll undoubtably come across it soon enough - it's well worth investing some time into building a strong understanding of containerisation.
 :::
 
 ### Install
 
-If you've not a version of Docker running locally, you'll need to install it; Docker Desktop is a handy UI that ships with the latest docker CLI and daemon, install it [here](https://www.docker.com/products/docker-desktop/). Once installed, you will need to launch Docker Desktop, which will in turn launch Docker services such as the Docker Daemon. Verify your installation by running:
+If you've not got a version of Docker running locally you'll need to install it. Docker Desktop is a handy UI that ships with the latest Docker CLI and daemon, install it [here](https://www.docker.com/products/docker-desktop/). Once installed, you'll need to launch Docker Desktop, which will in turn launch Docker services such as the Docker Daemon. Verify your installation by running:
 
 ```shell
 docker run hello-world
 ```
 
-This command should run a container called `hello-world:latest`, which prints - amongst other things - `Hello from Docker!` to the console.
+The previous command should run a container, called `hello-world:latest`, that prints - amongst other things - `Hello from Docker!` to the console.
 
 ### Declaring container configuration
 
-We use Docker to both *run* and *build* containers (usually in the reverse order). When we *run* a container Docker searches for a pre-built Docker *image* - fetching it from a well known place like [DockerHub](https://hub.docker.com/) if it doesn't exist locally. A Docker image typically declares a program, along with all its dependencies, to be executed by the Docker Daemon within a container. Images are can be *built* by providing Docker a set of instructions which we normally author as a [*DockerFile*](https://docs.docker.com/engine/reference/builder/).
+We use Docker to both *run* and *build* containers (usually in the reverse order). When we *run* a container Docker searches for a pre-built Docker *image* - fetching it from a well known place like [DockerHub](https://hub.docker.com/) if it doesn't exist locally. A Docker image typically declares a program, along with all its dependencies, to be executed by the Docker Daemon within a container. Images are *built* by providing Docker a set of instructions which we normally author as a [*DockerFile*](https://docs.docker.com/engine/reference/builder/).
 
-We'll need to provide a Dockerfile for each of the components we want to containerise - and to be able to verify that our Docker configuration locally we'll also containerise a PostgreSQL image (though we won't need to deploy this to Render, we'll use Render's managed database service instead).
+We'll need to provide a Dockerfile for each of the components we want to containerise - and to be able to verify that our Docker configuration locally we'll also need to run a PostgreSQL image (though we won't need to deploy this to Render, we'll use Render's managed database service instead).
 
-Before we can begin create our containers and verifying them locally we need to ensure they can communicate, to do this we should run them on a Docker *network*. Create a simple bridged network called `swen90007-react-example`
+Before we can begin creating our images and verifying them locally we need to ensure they can communicate, to do this we should run them on the *same* Docker *network*. Create a simple bridged network called `swen90007-react-example`.
 
 ```shell
 docker network create -d bridge swen90007-react-example
 ```
 
-The first component to get working with Docker is the PostgreSQL database. Run the following command to start a containerised version of PostgreSQL:
+The first component to get working with Docker is the PostgreSQL database. Run the following command to pull, and run, a pre-build PostgreSQL image available DockerHub:
 
 ```shell
 docker run --network=swen90007-react-example -e POSTGRES_DB=swen90007_react_example -e POSTGRES_USER=swen90007_react_example_owner -e POSTGRES_PASSWORD=password --name database -dti -p 5433:5432 postgres:13
 ```
 
-We'll need to run our database initialisation scripts against this containerised PostgreSQL. Simply start pgAdmin, and create a new server configured to connect to the containerised PostgreSQL - noting that the above Docker run command maps the PostgreSQL port 5432 to 5433 (to avoid conflicts with the existing local PostgreSQL service that has likely already claimed the host's 5432 port).
+We'll need to run our database initialisation scripts against this containerised PostgreSQL. Simply start pgAdmin, and create a new server configured to connect to the containerised PostgreSQL - noting that the above Docker run command maps the PostgreSQL container's 5432 port to port 5433 on your host machine (in order to avoid conflicts with the existing local PostgreSQL service, which has likely already claimed the host's 5432 port).
 
 ![Connect to containerised PostgreSQL](resources/milestone-1/connect-postgres-server-docker.png)
 
 Then load and execute both `api/db/init.sql` and `api/db/load.sql` using pgAdmin's Query Tool.
 
-The following is a Dockerfile that will build the JavaEE Webapp API. We'll version control this Dockerfile with the source code for API, save it as `api/Dockerfile`.
+Now that we have PostgreSQL containerised and initialised we can begin preparing a containerised version of our JavaEE Webapp. The following is a Dockerfile that will build the JavaEE Webapp API. We'll version control this Dockerfile with the source code for API, save it as `api/Dockerfile`.
 
 ```dockerfile
 # build stage
@@ -74,12 +74,12 @@ FROM tomcat:10.0.27-jre17
 COPY --from=build /app/target/react-example-api.war $CATALINA_HOME/webapps/
 ```
 
-The purpose of this primer is not to teach you how to write Dockerfiles, however there are few key aspects to highlight here:
+The purpose of this primer is not to teach you how to write Dockerfiles - however, there are few key aspects worth highlighting here:
 
-- we are using a *multi-stage build* to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the Webapp will be served.
+- we are using a *multi-stage build* to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the JavaEe Webapp will be served.
 - Instead of having to figure out how to install Tomcat into a base *scratch* Docker image, we'll make use of all the hard work smart people have put into preparing the `tomcat:10.0.27-jre17` base image - and save ourselves a bunch of grief in the process.
 
-Open a command terminal in the `/api` directory and build an image from the Dockerfile above
+Open a command terminal in the `/api` directory and build an image from the Dockerfile above.
 
 ```shell
 docker build --rm -t swen90007-react-example-api .
@@ -97,14 +97,14 @@ Open a browser and navigate to <http://localhost:8080/react-example-api/test>, y
 
 :::{admonition} Why is the *test* endpoint served on the path `/react-example-api/test`?
 :class: note
-This is decided partly by the design of the template API - the verdict resource is exposed by a Java Servlet listening on `/test` - and partly by the way Tomcat (the web server used in this project) serves our application. Tomcat detects and unpacks `.war` files to be served in a web container. To enable Tomcat to serve multiple applications (or `.war` files) it exposes each application on what is called a *context path*, which is used to route traffic to the appropriate application. This context path is derived (according to a few simple rules, which we'll not get into here) from the name of the `.war` file, and should be prepended to the request path as so `<context-path>/<the-application-routes>`. For this project we package our API as a `.war` file called `react-example-api.war`, and so Tomcat exposes our application on the context path `/react-example-api`; and so, if we want to access the *verdict* endpoint we need to make a request to `/react-example-api/test`.
+This is decided partly by the design of the JavaEE Webapp API - the test resource is exposed by a Java Servlet listening on `/test` - and partly by the way Tomcat (the web server used in this project) serves our application. Tomcat detects and unpacks `.war` files to be served in a web container. To enable Tomcat to serve multiple applications (or `.war` files) it exposes each application on what is called a *context path*, which is used to route traffic to the appropriate application. This context path is derived (according to a few simple rules, which we'll not get into here) from the name of the `.war` file, and should be prepended to the request path as so `<context-path>/<the-application-routes>`. For this project we package our API as a `.war` file called `react-example-api.war`, and so Tomcat exposes our application on the context path `/react-example-api`; and so, if we want to access the *test* endpoint we need to submit a request to `/react-example-api/test`.
 :::
 
-Congratulations, you've containerised the JavaEE Webapp! And, can now move onto deploying the system to Render.
+Congratulations, you've containerised the JavaEE Webapp! And, can now move onto deploying the system to Render (we won't need to containerise the UI; as you'll see soon, Render provides static site hosting, and will, conveniently, build a static version of our React app for us).
 
 ## Deploy to Render
 
-Renders is a Platform as a Service (PaaS) solution that enables developers to quickly deploy applications to the Render unified cloud. We'll be deploying all three of our services components to  Render, including a PostgreSQL database, the JavaEE Webapp containerised with Docker, and the simple React UI, implemented in prior milestones.
+Renders is a Platform as a Service (PaaS) solution that enables developers to quickly deploy applications to its unified cloud. We'll be deploying all three of our services components to  Render, including a PostgreSQL database, the JavaEE Webapp containerised with Docker, and the simple React UI - all implemented in prior milestones.
 
 ### Prerequisites
 

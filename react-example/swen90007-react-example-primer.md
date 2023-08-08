@@ -4,11 +4,11 @@ This primer demonstrates how to build a 2 tier web application utilising Java Se
 
 ## Using this primer
 
-This primer has been designed to take you from *zero* to a fully functioning system; this includes installing the required tools and numerous code snippets to build the system piece by piece. If you're not familiar with the various tools used in this primer, you may like to follow it from start to finish. However, if you are familiar with many of the tools you may like to simply reverse engineer (with reference to this primer) the final code base, check it out [here](https://github.com/SWEN900072023/react-example-primer).
+This primer has been designed to take you from *zero* to a *fully functioning system*; this includes installing the required tools and numerous code snippets to build the system piece by piece. If you're not familiar with the various tools used in this primer, you may like to follow it from start to finish. However, if you are familiar with many of the tools you may like to simply reverse engineer (with reference to this primer) the final code base, check it out [here](https://github.com/SWEN900072023/react-example-primer).
 
 ## Requirements
 
-The application we are about to build is simple (very much on purpose), it merely records user votes 'for' and 'against' a topic.
+The system we are about to build is simple (very much on purpose), it merely records user votes 'for' and 'against' a topic.
 
 The following users exist:
 
@@ -36,34 +36,31 @@ The following outlines the key technologies that comprise the stack. The stack i
 - Application Programming Interface (API) - deployed to the Tomcat webserver and built with JavaEE Servlets
 - Database - with PostgreSQL, an enterprise-grade, open source, Relational Database Management System (RDBMS)
 
-```mermaid
-flowchart
- 
- subgraph ui[UI]
-  direction LR
-  React
-  HTML
-  CSS
- end
+```plantuml
+@startuml System
+node "UI" {
+  [React]
+  [HTML]
+  [CSS]
+}
 
- subgraph api[API]
-  java[Java Servlet API]
-  Tomcat
-  JDBC
- end
+node "API" {
+  HTTP - [Tomcat]
+  [Java Servlet API]
+  [JDBC]
+}
 
- subgraph data[Database]
-  database[PostgreSQL]
- end
- 
- user --> ui 
- ui -->|HTTP\nJSON\nJWT| api 
- api -->|SQL| data
+database "PostgreSQL" {
+}
+
+[React] --> HTTP
+[JDBC] --> PostgreSQL 
+@enduml
 ```
 
 ### Primer structure
 
-Implementing this layered stack is a complicated undertaking. In an effort to manage that complexity, this primer is structured as a number of milestones that will take you from an empty project directory to a fully fledged system. A brief overview of each milestone is provided below.
+Implementing this stack will be a complicated undertaking. In an effort to manage that complexity, this primer is structured as a number of milestones, which will take you from an empty project directory to a fully fledged system. A brief overview of each milestone is provided below.
 
 #### Milestone -1: Tools
 

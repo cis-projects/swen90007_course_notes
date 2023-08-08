@@ -8,9 +8,9 @@ We're developing the UI with React, so we'll first need a Node.js runtime. If yo
 
 ### Install
 
-The best way to install Node.js is with the [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm). NVM allows you to easily switch between versions of Node.js; which, may not be hugely beneficial for this project, but is often required when working on multiple existing code bases - some of which may target different versions of Node.js. If you are developing on macOS or Linux, installing NVM is easy and recommended; if you are working on Windows, NVM may not  be well supported and you may need to instead install Node.js directly. Regardless of your OS follow the [NVM install guide](https://github.com/nvm-sh/nvm) for your system, falling back to a direct Node.js install - as detailed on the [official Node.js site](https://nodejs.org/en/download/package-manager/) - if advised.
+The best way to install Node.js is with the [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm). NVM allows you to easily switch between versions of Node.js; which may not be hugely beneficial for this project, but is often required when working on multiple existing code bases - some of which may target different versions of Node.js. If you're developing on macOS or Linux, installing NVM is easy and recommended; if you're working on Windows, NVM may not be well supported and you may need to instead install Node.js directly. Regardless of your OS follow the [NVM install guide](https://github.com/nvm-sh/nvm) for your system, falling back to a direct Node.js install - as detailed on the [official Node.js site](https://nodejs.org/en/download/package-manager/) - if advised.
 
-At the time of authoring this document Node.js LTS (Long Term Support) was version [18.14.0](https://nodejs.org/en/download/). installing this version and its associated NPM version is simple with NVM. If your system is not well supported by NVM, and are required to instal Node.js directly, make sure you also target this version.
+At the time of authoring this primer Node.js Long Term Support (LTS) was version [18.14.0](https://nodejs.org/en/download/). installing this version and its associated NPM version is simple with NVM. If your system is not well supported by NVM, and are required to instal Node.js directly, make sure you also target this version.
 
 Install Node.js with NVM:
 
@@ -48,11 +48,11 @@ NPM is primarily a package manager for Node.js dependencies (called modules), if
 
 ## Java and Tomcat
 
-The Set up for Java is identical to the set up detailed [here](../setup_dev/1_intellij_install.md) and for Tomcat [here](../setup_dev/2_tomcat_download.md)
+The Set up for Java is identical to the set up detailed [here](../setup_dev/1_intellij_install.md) and for Tomcat [here](../setup_dev/2_tomcat_download.md). Just make sure you target Java version 17 and Tomcat 10.0.27.
 
 ## PostgreSQL and pgAdmin
 
-For details on how to set up PostgreSQL and pgAdmin follow this [guide](../setup_dev/3_postgresql_setup.md)
+For details on how to set up PostgreSQL and pgAdmin follow this [guide](../setup_dev/3_postgresql_setup.md).
 
 ## Visual Studio Code
 
