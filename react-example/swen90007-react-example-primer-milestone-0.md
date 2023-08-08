@@ -10,7 +10,7 @@ By the end of this milestone we will have:
 
 :::{admonition} Skipping milestones
 :class: caution
-This milestone builds upon the implementation contributed by previous milestones, if you've skipped those previous milestones, ensure that:
+This milestone builds upon the implementation contributed by previous milestones, if you've skipped those previous milestones ensure that:
 
 - your development environment is set up appropriately, as demonstrated in *Milestone -1: Tools*
 :::
