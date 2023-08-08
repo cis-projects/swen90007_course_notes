@@ -16,11 +16,11 @@ This milestone builds upon the implementation contributed by previous milestones
 
 ## Docker
 
-Our first objective for this milestone will be to *containerise* the components of our current system so that we can ship them to a cloud environment. We'll use the hugely popular Docker platform to declare a set of dependency and build instructions that Render can use to serve our components.
+Our first objective for this milestone will be to *containerise* the components of our current system, so that we can ship them to a cloud environment. We'll use the hugely popular Docker platform to declare a set of dependency and build instructions that Render can use to serve our components.
 
 :::{admonition} What is Docker, really?
 :class: note
-Docker is a *containerisation solution*, it provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams "build \[their software\] once, \[and\] run \[it\] anywhere". Docker works in much the same way, it provides a virtual environment - called a *container* - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of **any** software (more, or less - there are, of course, limitations to all solutions 😙). From simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution that you can deploy to any environment running Docker, and even share with others. Sounds pretty good right? Modern DevOps thinks so - so much so that containerisation solutions such as Docker are **the** ubiquitous gold-standard for implementing DevOps automation solutions. If you've not encountered Docker before, then you'll undoubtably come across it soon enough - it's well worth investing some time into building a strong understanding of containerisation.
+Docker is a *containerisation solution*. It provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams "build \[their software\] once, \[and\] run \[it\] anywhere". Docker works in much the same way, it provides a virtual environment - called a *container* - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of **any** software (more, or less - there are, of course, limitations to all solutions 😙). From simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution, which you can deploy to any environment that's also running Docker, or share with others. Sounds pretty good right? Modern DevOps thinks so - so much so that containerisation solutions such as Docker are **the** ubiquitous gold-standard for implementing DevOps automation solutions. If you've not encountered Docker before, then you'll undoubtably come across it soon enough - it's well worth investing some time into building a strong understanding of containerisation.
 :::
 
 ### Install
@@ -31,21 +31,21 @@ If you've not got a version of Docker running locally you'll need to install it.
 docker run hello-world
 ```
 
-The previous command should run a container, called `hello-world:latest`, that prints - amongst other things - `Hello from Docker!` to the console.
+The previous command should run a container that prints - amongst other things - `Hello from Docker!` to the console.
 
 ### Declaring container configuration
 
-We use Docker to both *run* and *build* containers (usually in the reverse order). When we *run* a container Docker searches for a pre-built Docker *image* - fetching it from a well known place like [DockerHub](https://hub.docker.com/) if it doesn't exist locally. A Docker image typically declares a program, along with all its dependencies, to be executed by the Docker Daemon within a container. Images are *built* by providing Docker a set of instructions which we normally author as a [*DockerFile*](https://docs.docker.com/engine/reference/builder/).
+We use Docker to both *run* and *build* containers (usually in the reverse order). When we *run* a container Docker searches for a pre-built Docker *image* - fetching it from a well known place like [DockerHub](https://hub.docker.com/) if it doesn't exist locally. A Docker image typically declares a program, along with all its dependencies, to be executed by the Docker Daemon within a container; and these images are *built* by providing Docker a set of instructions which we normally author as a [*DockerFile*](https://docs.docker.com/engine/reference/builder/).
 
-We'll need to provide a Dockerfile for each of the components we want to containerise - and to be able to verify that our Docker configuration locally we'll also need to run a PostgreSQL image (though we won't need to deploy this to Render, we'll use Render's managed database service instead).
+We'll need to provide a Dockerfile for each of the components we want to containerise - and to be able to verify our Docker configuration locally we'll also need to run a PostgreSQL image (though we won't need to deploy this to Render, we'll use Render's managed database service instead).
 
-Before we can begin creating our images and verifying them locally we need to ensure they can communicate, to do this we should run them on the *same* Docker *network*. Create a simple bridged network called `swen90007-react-example`.
+Before we can begin creating our images and verifying them locally we need to ensure they can communicate, to do this we should run them on the **same** Docker *network*. Create a simple bridged network called `swen90007-react-example`.
 
 ```shell
 docker network create -d bridge swen90007-react-example
 ```
 
-The first component to get working with Docker is the PostgreSQL database. Run the following command to pull, and run, a pre-build PostgreSQL image available DockerHub:
+The first component to get working with Docker is the PostgreSQL database. Run the following command to run a pre-build PostgreSQL image available on DockerHub:
 
 ```shell
 docker run --network=swen90007-react-example -e POSTGRES_DB=swen90007_react_example -e POSTGRES_USER=swen90007_react_example_owner -e POSTGRES_PASSWORD=password --name database -dti -p 5433:5432 postgres:13
@@ -57,7 +57,7 @@ We'll need to run our database initialisation scripts against this containerised
 
 Then load and execute both `api/db/init.sql` and `api/db/load.sql` using pgAdmin's Query Tool.
 
-Now that we have PostgreSQL containerised and initialised we can begin preparing a containerised version of our JavaEE Webapp. The following is a Dockerfile that will build the JavaEE Webapp API. We'll version control this Dockerfile with the source code for API, save it as `api/Dockerfile`.
+Now that we have PostgreSQL containerised and properly initialised we can begin preparing a containerised version of our JavaEE Webapp. The following is a Dockerfile that will build the JavaEE Webapp API. We'll version control this Dockerfile with the source code for API, save it as `api/Dockerfile`.
 
 ```dockerfile
 # build stage
@@ -74,10 +74,10 @@ FROM tomcat:10.0.27-jre17
 COPY --from=build /app/target/react-example-api.war $CATALINA_HOME/webapps/
 ```
 
-The purpose of this primer is not to teach you how to write Dockerfiles - however, there are few key aspects worth highlighting here:
+The purpose of this primer is not to teach you how to write Dockerfiles - however, there are a few key aspects worth highlighting here:
 
 - we are using a *multi-stage build* to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the JavaEe Webapp will be served.
-- Instead of having to figure out how to install Tomcat into a base *scratch* Docker image, we'll make use of all the hard work smart people have put into preparing the `tomcat:10.0.27-jre17` base image - and save ourselves a bunch of grief in the process.
+- instead of having to figure out how to install Tomcat into a base *scratch* Docker image, we'll make use of all the hard work smart people have put into preparing the `tomcat:10.0.27-jre17` base image - and save ourselves a bunch of grief in the process.
 
 Open a command terminal in the `/api` directory and build an image from the Dockerfile above.
 
@@ -104,7 +104,7 @@ Congratulations, you've containerised the JavaEE Webapp! And, can now move onto 
 
 ## Deploy to Render
 
-Renders is a Platform as a Service (PaaS) solution that enables developers to quickly deploy applications to its unified cloud. We'll be deploying all three of our services components to  Render, including a PostgreSQL database, the JavaEE Webapp containerised with Docker, and the simple React UI - all implemented in prior milestones.
+Render is a *Platform as a Service* (PaaS) solution that enables developers to quickly deploy applications to its unified cloud. We'll be deploying all three of our system's components to  Render, including a PostgreSQL database, the JavaEE Webapp containerised with Docker, and the React UI - all implemented in prior milestones.
 
 ### Prerequisites
 
@@ -139,13 +139,13 @@ Scroll down, leaving the default instance type configuration set to the Free tie
 
 ![Configure PostgreSQL Render continued](resources/milestone-1/create-db-config-continued.png)
 
-Render will begin provisioning a shiny new managed database for you - which can take a few minutes, so grab a snack :).
+Render will begin provisioning a shiny new managed database for you - which can take a few minutes, so grab a snack.
 
 Once Render has finished provisioning the database the status will change to *Available*.
 
 ![PostgreSQL Render is ready](resources/milestone-1/postgres-render-ready.png)
 
-Let's pause a moment to verify that we can both, access the database, and that the database is working as expected. As in previous milestones, we'll do this via pgAdmin. Once you've launched pgAdmin you'll need to configure it to access the Render database. All the information that you need, the hostname of the database container, database name, user and password can be found in the *Connections* section of our Render database dashboard. Make a note of your database's connection data, you'll need it shortly.
+Let's pause a moment to verify both: access the database, and that the database is working as expected. As in previous milestones, we'll do this via pgAdmin. Once you've launched pgAdmin you'll need to configure it to access the Render database. All the information that you need, the hostname of the database container, database name, user and password can be found in the *Connections* section of the Render database dashboard. Make a note of your database's connection data, you'll need it shortly.
 
 ![PostgreSQL connection details](resources/milestone-1/postgres-render-connections.png)
 
@@ -181,11 +181,11 @@ From the Render Dashboard select *New +* > *Web Service* to create a new web ser
 
 ![Create Render Web Service](resources/milestone-1/create-render-web-service.png)
 
-You'll need to follow the prompts to connect your Render account to your git repository in the subject's GitHub organisation. Select *Connect GitHub*, you may be prompted to then login to GitHub, follow the prompts to install the Render integration to your *personal* GitHub account and authorise Render to access the repository that you have pushed the latest project code to (see the official [Render docs](https://render.com/docs/github), should you get lost).
+You'll need to follow the prompts to connect your Render account to the GitHub repository (this should be the repository to which you have pushed the code for this primer's system). Select *Connect GitHub*, you may be prompted to then login to GitHub, follow the prompts to install the Render integration to your *personal* GitHub account and authorise Render to access the repository with the latest project code (see the official [Render docs](https://render.com/docs/github), should you get lost).
 
 ![Link GitHub](resources/milestone-1/link-github.png)
 
-Once these systems are properly integrated and authorised you can continue to create the web service by selecting *New +* > *Web Service* again, notice that your newly integrated repository will be appear, select *Connect* for the appropriate repository.
+Once these systems are properly integrated and authorised you can continue to create the web service by selecting *New +* > *Web Service* again, notice that your newly integrated repository will appear, select *Connect* for the appropriate repository.
 
 ![Connect repository](resources/milestone-1/connect-repository.png)
 
@@ -199,17 +199,17 @@ On the next page provide the following information:
 
 ![Configure Web Service](resources/milestone-1/configure-web-service-render.png)
 
-We're almost done, keep the Free tier selected, and then expand the environment variable configuration by selecting *Advanced*.
+We're almost done, keep the Free tier selected and then expand the environment variable configuration by selecting *Advanced*.
 
 ![Web Service Advanced](resources/milestone-1/web-service-tier.png)
 
-The web service will need access to the managed PostgreSQL database, which you created previously. The best way to provide this configuration is via environment variables. The *Advanced* section of the Web Service configuration has a section for entering environment variables, which Render will set when it starts the application. Configure Render to set a `JAVA_OPTS` environment variable with the value below, making sure you replace `<your-database-internal-hostname>`, `<your-database-name>`, `<your-database-username>` and `<your-database-password>` with appropriate values.
+The web service will need access to the managed PostgreSQL database that you created previously. The best way to provide this configuration is via environment variables. The *Advanced* section of the web service configuration has a section for entering environment variables, which Render will set when it starts the application. Configure Render to set a `JAVA_OPTS` environment variable with the value below, making sure you replace `<your-database-internal-hostname>`, `<your-database-name>`, `<your-database-username>` and `<your-database-password>` with values appropriate for connecting to your managed PostgreSQL database.
 
 `JAVA_OPTS`: `-Djdbc.uri=jdbc:postgresql://<your-database-internal-hostname>/<your-database-name> -Djdbc.username=<your-database-username> -Djdbc.password=<your-database-password> -Dcors.origins.ui=http://localhost:3000`
 
 ![Configure web service env](resources/milestone-1/configure-render-web-service-env.png)
 
-Select *Create Web Service* and you'll be redirected to the *Web Service dashboard*, where you can monitor the application logs. After a short wait your web service should be live. Let's verify it works as it should by executing a simple GET request. Open your preferred web browser and navigate to the *test* endpoint at `https://<your-web-service-hostname>/react-example-api/test` - replacing `<your-web-service-hostname>` with (you may have guessed it) the external host name of your web service, find it within your web service settings in the top banner, noting that it's almost certain that your hostname is different to the one shown below.
+Select *Create Web Service* and you'll be redirected to the *Web Service dashboard*, where you can monitor the application logs. Your web service should be live after a short wait. Once the service is active, let's verify it works as it should by executing a simple GET request. Open your preferred web browser and navigate to the *test* endpoint at `https://<your-web-service-hostname>/react-example-api/test` - replacing `<your-web-service-hostname>` with (you may have guessed it) the external hostname of your web service (find the hostname within your web service settings, in the top banner - noting that it's almost certain that your hostname is different to the one shown below).
 
 ![Verify web service](resources/milestone-1/verify-render-web-service.png)
 
@@ -221,7 +221,7 @@ From the Render Dashboard select *New +* > *Static Site* to create a new static 
 
 ![Create static site](resources/milestone-1/create-render-static-site.png)
 
-Just like the Web Service from the previous section, we'll deploy our UI directly from the project repository, select *Connect* to connect the appropriate project repository. On the next page provide the following values:
+Just like the web service from the previous section, we'll deploy our UI directly from the project repository, select *Connect* to connect the appropriate project repository. On the next page provide the following values:
 
 Name: `swen90007-react-example-ui`
 Branch: as with the web service, this should be the name of the branch to which you intend to push stable versions of your software, for most projects this is a branch called *main*.
@@ -245,7 +245,7 @@ If you inspect the network calls between the UI and API, you'll notice that the 
 
 ![Inspect error of static site](resources/milestone-1/inspect-error-static-site.png)
 
-The API is currently configured to only accept requests from `https://localhost:3000`, this configuration has been appropriate when developing locally but, of course, not for our deployment to Render. Now that we have a UI deployed - to an origin provided by Render - let's update our API's CORS configuration so that it will accept requests to submit new votes. The origins that the API will accept can be configured by setting the `cors.origins.ui` property. Open the dashboard for your web service and navigate to the *Environment* section, edit the value of the `JAVA_OPTS` environment variable to declare a `cors.origins.ui` value equal to the hostname of your UI, then select *Save Changes*.
+The API is currently configured to only accept requests from `https://localhost:3000`. This configuration has been appropriate when developing locally; but, of course, not for our deployment to Render. Now that we have a UI deployed - to an origin provided by Render - let's update our API's CORS configuration so that it will accept requests to submit new votes. The origins that the API will accept can be configured by setting the `cors.origins.ui` property. Open the dashboard for your web service and navigate to the *Environment* section, edit the value of the `JAVA_OPTS` environment variable to declare a `cors.origins.ui` value equal to the URL of your UI, then select *Save Changes*.
 
 ![Fix cors web service configuration](resources/milestone-1/fix-cors-web-service-configuration.png)
 
