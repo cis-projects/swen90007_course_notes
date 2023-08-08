@@ -627,8 +627,8 @@ Add the following dependency management configuration to your `pom.xml`, which r
 ```xml
 <dependencyManagement>  
   <dependencies>
-  <dependency>            
-    <groupId>org.springframework.security</groupId>  
+    <dependency>            
+      <groupId>org.springframework.security</groupId>  
       <artifactId>spring-security-bom</artifactId>  
       <version>6.0.1</version>  
       <type>pom</type>  
