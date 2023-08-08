@@ -245,11 +245,7 @@ Congratulations, you should now be able to run, locally, all of: a React SPA, a 
 
 ### Data layer
 
-Well start our integration effort from the bottom up, beginning with setting up a simple Data Layer that can serve dummy data to our API.
-
-To do this, we'll need to both: build out our schema by populating it with a few tables; and load some dummy data. It can be helpful to separate these two tasks, so we'll write two simple SQL scripts for each.
-
-We've already written the initialisation script `api/db/init.sql`; which, so far, only initialises the `app` schema. Let's extend that script to create a simple table - which will be just enough, for now, to verify integration between our Data Layer and the layers above.
+We'll start our integration effort from the bottom up, beginning with setting up a simple Data Layer that can serve dummy data to our API. To do this, we'll need to both: build out our schema by populating it with a few tables; and load some dummy data. It can be helpful to separate these two tasks, so we'll write two simple SQL scripts for each. We've already written the initialisation script `api/db/init.sql`; which, so far, only initialises the `app` schema. Let's extend that script to create a simple table - which will be just enough, for now, to verify integration between our Data Layer and the layers above.
 
 ```sql
 BEGIN;
