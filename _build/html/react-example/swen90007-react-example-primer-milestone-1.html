@@ -397,7 +397,7 @@ document.write(`
 <h1>Milestone 1: Deployment<a class="headerlink" href="#milestone-1-deployment" title="Permalink to this heading">#</a></h1>
 <p>By the end of this milestone we will have:</p>
 <ul class="simple">
-<li><p>the system (as implemented in <em>Milestone 1: Hello world</em>) containerised with Docker</p></li>
+<li><p>the system (as implemented in <em>Milestone 0: Hello world</em>) containerised with Docker</p></li>
 <li><p>the system deployed to, and running on, Render’s unified cloud</p></li>
 </ul>
 <div class="caution admonition">
@@ -456,7 +456,7 @@ document.write(`
 </div>
 <p>The purpose of this primer is not to teach you how to write Dockerfiles - however, there are a few key aspects worth highlighting here:</p>
 <ul class="simple">
-<li><p>we are using a <em>multi-stage build</em> to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the JavaEe Webapp will be served.</p></li>
+<li><p>we are using a <em>multi-stage build</em> to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the JavaEE Webapp will be served.</p></li>
 <li><p>instead of having to figure out how to install Tomcat into a base <em>scratch</em> Docker image, we’ll make use of all the hard work smart people have put into preparing the <code class="docutils literal notranslate"><span class="pre">tomcat:10.0.27-jre17</span></code> base image - and save ourselves a bunch of grief in the process.</p></li>
 </ul>
 <p>Open a command terminal in the <code class="docutils literal notranslate"><span class="pre">/api</span></code> directory and build an image from the Dockerfile above.</p>

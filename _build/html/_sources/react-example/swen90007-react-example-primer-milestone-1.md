@@ -2,7 +2,7 @@
 
 By the end of this milestone we will have:
 
-- the system (as implemented in *Milestone 1: Hello world*) containerised with Docker
+- the system (as implemented in *Milestone 0: Hello world*) containerised with Docker
 - the system deployed to, and running on, Render's unified cloud
 
 :::{admonition} Skipping milestones
@@ -76,7 +76,7 @@ COPY --from=build /app/target/react-example-api.war $CATALINA_HOME/webapps/
 
 The purpose of this primer is not to teach you how to write Dockerfiles - however, there are a few key aspects worth highlighting here:
 
-- we are using a *multi-stage build* to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the JavaEe Webapp will be served.
+- we are using a *multi-stage build* to first compile our JavaEE Webapp with Maven, and then declare the Tomcat environment from which the JavaEE Webapp will be served.
 - instead of having to figure out how to install Tomcat into a base *scratch* Docker image, we'll make use of all the hard work smart people have put into preparing the `tomcat:10.0.27-jre17` base image - and save ourselves a bunch of grief in the process.
 
 Open a command terminal in the `/api` directory and build an image from the Dockerfile above.
