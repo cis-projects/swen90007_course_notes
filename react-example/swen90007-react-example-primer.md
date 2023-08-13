@@ -4,7 +4,7 @@ This primer demonstrates how to build a 2 tier web application utilising Java Se
 
 ## Using this primer
 
-This primer has been designed to take you from *zero* to a *fully functioning system*; this includes installing the required tools and numerous code snippets to build the system piece by piece. If you're not familiar with the various tools used in this primer, you may like to follow it from start to finish. However, if you are familiar with many of the tools you may like to simply reverse engineer (with reference to this primer) the final code base, check it out [here](https://github.com/SWEN900072023/react-example-primer).
+This primer has been designed to take you from *zero* to a *fully functioning system*; this includes installing the required tools and numerous code snippets to build the system piece by piece. If you're not familiar with the various tools used in this primer, you may like to follow it from start to finish. However, if you are familiar with many of the tools you may like to simply reverse engineer (with reference to this primer) the final code base, check it out [here](https://github.com/cis-projects/swen90007-project-templates/tree/main/react-example).
 
 ## Requirements
 
