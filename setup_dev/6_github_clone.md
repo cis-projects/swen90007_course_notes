@@ -1,4 +1,4 @@
-# Step 5: Clone GitHub Repository
+# Step 6: Clone GitHub Repository
 
 At this point, the repository should have been created and can now be cloned by all team members.
 You now need to clone the repository to your machine and set up TomCat to run the artifacts.
@@ -18,21 +18,10 @@ You may be prompted if you want IntelliJ to trust this Maven project, select Tru
 
 ![](resources/6_github_clone_3.png)
 
-In the terminal run `mvn clean package`. This will compile the code and package it into a jar. Upon successful build, you
-can see that a target folder is created and there are two jars present.
+In the terminal run `mvn clean install`. This will compile the code and package it into a war. Upon successful build, you
+can see that a target folder is created with a war file.
 
-![](resources/4_create_project_7_jars.png)
-
-In the terminal run below command (assuming that you are in the code directory jsp-demo). Note that we are running the jar
-with the dependencies.
-```
-java -jar target/jsp-demo-jar-with-dependencies.jar 
-```
-![](resources/4_create_project_8_tomcat.png)
-
-Alternatively, you can run the main method within the Intellij to avoid running `mvn clean package` or `java -jar` commands.
-
-![](resources/4_create_project_9_main.png)
+Set up the tomcat in your local environment mentioned in [Step 4](4_create_project.md) to deploy your application locally. 
 
 Once you can see that your server is running on port 8080 you can view this in the browser. The project should be
 deployed to localhost:
@@ -41,5 +30,5 @@ deployed to localhost:
 
 
 ```{admonition} What's Next
-Please proceed to [Step 6: Connect IntelliJ Project to PostgreSQL](7_connect_intellij_postgresql.md).
+Please proceed to [Step 7: Connect IntelliJ Project to PostgreSQL](7_connect_intellij_postgresql.md).
 ```

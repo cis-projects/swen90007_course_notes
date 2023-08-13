@@ -1,4 +1,4 @@
-# Step 2: Setup PostgreSQL
+# Step 3: Setup PostgreSQL
 
 ## Download PostgreSQL
 
@@ -72,5 +72,5 @@ Enter a name for the database:
 You have created a local database that you can use while developing your project.
 
 ```{admonition} What's Next
-Please proceed to [Step 3: Create Project in IntelliJ](4_create_project.md).
+Please proceed to [Step 4: Create Project in IntelliJ](4_create_project.md).
 ```

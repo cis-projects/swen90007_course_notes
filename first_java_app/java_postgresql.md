@@ -140,10 +140,10 @@ executing until the ````ResultSet```` reaches the final row and returns FALSE.
 
 ## Closing a Connection
 
-It is very important that you close resources after using them, especially as the dev version of Heroku only 
+It is very important that you close resources after using them, especially as the dev version of Render only 
 has 10 threads (processes) it can use to create connections to the database. I.e., if you create more than 10 
 connections to the database without closing them, your application will freeze and hang indefinitely 
-(until Heroku/PostgreSQL decides to terminate the already executed threads - this could be minutes, hours, 
+(until Render/PostgreSQL decides to terminate the already executed threads - this could be minutes, hours, 
 days, who knows).
 
 To do this, after each query to the database, add a ````finally```` clause (using the same example as above):

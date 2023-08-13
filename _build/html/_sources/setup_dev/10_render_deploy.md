@@ -1,4 +1,4 @@
-# Step 8: Deploy to Render
+# Step 9: Deploy to Render
 
 Render is a cloud provider where students can deploy their applications for free. You can deploy different kind of applications 
 
@@ -85,7 +85,8 @@ You can see logs similar to deployment on your local. On the top, you can also s
 
 ![](resources/10_deploy_render_12_deploying.png)
 
-Open the url in the browser and you can see your application is deployed successfully.
+Open the url in the browser and you can see your application is deployed successfully. Don't forget to add the war name
+(like 'jsp-demo' in our case) in the url.
 
 
 ![](resources/10_deploy_render_13_web.png)

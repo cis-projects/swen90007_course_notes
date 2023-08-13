@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Step 3: Create Project in IntelliJ &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+    <title>Step 4: Create Project in IntelliJ &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Step 5: Setup GitHub Repository" href="5_github_setup.html" />
+    <link rel="prev" title="Step 3: Setup PostgreSQL" href="3_postgresql_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,6 +166,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_render_deploy.html">Step 9: Deploy to Render</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -351,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Step 3: Create Project in IntelliJ</h1>
+    <h1>Step 4: Create Project in IntelliJ</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -362,7 +384,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-java-project">Create New Java Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-embedded-tomcat">Run with Embedded Tomcat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-tomcat-10-server">Run with Tomcat 10 Server</a></li>
 </ul>
             </nav>
         </div>
@@ -374,8 +396,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="step-3-create-project-in-intellij">
-<h1>Step 3: Create Project in IntelliJ<a class="headerlink" href="#step-3-create-project-in-intellij" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="step-4-create-project-in-intellij">
+<h1>Step 4: Create Project in IntelliJ<a class="headerlink" href="#step-4-create-project-in-intellij" title="Permalink to this heading">#</a></h1>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>First confirm you have a Java Virtual Machine (JVM) installed on your machine. For Macs, the JVM can normally be found
@@ -404,167 +426,34 @@ a Servelet and a pom.xml. Maven uses pom.xml to manage dependencies.</p>
 <p><img alt="" src="../_images/4_create_project_4_pages.png" /></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Once IntelliJ has finished creating the project (this could take a minute or more), you need to set up Embedded Tomcat
-Code to run the server and see JSP in the browser.</p>
-</div>
-<p>To do this, open the pom.xml file and add following dependencies to dependencies block. These dependencies help to run
-the project as a standalone java project (run as a jar) with embedded tomcat container. There is no need to setup an external Tomcat Server.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
-<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.embed<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>tomcat-embed-core<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>${tomcat.version}<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.embed<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>tomcat-embed-jasper<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>${tomcat.version}<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.tomcat<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>tomcat-jasper<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>${tomcat.version}<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.tomcat<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>tomcat-jasper-el<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>${tomcat.version}<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.tomcat<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>tomcat-jsp-api<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>${tomcat.version}<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></div>
-</div>
-<p>Under the properties section add the below property</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tomcat.version&gt;</span>10.1.11<span class="nt">&lt;/tomcat.version&gt;</span>
-</pre></div>
-</div>
-<p>Change the packaging of your application from WAR to JAR</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-</pre></div>
-</div>
-<p>Since we are trying to run an embedded tomcat container as a jar, we would like to package everything in one single jar
-(also known as fat jar or uber jar). To do this, replace the build tag under pom.xml with below</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
-<span class="w">    </span><span class="nt">&lt;resources&gt;</span>
-<span class="w">        </span><span class="nt">&lt;resource&gt;</span>
-<span class="w">            </span><span class="nt">&lt;directory&gt;</span>src/main/webapp<span class="nt">&lt;/directory&gt;</span>
-<span class="w">            </span><span class="nt">&lt;targetPath&gt;</span>META-INF/resources<span class="nt">&lt;/targetPath&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/resource&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/resources&gt;</span>
-<span class="w">    </span><span class="nt">&lt;plugins&gt;</span>
-<span class="w">        </span><span class="nt">&lt;plugin&gt;</span>
-<span class="w">            </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">            </span><span class="nt">&lt;artifactId&gt;</span>maven-assembly-plugin<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">            </span><span class="nt">&lt;configuration&gt;</span>
-<span class="w">                </span><span class="nt">&lt;descriptorRefs&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;descriptorRef&gt;</span>jar-with-dependencies<span class="nt">&lt;/descriptorRef&gt;</span>
-<span class="w">                </span><span class="nt">&lt;/descriptorRefs&gt;</span>
-<span class="w">                </span><span class="nt">&lt;finalName&gt;</span>jsp-demo<span class="nt">&lt;/finalName&gt;</span>
-<span class="w">                </span><span class="nt">&lt;archive&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;manifest&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;mainClass&gt;</span>com.unimelb.swen90007.Main<span class="nt">&lt;/mainClass&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;/manifest&gt;</span>
-<span class="w">                </span><span class="nt">&lt;/archive&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/configuration&gt;</span>
-<span class="w">            </span><span class="nt">&lt;executions&gt;</span>
-<span class="w">                </span><span class="nt">&lt;execution&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;goals&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;goal&gt;</span>single<span class="nt">&lt;/goal&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;/goals&gt;</span>
-<span class="w">                </span><span class="nt">&lt;/execution&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/executions&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/plugins&gt;</span>
-<span class="nt">&lt;/build&gt;</span>
-</pre></div>
-</div>
-<p>The descriptorRef jar-with-dependencies helps to create a fat-jar with all the dependencies in-built.
-It is important that you mention the correct path to main Class. This is a fully descriptive classname along with it’s
-package. If you rename your package to something else, please do not forget to update the tag under <code class="docutils literal notranslate"><span class="pre">manifest</span></code></p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;mainClass&gt;</span>com.unimelb.swen90007.Main<span class="nt">&lt;/mainClass&gt;</span>
-</pre></div>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>It is important that you place your jsp files in src/main/webapp and while packaging a jar, it is placed under
-META-INF/resources. This helps the embedded tomcat to look for your jsp files at the right place and render those pages.</p>
+<p>Once IntelliJ has finished creating the project (this could take a minute or more), you need to set up Tomcat
+Server to deploy the code on the server and see JSP in the browser.</p>
 </div>
 </section>
-<section id="run-with-embedded-tomcat">
-<h2>Run with Embedded Tomcat<a class="headerlink" href="#run-with-embedded-tomcat" title="Permalink to this heading">#</a></h2>
-<p>Under the project tab, create a new file named Main under the package <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007</span></code>.
-<img alt="" src="../_images/4_create_project_5_main.png" /></p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If you face problem creating it under the package swen90007, create it under package jspdemo and then change the package
-name in the file (remove jspdemo) and move the file to the right package</p>
-</div>
-<p><img alt="" src="../_images/4_create_project_6_movepkg.png" /></p>
-<p>In the file add below code</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007</span><span class="p">;</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.WebResourceRoot</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.core.StandardContext</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.startup.Tomcat</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.webresources.DirResourceSet</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.catalina.webresources.StandardRoot</span><span class="p">;</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
-
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">webappDirLocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;target/classes/META-INF/resources&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Tomcat</span><span class="w"> </span><span class="n">tomcat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Tomcat</span><span class="p">();</span>
-
-<span class="w">        </span><span class="c1">//The port that we should run on can be set into an environment variable</span>
-<span class="w">        </span><span class="c1">//Look for that variable and default to 8080 if it isn&#39;t there.</span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">webPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;PORT&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">webPort</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">webPort</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">webPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;8080&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="n">tomcat</span><span class="p">.</span><span class="na">setPort</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">webPort</span><span class="p">));</span>
-<span class="w">        </span>
-<span class="w">        </span><span class="n">StandardContext</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">StandardContext</span><span class="p">)</span><span class="w"> </span><span class="n">tomcat</span><span class="p">.</span><span class="na">addWebapp</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">webappDirLocation</span><span class="p">).</span><span class="na">getAbsolutePath</span><span class="p">());</span>
-<span class="w">        </span><span class="c1">// Declare an alternative location for your &quot;WEB-INF/classes&quot; dir</span>
-<span class="w">        </span><span class="c1">// Servlet 3.0 annotation will work</span>
-<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">additionWebInfClasses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="n">WebResourceRoot</span><span class="w"> </span><span class="n">resources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StandardRoot</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
-<span class="w">        </span><span class="n">resources</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setAddWebinfClassesResources</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-<span class="w">        </span><span class="n">resources</span><span class="p">.</span><span class="na">addPreResources</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DirResourceSet</span><span class="p">(</span><span class="n">resources</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/WEB-INF/classes&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">additionWebInfClasses</span><span class="p">.</span><span class="na">getAbsolutePath</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">));</span>
-<span class="w">        </span><span class="n">ctx</span><span class="p">.</span><span class="na">setResources</span><span class="p">(</span><span class="n">resources</span><span class="p">);</span>
-<span class="w">        </span>
-<span class="w">        </span><span class="n">tomcat</span><span class="p">.</span><span class="na">getConnector</span><span class="p">();</span>
-<span class="w">        </span><span class="n">tomcat</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
-<span class="w">        </span><span class="n">tomcat</span><span class="p">.</span><span class="na">getServer</span><span class="p">().</span><span class="na">await</span><span class="p">();</span>
-
-
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>In the terminal run <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">package</span></code>. This will compile the code and package it into a jar. Upon successful build, you
-can see that a target folder is created and there are two jars present.</p>
-<p><img alt="" src="../_images/4_create_project_7_jars.png" /></p>
-<p>In the terminal run below command (assuming that you are in the code directory jsp-demo). Note that we are running the jar
-with the dependencies.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">target</span><span class="o">/</span><span class="n">jsp</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">jar</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">dependencies</span><span class="o">.</span><span class="n">jar</span> 
-</pre></div>
-</div>
-<p><img alt="" src="../_images/4_create_project_8_tomcat.png" /></p>
-<p>Alternatively, you can run the main method within the Intellij to avoid running <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">package</span></code> or <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span></code> commands.</p>
-<p><img alt="" src="../_images/4_create_project_9_main.png" /></p>
+<section id="run-with-tomcat-10-server">
+<h2>Run with Tomcat 10 Server<a class="headerlink" href="#run-with-tomcat-10-server" title="Permalink to this heading">#</a></h2>
+<p>In the top right corner of intellij you can find a dropdown where you can add/edit the configurations.
+<img alt="" src="../_images/4_add_new_config.png" /></p>
+<p><img alt="" src="../_images/4_add_config.png" /></p>
+<p>After you click on add configurations, a popup will open where you can choose Tomcat local as your server.
+<img alt="" src="../_images/4_add_tomcat_config.png" /></p>
+<p>Once you select the Tomcat local, it will ask you to select the path of the Tomcat folder extracted from gzip. Also set the jre path to jdk 17/18.
+<img alt="" src="../_images/4_add_tomcat_path.png" /></p>
+<p>Once done, go to the Deployment tab, click on + sign to add an artifact for the server and select the name of the war with exploded version</p>
+<p><img alt="" src="../_images/4_add_war.png" /></p>
+<p>Also set the application context path as / to run your url has localhost:8080/. If you want to name your application say as
+music_events you can set this application context as music_events and your web url will look like localhost:8080/music_event/hello-servlet.
+<img alt="" src="../_images/4_set_path.png" /></p>
+<p>Once done click the run button in the top right corner. This will start the tomcat server.
+<img alt="" src="../_images/4_run_tomcat.png" /></p>
+<p>Once the tomcat has started successfully you can see the tomcat server logs at the bottom window.</p>
+<p><img alt="" src="../_images/4_tomcat_started.png" /></p>
 <p>Once you can see that your server is running on port 8080 you can view this in the browser. The project should be
 deployed to localhost:</p>
 <p><img alt="" src="../_images/4_create_project_11.png" /></p>
 <div class="admonition-what-s-next admonition">
 <p class="admonition-title">What’s Next</p>
-<p>Please proceed to <a class="reference internal" href="5_github_setup.html"><span class="doc std std-doc">Step 4: Setup GitHub Repository</span></a>.</p>
+<p>Please proceed to <a class="reference internal" href="5_github_setup.html"><span class="doc std std-doc">Step 5: Setup GitHub Repository</span></a>.</p>
 </div>
 </section>
 </section>
@@ -600,6 +489,24 @@ deployed to localhost:</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="3_postgresql_setup.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Step 3: Setup PostgreSQL</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="5_github_setup.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Step 5: Setup GitHub Repository</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -619,7 +526,7 @@ deployed to localhost:</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-java-project">Create New Java Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-embedded-tomcat">Run with Embedded Tomcat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-tomcat-10-server">Run with Tomcat 10 Server</a></li>
 </ul>
   </nav></div>
 

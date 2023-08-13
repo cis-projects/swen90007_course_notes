@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Step 8: Deploy to Render &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+    <title>Step 9: Deploy to Render &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="React Example Project Primer" href="../react-example/swen90007-react-example-primer.html" />
+    <link rel="prev" title="Step 8: Setup Docker" href="9_setup_docker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,6 +166,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 9: Deploy to Render</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -351,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Step 8: Deploy to Render</h1>
+    <h1>Step 9: Deploy to Render</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,8 +396,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="step-8-deploy-to-render">
-<h1>Step 8: Deploy to Render<a class="headerlink" href="#step-8-deploy-to-render" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="step-9-deploy-to-render">
+<h1>Step 9: Deploy to Render<a class="headerlink" href="#step-9-deploy-to-render" title="Permalink to this heading">#</a></h1>
 <p>Render is a cloud provider where students can deploy their applications for free. You can deploy different kind of applications</p>
 <ul class="simple">
 <li><p>Node</p></li>
@@ -429,7 +451,8 @@ not accessed it will scale down to 0, but it will redeploy if someone tries to a
 <p>Once you go ahead and create the webservice, it will try to deploy the docker file and start the embedded tomcat server.
 You can see logs similar to deployment on your local. On the top, you can also see the url for the deployed web application.</p>
 <p><img alt="" src="../_images/10_deploy_render_12_deploying.png" /></p>
-<p>Open the url in the browser and you can see your application is deployed successfully.</p>
+<p>Open the url in the browser and you can see your application is deployed successfully. Don’t forget to add the war name
+(like ‘jsp-demo’ in our case) in the url.</p>
 <p><img alt="" src="../_images/10_deploy_render_13_web.png" /></p>
 </section>
 </section>
@@ -465,6 +488,24 @@ You can see logs similar to deployment on your local. On the top, you can also s
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="9_setup_docker.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Step 8: Setup Docker</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../react-example/swen90007-react-example-primer.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">React Example Project Primer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

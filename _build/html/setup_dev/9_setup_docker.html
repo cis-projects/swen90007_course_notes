@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Step 7: Setup Docker &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+    <title>Step 8: Setup Docker &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Step 9: Deploy to Render" href="10_render_deploy.html" />
+    <link rel="prev" title="Step 7: Connect IntelliJ Project to Local PostgreSQL Instance" href="7_connect_intellij_postgresql.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,6 +166,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_render_deploy.html">Step 9: Deploy to Render</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -351,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Step 7: Setup Docker</h1>
+    <h1>Step 8: Setup Docker</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,8 +397,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="step-7-setup-docker">
-<h1>Step 7: Setup Docker<a class="headerlink" href="#step-7-setup-docker" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="step-8-setup-docker">
+<h1>Step 8: Setup Docker<a class="headerlink" href="#step-8-setup-docker" title="Permalink to this heading">#</a></h1>
 <section id="setup-docker-on-local-environment">
 <h2>Setup Docker on Local Environment<a class="headerlink" href="#setup-docker-on-local-environment" title="Permalink to this heading">#</a></h2>
 <p>Docker provides a container to run your applications isolated from the other processes running on host machine.</p>
@@ -419,29 +441,23 @@ keep the name as is. Add the following content to your Dockerfile.</p>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
 
 <span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-<span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>package
+<span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>install
 
 <span class="c"># run stage</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">openjdk:17-jdk-slim</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">tomcat:10.0.27-jre17</span>
 
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-
-<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target<span class="w">  </span>target
-
-<span class="k">EXPOSE</span><span class="w"> </span><span class="s">8080</span>
-<span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-jar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;target/jsp-demo-jar-with-dependencies.jar&quot;</span><span class="p">]</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/demo-1.0-SNAPSHOT.war<span class="w"> </span><span class="nv">$CATALINA_HOME</span>/webapps/jsp-demo.war
 </pre></div>
 </div>
 <p>This file performs following actions:</p>
 <ol class="arabic simple">
-<li><p>Pulls a maven image from DockerHub that contains all your configuration required to build your applicaitons</p></li>
+<li><p>Pulls a maven image from DockerHub that contains all your configuration required to build your applications</p></li>
 <li><p>Sets a working director named app</p></li>
 <li><p>COPY everything from your current path (.) to the Docker working director (.)</p></li>
 <li><p>Compiles and packages your code, similar to what you do on your local environment that creates a target folder.</p></li>
-<li><p>Pulls a Java Image from DockerHub to provide java runtime to run your application</p></li>
-<li><p>Copy the target folder from your build stage (step 4) to the work directory</p></li>
+<li><p>Pulls a Tomcat Image from DockerHub to provide java runtime and tomcat server to run your application</p></li>
+<li><p>Copy the war from the target folder from your build stage (step 4) to the webapps  directory of tomcat server</p></li>
 <li><p>Expose port 8080, when your application start, the embedded tomcat container sets port 8080.</p></li>
-<li><p>Run the jar using java -jar command as previously seen.</p></li>
 </ol>
 <p>To build this docker image on your local machine, the docker application must be running. Else you will face an error.
 To build the docker image, run below command</p>
@@ -449,7 +465,7 @@ To build the docker image, run below command</p>
 </pre></div>
 </div>
 <p>The option -t defines a tag for your docker image, in this case named as jsp-demo. The . in the end of the command signifies
-where the Dockerfile can be found. Thus you need to run this command from the folder where you have Dockerfile.
+where the Dockerfile can be found. Thus, you need to run this command from the folder where you have Dockerfile.
 Once the image is built you can see this in your dashboard as well.</p>
 <p><img alt="" src="../_images/9_setup_docker_2_image.png" /></p>
 <p>To run the docker image on your local machine run below command -</p>
@@ -462,9 +478,14 @@ docker container is listening to handle the requests.</p>
 <p>Alternatively, you can run the docker container from the dashboard as well. Also you can set any port of your choice
 and not just 8090
 <img alt="" src="../_images/9_setup_docker_3_run.png" /></p>
-<p>Once the container is running then if you type <a class="reference external" href="http://localhost:8090/">http://localhost:8090/</a> on your web browser,
+<p>Once the container is running then if you type <a class="reference external" href="http://localhost:8090/jsp-demo">http://localhost:8090/jsp-demo</a> on your web browser,
 you should be able to view your application deployed.</p>
 <p><img alt="" src="../_images/9_setup_docker_4_8090.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note that with docker container and tomcat server, the application context is set to the name of the war. Thus, instead of
+<a class="reference external" href="http://localhost:8090/">http://localhost:8090/</a> you may have to use <a class="reference external" href="http://localhost:8090/jsp-demo">http://localhost:8090/jsp-demo</a></p>
+</div>
 </section>
 <section id="pushing-docker-image-to-dockerhub">
 <h2>Pushing Docker Image to DockerHub<a class="headerlink" href="#pushing-docker-image-to-dockerhub" title="Permalink to this heading">#</a></h2>
@@ -486,7 +507,7 @@ you should be able to view your application deployed.</p>
 <p><img alt="" src="../_images/9_setup_docker_9_tag.png" /></p>
 <div class="admonition-what-s-next admonition">
 <p class="admonition-title">What’s Next</p>
-<p>Please proceed to <a class="reference internal" href="10_render_deploy.html"><span class="doc std std-doc">Step 8: Deploy to Render</span></a>.</p>
+<p>Please proceed to <a class="reference internal" href="10_render_deploy.html"><span class="doc std std-doc">Step 9: Deploy to Render</span></a>.</p>
 </div>
 </section>
 </section>
@@ -522,6 +543,24 @@ you should be able to view your application deployed.</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="7_connect_intellij_postgresql.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_render_deploy.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Step 9: Deploy to Render</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

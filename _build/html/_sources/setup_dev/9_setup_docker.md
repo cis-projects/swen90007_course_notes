@@ -1,4 +1,4 @@
-# Step 7: Setup Docker 
+# Step 8: Setup Docker 
 
 ## Setup Docker on Local Environment
 
@@ -59,29 +59,24 @@ FROM maven:3.9-amazoncorretto-17 AS build
 WORKDIR /app
 
 COPY . .
-RUN mvn clean package
+RUN mvn clean install
 
 # run stage
-FROM openjdk:17-jdk-slim
+FROM tomcat:10.0.27-jre17
 
-WORKDIR /app
-
-COPY --from=build /app/target  target
-
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "target/jsp-demo-jar-with-dependencies.jar"]
+COPY --from=build /app/target/demo-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/jsp-demo.war
 ```
 
 This file performs following actions: 
 
-1. Pulls a maven image from DockerHub that contains all your configuration required to build your applicaitons
+1. Pulls a maven image from DockerHub that contains all your configuration required to build your applications
 2. Sets a working director named app
 3. COPY everything from your current path (.) to the Docker working director (.)
 4. Compiles and packages your code, similar to what you do on your local environment that creates a target folder.
-5. Pulls a Java Image from DockerHub to provide java runtime to run your application
-6. Copy the target folder from your build stage (step 4) to the work directory
+5. Pulls a Tomcat Image from DockerHub to provide java runtime and tomcat server to run your application
+6. Copy the war from the target folder from your build stage (step 4) to the webapps  directory of tomcat server
 7. Expose port 8080, when your application start, the embedded tomcat container sets port 8080.
-8. Run the jar using java -jar command as previously seen.
+
 
 To build this docker image on your local machine, the docker application must be running. Else you will face an error.
 To build the docker image, run below command 
@@ -91,7 +86,7 @@ docker build -t jsp-demo .
 ```
 
 The option -t defines a tag for your docker image, in this case named as jsp-demo. The . in the end of the command signifies
-where the Dockerfile can be found. Thus you need to run this command from the folder where you have Dockerfile. 
+where the Dockerfile can be found. Thus, you need to run this command from the folder where you have Dockerfile. 
 Once the image is built you can see this in your dashboard as well. 
 
 ![](resources/9_setup_docker_2_image.png)
@@ -108,11 +103,15 @@ Alternatively, you can run the docker container from the dashboard as well. Also
 and not just 8090
 ![](resources/9_setup_docker_3_run.png)
 
-Once the container is running then if you type http://localhost:8090/ on your web browser,
+Once the container is running then if you type http://localhost:8090/jsp-demo on your web browser,
 you should be able to view your application deployed.
 
 ![](resources/9_setup_docker_4_8090.png)
 
+```{important}
+Note that with docker container and tomcat server, the application context is set to the name of the war. Thus, instead of 
+http://localhost:8090/ you may have to use http://localhost:8090/jsp-demo
+```
 
 ## Pushing Docker Image to DockerHub
 
@@ -141,6 +140,6 @@ You can verify in DockerHub that your image has been successfully pushed.
 
 
 ```{admonition} What's Next
-Please proceed to [Step 8: Deploy to Render](10_render_deploy.md).
+Please proceed to [Step 9: Deploy to Render](10_render_deploy.md).
 ```
 
