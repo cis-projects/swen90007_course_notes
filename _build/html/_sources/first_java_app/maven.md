@@ -341,7 +341,7 @@ is used to house all output of the build.
 ````
 
 The ````target/<artifactId>-<version>-SNAPSHOT.war```` file created contains all the necessary resources to run 
-the project (as discussed above). When you execute run in TomCat (or push to Heroku), the WAR file is exploded.
+the project (as discussed above). When you execute run in TomCat (or push to Render), the WAR file is exploded.
 
 ```{admonition} Extra Resources
 1. [What is Maven](https://maven.apache.org/what-is-maven.html)

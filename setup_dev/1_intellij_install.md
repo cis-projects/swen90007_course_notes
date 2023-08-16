@@ -27,7 +27,7 @@ java -version
 
 If not:
 ```{admonition} Resource
-[Download JDK 11](https://www.oracle.com/au/java/technologies/javase/jdk11-archive-downloads.html).
+[Download JDK 17](https://www.oracle.com/au/java/technologies/downloads/#java17).
 ```
 
 ```{admonition} What's Next

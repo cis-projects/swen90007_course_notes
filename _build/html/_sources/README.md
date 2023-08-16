@@ -22,3 +22,26 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## Install
+
+create and activate virtual env
+
+```shell
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+install dependencies
+
+
+```shell
+python -m pip install -r requirements.txt
+```
+
+## Build
+
+```shell
+jb build .
+```
+

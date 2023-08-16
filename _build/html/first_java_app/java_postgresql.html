@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Maven" href="maven.html" />
+    <link rel="prev" title="Create Your First Web Application" href="first_web_app.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,6 +166,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsp_servlets.html">JSPs and Servlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_web_app.html">Create Your First Web Application</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Java and PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maven.html">Introduction to Maven</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
@@ -522,10 +532,10 @@ executing until the <code class="docutils literal notranslate"><span class="pre"
 </section>
 <section id="closing-a-connection">
 <h2>Closing a Connection<a class="headerlink" href="#closing-a-connection" title="Permalink to this heading">#</a></h2>
-<p>It is very important that you close resources after using them, especially as the dev version of Heroku only
+<p>It is very important that you close resources after using them, especially as the dev version of Render only
 has 10 threads (processes) it can use to create connections to the database. I.e., if you create more than 10
 connections to the database without closing them, your application will freeze and hang indefinitely
-(until Heroku/PostgreSQL decides to terminate the already executed threads - this could be minutes, hours,
+(until Render/PostgreSQL decides to terminate the already executed threads - this could be minutes, hours,
 days, who knows).</p>
 <p>To do this, after each query to the database, add a <code class="docutils literal notranslate"><span class="pre">finally</span></code> clause (using the same example as above):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
@@ -597,6 +607,24 @@ days, who knows).</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="first_web_app.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Create Your First Web Application</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="maven.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Maven</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

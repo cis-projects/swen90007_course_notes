@@ -5,7 +5,7 @@ help you develop your first web application.
 
 ## [First Web Application](first_web_app.md)
 
-This guide gives you an overview of the tools you will use during development (Tomcat, Heroku, Maven, etc.). It 
+This guide gives you an overview of the tools you will use during development (Tomcat, Render, Maven, etc.). It 
 also provides a walk-through guide to creating your first Servlet and JSP, passing parameters between Servlets and 
 JSPs, and querying your application's database.
 

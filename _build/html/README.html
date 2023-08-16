@@ -165,6 +165,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="workshops/workshop_2.html">Workshop 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workshops/workshop_3.html">Workshop 3</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="first_java_app/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_java_app/jsp_servlets.html">JSPs and Servlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_java_app/first_web_app.html">Create Your First Web Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_java_app/java_postgresql.html">Introduction to Java and PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_java_app/maven.html">Introduction to Maven</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="setup_dev/introduction.html">Introduction</a></li>
@@ -382,6 +390,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors">Contributors ✨</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build">Build</a></li>
 </ul>
             </nav>
         </div>
@@ -414,6 +424,24 @@ document.write(`
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <p>This project follows the <a class="reference external" href="https://github.com/all-contributors/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p>
+</section>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h2>
+<p>create and activate virtual env</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+<p>install dependencies</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jb<span class="w"> </span>build<span class="w"> </span>.
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -467,6 +495,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors">Contributors ✨</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build">Build</a></li>
 </ul>
   </nav></div>
 

@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Java and PostgreSQL" href="java_postgresql.html" />
+    <link rel="prev" title="JSPs and Servlets" href="jsp_servlets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,6 +166,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsp_servlets.html">JSPs and Servlets</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Create Your First Web Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_postgresql.html">Introduction to Java and PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maven.html">Introduction to Maven</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
@@ -388,7 +398,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-connection-with-local-postgresql">Create Connection with Local PostgreSQL</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-heroku-postgresql">Connect to Heroku PostgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-render-postgresql">Connect to Render PostgreSQL</a></li>
 </ul>
             </nav>
         </div>
@@ -422,9 +432,9 @@ Below is a list of extra resources you can use to become more familiar with them
 <td><p>Build automation tool</p></td>
 <td><p>Learn how to use Maven in 5-minutes: <a class="reference external" href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">view</a></p></td>
 </tr>
-<tr class="row-even"><td><p>Heroku</p></td>
+<tr class="row-even"><td><p>Render</p></td>
 <td><p>Platform as a Service (PaaS)</p></td>
-<td><p>Developer Centre: <a class="reference external" href="https://devcenter.heroku.com/categories/reference">view</a></p></td>
+<td><p>Developer Centre: <a class="reference external" href="https://render.com/docs">view</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>PostgreSQL</p></td>
 <td><p>Database</p></td>
@@ -479,7 +489,7 @@ navigating to: <a class="reference external" href="http://localhost.com:8080/log
 </div>
 <p><img alt="" src="../_images/first_web_app_7.png" /></p>
 <p>Run the Tomcat configuration:</p>
-<p><img alt="" src="../_images/first_web_app_4.png" /></p>
+<p><img alt="" src="../_images/first_web_app_4_1.png" /></p>
 <p>If a browser does not launch, open one and navigate to localhost:8080/&lt;project_name&gt;_war_exploded/login:</p>
 <p><img alt="" src="../_images/first_web_app_5.png" /></p>
 <p>You will see the doGet() method you just edited:</p>
@@ -648,11 +658,11 @@ To open the database view:</p>
 the users table.
 You can now build queries on top of this.</p>
 </section>
-<section id="connect-to-heroku-postgresql">
-<h2>Connect to Heroku PostgreSQL<a class="headerlink" href="#connect-to-heroku-postgresql" title="Permalink to this heading">#</a></h2>
-<p>You must have completed <a class="reference internal" href="../setup_dev/8_heroku_deploy.html"><span class="doc std std-doc">Step 8: Deploy Project to Heroku</span></a>
+<section id="connect-to-render-postgresql">
+<h2>Connect to Render PostgreSQL<a class="headerlink" href="#connect-to-render-postgresql" title="Permalink to this heading">#</a></h2>
+<p>You must have completed <a class="reference internal" href="../setup_dev/10_render_deploy.html"><span class="doc std std-doc">Step 9: Deploy Project to Render</span></a>
 before attempting this.</p>
-<p>Now that you’ve deployed to Heroku, you must change the database credentials in order to access Heroku’s PostgreSQL
+<p>Now that you’ve deployed to Render, you must change the database credentials in order to access Render’s PostgreSQL
 instance.</p>
 <p>Change the JDBCtest class to be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
@@ -666,7 +676,7 @@ instance.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>For more help, go to <a class="reference external" href="https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java">Heroku’s Developer Centre</a>.</p>
+<p>For more help, go to <a class="reference external" href="https://render.com/docs/databases">Render’s PostGres Documentation</a>.</p>
 </section>
 </section>
 
@@ -701,6 +711,24 @@ instance.</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="jsp_servlets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">JSPs and Servlets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="java_postgresql.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Java and PostgreSQL</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -726,7 +754,7 @@ instance.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-connection-with-local-postgresql">Create Connection with Local PostgreSQL</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-heroku-postgresql">Connect to Heroku PostgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-render-postgresql">Connect to Render PostgreSQL</a></li>
 </ul>
   </nav></div>
 

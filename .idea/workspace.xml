@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ea4344-5fe1-4e0d-a31f-30b5a66f705a" name="Changes" comment="Update jupyter book">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup_dev/3_postgresql_setup.md" beforeDir="false" afterPath="$PROJECT_DIR$/setup_dev/3_postgresql_setup.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup_dev/4_create_project.md" beforeDir="false" afterPath="$PROJECT_DIR$/setup_dev/4_create_project.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup_dev/5_github_setup.md" beforeDir="false" afterPath="$PROJECT_DIR$/setup_dev/5_github_setup.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup_dev/6_github_clone.md" beforeDir="false" afterPath="$PROJECT_DIR$/setup_dev/6_github_clone.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup_dev/7_connect_intellij_postgresql.md" beforeDir="false" afterPath="$PROJECT_DIR$/setup_dev/7_connect_intellij_postgresql.md" afterDir="false" />
-    </list>
+    <list default="true" id="e7ea4344-5fe1-4e0d-a31f-30b5a66f705a" name="Changes" comment="Update jupyter book" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,12 +24,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/workshops" />

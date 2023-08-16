@@ -10,7 +10,7 @@ Below is a list of extra resources you can use to become more familiar with them
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | GitHub                            | Version control                                                                                                                     | 1. An interactive and visual tool to learn git commands: [view](https://learngitbranching.js.org)</br>2. GitHub Learning Lab: [view](https://lab.github.com/githubtraining/introduction-to-github) |
 | Maven                             | Build automation tool                                                                                                               | Learn how to use Maven in 5-minutes: [view](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)                                                                            |
-| Heroku                            | Platform as a Service (PaaS)                                                                                                        | Developer Centre: [view](https://devcenter.heroku.com/categories/reference)                                                                                                                        |
+| Render                            | Platform as a Service (PaaS)                                                                                                        | Developer Centre: [view](https://render.com/docs)                                                                                                                        |
 | PostgreSQL                        | Database                                                                                                                            | 1. PostgreSQL tutorial: [view](https://www.postgresqltutorial.com)</br>2. PostgreSQL tutorials and exercises: [view](https://www.postgresql.org/docs/online-resources/)                            |
 | Java Database Connectivity (JDBC) | An application programming interface (API) for the programming language Java, which defines how a client may access a database.     |                                                                                                                                                                                                    |
 | Java Servlet Pages (JSPs)         | Server-side programming technology that enables the creation of dynamic, platform-independent method for building Web applications. |                                                                                                                                                                                                    |
@@ -64,7 +64,7 @@ ServletException, IOException {
 
 Run the Tomcat configuration:
 
-![](resources/first_web_app_4.png)
+![](resources/first_web_app_4_1.png)
 
 If a browser does not launch, open one and navigate to localhost:8080/<project_name>_war_exploded/login:
 
@@ -289,12 +289,12 @@ You have now created a table in your local PostgreSQL instance, created a connec
 the users table.
 You can now build queries on top of this.
 
-## Connect to Heroku PostgreSQL
+## Connect to Render PostgreSQL
 
-You must have completed [Step 8: Deploy Project to Heroku](../setup_dev/8_heroku_deploy.md) 
+You must have completed [Step 9: Deploy Project to Render](../setup_dev/10_render_deploy.md) 
 before attempting this.
 
-Now that you've deployed to Heroku, you must change the database credentials in order to access Heroku's PostgreSQL 
+Now that you've deployed to Render, you must change the database credentials in order to access Render's PostgreSQL 
 instance.
 
 Change the JDBCtest class to be:
@@ -310,4 +310,4 @@ try {
 }
 ```
 
-For more help, go to [Heroku's Developer Centre](https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java).
+For more help, go to [Render's PostGres Documentation](https://render.com/docs/databases).
