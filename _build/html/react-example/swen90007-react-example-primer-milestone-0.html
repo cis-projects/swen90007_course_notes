@@ -194,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Milestone 0: Hello World</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-2.html">Milestone 2: Deployment</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -724,15 +725,15 @@ mkdir<span class="w"> </span>api
 <section id="a-first-component">
 <h5>A first component<a class="headerlink" href="#a-first-component" title="Permalink to this heading">#</a></h5>
 <p>A component is essentially just a function (or class! There are a few implementation styles - we’ll use, exclusively, the functional style in this project) that returns JavaScript and XML (JSX). Components can be as simple as the the one below, which returns a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element to be rendered.</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>import React from &#39;react&#39;;
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
 
-function Simple() {
-  return (
-    &lt;p&gt;some static value&lt;/p&gt;
-  );
-}
+<span class="kd">function</span><span class="w"> </span><span class="nx">Simple</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">some</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">value</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
 
-export default Simple;
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Simple</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>The HTML rendered by this component would simply be:</p>
@@ -743,19 +744,19 @@ export default Simple;
 <section id="composing-components">
 <h5>Composing components<a class="headerlink" href="#composing-components" title="Permalink to this heading">#</a></h5>
 <p>We can compose components to build complex systems, piece by piece. For example, consider this component that makes use of the <code class="docutils literal notranslate"><span class="pre">Simple</span></code> component we defined earlier:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>import React from &#39;react&#39;;
-import Simple from &#39;./Simple&#39;;
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Simple</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Simple&#39;</span><span class="p">;</span>
 
-function SimpleParent() {
-  return (
-    &lt;div&gt;
-      &lt;Simple /&gt;
-      &lt;Simple /&gt;
-    &lt;/div&gt;
-  );
-}
+<span class="kd">function</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
 
-export default SimpleParent;
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">SimpleParent</span></code> component renders the following HTML in the browser</p>
@@ -769,24 +770,24 @@ export default SimpleParent;
 <section id="dynamic-components">
 <h5>Dynamic components<a class="headerlink" href="#dynamic-components" title="Permalink to this heading">#</a></h5>
 <p>The previous components were not particularly interesting, they simply render static data - which is fine for very simple applications, however, most applications worth building in React are dynamic. We can implement dynamic components in a number of ways, but the most basic approach is to make use of <em>component properties</em> (frequently shortened to <em>props</em>). Components can declare a set of properties, to which parent components can <em>bind</em> values. Consider a revised implementation of the <code class="docutils literal notranslate"><span class="pre">Simple</span></code> component that uses <em>props</em>:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>import React from &#39;react&#39;;
-import PropTypes from &#39;prop-types&#39;;
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">PropTypes</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;prop-types&#39;</span><span class="p">;</span>
 
-function Simple({ aProperty }) {
-  return (
-    &lt;p&gt;
-      some dynamic value:
-      {&#39; &#39;}
-      {aProperty}
-    &lt;/p&gt;
-  );
-} 
+<span class="kd">function</span><span class="w"> </span><span class="nx">Simple</span><span class="p">({</span><span class="w"> </span><span class="nx">aProperty</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="nx">some</span><span class="w"> </span><span class="nx">dynamic</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span>
+<span class="w">      </span><span class="p">{</span><span class="s1">&#39; &#39;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">aProperty</span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span>
 
-Simple.propTypes = {
-  aProperty: PropTypes.string.isRequired,
-};
+<span class="nx">Simple</span><span class="p">.</span><span class="nx">propTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">aProperty</span><span class="o">:</span><span class="w"> </span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">string</span><span class="p">.</span><span class="nx">isRequired</span><span class="p">,</span>
+<span class="p">};</span>
 
-export default Simple;
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Simple</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>There’s two important things happening here:</p>
@@ -802,19 +803,19 @@ export default Simple;
 </div>
 </div>
 <p>Parent components can bind values to the properties declared by child components by passing them as HTML attributes.</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>import React from &#39;react&#39;;
-import Simple from &#39;./Simple&#39;;
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Simple</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Simple&#39;</span><span class="p">;</span>
 
-function SimpleParent() {
-  return (
-    &lt;div&gt;
-      &lt;Simple aProperty=&quot;some value&quot; /&gt;
-      &lt;Simple aProperty=&quot;some other value&quot; /&gt;
-    &lt;/div&gt;
-  );
-}
+<span class="kd">function</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="na">aProperty</span><span class="o">=</span><span class="s">&quot;some value&quot;</span> <span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="na">aProperty</span><span class="o">=</span><span class="s">&quot;some other value&quot;</span> <span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
 
-export default SimpleParent;
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">SimpleParent</span></code> component now renders:</p>
@@ -833,29 +834,29 @@ export default SimpleParent;
 <section id="usestate-hook">
 <h5>useState hook<a class="headerlink" href="#usestate-hook" title="Permalink to this heading">#</a></h5>
 <p>The most basic way to add state to a component is to declare a <em>useState hook</em>. This effectively introduces a stateful mechanism that behaves a lot like a local variable. Try replacing the contents of the <code class="docutils literal notranslate"><span class="pre">src/App.js</span></code> file with the code below:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>import React, { useState } from &#39;react&#39;;
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
 
-function App() {
-  const [count, setCount] = useState(0);
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">setCount</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
 
-  return (
-    &lt;&gt;
-      &lt;p&gt;
-        Current count is:
-        {&#39; &#39;}
-        {count}
-      &lt;/p&gt;
-      &lt;button
-        type=&quot;button&quot;
-        onClick={() =&gt; setCount(count + 1)}
-      &gt;
-        Increment count
-      &lt;/button&gt;
-    &lt;/&gt;
-  );
-}
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="nx">Current</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="nx">is</span><span class="o">:</span>
+<span class="w">        </span><span class="p">{</span><span class="s1">&#39; &#39;</span><span class="p">}</span>
+<span class="w">        </span><span class="p">{</span><span class="nx">count</span><span class="p">}</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span>
+        <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+        <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)}</span>
+      <span class="p">&gt;</span>
+<span class="w">        </span><span class="nx">Increment</span><span class="w"> </span><span class="nx">count</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
 
-export default App;
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">App</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Restart your development server if you’ve since stopped it (<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">start</span></code>), and notice that clicking the button increments the count. A number of things make this work:</p>
@@ -870,49 +871,49 @@ export default App;
 <h4>Fetching data from the API<a class="headerlink" href="#fetching-data-from-the-api" title="Permalink to this heading">#</a></h4>
 <p>We’ve finally covered just enough React, for now, to be able to fetch and display data from the API. With some minor modifications to the current <code class="docutils literal notranslate"><span class="pre">App</span></code> component we should be able to dispatch an AJAX call, store the response and render it as HTML.</p>
 <p>We’ll use the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> to fetch resources from the API. Refactor your <code class="docutils literal notranslate"><span class="pre">App</span></code> component to use <code class="docutils literal notranslate"><span class="pre">fetch</span></code>.</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>import React, { useState } from &#39;react&#39;;
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+<span class="kd">const</span><span class="w"> </span><span class="nx">API_BASE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_BASE_URL</span><span class="p">;</span>
 
-function App() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  
-  const fetchData = async () =&gt; {
-    setLoading(true);
-    setData(null);
-    try {
-      const res = await fetch(
-        `${API_BASE_URL}/test`,
-      );
-      if (res.status &gt; 299) {
-        setData(`woops! bad response status ${res.status} from API`);
-        return;
-      }
-      setData(await res.text());
-    } catch (e) {
-      setData(`woops! an error occurred: ${e}`);
-    } finally {
-      setLoading(false);
-    }
-  };
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">setData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">loading</span><span class="p">,</span><span class="w"> </span><span class="nx">setLoading</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">setLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">setData</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span>
+<span class="w">        </span><span class="sb">`</span><span class="si">${</span><span class="nx">API_BASE_URL</span><span class="si">}</span><span class="sb">/test`</span><span class="p">,</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setData</span><span class="p">(</span><span class="sb">`woops! bad response status </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb"> from API`</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="nx">setData</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setData</span><span class="p">(</span><span class="sb">`woops! an error occurred: </span><span class="si">${</span><span class="nx">e</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
 
-  return (
-    &lt;&gt;
-      {data &amp;&amp; &lt;p&gt;{data}&lt;/p&gt;}
-      {loading &amp;&amp; &lt;p&gt;loading...&lt;/p&gt;}
-      &lt;button
-        disabled={loading}
-        type=&quot;button&quot;
-        onClick={fetchData}
-      &gt;
-        Fetch data
-      &lt;/button&gt;
-    &lt;/&gt;
-  );
-}
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;&gt;</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">data</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">data</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;}</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">loading</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">loading</span><span class="p">...&lt;/</span><span class="nt">p</span><span class="p">&gt;}</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span>
+        <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">loading</span><span class="p">}</span>
+        <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+        <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">fetchData</span><span class="p">}</span>
+      <span class="p">&gt;</span>
+<span class="w">        </span><span class="nx">Fetch</span><span class="w"> </span><span class="nx">data</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
 
-export default App;
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">App</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>There’s quite a lot happening in the <code class="docutils literal notranslate"><span class="pre">App</span></code> component now, let’s tackle a couple of the key points:</p>
