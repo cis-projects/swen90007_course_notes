@@ -38,6 +38,7 @@ parts:
     - file: react-example/swen90007-react-example-primer-milestone--1
     - file: react-example/swen90007-react-example-primer-milestone-0
     - file: react-example/swen90007-react-example-primer-milestone-1
+    - file: react-example/swen90007-react-example-primer-milestone-2
   - caption: Extra Resources
     chapters:
     - file: extra_tools/tools_and_plugins
