@@ -1,4 +1,4 @@
-# Milestone 2: Deployment
+# Milestone 2: Core Functionality
 
 By the end of this milestone we will have:
 
@@ -62,7 +62,7 @@ We'll need to extend the current API so that it can serve votes and the current 
 
 :::{admonition} Purpose of this example
 :class: caution
-Please be aware that the purpose of this example is to introduce you to working with React, *not* to provide an example implementation of the various patterns covered in this course. Beware that the API implementation discussed in this section does not make use of many of the patterns that you are required to engage with in this course.
+Please be aware that the purpose of this example is to introduce you to working with React, *not* to provide an example implementation of the various patterns covered in this course. Beware that the API implementation discussed in this section does not make use of many of the patterns that you are required to engage with in this subject.
 :::
 
 ### Working with JSON
