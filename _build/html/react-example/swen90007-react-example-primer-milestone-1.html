@@ -1,422 +1,474 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Milestone 1: Deployment &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'react-example/swen90007-react-example-primer-milestone-1';</script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Milestone 2: Deployment" href="swen90007-react-example-primer-milestone-2.html" />
+    <link rel="next" title="Milestone 2: Core Functionality" href="swen90007-react-example-primer-milestone-2.html" />
     <link rel="prev" title="Milestone 0: Hello World" href="swen90007-react-example-primer-milestone-0.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="../introduction/introduction.html">
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../introduction/introduction.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frequently Asked Questions (FAQs)</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">SWEN90007 Software Design and Architecture</a></li>
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SWEN90007 Software Design and Architecture Course Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/introduction.html">
+   Introduction
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Frequently Asked Questions (FAQs)
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">
+   SWEN90007 Software Design and Architecture
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshops
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/jsp_servlets.html">JSPs and Servlets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/first_web_app.html">Create Your First Web Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/java_postgresql.html">Introduction to Java and PostgreSQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/maven.html">Introduction to Maven</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../workshops/workshop_1.html">
+   Workshop 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../workshops/workshop_2.html">
+   Workshop 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../workshops/workshop_3.html">
+   Workshop 3
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  First Java Web Application
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_setup_docker.html">Step 8: Setup Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/10_render_deploy.html">Step 9: Deploy to Render</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../first_java_app/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../first_java_app/jsp_servlets.html">
+   JSPs and Servlets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../first_java_app/first_web_app.html">
+   Create Your First Web Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../first_java_app/java_postgresql.html">
+   Introduction to Java and PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../first_java_app/maven.html">
+   Introduction to Maven
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Project Development Setup
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/1_intellij_install.html">
+   Step 1: Install IntelliJ Professional Edition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/2_tomcat_download.html">
+   Step 2: Download Tomcat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/3_postgresql_setup.html">
+   Step 3: Setup PostgreSQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/4_create_project.html">
+   Step 4: Create Project in IntelliJ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/5_github_setup.html">
+   Step 5: Setup GitHub Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/6_github_clone.html">
+   Step 6: Clone GitHub Repository
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">
+   Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/9_setup_docker.html">
+   Step 8: Setup Docker
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../setup_dev/10_render_deploy.html">
+   Step 9: Deploy to Render
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  React Example Project
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer.html">React Example Project Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Milestone 1: Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-2.html">Milestone 2: Deployment</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="swen90007-react-example-primer.html">
+   React Example Project Primer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="swen90007-react-example-primer-milestone--1.html">
+   Milestone -1: Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="swen90007-react-example-primer-milestone-0.html">
+   Milestone 0: Hello World
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Milestone 1: Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="swen90007-react-example-primer-milestone-2.html">
+   Milestone 2: Core Functionality
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Extra Resources
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../extra_tools/tools_and_plugins.html">Useful Tools and IntelliJ Plugins</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra_tools/tools_and_plugins.html">
+   Useful Tools and IntelliJ Plugins
+  </a>
+ </li>
 </ul>
 
     </div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
 
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
-
-<div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Freact-example/swen90007-react-example-primer-milestone-1.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
 </div>
 
 
+          
 
 
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../_sources/react-example/swen90007-react-example-primer-milestone-1.md" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.md</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
-  
-</div>
-</div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Milestone 1: Deployment</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div>
-                <h2> Contents </h2>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/react-example/swen90007-react-example-primer-milestone-1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cis-projects/swen90007_course_notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Freact-example/swen90007-react-example-primer-milestone-1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            <nav aria-label="Page">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-container-configuration">Declaring container configuration</a></li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker">
+   Docker
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install">
+     Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaring-container-configuration">
+     Declaring container configuration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deploy-to-render">
+   Deploy to Render
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#postgres-managed-database">
+   Postgres Managed Database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web-service">
+   Web Service
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#static-site">
+   Static Site
+  </a>
+ </li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-to-render">Deploy to Render</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgres-managed-database">Postgres Managed Database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-service">Web Service</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-site">Static Site</a></li>
-</ul>
+
             </nav>
         </div>
     </div>
 </div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Milestone 1: Deployment</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker">
+   Docker
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install">
+     Install
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaring-container-configuration">
+     Declaring container configuration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deploy-to-render">
+   Deploy to Render
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#postgres-managed-database">
+   Postgres Managed Database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web-service">
+   Web Service
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#static-site">
+   Static Site
+  </a>
+ </li>
+</ul>
 
-              
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="milestone-1-deployment">
-<h1>Milestone 1: Deployment<a class="headerlink" href="#milestone-1-deployment" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="milestone-1-deployment">
+<h1>Milestone 1: Deployment<a class="headerlink" href="#milestone-1-deployment" title="Permalink to this headline">¶</a></h1>
 <p>By the end of this milestone we will have:</p>
 <ul class="simple">
 <li><p>the system (as implemented in <em>Milestone 0: Hello world</em>) containerised with Docker</p></li>
@@ -431,23 +483,23 @@ document.write(`
 <li><p>you’ve checked out the source code contributed by <em>Milestone 0: Hello world</em></p></li>
 </ul>
 </div>
-<section id="docker">
-<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading">#</a></h2>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
 <p>Our first objective for this milestone will be to <em>containerise</em> the components of our current system, so that we can ship them to a cloud environment. We’ll use the hugely popular Docker platform to declare a set of dependency and build instructions that Render can use to serve our components.</p>
 <div class="note admonition">
 <p class="admonition-title">What is Docker, really?</p>
 <p>Docker is a <em>containerisation solution</em>. It provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams “build [their software] once, [and] run [it] anywhere”. Docker works in much the same way, it provides a virtual environment - called a <em>container</em> - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of <strong>any</strong> software (more, or less - there are, of course, limitations to all solutions 😙). From simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution, which you can deploy to any environment that’s also running Docker, or share with others. Sounds pretty good right? Modern DevOps thinks so - so much so that containerisation solutions such as Docker are <strong>the</strong> ubiquitous gold-standard for implementing DevOps automation solutions. If you’ve not encountered Docker before, then you’ll undoubtably come across it soon enough - it’s well worth investing some time into building a strong understanding of containerisation.</p>
 </div>
-<section id="install">
-<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h3>
+<div class="section" id="install">
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
 <p>If you’ve not got a version of Docker running locally you’ll need to install it. Docker Desktop is a handy UI that ships with the latest Docker CLI and daemon, install it <a class="reference external" href="https://www.docker.com/products/docker-desktop/">here</a>. Once installed, you’ll need to launch Docker Desktop, which will in turn launch Docker services such as the Docker Daemon. Verify your installation by running:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
 </pre></div>
 </div>
 <p>The previous command should run a container that prints - amongst other things - <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">from</span> <span class="pre">Docker!</span></code> to the console.</p>
-</section>
-<section id="declaring-container-configuration">
-<h3>Declaring container configuration<a class="headerlink" href="#declaring-container-configuration" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="declaring-container-configuration">
+<h3>Declaring container configuration<a class="headerlink" href="#declaring-container-configuration" title="Permalink to this headline">¶</a></h3>
 <p>We use Docker to both <em>run</em> and <em>build</em> containers (usually in the reverse order). When we <em>run</em> a container Docker searches for a pre-built Docker <em>image</em> - fetching it from a well known place like <a class="reference external" href="https://hub.docker.com/">DockerHub</a> if it doesn’t exist locally. A Docker image typically declares a program, along with all its dependencies, to be executed by the Docker Daemon within a container; and these images are <em>built</em> by providing Docker a set of instructions which we normally author as a <a class="reference external" href="https://docs.docker.com/engine/reference/builder/"><em>DockerFile</em></a>.</p>
 <p>We’ll need to provide a Dockerfile for each of the components we want to containerise - and to be able to verify our Docker configuration locally we’ll also need to run a PostgreSQL image (though we won’t need to deploy this to Render, we’ll use Render’s managed database service instead).</p>
 <p>Before we can begin creating our images and verifying them locally we need to ensure they can communicate, to do this we should run them on the <strong>same</strong> Docker <em>network</em>. Create a simple bridged network called <code class="docutils literal notranslate"><span class="pre">swen90007-react-example</span></code>.</p>
@@ -496,23 +548,23 @@ document.write(`
 <p>This is decided partly by the design of the JavaEE Webapp API - the test resource is exposed by a Java Servlet listening on <code class="docutils literal notranslate"><span class="pre">/test</span></code> - and partly by the way Tomcat (the web server used in this project) serves our application. Tomcat detects and unpacks <code class="docutils literal notranslate"><span class="pre">.war</span></code> files to be served in a web container. To enable Tomcat to serve multiple applications (or <code class="docutils literal notranslate"><span class="pre">.war</span></code> files) it exposes each application on what is called a <em>context path</em>, which is used to route traffic to the appropriate application. This context path is derived (according to a few simple rules, which we’ll not get into here) from the name of the <code class="docutils literal notranslate"><span class="pre">.war</span></code> file, and should be prepended to the request path as so <code class="docutils literal notranslate"><span class="pre">&lt;context-path&gt;/&lt;the-application-routes&gt;</span></code>. For this project we package our API as a <code class="docutils literal notranslate"><span class="pre">.war</span></code> file called <code class="docutils literal notranslate"><span class="pre">react-example-api.war</span></code>, and so Tomcat exposes our application on the context path <code class="docutils literal notranslate"><span class="pre">/react-example-api</span></code>; and so, if we want to access the <em>test</em> endpoint we need to submit a request to <code class="docutils literal notranslate"><span class="pre">/react-example-api/test</span></code>.</p>
 </div>
 <p>Congratulations, you’ve containerised the JavaEE Webapp! And, can now move onto deploying the system to Render (we won’t need to containerise the UI; as you’ll see soon, Render provides static site hosting, and will, conveniently, build a static version of our React app for us).</p>
-</section>
-</section>
-<section id="deploy-to-render">
-<h2>Deploy to Render<a class="headerlink" href="#deploy-to-render" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="deploy-to-render">
+<h2>Deploy to Render<a class="headerlink" href="#deploy-to-render" title="Permalink to this headline">¶</a></h2>
 <p>Render is a <em>Platform as a Service</em> (PaaS) solution that enables developers to quickly deploy applications to its unified cloud. We’ll be deploying all three of our system’s components to  Render, including a PostgreSQL database, the JavaEE Webapp containerised with Docker, and the React UI - all implemented in prior milestones.</p>
-<section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>This guide assumes you have the source code for both the API and UI version controlled in a single private GitHub repository that you own.</p>
 <p>You’ll also need to sign up to <a class="reference external" href="https://render.com/">Render</a>, select <em>Get Started</em> from the top navigation bar and use whatever sign in option you prefer. Once signed in you should be redirected to the <em>Render Dashboard</em>, from which you can begin creating and managing the services required in this guide.</p>
 <div class="caution admonition">
 <p class="admonition-title">Collaborating on Render</p>
 <p>Render’s Free tier does not include <em>Render Teams</em>, which is a feature that allows you to nominate collaborators, who can log into your Render Dashboard and create or manage deployments. This means that your team will need to nominate a team member to be responsible for all Render tasks throughout semester (you might like to rotate this role) - this shouldn’t, however, prevent other team members from deploying their own <em>development</em> or <em>test</em> versions of your team’s application to their own Render accounts. Each team member should, at least, follow and understand the steps in this section of the primer, regardless of whether the team’s application will be deployed to their account or not.</p>
 </div>
-</section>
-</section>
-<section id="postgres-managed-database">
-<h2>Postgres Managed Database<a class="headerlink" href="#postgres-managed-database" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="postgres-managed-database">
+<h2>Postgres Managed Database<a class="headerlink" href="#postgres-managed-database" title="Permalink to this headline">¶</a></h2>
 <p>We’ll deploy our system <em>bottom up</em>, starting with the PostgreSQL database.</p>
 <p>From the Render Dashboard select <em>New +</em> &gt; <em>PostgreSQL</em> to create a new managed PostgreSQL instance.</p>
 <p><img alt="Create database" src="../_images/create-database.png" /></p>
@@ -547,9 +599,9 @@ PostgreSQL Version: 13</p>
 </div>
 <p><img alt="Verify database user" src="../_images/verify-database-user.png" /></p>
 <p>Nice work! You’ve just provisioned a managed PostgreSQL instance on the Render platform, and verified the instance with pgAdmin.</p>
-</section>
-<section id="web-service">
-<h2>Web Service<a class="headerlink" href="#web-service" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="web-service">
+<h2>Web Service<a class="headerlink" href="#web-service" title="Permalink to this headline">¶</a></h2>
 <p>Next we’ll deploy the JavaEE Webapp as a Render Web Service.</p>
 <p>From the Render Dashboard select <em>New +</em> &gt; <em>Web Service</em> to create a new web service that will expose our API.</p>
 <p><img alt="Create Render Web Service" src="../_images/create-render-web-service.png" /></p>
@@ -573,9 +625,9 @@ PostgreSQL Version: 13</p>
 <p><img alt="Configure web service env" src="../_images/configure-render-web-service-env.png" /></p>
 <p>Select <em>Create Web Service</em> and you’ll be redirected to the <em>Web Service dashboard</em>, where you can monitor the application logs. Your web service should be live after a short wait. Once the service is active, let’s verify it works as it should by executing a simple GET request. Open your preferred web browser and navigate to the <em>test</em> endpoint at <code class="docutils literal notranslate"><span class="pre">https://&lt;your-web-service-hostname&gt;/react-example-api/test</span></code> - replacing <code class="docutils literal notranslate"><span class="pre">&lt;your-web-service-hostname&gt;</span></code> with (you may have guessed it) the external hostname of your web service (find the hostname within your web service settings, in the top banner - noting that it’s almost certain that your hostname is different to the one shown below).</p>
 <p><img alt="Verify web service" src="../_images/verify-render-web-service.png" /></p>
-</section>
-<section id="static-site">
-<h2>Static Site<a class="headerlink" href="#static-site" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="static-site">
+<h2>Static Site<a class="headerlink" href="#static-site" title="Permalink to this headline">¶</a></h2>
 <p>Finally, we’ll deploy the React UI as a static site.</p>
 <p>From the Render Dashboard select <em>New +</em> &gt; <em>Static Site</em> to create a new static site from which we will serve the UI for this project.</p>
 <p><img alt="Create static site" src="../_images/create-render-static-site.png" /></p>
@@ -602,8 +654,8 @@ Publish Directory: the NPM build script compiles the React source code as a set 
 <p class="admonition-title">Render build time limits</p>
 <p>By default, Render will build and deploy each change to your <em>main</em> branch (or whichever branch you nominated) on GitHub; this is convenient, however, the Free tier on Render has strict <em>build time</em> limits, which you may hit quickly if you are pushing to <em>main</em> often, you should disabled automatic build and deploy if you plan to work on, or merge to, <em>main</em> often</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -617,7 +669,7 @@ Publish Directory: the NPM build script compiles the React source code as a set 
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./react-example"
         },
         predefinedOutput: true
@@ -625,116 +677,44 @@ Publish Directory: the NPM build script compiles the React source code as a set 
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="swen90007-react-example-primer-milestone-0.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Milestone 0: Hello World</p>
-      </div>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="swen90007-react-example-primer-milestone-0.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Milestone 0: Hello World</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="swen90007-react-example-primer-milestone-2.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="swen90007-react-example-primer-milestone-2.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Milestone 2: Deployment</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div></div>
-  
-</div>
-
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-container-configuration">Declaring container configuration</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-to-render">Deploy to Render</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgres-managed-database">Postgres Managed Database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-service">Web Service</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-site">Static Site</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By School of Computing and Information Systems, The University of Melbourne
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+        <p class="prev-next-title">Milestone 2: Core Functionality</p>
     </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By School of Computing and Information Systems, The University of Melbourne<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
-  <footer class="bd-footer">
-  </footer>
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
   </body>
 </html>
