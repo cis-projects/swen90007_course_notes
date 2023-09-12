@@ -1,488 +1,426 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Workshop 3 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_3';</script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="../first_java_app/introduction.html" />
     <link rel="prev" title="Workshop 2" href="workshop_2.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">SWEN90007 Software Design and Architecture Course Notes</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction/introduction.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Frequently Asked Questions (FAQs)
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frequently Asked Questions (FAQs)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">
-   SWEN90007 Software Design and Architecture
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">SWEN90007 Software Design and Architecture</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Workshops
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="workshop_1.html">
-   Workshop 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="workshop_2.html">
-   Workshop 2
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Workshop 3
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop 3</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  First Java Web Application
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../first_java_app/introduction.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../first_java_app/jsp_servlets.html">
-   JSPs and Servlets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../first_java_app/first_web_app.html">
-   Create Your First Web Application
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../first_java_app/java_postgresql.html">
-   Introduction to Java and PostgreSQL
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../first_java_app/maven.html">
-   Introduction to Maven
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/jsp_servlets.html">JSPs and Servlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/first_web_app.html">Create Your First Web Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/java_postgresql.html">Introduction to Java and PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/maven.html">Introduction to Maven</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Project Development Setup
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/introduction.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/1_intellij_install.html">
-   Step 1: Install IntelliJ Professional Edition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/2_tomcat_download.html">
-   Step 2: Download Tomcat
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/3_postgresql_setup.html">
-   Step 3: Setup PostgreSQL
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/4_create_project.html">
-   Step 4: Create Project in IntelliJ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/5_github_setup.html">
-   Step 5: Setup GitHub Repository
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/6_github_clone.html">
-   Step 6: Clone GitHub Repository
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">
-   Step 7: Connect IntelliJ Project to Local PostgreSQL Instance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/9_setup_docker.html">
-   Step 8: Setup Docker
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../setup_dev/10_render_deploy.html">
-   Step 9: Deploy to Render
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/10_render_deploy.html">Step 9: Deploy to Render</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  React Example Project
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../react-example/swen90007-react-example-primer.html">
-   React Example Project Primer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">
-   Milestone -1: Tools
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">
-   Milestone 0: Hello World
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">
-   Milestone 1: Deployment
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-2.html">
-   Milestone 2: Core Functionality
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Extra Resources
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra_tools/tools_and_plugins.html">
-   Useful Tools and IntelliJ Plugins
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../extra_tools/tools_and_plugins.html">Useful Tools and IntelliJ Plugins</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/workshops/workshop_3.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/cis-projects/swen90007_course_notes"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fworkshops/workshop_3.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+<div class="article-header-buttons">
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-1a-results">
-   Part 1A results
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#java-web-development">
-   Java Web Development
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#servlets">
-     Servlets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps">
-     JSPs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-servlets-domain-model-mvc-pattern">
-     JSPs + Servlets + Domain Model = MVC Pattern
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">
-       MVC Pattern In Your Assignment
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-tomcat">
-     Apache TomCat
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#benefits-of-using-tomcat-as-a-container">
-       Benefits of Using TomCat as a Container
-      </a>
-     </li>
-    </ul>
-   </li>
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fworkshops/workshop_3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-for-a-demo">
-   Time for a Demo
-  </a>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workshops/workshop_3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1a-results">Part 1A results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-web-development">Java Web Development</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#servlets">Servlets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jsps">JSPs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jsps-servlets-domain-model-mvc-pattern">JSPs + Servlets + Domain Model = MVC Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">MVC Pattern In Your Assignment</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-tomcat">Apache TomCat</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-using-tomcat-as-a-container">Benefits of Using TomCat as a Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-for-a-demo">Time for a Demo</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Workshop 3</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-1a-results">
-   Part 1A results
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#java-web-development">
-   Java Web Development
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#servlets">
-     Servlets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps">
-     JSPs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jsps-servlets-domain-model-mvc-pattern">
-     JSPs + Servlets + Domain Model = MVC Pattern
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">
-       MVC Pattern In Your Assignment
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-tomcat">
-     Apache TomCat
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#benefits-of-using-tomcat-as-a-container">
-       Benefits of Using TomCat as a Container
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-for-a-demo">
-   Time for a Demo
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="workshop-3">
-<h1>Workshop 3<a class="headerlink" href="#workshop-3" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-3">
+<h1>Workshop 3<a class="headerlink" href="#workshop-3" title="Permalink to this heading">#</a></h1>
 <div class="important admonition">
 <p class="admonition-title">By Now You Should Have</p>
 <ul class="simple">
@@ -494,12 +432,12 @@
 <p class="admonition-title">Today’s Workshop</p>
 <p>Purpose of today’s workshop is to begin working on part 1B of the project and discuss Java web development.</p>
 </div>
-<div class="section" id="part-1a-results">
-<h2>Part 1A results<a class="headerlink" href="#part-1a-results" title="Permalink to this headline">¶</a></h2>
+<section id="part-1a-results">
+<h2>Part 1A results<a class="headerlink" href="#part-1a-results" title="Permalink to this heading">#</a></h2>
 <p>Part 1A will be marked within 2 weeks of submission. We will discuss common mistakes in next week’s workshop.</p>
-</div>
-<div class="section" id="java-web-development">
-<h2>Java Web Development<a class="headerlink" href="#java-web-development" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="java-web-development">
+<h2>Java Web Development<a class="headerlink" href="#java-web-development" title="Permalink to this heading">#</a></h2>
 <p>You will build your application on Java Servlets and Java Server Pages (JSPs) - a low-level API that that is the
 building blocks for modern day Java web frameworks.</p>
 <div class="admonition tip">
@@ -510,17 +448,17 @@ building blocks for modern day Java web frameworks.</p>
 frameworks. Learning frameworks would tie your knowledge to that framework, and would not teach you enough about Java
 fundamentals.
 If you wish to learn one of these frameworks, there are many free resources online.</p>
-<div class="section" id="servlets">
-<h3>Servlets<a class="headerlink" href="#servlets" title="Permalink to this headline">¶</a></h3>
+<section id="servlets">
+<h3>Servlets<a class="headerlink" href="#servlets" title="Permalink to this heading">#</a></h3>
 <p><img alt="" src="../_images/servlet.png" /></p>
 <p>A servlet is used to implement web applications and is simply a class which responds to an HTTP request.</p>
 <p>Servlets provide a low-level API for receiving and responding to HTTP requests.</p>
 <p>Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to
 handle the request obtained from the web server, process the request, produce the response, then send response
 back to the web server.</p>
-</div>
-<div class="section" id="jsps">
-<h3>JSPs<a class="headerlink" href="#jsps" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jsps">
+<h3>JSPs<a class="headerlink" href="#jsps" title="Permalink to this heading">#</a></h3>
 <p>Java Server Pages (JSP) is a server-side programming technology that enables the creation of a dynamic, platform
 independent method for building Web-based applications</p>
 <p><img alt="" src="../_images/jsp.png" /></p>
@@ -541,9 +479,9 @@ JSPs are used in conjunction with servlets.</p>
 <p>This is an example of writing HTML in a servlet - it is tedious and does not separate roles of back-end and
 front-end developers.*</p>
 </div>
-</div>
-<div class="section" id="jsps-servlets-domain-model-mvc-pattern">
-<h3>JSPs + Servlets + Domain Model = MVC Pattern<a class="headerlink" href="#jsps-servlets-domain-model-mvc-pattern" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jsps-servlets-domain-model-mvc-pattern">
+<h3>JSPs + Servlets + Domain Model = MVC Pattern<a class="headerlink" href="#jsps-servlets-domain-model-mvc-pattern" title="Permalink to this heading">#</a></h3>
 <p><img alt="" src="../_images/mvc_pattern.png" /></p>
 <div class="admonition-definition admonition">
 <p class="admonition-title">Definition</p>
@@ -560,13 +498,13 @@ them, including the necessary validations.</p>
 <p>Domain model is the layer which contains business logic of the system, and also represents the state of the
 application.</p>
 </div>
-<div class="section" id="mvc-pattern-in-your-assignment">
-<h4>MVC Pattern In Your Assignment<a class="headerlink" href="#mvc-pattern-in-your-assignment" title="Permalink to this headline">¶</a></h4>
+<section id="mvc-pattern-in-your-assignment">
+<h4>MVC Pattern In Your Assignment<a class="headerlink" href="#mvc-pattern-in-your-assignment" title="Permalink to this heading">#</a></h4>
 <p><img alt="" src="../_images/mvc_assignment.png" /></p>
-</div>
-</div>
-<div class="section" id="apache-tomcat">
-<h3>Apache TomCat<a class="headerlink" href="#apache-tomcat" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="apache-tomcat">
+<h3>Apache TomCat<a class="headerlink" href="#apache-tomcat" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>TomCat acts as both a web server and container.</p>
@@ -577,10 +515,10 @@ can dynamically create pages to send as a response to the client. Dynamic web pa
 server hands the request to the container in which the servlet is deployed. The container gives the HTTP request to the
 servlet and calls the servlet’s doGet() and doPost() methods.</p>
 <p><img alt="" src="../_images/apache_tomcat.png" /></p>
-<div class="section" id="benefits-of-using-tomcat-as-a-container">
-<h4>Benefits of Using TomCat as a Container<a class="headerlink" href="#benefits-of-using-tomcat-as-a-container" title="Permalink to this headline">¶</a></h4>
+<section id="benefits-of-using-tomcat-as-a-container">
+<h4>Benefits of Using TomCat as a Container<a class="headerlink" href="#benefits-of-using-tomcat-as-a-container" title="Permalink to this heading">#</a></h4>
 <p>Apache TomCat, as a container, handles several issues for you:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Communications support: The container creates an easy way for your server to talk to your servlets. The container
 knows the protocol to use to speak to the server, so you don’t have to make use of an API in your servlets in order to
 speak to the server.</p></li>
@@ -591,22 +529,22 @@ managing resources.</p></li>
 </ol>
 <div class="tip admonition">
 <p class="admonition-title">Extra Resources</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Head First Servlets &amp; JSP by Bryan Basham; and</p></li>
 <li><p>Check course notes for resources to practice creating your first web project using servlets and JSPs.</p></li>
 </ol>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="time-for-a-demo">
-<h2>Time for a Demo<a class="headerlink" href="#time-for-a-demo" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="time-for-a-demo">
+<h2>Time for a Demo<a class="headerlink" href="#time-for-a-demo" title="Permalink to this heading">#</a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>You can download the demo file from the repository.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -620,7 +558,7 @@ managing resources.</p></li>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./workshops"
         },
         predefinedOutput: true
@@ -628,44 +566,119 @@ managing resources.</p></li>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="workshop_2.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Workshop 2</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="workshop_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Workshop 2</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../first_java_app/introduction.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../first_java_app/introduction.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Introduction</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By School of Computing and Information Systems, The University of Melbourne<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1a-results">Part 1A results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-web-development">Java Web Development</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#servlets">Servlets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jsps">JSPs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jsps-servlets-domain-model-mvc-pattern">JSPs + Servlets + Domain Model = MVC Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">MVC Pattern In Your Assignment</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-tomcat">Apache TomCat</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-using-tomcat-as-a-container">Benefits of Using TomCat as a Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-for-a-demo">Time for a Demo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
