@@ -36,26 +36,25 @@ The following outlines the key technologies that comprise the stack. The stack i
 - Application Programming Interface (API) - deployed to the Tomcat webserver and built with JavaEE Servlets
 - Database - with PostgreSQL, an enterprise-grade, open source, Relational Database Management System (RDBMS)
 
-```plantuml
-@startuml System
-node "UI" {
-  [React]
-  [HTML]
-  [CSS]
-}
-
-node "API" {
-  HTTP - [Tomcat]
-  [Java Servlet API]
-  [JDBC]
-}
-
-database "PostgreSQL" {
-}
-
-[React] --> HTTP
-[JDBC] --> PostgreSQL 
-@enduml
+```{mermaid}
+flowchart
+  subgraph ui[UI]
+    direction LR
+    React
+    HTML
+    CSS
+  end
+  subgraph api[API]
+    java[Java Servlet API]
+    Tomcat
+    JDBC
+  end
+  subgraph data[Database]
+    database[PostgreSQL]
+  end
+  user --> ui
+  ui -->|HTTP\nJSON\nJWT| api
+  api -->|SQL| data
 ```
 
 ### Primer structure
