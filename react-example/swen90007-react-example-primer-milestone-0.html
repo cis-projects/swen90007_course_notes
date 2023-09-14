@@ -1,0 +1,1187 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Milestone 0: Hello World &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'react-example/swen90007-react-example-primer-milestone-0';</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Milestone 1: Deployment" href="swen90007-react-example-primer-milestone-1.html" />
+    <link rel="prev" title="Milestone -1: Tools" href="swen90007-react-example-primer-milestone--1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frequently Asked Questions (FAQs)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">SWEN90007 Software Design and Architecture</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/jsp_servlets.html">JSPs and Servlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/first_web_app.html">Create Your First Web Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/java_postgresql.html">Introduction to Java and PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/maven.html">Introduction to Maven</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/10_render_deploy.html">Step 9: Deploy to Render</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra_tools/tools_and_plugins.html">Useful Tools and IntelliJ Plugins</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Freact-example/swen90007-react-example-primer-milestone-0.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/react-example/swen90007-react-example-primer-milestone-0.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Milestone 0: Hello World</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository">Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#react-project">React project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linting-for-javascript">Linting for JavaScript</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javaee-webapp-project">JavaEE Webapp project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql">PostgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-integration">Local integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-layer">Data layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-persistence-layer">Business (+ Persistence) layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-layer">Presentation layer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#react-components">React components</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-component">A first component</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-components">Composing components</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-components">Dynamic components</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#react-containers-and-hooks">React containers and hooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#usestate-hook">useState hook</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-data-from-the-api">Fetching data from the API</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-cors-issues">Fixing CORS issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="milestone-0-hello-world">
+<h1>Milestone 0: Hello World<a class="headerlink" href="#milestone-0-hello-world" title="Permalink to this heading">#</a></h1>
+<p>By the end of this milestone we will have:</p>
+<ul class="simple">
+<li><p>a well structured repository that will house the source code for our UI and API systems</p></li>
+<li><p>a React project in which we can start implementing the UI</p></li>
+<li><p>a Java Servlet project in which to implement the API</p></li>
+<li><p>a database with a simple schema</p></li>
+<li><p>all these systems running locally and integrated</p></li>
+</ul>
+<div class="caution admonition">
+<p class="admonition-title">Skipping milestones</p>
+<p>This milestone builds upon the implementation contributed by previous milestones, if you’ve skipped those previous milestones ensure that:</p>
+<ul class="simple">
+<li><p>your development environment is set up appropriately, as demonstrated in <em>Milestone -1: Tools</em></p></li>
+</ul>
+</div>
+<section id="repository">
+<h2>Repository<a class="headerlink" href="#repository" title="Permalink to this heading">#</a></h2>
+<p>To keep things incredibly simple we are going to develop both applications within the same repository.</p>
+<p>Let’s first create a new directory to house our project and initialise this as a Git repository:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>swen90007-example
+<span class="nb">cd</span><span class="w"> </span>swen90007-exampled
+git<span class="w"> </span>init
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# SWEN90007 Example Project&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
+git<span class="w"> </span>-ma<span class="w"> </span><span class="s2">&quot;:tada: Initial commit&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="react-project">
+<h2>React project<a class="headerlink" href="#react-project" title="Permalink to this heading">#</a></h2>
+<p>React is a library that greatly simplifies building complex <em>Single Page Applications (SPA)</em> for the web. It’s a hugely popular tool, and has become the de facto standard for building experiences delivered via the web.</p>
+<div class="note admonition">
+<p class="admonition-title">Batteries included</p>
+<p>You may have come across other web technologies such as Angular, Next and SvelteKit. Many of these alternate technologies are referred to as <em>frameworks</em> (or even <em>meta-frameworks</em>, but we won’t go there), and you might be wondering why we refer to React as a <em>library</em> instead. Web frameworks like Angular are said to come with <em>batteries included</em>, which refers to the fact that these tools bring with them <strong>everything</strong> you might need to build an SPA; they include, by default, components that provide solutions to common problems such as routing pages, dispatching AJAX requests, global state management, and even authentication - these frameworks will also often require developers to adopt various conventions around how a project is structured. This is not true of React, which is said to be <em>unopinionated</em> with respect to what your specific SPA requirements might be, or how you prefer to develop. The core React library ships with only the most essential functionality (such as dynamically rendering HTML and CSS), and expects developers - who may require further support (such as for page routing) - to explicitly import additional functionality from an external module.</p>
+</div>
+<p>Initialising a React project is non-trivial; thankfully, <a class="reference external" href="https://create-react-app.dev/">Create React App</a> is a handy tool developed to automate this task. The following command creates the directory <code class="docutils literal notranslate"><span class="pre">ui</span></code> and initialises it as a Node package and most importantly a React application.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>create-react-app<span class="w"> </span>ui
+</pre></div>
+</div>
+<p>This command may take sometime to execute - it downloads quite a lot of modules. However, once it’s complete you’ll have a fully functioning React app that you can start locally as so:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>ui
+npm<span class="w"> </span>run<span class="w"> </span>start
+</pre></div>
+</div>
+<p>The above command should automatically launch the React application in your default browser, but if it doesn’t, open a browser and go to <a class="reference external" href="http://localhost:3000">http://localhost:3000</a> to view your newly minted React application.</p>
+<p><img alt="React UI" src="../_images/react-ui.png" /></p>
+<section id="linting-for-javascript">
+<h3>Linting for JavaScript<a class="headerlink" href="#linting-for-javascript" title="Permalink to this heading">#</a></h3>
+<p>Because JavaScript is a dynamically typed language, it’s strongly recommended that you spend the time to setup linting with <a class="reference external" href="https://eslint.org/">ESLint</a>. ESLint uses static code analysis to find and - in some cases - fix common errors, it will save you a great deal of time that might otherwise be wasted debugging simple issues (so much time, in fact, that no developer should embark on a JavaScript project without it!). We’ll use NPM to manage ESLint, install it with the command below:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>--save-dev<span class="w"> </span>eslint
+</pre></div>
+</div>
+<p>The easiest way to set up ESLint is with its handy initializer, run the following to interactively configure your project:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>eslint<span class="w"> </span>--init
+</pre></div>
+</div>
+<p>This project’s ESLint was configured with the following options set:</p>
+<p><img alt="ESLint Config options" src="../_images/eslint-config-options.png" /></p>
+<p>You should now be able to run ESLint as so:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>eslint<span class="w"> </span>.
+</pre></div>
+</div>
+<p>ESLint will likely find some errors in the default React project created by <code class="docutils literal notranslate"><span class="pre">create-react-app</span></code>. You should spend a little time fixing what you can, but before you do that be aware that ESLint can - in some cases - automatically fix problems, pass the <code class="docutils literal notranslate"><span class="pre">--fix</span></code> flag to have the tool fix simple problems.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>eslint<span class="w"> </span>.<span class="w"> </span>--fix
+</pre></div>
+</div>
+<p>Finally, we can also register a script within the <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file that will simplify the execution of linting, add the following to the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> section of the configuration:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eslint .&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;lint:fix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eslint . --fix&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now we can check for errors or coding style with <code class="docutils literal notranslate"><span class="pre">npm</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>run<span class="w"> </span>lint
+</pre></div>
+</div>
+<p>And automatically fix some of those errors too.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>run<span class="w"> </span>lint:fix
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">NPM scripts</p>
+<p>It’s very common to register scripts with NPM in this way - in fact the <code class="docutils literal notranslate"><span class="pre">create-react-app</span></code> tool registers a number of custom scripts of its own - such as <code class="docutils literal notranslate"><span class="pre">start</span></code> (which we’ve used before) and <code class="docutils literal notranslate"><span class="pre">build</span></code>. The main reason for this is that it helps new developers understand what specific actions are appropriate for a particular project - if you’re ever wondering how to start or build a particular project managed by NPM, checkout the <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file, it will likely have a script configured.</p>
+</div>
+<section id="visual-studio-code">
+<h4>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this heading">#</a></h4>
+<p>If you plan to use VS Code to develop with React be sure to install the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint extension</a>, which will help identify problems as you develop. In the Extensions section search for <em>eslint</em> and select <em>install</em></p>
+<p><img alt="VS Code Plugin" src="../_images/vs-code-plugin.png" /></p>
+</section>
+</section>
+</section>
+<section id="javaee-webapp-project">
+<h2>JavaEE Webapp project<a class="headerlink" href="#javaee-webapp-project" title="Permalink to this heading">#</a></h2>
+<p>Let’s now begin setting up a project for our API. Assuming you are still in the UI directory, make a new directory - in the root of the repository - to house the API source code.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>../
+mkdir<span class="w"> </span>api
+</pre></div>
+</div>
+<p>Next, we’ll initialise a new JavaEE project with IntelliJ IDEA. Create a new project configured as so (take care to ensure that the project is created as a <em>Jakata EE</em> project, in the correct directory - for example <code class="docutils literal notranslate"><span class="pre">./swen90007-react-example/api</span></code> - and that you target the correct versions of both the JDK and Tomcat - 17 and 10.0.27 respectively).</p>
+<p><img alt="Create JavaEE Project" src="../_images/create-javaee-project.png" /></p>
+<p>Once correctly configured, select <em>Next</em>. On the next screen ensure that the Java <em>Servlet</em> dependency is included - you don’t need anything else, so select <em>Create</em>. IntelliJ IDEA should create a JavaEE Webapp project with a few default implementations: a JavaServer Pages (JSP) file <code class="docutils literal notranslate"><span class="pre">webapp/WEB-INF/index.jsp</span></code> for rendering HTML, and a simple Servlet implementation <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007.api.swen90007api.HelloServlet</span></code>.</p>
+<p><img alt="JavaEE Project Created" src="../_images/javaee-project-created.png" /></p>
+<p>Let’s start the API to verify our project setup. Starting the API is dead easy, just select <em>Run</em> (the green <em>play</em> icon) in the top right of the IntelliJ IDEA UI (making sure that the <em>Tomcat 10.0.27</em> run configuration is selected from the dropdown menu next to the <em>Run</em> button). The application should start and launch a browser that serves HTML rendered by the default <code class="docutils literal notranslate"><span class="pre">webapp/WEB-INF/index.jsp</span></code> JSP file.</p>
+<p><img alt="JavaEE Webapp Index" src="../_images/javaee-webapp-index.png" /></p>
+<p>Selecting <em>Hello Servlet</em> should navigate the browser to the default <code class="docutils literal notranslate"><span class="pre">/hello-servlet</span></code> endpoint, returning the HTML generated by that Servlet.</p>
+<p><img alt="Hello Servlet" src="../_images/hello-servlet.png" /></p>
+</section>
+<section id="postgresql">
+<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading">#</a></h2>
+<p>The final component to setup is the PostgreSQL database. We’ll observe a number of PostgreSQL <em>best practices</em>, which encourage setting up dedicated databases, schemas and users for projects; this is entirely necessary, however, it does greatly improve the security posture of a system and avoids namespace conflicts that may occur when using the PostgreSQL server as a datastore for multiple systems.</p>
+<p>In pgAdmin connect to your local PostgreSQL server and create a new user by right clicking on <em>Login/Group Roles</em> and selecting <em>Create</em> &gt; <em>Login/Group Role…</em>.</p>
+<p><img alt="Create PostgreSQL User" src="../_images/create-postgres-user.png" /></p>
+<p>We’ll call this user <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code>.</p>
+<p><img alt="Name PostgreSQL User" src="../_images/name-postgres-user.png" /></p>
+<p>Ensure it has a strong password that is difficult to guess.</p>
+<p><img alt="Password for PostgreSQL User" src="../_images/password-postgres-user.png" /></p>
+<p>Grant it <em>Login</em> privileges so that it can connect to the database.</p>
+<p><img alt="Permissions for PostgreSQL User" src="../_images/permissions-postgres-user.png" /></p>
+<p>Select <em>Save</em> and notice that the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code> is created under <em>Login/Group Roles</em>.</p>
+<p><img alt="PostgreSQL User Created" src="../_images/postgres-user-created.png" /></p>
+<p>Next, we’ll create a dedicated database for this project, right click on <em>Databases</em> and select <em>Create</em> &gt; <em>Database…</em>.</p>
+<p><img alt="Create PostgreSQL Database" src="../_images/create-postgres-database.png" /></p>
+<p>Name the new database <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code> and set the owner to the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code> user that we just created.</p>
+<p><img alt="Name PostgreSQL Database" src="../_images/name-postgres-database.png" /></p>
+<p>Select <em>Save</em> and notice that the new database is available under <em>Databases</em>.</p>
+<p><img alt="PostgreSQL Database Created" src="../_images/postgres-database-created.png" /></p>
+<p>Let’s take a moment to verify that our new user and database work as required. Right click on <em>Servers</em> and select <em>Create</em> &gt; <em>Server…</em>.</p>
+<p><img alt="Create PostgreSQL Server" src="../_images/create-postgres-server.png" /></p>
+<p>Name this server something you’ll remember.</p>
+<p><img alt="Name PostgreSQL Server" src="../_images/name-postgres-server.png" /></p>
+<p>Provide connection details that target the new <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code> database and use the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code> credentials to login.</p>
+<p><img alt="Configure PostgreSQL Server" src="../_images/configure-postgres-server.png" /></p>
+<p>Select <em>Save</em> - you should now be authenticated as the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code>. Let’s verify that the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code> has limited permissions. Right click on the <code class="docutils literal notranslate"><span class="pre">postgres</span></code> database managed by the new Server connection we’ve just created, and select <em>Query Tool</em>.</p>
+<p><img alt="Query PostgreSQL Database" src="../_images/query-postgres-database.png" /></p>
+<p>Let’s try to create a new table in the <code class="docutils literal notranslate"><span class="pre">public</span></code> schema of the <code class="docutils literal notranslate"><span class="pre">postgres</span></code> database. Paste the following SQL into the Query Tool.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">test</span><span class="w"> </span><span class="p">(</span>
+<span class="w"> </span><span class="n">test_value</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Select <em>Execute/Refresh</em> from the Query Tool’s toolbar (the <em>play</em> icon) to execute the SQL against the <code class="docutils literal notranslate"><span class="pre">postgres</span></code> database. Notice that the execution fails and pgAdmin reports the error <em>permission denied for schema public</em> - as expected, the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code> has limited permissions, and is not authorised to manage the <code class="docutils literal notranslate"><span class="pre">postgres</span></code> database.</p>
+<p><img alt="PostgreSQL Database Query Failure" src="../_images/postgres-database-query-failure.png" /></p>
+<p>Let’s try the same query against the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code> database. Close the current Query Tool window and open another against the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code> database, paste in the same SQL from previous and execute. The execution should be successful, and if you drill down to the tables within the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code> database’s <code class="docutils literal notranslate"><span class="pre">public</span></code> schema should see the new <code class="docutils literal notranslate"><span class="pre">test</span></code> table available.</p>
+<p><img alt="Project Database Query Success" src="../_images/project-database-query-success.png" /></p>
+<p>Finally, there is one last PostgreSQL <em>best practice</em> that we should observe: creating a dedicated schema for our application data. By default every PostgreSQL database has a schema called <code class="docutils literal notranslate"><span class="pre">public</span></code>, and it’s very tempting to just throw all of our data in there. However, for complex systems this can lead to naming conflicts, especially if the system makes use of 3rd party dependencies that require access to create and persist data to tables (if two dependencies expect to manage tables with the same name, then we potentially have an issue).</p>
+<div class="note admonition">
+<p class="admonition-title">Liquibase</p>
+<p><a class="reference external" href="https://docs.liquibase.com/home.html">Liquibase</a> is a popular database-independent, schema migration tool that tracks and applies changes to a database in automated way. It assumes access to (and ownership of) two key tables in your database - <code class="docutils literal notranslate"><span class="pre">DATABASECHANGELOGLOCK</span></code> and <code class="docutils literal notranslate"><span class="pre">DATABASECHANGELOG</span></code> (creating them if required), which it uses to track what changes have been applied. This presents a special problem for projects that maintain a database schema that <em>already</em> references tables with that same name (perhaps because the domain models it’s own version of a database change-log). Schemas are the perfect solution to this issue; we can simply configure Liquibase to create its tables within a <code class="docutils literal notranslate"><span class="pre">liquibase</span></code> namespace and store our application data in a separate <code class="docutils literal notranslate"><span class="pre">app</span></code> namespace - giving us confidence that we can avoid any schema conflicts.</p>
+</div>
+<p>We’ll create a schema called <code class="docutils literal notranslate"><span class="pre">app</span></code>, to which we’ll persist data for this project. But first, we’ll spend the time to clean up the public schema by dropping the <code class="docutils literal notranslate"><span class="pre">test</span></code> table we created earlier. In pgAdmin, expand the <code class="docutils literal notranslate"><span class="pre">public</span></code> schema, right click on the <code class="docutils literal notranslate"><span class="pre">test</span></code> table, and select <em>Delete/Drop</em>.</p>
+<p><img alt="Delete Test Table" src="../_images/delete-test-table.png" /></p>
+<p>Creating the database schema is something that we’ll likely need to do a fair few times - for instance each member of your team will need a local installation of PostgreSQL and valid schema to develop against, and when you later deploy to the cloud you’ll need to initialise that PostgreSQL database instance with an appropriate schema. For this reason we’ll declare our schema in a file we can version control and share.</p>
+<p>Create the file <code class="docutils literal notranslate"><span class="pre">api/db/init.sql</span></code>, with the contents:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="k">AUTHORIZATION</span><span class="w"> </span><span class="n">swen90007_react_example_owner</span><span class="p">;</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We can use pgAdmin to run this script against the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code> database. Right click on <code class="docutils literal notranslate"><span class="pre">swen90008_react_example</span></code> and open the Query Tool, then select <em>Open File</em> (look for the <em>file</em> icon) from the Query Tool toolbar, navigate to the <code class="docutils literal notranslate"><span class="pre">api/db/init.sql</span></code> file.</p>
+<p><img alt="Load init.sql script" src="../_images/load-init-db-script.png" /></p>
+<p>Select <em>Select</em> to load the file into the Query Tool and then select <em>Execute/Refresh</em>. There should now be a new <code class="docutils literal notranslate"><span class="pre">app</span></code> schema listed along with the default <code class="docutils literal notranslate"><span class="pre">public</span></code> schema for the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example</span></code> database.</p>
+<p><img alt="run script" src="../_images/run-script.png" /></p>
+</section>
+<section id="local-integration">
+<h2>Local integration<a class="headerlink" href="#local-integration" title="Permalink to this heading">#</a></h2>
+<p>Congratulations, you should now be able to run, locally, all of: a React SPA, a Java built API and a database. However, none of these components are able to communicate; we’ll fix that now by integrating each component, and verifying that data can flow through our entire system from UI to database - and back again.</p>
+<section id="data-layer">
+<h3>Data layer<a class="headerlink" href="#data-layer" title="Permalink to this heading">#</a></h3>
+<p>We’ll start our integration effort from the bottom up, beginning with setting up a simple Data Layer that can serve dummy data to our API. To do this, we’ll need to both: build out our schema by populating it with a few tables; and load some dummy data. It can be helpful to separate these two tasks, so we’ll write two simple SQL scripts for each. We’ve already written the initialisation script <code class="docutils literal notranslate"><span class="pre">api/db/init.sql</span></code>; which, so far, only initialises the <code class="docutils literal notranslate"><span class="pre">app</span></code> schema. Let’s extend that script to create a simple table - which will be just enough, for now, to verify integration between our Data Layer and the layers above.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="p">;</span>
+
+<span class="c1">-- schema creation from previous step</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">test</span><span class="w"> </span><span class="p">(</span>
+<span class="w"> </span><span class="n">test_value</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Let’s also populate that table with some dummy data. Create the file <code class="docutils literal notranslate"><span class="pre">api/db/load.sql</span></code> with the following SQL contents:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="p">;</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">test</span><span class="w"> </span><span class="p">(</span><span class="n">test_value</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;dummy data from the database!!!&#39;</span><span class="p">);</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Load and run both of those scripts, in order, using the Query Tool (as demonstrated earlier), and verify that the schema and data has been properly initialised by confirming that the following query returns the correct rows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">test</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><img alt="Verify Script" src="../_images/verify-script.png" /></p>
+<p>Notice that the Query Tool <em>Data Output</em> tab shows the required response.</p>
+</section>
+<section id="business-persistence-layer">
+<h3>Business (+ Persistence) layer<a class="headerlink" href="#business-persistence-layer" title="Permalink to this heading">#</a></h3>
+<p>The Business Layer will be implemented in the JavaEE Webapp project. It sits between the Data and Presentation Layers; and, as its name suggests, is responsible for executing business logic (such as, in this instance, the verdict is derived from the votes placed <em>for</em> and <em>against</em> a topic), and enforcing business rules (a vote must be either <em>for</em> or <em>against</em> a topic, and <em>rejected</em> votes are removed from the verdict). Naturally, the Business Layer requires access to system data served from the Data Layer. Additionally, the Business Layer is responsible for accepting and servicing requests generated by the Presentation Layer. When verifying our Business Layer, we’ll need to confirm two things:</p>
+<ul class="simple">
+<li><p>the Business Layer can consume data stored in the database</p></li>
+<li><p>the Business Layer accepts and responds to requests with the appropriate data</p></li>
+</ul>
+<div class="note admonition">
+<p class="admonition-title">Business and Persistence layers</p>
+<p>Our Java API will end up becoming fairly complicated, and so it will become necessary decompose it into two cohesive layers - a business layer and a persistence layer. All of our important (and complicated) business logic will be implemented within a business layer, and in order to keep this layer as simple as possible we’ll refactor the complexity of communicating with the database (including marshalling database row data into convenient Java objects - and back again) into a persistence layer. You may notice that at this stage of the project we’ve not made a clear distinction between these two layers (our business logic and persistence code are mixed), however as the project grows you’ll notice these two distinct layers form.</p>
+</div>
+<p>To keep things simple we can verify both of these within the same Servlet component. But first let’s conduct a little house keeping within the JavaEE Webapp project we created previously. We won’t be making use of JSPs for this project, so we can go ahead and delete the JSP file (generated, by default, when creating the JavaEE Webapp project) <code class="docutils literal notranslate"><span class="pre">src/main/webapp/index.jsp</span></code>; additionally, delete the generated <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007.reactexampleapi.HelloServlet</span></code> <code class="docutils literal notranslate"><span class="pre">HttpServlet</span></code> implementation - we’ll implement our own shortly.</p>
+<p>To pull data into our Business Layer we’ll make use of the Java Database Connectivity (JDBC) API, which exists to simplify the process of integrating Java applications with relational databases (and is, in fact, a great example of the Adapter Pattern - which you will have come across before). JDBC needs access to a <em>Database Driver</em> in order to connect to our PostgreSQL database. Such drivers are typically implemented on a per-RDBMS-basis so you’ll need to ensure that you include a driver that targets PostgreSQL. Include the following dependency coordinates in your project <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> to configure Maven to fetch a compatible PostgreSQL driver.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>42.5.3<span class="nt">&lt;/version&gt;</span><span class="w"> </span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>Now that we have a driver configured, let’s implement a simple Java Servlet <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007.reactexampleapi.api.TestResource</span></code> that initialises the driver and - in response to a GET request - fetches and returns data from the database.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.api</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.ServletException</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.annotation.WebServlet</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServlet</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletRequest</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletResponse</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.*</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">urlPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/test&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestResource</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PROPERTY_JDBC_URI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jdbc.uri&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PROPERTY_JDBC_USERNAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jdbc.username&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PROPERTY_JDBC_PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jdbc.password&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">SQL_GET_TEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM app.test;&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">resp</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// open a connection and fetch the row from the &#39;test&#39; table and return  </span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="w">  </span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PROPERTY_JDBC_URI</span><span class="p">),</span><span class="w">  </span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PROPERTY_JDBC_USERNAME</span><span class="p">),</span><span class="w">  </span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PROPERTY_JDBC_PASSWORD</span><span class="p">)))</span><span class="w">  </span>
+<span class="w">        </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">statement</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">SQL_GET_TEST</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statement</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span><span class="w">  </span>
+<span class="w">                </span><span class="n">results</span><span class="p">.</span><span class="na">next</span><span class="p">();</span><span class="w">  </span>
+<span class="w">                </span><span class="n">resp</span><span class="p">.</span><span class="na">getWriter</span><span class="p">().</span><span class="na">println</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;test_value&quot;</span><span class="p">));</span><span class="w">  </span>
+<span class="w">            </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// load the driver  </span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;org.postgresql.Driver&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">init</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>There are three things to be aware of with this Servlet:</p>
+<ul class="simple">
+<li><p>the Servlet loads the driver to the classpath on initialisation. This is not a good pattern - and as you will see later, we opt for a better solution in subsequent milestones.</p></li>
+<li><p>the Servlet creates a connection with the database on a per-request-basis. Again this not a great pattern, which we’ll address later.</p></li>
+<li><p>the Servlet expects connection data, such as the JDBC URI and client credentials, to be passed as system properties. This is just one method through which we can <em>externalise environmental configuration</em>, and is necessary for both keeping secret data (such as passwords) out of our source code, and also for ensuring we can easily deploy the same source code to different environments - in which we may need to connect to a database via an environment specific URI.</p></li>
+</ul>
+<p>The Servlet expects the system properties <code class="docutils literal notranslate"><span class="pre">jdbc.uri</span></code>, <code class="docutils literal notranslate"><span class="pre">jdbc.username</span></code>, <code class="docutils literal notranslate"><span class="pre">jdbc.password</span></code> to be available. We can get IntelliJ IDEA to manage these system properties for us. In the right section of the toolbar there should be a pre-configured run configuration called <em>Tomcat 10.0.27</em> (next to the run button); select this run configuration to reveal a drop-down, from the menu’s few options select <em>Edit Configurations…</em> to open the <em>Run/Debug Configurations</em> modal. In the <em>VM options</em> input provide the following values (replacing <code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">password&gt;</span></code> with the password you configured when creating the <code class="docutils literal notranslate"><span class="pre">swen90007_react_example_owner</span></code> user):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-Djdbc.uri=jdbc:postgresql://localhost:5432/swen90007_react_example
+-Djdbc.username=swen90007_react_example_owner
+-Djdbc.password=&lt;a password&gt;
+</pre></div>
+</div>
+<p><img alt="Configure Tomcat system properties" src="../_images/configure-tomcat-system-properties.png" /></p>
+<p>To see the Servlet in action let’s start the server in <em>Debug mode</em> (look for green <em>bug</em> icon next to the <em>Run</em> button) and place a breakpoint in the <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007.reactexampleapi.api.TestResource#doGet</span></code> method. Then, in a browser, navigate to <code class="docutils literal notranslate"><span class="pre">http://localhost:8080/react_example_api_war_exploded/test</span></code>. Return to IntelliJ IDEA, which should now be waiting at the breakpoint.</p>
+<p><img alt="Debug Webapp" src="../_images/debug-webapp.png" /></p>
+<p>Select <em>Resume Program</em> (lower left corner of the <em>Services</em> tab), and observe that the data retrieved from the database is returned to the browser.</p>
+<p><img alt="Verify Webapp" src="../_images/verify-webapp.png" /></p>
+</section>
+<section id="presentation-layer">
+<h3>Presentation layer<a class="headerlink" href="#presentation-layer" title="Permalink to this heading">#</a></h3>
+<p>The Presentation Layer is responsible for displaying application state to the user, and provides a convenient user-friendly interface through which the user can fulfil their user-goals. This layer will be entirely implemented with React, so let’s spend a few moments on the very basics of React that you will need to know at this point.</p>
+<section id="react-components">
+<h4>React components<a class="headerlink" href="#react-components" title="Permalink to this heading">#</a></h4>
+<p>The primitive building block of all React systems is the <em>component</em>. Components allow us to decompose large complicated systems into a collection of simple, easy to understand, and ideally reusable, units of functionality - they enable us to observe software design principals such as <em>Don’t repeat Yourself</em> (DRY) and <em>High Cohesion</em> when developing for the web.</p>
+<section id="a-first-component">
+<h5>A first component<a class="headerlink" href="#a-first-component" title="Permalink to this heading">#</a></h5>
+<p>A component is essentially just a function (or class! There are a few implementation styles - we’ll use, exclusively, the functional style in this project) that returns JavaScript and XML (JSX). Components can be as simple as the the one below, which returns a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element to be rendered.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">Simple</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">some</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">value</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Simple</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The HTML rendered by this component would simply be:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>some static value<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="composing-components">
+<h5>Composing components<a class="headerlink" href="#composing-components" title="Permalink to this heading">#</a></h5>
+<p>We can compose components to build complex systems, piece by piece. For example, consider this component that makes use of the <code class="docutils literal notranslate"><span class="pre">Simple</span></code> component we defined earlier:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Simple</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Simple&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">SimpleParent</span></code> component renders the following HTML in the browser</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>some static value<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>some static value<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="dynamic-components">
+<h5>Dynamic components<a class="headerlink" href="#dynamic-components" title="Permalink to this heading">#</a></h5>
+<p>The previous components were not particularly interesting, they simply render static data - which is fine for very simple applications, however, most applications worth building in React are dynamic. We can implement dynamic components in a number of ways, but the most basic approach is to make use of <em>component properties</em> (frequently shortened to <em>props</em>). Components can declare a set of properties, to which parent components can <em>bind</em> values. Consider a revised implementation of the <code class="docutils literal notranslate"><span class="pre">Simple</span></code> component that uses <em>props</em>:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">PropTypes</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;prop-types&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">Simple</span><span class="p">({</span><span class="w"> </span><span class="nx">aProperty</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="nx">some</span><span class="w"> </span><span class="nx">dynamic</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span>
+<span class="w">      </span><span class="p">{</span><span class="s1">&#39; &#39;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">aProperty</span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span>
+
+<span class="nx">Simple</span><span class="p">.</span><span class="nx">propTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">aProperty</span><span class="o">:</span><span class="w"> </span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">string</span><span class="p">.</span><span class="nx">isRequired</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Simple</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>There’s two important things happening here:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">Simple</span></code> component declares a <em>prop</em> called <code class="docutils literal notranslate"><span class="pre">aProperty</span></code></p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">Simple</span></code> component returns JSX that <em>references</em> the <code class="docutils literal notranslate"><span class="pre">aProperty</span></code> prop. One of the key benefits of JSX is that it enables us to write JavaScript directly in our markup (and vice-versa) - in the above example React renders the resulting HTML by first interpolating the value of <code class="docutils literal notranslate"><span class="pre">aProperty</span></code> into the content of the <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title"><code class="docutils literal notranslate"><span class="pre">prop-types</span></code></p>
+<p><a class="reference external" href="https://www.npmjs.com/package/prop-types"><code class="docutils literal notranslate"><span class="pre">prop-types</span></code></a> is a library that implements runtime checking for component props. It’s especially useful because quite a few IDEs will detect props definitions declared with <code class="docutils literal notranslate"><span class="pre">prop-types</span></code>, and conduct static analysis to provide code hints and flag possible errors. You should get into the habit of using this library - indeed ESLint, as configured in previous sections, will complain if you don’t. You can install <code class="docutils literal notranslate"><span class="pre">prop-types</span></code> with NPM:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>--save<span class="w"> </span>prop-types
+</pre></div>
+</div>
+</div>
+<p>Parent components can bind values to the properties declared by child components by passing them as HTML attributes.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Simple</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Simple&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="na">aProperty</span><span class="o">=</span><span class="s">&quot;some value&quot;</span> <span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Simple</span> <span class="na">aProperty</span><span class="o">=</span><span class="s">&quot;some other value&quot;</span> <span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">SimpleParent</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">SimpleParent</span></code> component now renders:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>some dynamic value: some value<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>some dynamic value: some other value<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="react-containers-and-hooks">
+<h4>React containers and hooks<a class="headerlink" href="#react-containers-and-hooks" title="Permalink to this heading">#</a></h4>
+<p>The components discussed above are <em>pure</em> components, which refers (in part) to the fact that they are stateless - they either, simply return JSX in a static way, or <em>deterministically</em> translate a number of received properties into JSX. We like <em>pure</em> components because they have no side effects, and are therefore easy to understand and reason about; however, at some point, any interesting application needs a way to introduce and manage state; for example, user generated state (from inputs) may need to be memoized before handling in some other way, or data received from another system may need to be captured before displaying to the user.</p>
+<p>It’s become convention to make a distinction between stateless and stateful components; you will likely find many different references to both <em>dumb</em> and <em>smart</em>, or even <em>skinny</em> and <em>fat</em>, components online and - perhaps - at work too. This primer adopts the language <em>component</em> and <em>container</em> to refer to stateless and stateful components respectively. These labels are not at all technical, and it’s unlikely that you will see them used in any of the official React documentation, but they do point to a general understanding that React projects benefit from a small amount of design along the lines of application state. In general it’s a good idea to ensure that presentation-oriented components (those that are concerned with <em>how the application looks</em>, and return <em>styled</em> markup) are simple stateless <em>components</em> that receive their state as props from <em>containers</em> (which are responsible for <em>how the application works</em> and return no markup, instead delegating presentation logic to child <em>components</em>).</p>
+<section id="usestate-hook">
+<h5>useState hook<a class="headerlink" href="#usestate-hook" title="Permalink to this heading">#</a></h5>
+<p>The most basic way to add state to a component is to declare a <em>useState hook</em>. This effectively introduces a stateful mechanism that behaves a lot like a local variable. Try replacing the contents of the <code class="docutils literal notranslate"><span class="pre">src/App.js</span></code> file with the code below:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">setCount</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="nx">Current</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="nx">is</span><span class="o">:</span>
+<span class="w">        </span><span class="p">{</span><span class="s1">&#39; &#39;</span><span class="p">}</span>
+<span class="w">        </span><span class="p">{</span><span class="nx">count</span><span class="p">}</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span>
+        <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+        <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)}</span>
+      <span class="p">&gt;</span>
+<span class="w">        </span><span class="nx">Increment</span><span class="w"> </span><span class="nx">count</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">App</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Restart your development server if you’ve since stopped it (<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">start</span></code>), and notice that clicking the button increments the count. A number of things make this work:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">useState(0)</span></code> invocation creates the stateful hook and sets its initial value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">useState(0)</span></code> invocation returns a list that we’ve unpacked (via JavaScript Destructuring) into two values - a reference to the current value <code class="docutils literal notranslate"><span class="pre">count</span></code>, and a function <code class="docutils literal notranslate"><span class="pre">setCount</span></code> that we use to update the stored value.</p></li>
+<li><p>notice that we can even write JavaScript arrow function expressions within JSX markup.</p></li>
+</ul>
+</section>
+</section>
+<section id="fetching-data-from-the-api">
+<h4>Fetching data from the API<a class="headerlink" href="#fetching-data-from-the-api" title="Permalink to this heading">#</a></h4>
+<p>We’ve finally covered just enough React, for now, to be able to fetch and display data from the API. With some minor modifications to the current <code class="docutils literal notranslate"><span class="pre">App</span></code> component we should be able to dispatch an AJAX call, store the response and render it as HTML.</p>
+<p>We’ll use the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> to fetch resources from the API. Refactor your <code class="docutils literal notranslate"><span class="pre">App</span></code> component to use <code class="docutils literal notranslate"><span class="pre">fetch</span></code>.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">API_BASE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_BASE_URL</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">setData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">loading</span><span class="p">,</span><span class="w"> </span><span class="nx">setLoading</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">setLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">setData</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span>
+<span class="w">        </span><span class="sb">`</span><span class="si">${</span><span class="nx">API_BASE_URL</span><span class="si">}</span><span class="sb">/test`</span><span class="p">,</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setData</span><span class="p">(</span><span class="sb">`woops! bad response status </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb"> from API`</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="nx">setData</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setData</span><span class="p">(</span><span class="sb">`woops! an error occurred: </span><span class="si">${</span><span class="nx">e</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;&gt;</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">data</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">data</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;}</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">loading</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">loading</span><span class="p">...&lt;/</span><span class="nt">p</span><span class="p">&gt;}</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span>
+        <span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">loading</span><span class="p">}</span>
+        <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+        <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">fetchData</span><span class="p">}</span>
+      <span class="p">&gt;</span>
+<span class="w">        </span><span class="nx">Fetch</span><span class="w"> </span><span class="nx">data</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">App</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>There’s quite a lot happening in the <code class="docutils literal notranslate"><span class="pre">App</span></code> component now, let’s tackle a couple of the key points:</p>
+<ul class="simple">
+<li><p>the request to the API is dispatched by clicking the button element, whose <code class="docutils literal notranslate"><span class="pre">onClick</span></code> attribute is bound to the <code class="docutils literal notranslate"><span class="pre">fetchData</span></code> function.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">fetchData</span></code> function makes an <code class="docutils literal notranslate"><span class="pre">async</span></code> call to the APIs <code class="docutils literal notranslate"><span class="pre">/test</span></code> route, which we implemented prior.</p></li>
+<li><p>as with our API implementation, we’re externalising environmental configuration (such as the API’s base URL) so that we can deploy our UI to any environment without having to change the source code. In this instance, we’re making use of environment variables to pass environmental configuration - note that React will only interpolate environment variables prefixed with <code class="docutils literal notranslate"><span class="pre">REACT_APP_</span></code>, hence the naming <code class="docutils literal notranslate"><span class="pre">REACT_APP_API_BASE_URL</span></code>.</p></li>
+<li><p>a component <strong>must</strong> return a <strong>single</strong> root JSX element, if we want to return a number of elements we must wrap them all in a parent element; we can avoid wrapping them all in redundant <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tags (which would clutter the DOM) by using the empty <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> tag.</p></li>
+<li><p>notice that we have some conditional JSX here; <code class="docutils literal notranslate"><span class="pre">{data</span> <span class="pre">&amp;&amp;</span> <span class="pre">&lt;p&gt;{data}&lt;/p&gt;}</span></code> renders the <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tag only when data has been returned from the API.</p></li>
+</ul>
+<p>Return to your browser and click <em>Fetch data</em>.</p>
+<p><img alt="Error UI" src="../_images/error-ui.png" /></p>
+<p>An error is reported, why? Inspect the network calls and notice that the request to the <code class="docutils literal notranslate"><span class="pre">/test</span></code> resource has been blocked because the <em>CORS header ‘Access-Control-Allow-Origin’ [is] missing</em>. CORS stands for Cross Origin Resource Sharing, and is a security feature built into all modern web browsers. What’s happening here is that the browser is refusing to dispatch the request to the API because it believes the request to be unsafe.</p>
+<p><img alt="Inspect UI Error" src="../_images/inspect-error-ui.png" /></p>
+<div class="note admonition">
+<p class="admonition-title">What is CORS?</p>
+<p>CORS is an important security measure that ensures malicious websites can’t trick unsuspecting users into accessing legitimate resources - and, in the process, steal confidential user information. Specifically, CORS prevents a hacker from serving a weaponised version of your bank’s online banking UI that can integrate with your bank’s legitimate backend - not only would such a site be particularly convincing (it would, after all, have access to your actual banking data), but it could also quite easily intercept data exchanged between itself and the API (your credentials, balance, contact details, etc). CORS prevents this kind of threat by ensuring your browser enforces a set of <em>allowed</em> origins (websites) from which an API will accept requests; if the browser detects that the website it’s accessing isn’t trusted by an particular API then it will refuse to dispatch requests made by that website to access the API’s resources. Relating this back to the online banking example, CORS prevents hackers from stealing your data by ensuring your browser refuses to send requests to your bank’s API from any website that is not the bank’s official (and trusted) banking UI.</p>
+</div>
+</section>
+<section id="fixing-cors-issues">
+<h4>Fixing CORS issues<a class="headerlink" href="#fixing-cors-issues" title="Permalink to this heading">#</a></h4>
+<p>Our problems with CORS are due to the fact that our API is not responding correctly to <em>pre-flight requests</em> sent by the browser. The exact implementation required of the API is somewhat involved and includes responding to HTTP OPTIONS methods with a number of specific headers. We’ll avoid the hassle of implementing our own CORS handling by configuring our JavaEE Webapp project with <a class="reference external" href="https://spring.io/projects/spring-security">Spring Security</a>.</p>
+<p>Add the following dependency management configuration to your <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>, which references the Spring Security <em>Bill of Materials</em> (BOM) - a BOM pins the versions of a number of related dependencies so that you don’t need to discover them for yourself (by, for example, referring to documentation and release notes).</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;dependencies&gt;</span>
+<span class="w">    </span><span class="nt">&lt;dependency&gt;</span><span class="w">            </span>
+<span class="w">      </span><span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&lt;artifactId&gt;</span>spring-security-bom<span class="nt">&lt;/artifactId&gt;</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&lt;version&gt;</span>6.0.1<span class="nt">&lt;/version&gt;</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+</pre></div>
+</div>
+<p>Then add the two Spring Security dependencies we require. Note that we don’t need to include the version in these dependencies because the version is pinned by the BOM above.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/dependency&gt;</span><span class="w">  </span>
+<span class="nt">&lt;dependency&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>spring-security-config<span class="nt">&lt;/artifactId&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>To configure Spring Security for CORS (CORS only, for now - we return to Spring Security later to configure authentication) we will need to implement two new classes <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007.reactexampleapi.security.SecurityWebApplicationInitializer</span></code> that will register our CORS-enabled security configuration <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007.reactexampleapi.security.WebSecurityConfig</span></code></p>
+<p>The initialiser is nothing terribly complicated.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.security</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SecurityWebApplicationInitializer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractSecurityWebApplicationInitializer</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SecurityWebApplicationInitializer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">WebSecurityConfig</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The configuration is somewhat more involved.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.security</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Bean</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.config.Customizer</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.config.annotation.web.builders.HttpSecurity</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.config.annotation.web.configuration.EnableWebSecurity</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.web.SecurityFilterChain</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.cors.CorsConfiguration</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.cors.CorsConfigurationSource</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.cors.UrlBasedCorsConfigurationSource</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="nd">@Configuration</span><span class="w">  </span>
+<span class="nd">@EnableWebSecurity</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebSecurityConfig</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PROPERTY_CORS_ORIGINS_UI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cors.origins.ui&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Bean</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">SecurityFilterChain</span><span class="w"> </span><span class="nf">securityFilterChain</span><span class="p">(</span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">http</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">cors</span><span class="p">(</span><span class="n">Customizer</span><span class="p">.</span><span class="na">withDefaults</span><span class="p">())</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Bean</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CorsConfigurationSource</span><span class="w"> </span><span class="nf">corsConfigurationSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">CorsConfiguration</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CorsConfiguration</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="n">configuration</span><span class="p">.</span><span class="na">setAllowedOrigins</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PROPERTY_CORS_ORIGINS_UI</span><span class="p">)));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">configuration</span><span class="p">.</span><span class="na">setAllowedMethods</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">UrlBasedCorsConfigurationSource</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UrlBasedCorsConfigurationSource</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="n">source</span><span class="p">.</span><span class="na">registerCorsConfiguration</span><span class="p">(</span><span class="s">&quot;/**&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">configuration</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">source</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A few things to observe:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">&#64;Configuration</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;EnableWebSecurity</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;Bean</span></code> annotations are Spring annotations and beyond the scope of this primer.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">securityFilterChain</span></code> method registers our CORS configuration with the Spring <code class="docutils literal notranslate"><span class="pre">SecurityFilterChain</span></code>. Later, when we come to implement authentication, we’ll revisit this method and configure additional security components, such as an authentication provider.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">corsConfigurationSource</span></code> method builds our CORS configuration.</p></li>
+<li><p>the CORS configuration permits GET requests from a single origin - this is, obviously, quite restrictive and we’ll need to refactor this configuration when we add more functionality to our API. As in previous sections, we’ll use Java system properties to provide environmental configuration - such as the allowed origins.</p></li>
+<li><p>and, finally, we register this configuration against all routes (<code class="docutils literal notranslate"><span class="pre">/**</span></code>) exposed by our JavaEE Webapp.</p></li>
+</ul>
+<p>The API now expects an additional system property, <code class="docutils literal notranslate"><span class="pre">cors.origins.ui</span></code>, to be available. As in previous sections, we’ll get IntelliJ IDEA to manage setting this system property. Add the following to the existing <em>VM options</em> for your <em>Tomcat 10.0.27</em> run configuration, and restart the API.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-Dcors.origins.ui=http://localhost:3000
+</pre></div>
+</div>
+<p>Return to your browser and click <em>Fetch data</em> once more, the request should now succeed and data from the database should be displayed in the browser.</p>
+<p><img alt="Verify UI" src="../_images/verify-ui.png" /></p>
+<p>Congratulations, you have a fully integrated system running locally! The next step will be to deploy this same system to the cloud.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./react-example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="swen90007-react-example-primer-milestone--1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Milestone -1: Tools</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="swen90007-react-example-primer-milestone-1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Milestone 1: Deployment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository">Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#react-project">React project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linting-for-javascript">Linting for JavaScript</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javaee-webapp-project">JavaEE Webapp project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql">PostgreSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-integration">Local integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-layer">Data layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-persistence-layer">Business (+ Persistence) layer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-layer">Presentation layer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#react-components">React components</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-component">A first component</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-components">Composing components</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-components">Dynamic components</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#react-containers-and-hooks">React containers and hooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#usestate-hook">useState hook</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-data-from-the-api">Fetching data from the API</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-cors-issues">Fixing CORS issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

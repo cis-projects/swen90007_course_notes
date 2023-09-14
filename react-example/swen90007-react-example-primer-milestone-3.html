@@ -1,0 +1,1495 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Milestone 3: Authentication &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'react-example/swen90007-react-example-primer-milestone-3';</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Useful Tools and IntelliJ Plugins" href="../extra_tools/tools_and_plugins.html" />
+    <link rel="prev" title="Milestone 2: Core Functionality" href="swen90007-react-example-primer-milestone-2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frequently Asked Questions (FAQs)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">SWEN90007 Software Design and Architecture</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/jsp_servlets.html">JSPs and Servlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/first_web_app.html">Create Your First Web Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/java_postgresql.html">Introduction to Java and PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first_java_app/maven.html">Introduction to Maven</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/10_render_deploy.html">Step 9: Deploy to Render</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Milestone 3: Authentication</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra_tools/tools_and_plugins.html">Useful Tools and IntelliJ Plugins</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Freact-example/swen90007-react-example-primer-milestone-3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/react-example/swen90007-react-example-primer-milestone-3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Milestone 3: Authentication</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-overview">An overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-tokens">Access tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refresh-tokens">Refresh tokens</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persisting-refresh-tokens">Persisting refresh tokens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-api-secured-by-spring-security">An API secured by Spring Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-the-tokens">Modelling the tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-refresh-token-repository">A refresh token repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-and-validating-json-web-tokens">Generating and validating JSON Web Tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login-refresh-and-logout-resources">Login, refresh and logout resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-security-configuration">Spring Security configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#context-aware-configuration">Context aware configuration</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-static-in-memory-user-directory">A static, in memory user directory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#token-aware-servlet-filter">Token aware Servlet Filter</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-api-security">Verify API security</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-extensions">UI extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-changes">Client changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-authentication-provider-context">An authentication provider Context</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#personalised-experience-and-logout">Personalised experience and logout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-higher-order-component">A <em>Higher-Order Component</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together-with-a-new-router-component">Putting it all together with a new Router component</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-to-render">Deploy to Render</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="milestone-3-authentication">
+<h1>Milestone 3: Authentication<a class="headerlink" href="#milestone-3-authentication" title="Permalink to this heading">#</a></h1>
+<p>By the end of this milestone we will have:</p>
+<ul class="simple">
+<li><p>a single admin user that can be authenticated and authorised to perform certain privileged actions</p></li>
+<li><p>an API with login and logout endpoints</p></li>
+<li><p>an API that is able to generate and verify JSON Web Tokens, and set browser cookies</p></li>
+<li><p>a Spring Security configuration that secures privileged resources</p></li>
+<li><p>a UI that will manage a user session via Local Storage and cookies</p></li>
+<li><p>the system deployed to, and running on, Render’s unified cloud</p></li>
+</ul>
+<div class="caution admonition">
+<p class="admonition-title">Skipping milestones</p>
+<p>This milestone builds upon the implementation contributed by previous milestones, if you’ve skipped those previous milestones, ensure that:</p>
+<ul class="simple">
+<li><p>your development environment is set up appropriately, as demonstrated in <em>Milestone -1: Tools</em></p></li>
+<li><p>you have an appropriately set up PostgreSQL server running locally, with a database and user configured appropriately, as demonstrated in <em>Milestone 0: Hello world</em></p></li>
+<li><p>you’ve checked out the source code contributed by <em>Milestone 2: Core Functionality</em>, and run the <code class="docutils literal notranslate"><span class="pre">.sql</span></code> scripts contributed by that milestone against your local PostgreSQL server.</p></li>
+</ul>
+</div>
+<section id="an-overview">
+<h2>An overview<a class="headerlink" href="#an-overview" title="Permalink to this heading">#</a></h2>
+<section id="access-tokens">
+<h3>Access tokens<a class="headerlink" href="#access-tokens" title="Permalink to this heading">#</a></h3>
+<p>The extensions contributed by this milestone are relatively complex, they implement an authorisation flow that’s negotiated between the UI and the API, lets take moment to discuss what we are trying to achieve.</p>
+<p>The following - rather large - diagram details the authorisation flow that takes place when a user attempts to access the privileged admin dashboard.</p>
+<div class="mermaid">
+            sequenceDiagram
+    actor user as User
+    participant ui as UI
+    participant ls as BrowserLocalStorage
+    participant api as API
+    participant dir as UserDirectory
+    participant jwt as JWTService
+    participant t as token:JWT
+    
+    user-&gt;&gt;ui: navigate(adminDashboard)
+    activate ui
+    ui-&gt;&gt;ls: token = getLoggedInUser()
+    alt token does not exist
+        ui--&gt;&gt;user: loginPage
+        user-&gt;&gt;ui: submitCredentials(credentials)
+        ui-&gt;&gt;api: login(credentials)
+        activate api
+        api-&gt;&gt;dir: user = getUser(credentials)
+        alt user exists
+            api-&gt;&gt;jwt: token = generateAndSign(user)
+            api--&gt;&gt;ui: token
+            ui-&gt;&gt;ls: setLoggedInUser(token)
+            ui--&gt;&gt;user: adminDashboard&lt;br/&gt;(authentication flow starts again)
+        else 
+            api--&gt;&gt;ui: 401 Unauthorised
+            deactivate api
+            ui--&gt;&gt;user: invalid credentials
+        end
+    else token exists
+        ui-&gt;&gt;t: roles = getClaims()
+        alt roles.contains(&quot;ADMIN&quot;)
+            ui-&gt;&gt;api: getVotes(token)
+            activate api
+            api-&gt;&gt;jwt: verified = verify(user.token)
+            alt !verified
+                api--&gt;&gt;ui: 401 Unauthorised
+                ui-&gt;&gt;ls: removeLoggedInUser()
+                ui--&gt;&gt;user: loginPage
+            else
+                api-&gt;&gt;t: roles = getClaims()
+                alt roles.contains(&quot;ADMIN&quot;)
+                    api--&gt;&gt;ui: votes
+                    ui--&gt;&gt;user: adminDashboad with votes
+                else
+                    api--&gt;&gt;ui: 403 Forbidden
+                    deactivate api
+                    ui--&gt;&gt;user: You are not an admin!
+                end
+            end
+        else
+            ui--&gt;&gt;user: You are not an admin!
+            deactivate ui
+        end
+    end
+        </div><p>There’s a fair amount going on here, so let’s pick it apart:</p>
+<ol class="arabic simple">
+<li><p>when a user attempts to access the admin dashboard the UI checks the browser’s Local Storage for any user details (such as a token) that may have been stored there from a previous successful login</p></li>
+<li><p>if no user details exist in Local Storage, then we need to authenticate the user, and then authorise them as an admin before we can proceed. The following occurs:</p>
+<ol class="arabic simple">
+<li><p>The UI redirects the user to the login page</p></li>
+<li><p>The user enters their credentials which the UI sends to the API to be verified</p></li>
+<li><p>if the credentials match a user in the UserDirectory the API, via the JWTService, generates an access token with the user principal (username) and roles added as claims - claims are just extra metadata that can be added to a token, they capture additional user information that may be of use to the UI. The token is finally returned to the UI where it is added to the browser’s Local Storage and the user is redirected back to the admin dashboard where the flow starts again (this time with user details, of course)</p></li>
+<li><p>if the UserDirectory has no such user then the credentials are assumed to be wrong - an error is returned UI,  which prompts the user to try again</p></li>
+</ol>
+</li>
+<li><p>if user details exist and indicate that the current user does not have the required <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code> role then the UI simply responds with an error, the user is not an admin.</p></li>
+<li><p>however, if the user details are for an admin then the UI requests the votes from the API, passing the access token (from Local Storage) as authorisation. The following then occurs:</p>
+<ol class="arabic simple">
+<li><p>before honouring the request, the API verifies the received token. The API verifies that the token is one it has generated (of course, we can’t just accept any token generated by anyone - so tokens are signed with a secret key that only the API knows), that the token has not been tampered with (for example, by an attacker altering the token’s claims to escalate their privilege), and finally that the token has not yet expired.</p></li>
+<li><p>if the token can’t be verified, an error is returned to the UI, the user details are stripped from the Local Storage and user is redirected to the login page.</p></li>
+<li><p>otherwise, the API checks the token’s claims for the required <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code> role.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="refresh-tokens">
+<h3>Refresh tokens<a class="headerlink" href="#refresh-tokens" title="Permalink to this heading">#</a></h3>
+<p>As mentioned above, the access token that the API generates will eventually expire. It’s best practice to give tokens a very short lifespan - this ensures that if a token is stolen by an attacker it can only be used for a short period, thus minimising the opportunity the attacker has to access privileged resources. Of course, if the token’s lifespan is very short then the user will need to fetch a new one often, and if they’re required to login each time to do so then this will get rather annoying. We’ll introduce the concept of a <em>refresh token</em> to enable users to stay logged in, while also ensuring that tokens expire shortly after they’re generated. The refresh token will be generated alongside the access token, stored in the database, and can be presented by the UI to automatically receive a new access token.</p>
+<div class="mermaid">
+            sequenceDiagram
+    actor user as User
+    participant ui as UI
+    participant ls as BrowserLocalStorage
+    participant api as API
+    participant dir as UserDirectory
+    participant jwt as JWTService
+    participant rep as RefreshTokenRepository
+
+    user-&gt;&gt;ui: navigate(adminDashboard)
+    activate ui
+    ui-&gt;&gt;ls: token = getLoggedInUser()
+    Note over ui: assuming that the&lt;br/&gt;token has expired
+    ui-&gt;&gt;api: 401 Unauthorized = getVotes(token)
+    activate api
+    ui-&gt;&gt;api: refresh(token, refreshTokenId)
+    api-&gt;&gt;rep: refreshToken = get(refreshTokenId)
+    alt refreshToken does not exist || token != refreshToken.accessToken
+        api--&gt;&gt;ui: 403 Forbidden
+        ui--&gt;&gt;user: You are not an admin
+    else
+        api-&gt;&gt;dir: user = getUser(refreshToken.username)
+        api-&gt;&gt;jwt: generateAndSign(user)
+        activate jwt
+        jwt-&gt;&gt;jwt: newToken = new Token()
+        jwt-&gt;&gt;jwt: newRefreshToken = new RefreshToken(refreshToken.username, token)
+        jwt-&gt;&gt;rep: add(newRefreshToken)
+        jwt-&gt;&gt;rep: remove(refreshToken)
+        jwt--&gt;&gt;api: newToken, newRefreshToken
+        deactivate jwt
+        api--&gt;&gt;ui: newToken,&lt;br/&gt;newRefreshTokenId = newRefreshToken.id
+        deactivate api
+        ui-&gt;&gt;ls: setLoggedInUser(newToken)
+        ui-&gt;&gt;api: getVotes(newToken)
+        activate api
+        Note over api: authentication flow from above&lt;br/&gt;executes, ie validate token etc
+        api--&gt;&gt;ui: votes
+        deactivate api
+        ui--&gt;&gt;user: adminDashboard with votes
+        deactivate ui
+    end
+        </div><p>And here is a short explanation of how the refresh flow works:</p>
+<ol class="arabic simple">
+<li><p>assuming that the token has expired, the UI will make a call to retrieve the privileged votes resource, which will - naturally - be rejected by the API</p></li>
+<li><p>the UI detects the 401 status received and begins negotiating a token refresh by requesting a new token via the API’s refresh route, the UI provides the expired token as well as the refresh token’s ID (set as a <em>cookie</em> after a previous login, more on cookies later)</p></li>
+<li><p>if the provided refresh token ID is valid (a refresh token exists in the database) and the associated access token matches the token sent by the UI, then the API:</p>
+<ol class="arabic simple">
+<li><p>generates a new access token</p></li>
+<li><p>generates a new refresh token and associates it with the new access token</p></li>
+<li><p>persists the new refresh token, and invalidates the original refresh token (so that it can’t be used again) by purging it from the database</p></li>
+<li><p>returns both the new access and refresh tokens to the UI - it sets the refresh token as a cookie</p></li>
+</ol>
+</li>
+<li><p>the UI stores the new access token for later use, and the browser caches the refresh token cookie</p></li>
+<li><p>the UI finally retries the original request to retrieve the votes resource with the new access token</p></li>
+</ol>
+</section>
+</section>
+<section id="persisting-refresh-tokens">
+<h2>Persisting refresh tokens<a class="headerlink" href="#persisting-refresh-tokens" title="Permalink to this heading">#</a></h2>
+<p>The proposed security solution requires persisting refresh tokens, this means we’ll need to extend the database schema. Make the following changes to <code class="docutils literal notranslate"><span class="pre">init.sql</span></code>:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="p">;</span>
+
+<span class="c1">-- existing schema omitted, for brevity</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">refresh_token</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">token_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">refresh_token_username</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">refresh_token</span><span class="w"> </span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+
+<span class="k">COMMIT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then be sure to update your local database with the new schema.</p>
+</section>
+<section id="an-api-secured-by-spring-security">
+<h2>An API secured by Spring Security<a class="headerlink" href="#an-api-secured-by-spring-security" title="Permalink to this heading">#</a></h2>
+<section id="modelling-the-tokens">
+<h3>Modelling the tokens<a class="headerlink" href="#modelling-the-tokens" title="Permalink to this heading">#</a></h3>
+<p>Our system will, obviously, need to manage access and refresh tokens. We’ll create a very simple model for each, so that we can implement the rest of the system in a type-safe way.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Token</span></code> model merely captures the signed token as a string, as well as the associated refresh token’s ID.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.security</span><span class="p">;</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Token</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">refreshTokenId</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// accessors omitted, for brevity  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And a <code class="docutils literal notranslate"><span class="pre">RefreshToken</span></code>, which can be persisted in the database (has an ID) and maps an access token’s ID to a username.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.security</span><span class="p">;</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RefreshToken</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">tokenId</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="c1">// accessors omitted, for brevity  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="a-refresh-token-repository">
+<h3>A refresh token repository<a class="headerlink" href="#a-refresh-token-repository" title="Permalink to this heading">#</a></h3>
+<p>Our security components will need access to persisted refresh tokens. Just like we did for the votes, we’ll implement a very simple mapper, <code class="docutils literal notranslate"><span class="pre">RefreshTokenRepository</span></code>. The interface is provided below, see the source code for the implementation - <code class="docutils literal notranslate"><span class="pre">com.unimelb.swen90007.reactexampleapi.port.postgres.PostgresRefreshTokenRepository</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.security</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Optional</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">RefreshTokenRepository</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">RefreshToken</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">RefreshToken</span><span class="w"> </span><span class="n">token</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteAllForUsername</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>One thing to note is that this interface exposes a <code class="docutils literal notranslate"><span class="pre">deleteAllForUsername</span></code> method, which will invalidate all refresh tokens for a user - effectively, logging them out.</p>
+</section>
+<section id="generating-and-validating-json-web-tokens">
+<h3>Generating and validating JSON Web Tokens<a class="headerlink" href="#generating-and-validating-json-web-tokens" title="Permalink to this heading">#</a></h3>
+<p>Our API will need to generate and validate access tokens in response to user requests. The <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7519">JSON Web Token (JWT)</a> standard provides a simple, and popular, means for signing and verifying user claims (such as, in this instance, their role). There are many great implementations of this standard - for many languages (<a class="reference external" href="https://jwt.io/libraries">jwt.io</a>maintains a comprehensive list) - we’ll use the <a class="reference external" href="https://github.com/jwtk/jjwt">Java JWT</a> project, it covers the entire specification and provides a nice, fluent API .</p>
+<p>Add Java JWT to the project by providing the following Maven dependency coordinates:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;properties&gt;</span><span class="w">    </span>
+<span class="w">    </span><span class="nt">&lt;jjwt.version&gt;</span>0.11.5<span class="nt">&lt;/jjwt.version&gt;</span><span class="w"> </span>
+<span class="nt">&lt;/properties&gt;</span>
+
+<span class="nt">&lt;dependancies&gt;</span>
+<span class="w"> </span><span class="nt">&lt;dependency&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;groupId&gt;</span>io.jsonwebtoken<span class="nt">&lt;/groupId&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;artifactId&gt;</span>jjwt-impl<span class="nt">&lt;/artifactId&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;version&gt;</span>${jsonwebtoken.version}<span class="nt">&lt;/version&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span><span class="w">  </span>
+<span class="w"> </span><span class="nt">&lt;/dependency&gt;</span><span class="w">  </span>
+<span class="w"> </span><span class="nt">&lt;dependency&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;groupId&gt;</span>io.jsonwebtoken<span class="nt">&lt;/groupId&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;artifactId&gt;</span>jjwt-api<span class="nt">&lt;/artifactId&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;version&gt;</span>${jsonwebtoken.version}<span class="nt">&lt;/version&gt;</span><span class="w">  </span>
+<span class="w"> </span><span class="nt">&lt;/dependency&gt;</span><span class="w">  </span>
+<span class="w"> </span><span class="nt">&lt;dependency&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;groupId&gt;</span>io.jsonwebtoken<span class="nt">&lt;/groupId&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;artifactId&gt;</span>jjwt-jackson<span class="nt">&lt;/artifactId&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;version&gt;</span>${jsonwebtoken.version}<span class="nt">&lt;/version&gt;</span><span class="w">  </span>
+<span class="w">     </span><span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span><span class="w">  </span>
+<span class="w"> </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependancies&gt;</span>
+</pre></div>
+</div>
+<p>There are components of the application that will need to process JWTs; a number of Servlet endpoints (for example, a login and refresh endpoint), which will generate tokens; and a Spring Security provided <em>Servlet Filter</em>, which will validate tokens provided as authorisation to privileged resources. To keep the handling of tokens consitant (and to observe <em>High Cohesion</em>), we’ll implement a <code class="docutils literal notranslate"><span class="pre">TokenService</span></code> that both the Servlets and Spring Security components can delegate to.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.security</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.authentication.UsernamePasswordAuthenticationToken</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.core.userdetails.UserDetails</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">TokenService</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">UsernamePasswordAuthenticationToken</span><span class="w"> </span><span class="nf">readToken</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">Token</span><span class="w"> </span><span class="nf">createToken</span><span class="p">(</span><span class="n">UserDetails</span><span class="w"> </span><span class="n">user</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">Token</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">refreshTokenId</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">logout</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">);</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s clarify what each method provides and how it fits into the rest of the application:</p>
+<ol class="arabic simple">
+<li><p>both <code class="docutils literal notranslate"><span class="pre">UserDetails</span></code> and <code class="docutils literal notranslate"><span class="pre">UsernamePasswordAuthenticationToken</span></code> are Spring Security components; the former captures the details of users known to the application (ie users that exist in the <em>UserDirectory</em>, as shown in the high level flows diagramed at the start of this milestone); and the latter is used by Spring Security to enforce authorisation rules for privileged resources</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">readToken</span></code> method will translate a JWT (and its associated claims) into an instance of a <code class="docutils literal notranslate"><span class="pre">UsernamePasswordAuthenticationToken</span></code>, which Spring Security knows how to authorise</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">createToken</span></code> will generate a JWT for a Spring Security managed user, which implies we will need a way to configure Spring Security with our admin user details (more on that later)</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">refresh</span></code> method will manage the refreshing of access tokens, and to do so will need access to a <code class="docutils literal notranslate"><span class="pre">RefreshTokenRepository</span></code></p></li>
+</ol>
+<p>And, Let’s take a look at the implementation, <code class="docutils literal notranslate"><span class="pre">JwtTokenServiceImpl</span></code>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.security</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JwtTokenServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TokenService</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SecretKey</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">RefreshTokenRepository</span><span class="w"> </span><span class="n">repository</span><span class="p">;</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// constructors, some methods, and fields ommited, for brevity</span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">UsernamePasswordAuthenticationToken</span><span class="w"> </span><span class="nf">readToken</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="n">jws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">accessToken</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UsernamePasswordAuthenticationToken</span><span class="p">(</span><span class="n">getUsername</span><span class="p">(</span><span class="n">jws</span><span class="p">.</span><span class="na">getBody</span><span class="p">()),</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">getAuthorities</span><span class="p">(</span><span class="n">jws</span><span class="p">.</span><span class="na">getBody</span><span class="p">()));</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ExpiredJwtException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CredentialsExpiredException</span><span class="p">(</span><span class="s">&quot;token expired&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">JwtException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BadCredentialsException</span><span class="p">(</span><span class="s">&quot;bad token&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="nf">createToken</span><span class="p">(</span><span class="n">UserDetails</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">createToken</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getUsername</span><span class="p">(),</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getAuthorities</span><span class="p">());</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">refreshTokenId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">claims</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseExpired</span><span class="p">(</span><span class="n">accessToken</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">refresh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">refreshTokenId</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BadCredentialsException</span><span class="p">(</span><span class="s">&quot;bad refresh token&quot;</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">refresh</span><span class="p">.</span><span class="na">getTokenId</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">claims</span><span class="p">.</span><span class="na">getId</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BadCredentialsException</span><span class="p">(</span><span class="s">&quot;bad refresh token&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="n">repository</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">refreshTokenId</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">createToken</span><span class="p">(</span><span class="n">getUsername</span><span class="p">(</span><span class="n">claims</span><span class="p">),</span><span class="w"> </span><span class="n">getAuthorities</span><span class="p">(</span><span class="n">claims</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logout</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">repository</span><span class="p">.</span><span class="na">deleteAllForUsername</span><span class="p">(</span><span class="n">username</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Token</span><span class="w"> </span><span class="nf">createToken</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">Collection</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">GrantedAuthority</span><span class="o">&gt;</span><span class="w"> </span><span class="n">authorities</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">expires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="na">toInstant</span><span class="p">().</span><span class="na">plusSeconds</span><span class="p">(</span><span class="n">timeToLiveSeconds</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">tokenStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jwts</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setIssuer</span><span class="p">(</span><span class="n">issuer</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setSubject</span><span class="p">(</span><span class="s">&quot;swen90007-template-api&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setAudience</span><span class="p">(</span><span class="n">issuer</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setExpiration</span><span class="p">(</span><span class="n">expires</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setNotBefore</span><span class="p">(</span><span class="n">now</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setIssuedAt</span><span class="p">(</span><span class="n">now</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">claim</span><span class="p">(</span><span class="n">CLAIM_USERNAME</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">claim</span><span class="p">(</span><span class="n">CLAIM_AUTHORITIES</span><span class="p">,</span><span class="w"> </span><span class="n">authorities</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">GrantedAuthority</span><span class="p">::</span><span class="n">getAuthority</span><span class="p">).</span><span class="na">toList</span><span class="p">())</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">signWith</span><span class="p">(</span><span class="n">getKey</span><span class="p">())</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">compact</span><span class="p">();</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">refreshToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RefreshToken</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="n">refreshToken</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span><span class="w">  </span>
+<span class="w">        </span><span class="n">refreshToken</span><span class="p">.</span><span class="na">setTokenId</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">refreshToken</span><span class="p">.</span><span class="na">setUsername</span><span class="p">(</span><span class="n">username</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">repository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">refreshToken</span><span class="p">);</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Token</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="n">token</span><span class="p">.</span><span class="na">setAccessToken</span><span class="p">(</span><span class="n">tokenStr</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">token</span><span class="p">.</span><span class="na">setRefreshToken</span><span class="p">(</span><span class="n">refreshToken</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">token</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Jws</span><span class="o">&lt;</span><span class="n">Claims</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Jwts</span><span class="p">.</span><span class="na">parserBuilder</span><span class="p">()</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">setSigningKey</span><span class="p">(</span><span class="n">getKey</span><span class="p">())</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">requireAudience</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">issuer</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">parseClaimsJws</span><span class="p">(</span><span class="n">token</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SecretKey</span><span class="w"> </span><span class="nf">getKey</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Keys</span><span class="p">.</span><span class="na">hmacShaKeyFor</span><span class="p">(</span><span class="n">secret</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">key</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>JWTs are signed so that dependent systems can verify their authenticity and integrity. To sign tokens, we need a <code class="docutils literal notranslate"><span class="pre">SecretKey</span></code> - which is generated from a random (and thus, hard to guess) string that only the API knows. The <code class="docutils literal notranslate"><span class="pre">parse</span></code> method performs this verification, Java JWT does all the heavy lifting here</p></li>
+<li><p>the service will manage access tokens as well as their associated refresh tokens, it needs access to an implementation of the <code class="docutils literal notranslate"><span class="pre">RefreshTokenRepository</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readToken</span></code> simply parses the provided token and returns a new instance of <code class="docutils literal notranslate"><span class="pre">UsernamePasswordAuthenticationToken</span></code> for Spring Security to process. Spring Security uses <em>authorities</em> to identify which users are entitled to a resource; later we’ll configure Spring Security to enforce these authorities - but for now, it’s enough to know that we’ll be keeping a record of the user’s authorities within the token’s claims, <code class="docutils literal notranslate"><span class="pre">readToken</span></code> simply has to extract them</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generateToken</span></code> is where the JWT magic starts; again, we’ll rely on Java JWT to manage all the complicated stuff. The key takeaway here is that: the user’s username and authorities are added as claims, which can be extracted for later use in subsequent requests; the token is signed; and a refresh token is registered</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh</span></code> performs a series of check before invoking and returning the result of <code class="docutils literal notranslate"><span class="pre">generateToken</span></code> - it verifies the access and refresh tokens, and asserts that they are associated.</p></li>
+<li><p>finally, <code class="docutils literal notranslate"><span class="pre">logout</span></code> invalidates all refresh tokens generated by a user - because the access tokens are short lived they’ll soon expire, any cached (or stolen!) tokens will - very quickly - be useless.</p></li>
+</ol>
+</section>
+<section id="login-refresh-and-logout-resources">
+<h3>Login, refresh and logout resources<a class="headerlink" href="#login-refresh-and-logout-resources" title="Permalink to this heading">#</a></h3>
+<p>Our API will need to serve tokens to the UI, we’ll add two new Servlets for this purpose; a <code class="docutils literal notranslate"><span class="pre">TokenResource</span></code> Servlet that will accept <code class="docutils literal notranslate"><span class="pre">POST</span></code> and <code class="docutils literal notranslate"><span class="pre">PUT</span></code> requests to an <code class="docutils literal notranslate"><span class="pre">/auth/token</span></code> endpoint - implementing login and token refresh, respectively; and <code class="docutils literal notranslate"><span class="pre">LogoutResource</span></code>, for - no surprises - logout. This is not our <em>first rodeo</em> with respect to Servlets, so we won’t discuss either of them in depth here (check out the source code instead); however, we will very quickly take a look at how the <code class="docutils literal notranslate"><span class="pre">TokenResource</span></code> manages browser cookies.</p>
+<p>The Servlet API exposes the cookies on both the <code class="docutils literal notranslate"><span class="pre">HttpServletRequest</span></code> and <code class="docutils literal notranslate"><span class="pre">HttpServletResponse</span></code>, we can extract a <code class="docutils literal notranslate"><span class="pre">Cookie</span></code> object from the former by filtering the return of its <code class="docutils literal notranslate"><span class="pre">getCookies</span></code> method, and set a required <code class="docutils literal notranslate"><span class="pre">Cookie</span></code> on the later via its <code class="docutils literal notranslate"><span class="pre">addCookie</span></code> method.  The following <code class="docutils literal notranslate"><span class="pre">TokenResource</span></code> snippet shows how we’ll create a cookie for the refresh token’s ID.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span><span class="w"> </span><span class="n">Cookie</span><span class="w"> </span><span class="nf">refreshCookie</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">refreshToken</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">contextPath</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cookie</span><span class="p">(</span><span class="n">COOKIE_NAME_REFRESH_TOKEN</span><span class="p">,</span><span class="w"> </span><span class="n">refreshToken</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setSecure</span><span class="p">(</span><span class="n">secureCookies</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setMaxAge</span><span class="p">(</span><span class="n">cookieTimeToLiveSeconds</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setHttpOnly</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setDomain</span><span class="p">(</span><span class="n">domain</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setPath</span><span class="p">(</span><span class="n">contextPath</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PATH_AUTH_TOKEN</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cookie</span><span class="p">;</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>our cookie contains sensitive information that may be of interest to attackers, we’ll keep it safe in production by ensuing that it’s only sent over a secure HTTPS connection by setting <code class="docutils literal notranslate"><span class="pre">setSecure</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> - we won’t be configuring HTTPS locally so we’ll make sure the value passed to <code class="docutils literal notranslate"><span class="pre">setSecure</span></code> is configurable on a per environment basis</p></li>
+<li><p>the cookie should eventually expire, but we’ll make it’s time to live relatively long, so that the user isn’t required to login again if they return to the UI in the future</p></li>
+<li><p>our UI’s JavaScript won’t need access to this cookie, so we’ll set <code class="docutils literal notranslate"><span class="pre">httpOnly</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>, and in the process protect it from any malicious JavaScript that an attacker might be able to load with the user’s browser</p></li>
+<li><p>we don’t want this cookie to be sent to any system other than the API, so we’ll set the domain</p></li>
+<li><p>the cookie is only required for <code class="docutils literal notranslate"><span class="pre">PUT</span></code> requests to <code class="docutils literal notranslate"><span class="pre">/auth/token</span></code>, so we indicate this to the browser by setting an appropriate path (taking into account the full context path on which the application will be served).</p></li>
+</ol>
+</section>
+<section id="spring-security-configuration">
+<h3>Spring Security configuration<a class="headerlink" href="#spring-security-configuration" title="Permalink to this heading">#</a></h3>
+<p>So we have an API that is able to serve, refresh and invalidate access tokens; and while this might be a great, and necessary, first step, it’s not - on its own - sufficient to secure the application. For that we’ll need to ensure that the security measures we’ve implemented are enforced. We’ll leverage our current Spring Security integration for this purpose by extending it’s configuration to manage a user directory as well as protect our privileged resources with the assistance of a custom Servlet Filter that knows how to validate a received access token.</p>
+<section id="context-aware-configuration">
+<h4>Context aware configuration<a class="headerlink" href="#context-aware-configuration" title="Permalink to this heading">#</a></h4>
+<p>As we make changes to the Spring Security configuration we’ll define a number of components, such as a <code class="docutils literal notranslate"><span class="pre">UserDetailsService</span></code>, on which a number of our custom Servlet implementations will depend. We can expose these components to our Servlets by having our <code class="docutils literal notranslate"><span class="pre">WebSecurityConfig</span></code> implement the <code class="docutils literal notranslate"><span class="pre">ServletContextAware</span></code> interface, which exposes a single method, <code class="docutils literal notranslate"><span class="pre">setServletContext</span></code>. The <code class="docutils literal notranslate"><span class="pre">ServletContext</span></code> is passed as an argument to <code class="docutils literal notranslate"><span class="pre">setServletContext</span></code>, providing us an opportunity to register the Servlet dependencies.</p>
+</section>
+<section id="a-static-in-memory-user-directory">
+<h4>A static, in memory user directory<a class="headerlink" href="#a-static-in-memory-user-directory" title="Permalink to this heading">#</a></h4>
+<p>Before our application can authenticate and authorise users it, naturally, needs to know which users exist. We can provide Spring Security information about which users exist by implementing and registering an implementation of the <code class="docutils literal notranslate"><span class="pre">UserDetailsService</span></code> interface. Thankfully Spring Security ships with a number of simple implementations, such an <code class="docutils literal notranslate"><span class="pre">InMemoryUserDetailsManager</span></code>, that are suitable for our purposes. The following methods of our extended Spring Security configuration construct the required <code class="docutils literal notranslate"><span class="pre">UserDetailsService</span></code>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Bean</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="n">UserDetailsService</span><span class="w"> </span><span class="nf">userDetailsService</span><span class="p">(</span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">userDetailsService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InMemoryUserDetailsManager</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="n">userDetailsService</span><span class="p">.</span><span class="na">createUser</span><span class="p">(</span><span class="n">adminUser</span><span class="p">(</span><span class="n">passwordEncoder</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="n">userDetailsService</span><span class="p">.</span><span class="na">createUser</span><span class="p">(</span><span class="n">nonAdminUser</span><span class="p">(</span><span class="n">passwordEncoder</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="n">servletContext</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="n">VoteContextListener</span><span class="p">.</span><span class="na">USER_DETAILS_SERVICE</span><span class="p">,</span><span class="w"> </span><span class="n">userDetailsService</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDetailsService</span><span class="p">;</span><span class="w">  </span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="n">UserDetails</span><span class="w"> </span><span class="nf">adminUser</span><span class="p">(</span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PROPERTY_ADMIN_USERNAME</span><span class="p">),</span><span class="w">  </span>
+<span class="w">            </span><span class="n">passwordEncoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PROPERTY_ADMIN_PASSWORD</span><span class="p">)),</span><span class="w">  </span>
+<span class="w">            </span><span class="n">Collections</span><span class="p">.</span><span class="na">singleton</span><span class="p">(</span><span class="n">Role</span><span class="p">.</span><span class="na">ADMIN</span><span class="p">.</span><span class="na">toAuthority</span><span class="p">()));</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kd">private</span><span class="w"> </span><span class="n">UserDetails</span><span class="w"> </span><span class="nf">nonAdminUser</span><span class="p">(</span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">            </span><span class="n">passwordEncoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">),</span><span class="w">  </span>
+<span class="w">            </span><span class="n">Collections</span><span class="p">.</span><span class="na">singleton</span><span class="p">(</span><span class="n">Role</span><span class="p">.</span><span class="na">USER</span><span class="p">.</span><span class="na">toAuthority</span><span class="p">()));</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="nd">@Bean</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="nf">passwordEncoder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BCryptPasswordEncoder</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="n">servletContext</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="n">VoteContextListener</span><span class="p">.</span><span class="na">PASSWORD_ENCODER</span><span class="p">,</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="p">;</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>in <code class="docutils literal notranslate"><span class="pre">userDetailsService</span></code> we instantiate an <code class="docutils literal notranslate"><span class="pre">InMemoryUserDetailsManager</span></code> and register two users - the privileged admin user, and an unprivileged <em>test</em> user (which we’ll make use of when demonstrating proper authorisation via Spring Security, you can - and probably should - remove this user once you’re satisfied that you’re implementation behaves as required)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adminUser</span></code> creates the <code class="docutils literal notranslate"><span class="pre">UserDetails</span></code> for our admin user, configuring a username and password provided by environmental configuration, and <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code> authority</p></li>
+<li><p>user passwords are stored encrypted, even in memory, so we provide a <code class="docutils literal notranslate"><span class="pre">PasswordEncoder</span></code> that uses the <a class="reference external" href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a> password-hashing function</p></li>
+</ol>
+<div class="caution admonition">
+<p class="admonition-title">In-memory user details</p>
+<p>Note that this <code class="docutils literal notranslate"><span class="pre">UserDetailsService</span></code> is backed by an in-memory store; there is no integration with a persistent store, such as a database, and so all user details are lost when the application is restarted. This is fine for our purposes; we register a static directory of users on start up, and we have no use case <em>user registration</em>, which would require a dynamic directory that can persist the details of newly registered users to disk.</p>
+</div>
+</section>
+<section id="token-aware-servlet-filter">
+<h4>Token aware Servlet Filter<a class="headerlink" href="#token-aware-servlet-filter" title="Permalink to this heading">#</a></h4>
+<p>The way Spring Security applies its configuration to a request is via a Servlet Filter. Servlet Filters are incredibly useful if you have a requirement to process each request to the application in a generic way - like enforcing authentication and authorisation (and another great use case is logging).</p>
+<p>The Servlet Filter we need to implement extends Spring Security’s <code class="docutils literal notranslate"><span class="pre">AbstractAuthenticationProcessingFilter</span></code>. Let’s take a look at this implementation.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.security</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.FilterChain</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.ServletException</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletRequest</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletResponse</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.authentication.BadCredentialsException</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.core.Authentication</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.core.AuthenticationException</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.web.util.matcher.RequestMatcher</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Optional</span><span class="p">;</span><span class="w">  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.regex.Pattern</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TokenAuthenticationFilter</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractAuthenticationProcessingFilter</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">TOKEN_TYPE_BEARER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bearer&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">HEADER_AUTHORIZATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Authorization&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Pattern</span><span class="w"> </span><span class="n">PATTERN_TOKEN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="s">&quot;^&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TOKEN_TYPE_BEARER</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (.*)$&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">TokenService</span><span class="w"> </span><span class="n">jwtTokenService</span><span class="p">;</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// constructors omitted, for brevity</span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Authentication</span><span class="w"> </span><span class="nf">attemptAuthentication</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">AuthenticationException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">authorizationHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="n">HEADER_AUTHORIZATION</span><span class="p">))</span><span class="w">  </span>
+<span class="w">                </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BadCredentialsException</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%s header is required&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">HEADER_AUTHORIZATION</span><span class="p">)));</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PATTERN_TOKEN</span><span class="p">.</span><span class="na">matcher</span><span class="p">(</span><span class="n">authorizationHeader</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matcher</span><span class="p">.</span><span class="na">find</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matcher</span><span class="p">.</span><span class="na">group</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">getAuthenticationManager</span><span class="p">().</span><span class="na">authenticate</span><span class="p">(</span><span class="n">jwtTokenService</span><span class="p">.</span><span class="na">readToken</span><span class="p">(</span><span class="n">token</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BadCredentialsException</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;invalid %s header value&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">HEADER_AUTHORIZATION</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">successfulAuthentication</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">FilterChain</span><span class="w"> </span><span class="n">chain</span><span class="p">,</span><span class="w"> </span><span class="n">Authentication</span><span class="w"> </span><span class="n">authResult</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">successfulAuthentication</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">chain</span><span class="p">,</span><span class="w"> </span><span class="n">authResult</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">chain</span><span class="p">.</span><span class="na">doFilter</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>in <code class="docutils literal notranslate"><span class="pre">attemptAuthentication</span></code> we’re searching for, extracting (using a regex) and verifying (using the <code class="docutils literal notranslate"><span class="pre">TokenService</span></code>) an access token sent with the request.</p></li>
+<li><p>if there is a valid token we pass the corresponding <code class="docutils literal notranslate"><span class="pre">UsernamePasswordAuthenticationToken</span></code> instance to an <code class="docutils literal notranslate"><span class="pre">AuthenticationManager</span></code> - another Spring Security component, with access to the user directory.</p></li>
+<li><p>if the token is invalid we throw a <code class="docutils literal notranslate"><span class="pre">BadCredentialsException</span></code>, which will be caught by Spring Security and transmitted as an appropriate response to the client.</p></li>
+<li><p>if the authentication is successful then Spring Security invokes the <code class="docutils literal notranslate"><span class="pre">successfulAuthentication</span></code> method, where we simply pass to the next component in the filter chain, which eventually invokes the Servlet itself.</p></li>
+</ol>
+<p>The final thing to do is to actually configure Spring Security to use all the custom authentication that we have implemented. Primarily, we need to configure which routes require authentication and authorisation, but because we are using token based security we’ll also configure Spring to ignore a whole bunch of default behaviour that doesn’t suit our purpose.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Bean</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="n">SecurityFilterChain</span><span class="w"> </span><span class="nf">securityFilterChain</span><span class="p">(</span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">,</span><span class="w"> </span><span class="n">AuthenticationManager</span><span class="w"> </span><span class="n">authenticationManager</span><span class="p">,</span><span class="w"> </span><span class="n">TokenAuthenticationFilter</span><span class="w"> </span><span class="n">tokenAuthenticationFilter</span><span class="p">,</span><span class="w"> </span><span class="n">AuthenticationEntryPoint</span><span class="w"> </span><span class="n">authenticationEntryPoint</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">http</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">sessionManagement</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">sessionCreationPolicy</span><span class="p">(</span><span class="n">SessionCreationPolicy</span><span class="p">.</span><span class="na">STATELESS</span><span class="p">)</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">and</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">exceptionHandling</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">defaultAuthenticationEntryPointFor</span><span class="p">(</span><span class="n">authenticationEntryPoint</span><span class="p">,</span><span class="w"> </span><span class="n">PROTECTED_URLS</span><span class="p">)</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">and</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">addFilterBefore</span><span class="p">(</span><span class="n">tokenAuthenticationFilter</span><span class="p">,</span><span class="w"> </span><span class="n">AnonymousAuthenticationFilter</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">authorizeHttpRequests</span><span class="p">(</span><span class="n">authorize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">authorize</span><span class="w">  </span>
+<span class="w">                    </span><span class="p">.</span><span class="na">requestMatchers</span><span class="p">(</span><span class="n">PROTECTED_URLS</span><span class="p">)</span><span class="w">  </span>
+<span class="w">                        </span><span class="p">.</span><span class="na">hasRole</span><span class="p">(</span><span class="n">Role</span><span class="p">.</span><span class="na">ADMIN</span><span class="p">.</span><span class="na">name</span><span class="p">())</span><span class="w">  </span>
+<span class="w">                    </span><span class="p">.</span><span class="na">anyRequest</span><span class="p">()</span><span class="w">  </span>
+<span class="w">                        </span><span class="p">.</span><span class="na">permitAll</span><span class="p">())</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">authenticationManager</span><span class="p">(</span><span class="n">authenticationManager</span><span class="p">)</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">cors</span><span class="p">(</span><span class="n">Customizer</span><span class="p">.</span><span class="na">withDefaults</span><span class="p">())</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">csrf</span><span class="p">().</span><span class="na">disable</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">httpBasic</span><span class="p">().</span><span class="na">disable</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">formLogin</span><span class="p">().</span><span class="na">disable</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">logout</span><span class="p">().</span><span class="na">disable</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">  </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">securityFilterChain</span></code> method of our <code class="docutils literal notranslate"><span class="pre">WebSecurityConfig</span></code> includes the bulk of this configuration.</p>
+<ol class="arabic simple">
+<li><p>because we are using token based security we don’t need Spring Security to manage a session so we’ll set the <code class="docutils literal notranslate"><span class="pre">sessionCreationPolicy</span></code> to <code class="docutils literal notranslate"><span class="pre">STATELESS</span></code></p></li>
+<li><p>we’ll register our custom token filter via <code class="docutils literal notranslate"><span class="pre">addFilterBefore</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">authorizeHttpRequests</span></code> is where we configure which resources require authorisation and which roles we’ll accept, we configure the <code class="docutils literal notranslate"><span class="pre">/manage/vote</span></code> to require the <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code> role (<em>authority</em>) - all other resources can be accessed anonymously.</p></li>
+<li><p>we’ll keep CSRF protections disabled, and also disable Basic Auth, the default login form and logout functionality.</p></li>
+</ol>
+</section>
+</section>
+<section id="verify-api-security">
+<h3>Verify API security<a class="headerlink" href="#verify-api-security" title="Permalink to this heading">#</a></h3>
+<p>Before moving onto extending the UI, let’s pause to verify that the API authentication works as expected.</p>
+<p>We’ve introduced a bunch of new components, some of them with environmental configuration. Add the following Java System Properties to you run configuration:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jwt.secret</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7zRrC0HsdVyzOAUrH+1FyN2+Iqv7QlM9A6oU0q7Qi+k=</span></code> (you should change this in production - you can generate your own sufficiently secure key, on Unix-like systems, with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">head</span> <span class="pre">-c32</span> <span class="pre">&lt;</span> <span class="pre">/dev/random</span> <span class="pre">|</span> <span class="pre">base64</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jwt.timeToLive.seconds</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">60</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jwt.issuer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">react-example-api.unimelb.edu.au</span></code> (you should also change this for production)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cookies.timeToLive.seconds</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">360000</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cookies.domain</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">localhost</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cookies.secure</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin.username</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admin</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin.password</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admin</span></code> (again, make sure you change this for production)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Once you have you server started, try to log in the admin user by creating an access token with the admin credentials:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/auth/token<span class="w"> </span><span class="nv">username</span><span class="o">=</span>admin<span class="w"> </span><span class="nv">password</span><span class="o">=</span>admin<span class="w"> </span>-v
+</pre></div>
+</div>
+<p>You should receive something that looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;accessToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyZWFjdC1leGFtcGxlLWFwaS51bmltZWxiLmNvbSIsInN1YiI6InN3ZW45MDAwNy10ZW1wbGF0ZS1hcGkiLCJhdWQiOiJyZWFjdC1leGFtcGxlLWFwaS51bmltZWxiLmNvbSIsImV4cCI6MTY5NDQ4NDExMiwibmJmIjoxNjk0NDg0MDUyLCJpYXQiOjE2OTQ0ODQwNTIsImp0aSI6ImEzMTgzOWQyLWMyNDItNDQ0Ni05ZmM4LWVkOWE0MWZhNmE1OSIsInVzZXJuYW1lIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.iqHKPlmKpyODw9Tl2lXPlZ7aL_jCoxo3CbPgta11BmM&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bearer&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also notice that we receive a <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> header in the response, make a note of it, we’ll use it later</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>Set-Cookie: refreshToken=38e30e73-d63b-41d2-a394-3e0976094196; Max-Age=360000; Expires=Sat, 16 Sep 2023 06:25:17 GMT; Domain=localhost; Path=/auth/token; HttpOnly
+</pre></div>
+</div>
+<p>now lets try to access the secured <code class="docutils literal notranslate"><span class="pre">/manage/vote</span></code> resource, providing - as authorisation - the token received previously.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/manage/vote<span class="w"> </span>Authorization:<span class="s1">&#39;Bearer &lt;access-token&gt;&#39;</span>
+</pre></div>
+</div>
+<p>You should receive the votes. Now let’s try without the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/manage/vote
+</pre></div>
+</div>
+<p>You should receive an error, <em>401 Unauthorized</em>, as expected. Create a token for the unprivileged <em>test</em> user:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/auth/token<span class="w"> </span><span class="nv">username</span><span class="o">=</span>user<span class="w"> </span><span class="nv">password</span><span class="o">=</span>user
+</pre></div>
+</div>
+<p>And attempt to access the privileged <code class="docutils literal notranslate"><span class="pre">/manage/vote</span></code> resource, you should get an error. Finally lets try to login a user that the system is unable to authenticate:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/auth/token<span class="w"> </span><span class="nv">username</span><span class="o">=</span>unknown<span class="w"> </span><span class="nv">password</span><span class="o">=</span>shhhhh
+</pre></div>
+</div>
+<p>It should throw an error. Let’s exercise the token expiration, wait for the admin’s token to expire (about a minute with the configuration above), and resend the request to access the <code class="docutils literal notranslate"><span class="pre">/manage/vote</span></code> resource, it should fail. Finally let’s try to refresh that expired token</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>PUT<span class="w"> </span>:8080/react_example_api_war_exploded/auth/token<span class="w"> </span><span class="nv">accessToken</span><span class="o">=</span>&lt;expired-access-token&gt;<span class="w"> </span>Cookie:<span class="s1">&#39;refreshToken=&lt;refresh-token-from-previous&gt;&#39;</span>
+</pre></div>
+</div>
+<p>You should get a new access and refresh token. Now send the same request again, notice that it returns an error because the refresh token has already been claimed.</p>
+</section>
+</section>
+<section id="ui-extensions">
+<h2>UI extensions<a class="headerlink" href="#ui-extensions" title="Permalink to this heading">#</a></h2>
+<p>Now that we have an API that’s properly secured, let’s move onto extending the UI to provide login and logout features, as well as authorising access to the admin dashboard.</p>
+<section id="client-changes">
+<h3>Client changes<a class="headerlink" href="#client-changes" title="Permalink to this heading">#</a></h3>
+<p>We have a number of new resources exposed by the API (for example <code class="docutils literal notranslate"><span class="pre">/auth/token</span></code>, <code class="docutils literal notranslate"><span class="pre">/logout</span></code>, etc), naturally we’ll need to extend our client to consume these new resources. Additionally, the API now requires a valid <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header to be sent for some resources, our extended client will need to handle this too. Let’s first checkout the login and logout methods.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">async</span><span class="w"> </span><span class="nx">login</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">doCall</span><span class="p">(</span><span class="s1">&#39;/auth/token&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">signal</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">setTokenInStorage</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">token</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">async</span><span class="w"> </span><span class="nx">logout</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">doCall</span><span class="p">(</span><span class="s1">&#39;/auth/logout&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">username</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">signal</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="nx">STORAGE_ITEM_ACCESS_TOKEN</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="nx">STORAGE_ITEM_TOKEN_TYPE</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>both of these methods manipulate Local Storage. The <code class="docutils literal notranslate"><span class="pre">login</span></code> method sets the received token in Local Storage, and the <code class="docutils literal notranslate"><span class="pre">logout</span></code> method clears it (after sending a logout request to the API)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">login</span></code> returns the token to the calling code, so that it can extract the claims and provide a personalised experience</p></li>
+</ol>
+<p>Now let’s look at the changes to the <code class="docutils literal notranslate"><span class="pre">doCall</span></code> method:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">async</span><span class="w"> </span><span class="nx">doCall</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">Accept</span><span class="o">:</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="nx">STORAGE_ITEM_ACCESS_TOKEN</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">accessToken</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">headers</span><span class="p">.</span><span class="nx">Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="nx">STORAGE_ITEM_TOKEN_TYPE</span><span class="p">)</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">accessToken</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">body</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span>
+<span class="w">        </span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="si">}${</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">method</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">headers</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">body</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">signal</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">credentials</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;include&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">401</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">accessToken</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">refreshToken</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">doCall</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`expecting success from API for </span><span class="si">${</span><span class="nx">method</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">path</span><span class="si">}</span><span class="sb"> but response was status </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">statusText</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">doCall</span></code> method checks to see if there is a token in Local Storage, and if there is one, sets this in the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header for each request</p></li>
+<li><p>if the client receives a <code class="docutils literal notranslate"><span class="pre">401</span></code> response status from the API and there is a token stored in Local Storage it’s likely that the token has expired, so the client attempts to refresh the token before retrying the request</p></li>
+</ol>
+<p>Finally, here is the <code class="docutils literal notranslate"><span class="pre">refreshToken</span></code> method</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">async</span><span class="w"> </span><span class="nx">refreshToken</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/auth/token&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span>
+<span class="w">        </span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="si">}${</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">Accept</span><span class="o">:</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">accessToken</span><span class="p">,</span>
+<span class="w">            </span><span class="p">}),</span>
+<span class="w">            </span><span class="nx">signal</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">credentials</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;include&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`expecting success from API for PUT </span><span class="si">${</span><span class="nx">path</span><span class="si">}</span><span class="sb"> but response was status </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">statusText</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">setTokenInStorage</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">token</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">refreshToken</span></code> method invokes a <code class="docutils literal notranslate"><span class="pre">PUT</span></code> against the API’s refresh resource</p></li>
+<li><p>if the request is successful we update Local Store, just as we would for login</p></li>
+<li><p>you might be wondering why we don’t just invoke <code class="docutils literal notranslate"><span class="pre">doCall</span></code>, a fair amount of code is repeated here - the reason is that invoking <code class="docutils literal notranslate"><span class="pre">doCall</span></code> runs the risk of entering an infinite loop if the refresh request fails due to invalid authorisation</p></li>
+</ol>
+</section>
+<section id="an-authentication-provider-context">
+<h3>An authentication provider Context<a class="headerlink" href="#an-authentication-provider-context" title="Permalink to this heading">#</a></h3>
+<p>We learnt about React Contexts in previous milestones, and they’re just as useful here. We’ll use a Context to manage user session details, such as their name, if they’re in fact authenticated or not, and a number of functions that other components can call to execute login or logout. The <code class="docutils literal notranslate"><span class="pre">AuthentcationProvider</span></code> implementation is rather involved - though nothing too different from what we’ve seen before with previous Contexts - so we’ll just focus on a small section, you can check out the rest of the implementation on GitHub.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">extractUserFromToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">token</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mf">1</span><span class="p">]));</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">login</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">setAuthenticating</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">setAuthenticationError</span><span class="p">(</span><span class="kc">undefined</span><span class="p">);</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">setUser</span><span class="p">(</span><span class="nx">extractUserFromToken</span><span class="p">(</span><span class="nx">token</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setAuthenticationError</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setAuthenticating</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useMemo</span><span class="p">(</span>
+<span class="w">    </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span>
+<span class="w">        </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">login</span><span class="p">,</span><span class="w"> </span><span class="nx">logout</span><span class="p">,</span><span class="w"> </span><span class="nx">authenticationError</span><span class="p">,</span><span class="w"> </span><span class="nx">authenticating</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}),</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">authenticationError</span><span class="p">,</span><span class="w"> </span><span class="nx">authenticating</span><span class="p">],</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>the token returned by the API is not encrypted (though it <em>is</em> signed, to prevent tampering), the utility function <code class="docutils literal notranslate"><span class="pre">extractUserFromToken</span></code> extracts the token’s claims (username and roles) by simply decoding the base64 encoded data</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">login</span></code> function invokes the <code class="docutils literal notranslate"><span class="pre">Api</span></code> client class we extended previously, if login is successful we’ll extract the token’s claims and set them on the Context, as well as update some housekeeping state such as <code class="docutils literal notranslate"><span class="pre">authenticating</span></code>, so that other components can be scheduled for re-render</p></li>
+<li><p>like the <code class="docutils literal notranslate"><span class="pre">ApiProvider</span></code> Context, we’ll manage our user session state internally with <code class="docutils literal notranslate"><span class="pre">useMemo</span></code></p></li>
+</ol>
+</section>
+<section id="login">
+<h3>Login<a class="headerlink" href="#login" title="Permalink to this heading">#</a></h3>
+<p>We need a way for user to login, we’ll provide that via <code class="docutils literal notranslate"><span class="pre">Login</span></code> container (page), that makes use of the new <code class="docutils literal notranslate"><span class="pre">AuthenticationProvider</span></code> Context and some fancy routing we’ve not seen yet. Let’s take a look at the <code class="docutils literal notranslate"><span class="pre">handlLogin</span></code> function - the rest of the container is nothing we’ve not seen before.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">handleLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">login</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">authenticationError</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">location</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">location</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">navigate</span><span class="p">(</span><span class="nx">next</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">handleLogin</span></code> delegates all the heavy lifting to the <code class="docutils literal notranslate"><span class="pre">AuthenticationProvider</span></code> function <code class="docutils literal notranslate"><span class="pre">login</span></code>, it simply maps the fields of a form to <code class="docutils literal notranslate"><span class="pre">login</span></code>’s username and password parameters.</p></li>
+<li><p>if the authentication fails, we’ll exit early and display the error</p></li>
+<li><p>otherwise we’ll navigate the user to either the home page, or to the <em>next</em> page (in the case that whatever page originally redirected to this login page would rather us take the user elsewhere)</p></li>
+</ol>
+</section>
+<section id="personalised-experience-and-logout">
+<h3>Personalised experience and logout<a class="headerlink" href="#personalised-experience-and-logout" title="Permalink to this heading">#</a></h3>
+<p>If a user is logged in it would be nice if the UI indicated to the user that they we’re in fact authenticated. The <code class="docutils literal notranslate"><span class="pre">LoggedInUserDetail</span></code> component does just this, it leverages the claims encoded within the received access token to greet the user, and additionally renders a button that the user can use to logout.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">LoggedInUserDetail</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">logout</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useAuthentication</span><span class="p">();</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="nx">user</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">LoggedInUserDetail</span><span class="p">}&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Card</span> <span class="na">title</span><span class="o">=</span><span class="p">{</span><span class="sb">`Hi </span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;you&#39;</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+<span class="w">                    </span><span class="p">&lt;</span><span class="nt">Button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">logout</span><span class="p">()}&gt;</span><span class="nx">Log</span><span class="w"> </span><span class="nx">out</span><span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+<span class="w">                </span><span class="p">&lt;/</span><span class="nt">Card</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>if a user exists then they must be logged in, so we’ll render a button with an <code class="docutils literal notranslate"><span class="pre">onClick</span></code> attribute bound to the <code class="docutils literal notranslate"><span class="pre">logout</span></code> function provided by the <code class="docutils literal notranslate"><span class="pre">AuthenticationProvider</span></code> Context.</p></li>
+<li><p>if a user exists then it might be that their access token has</p></li>
+</ol>
+</section>
+<section id="a-higher-order-component">
+<h3>A <em>Higher-Order Component</em><a class="headerlink" href="#a-higher-order-component" title="Permalink to this heading">#</a></h3>
+<p>Higher-Order Components (HOC) are components that take a component and return that component wrapped in some additional functionality, or even another component entirely. HOCs are incredibly useful if you need to add some additional functionality to a component but would prefer not the change the implementation of that component in anyway (if you’re familiar with the Gang of Four’s <em>Decorator</em> pattern, then HOC is a classic example of this pattern in action). We already have a number of page components that work quite well, however some of them should only be accessed by authenticated admin users; introducing a HOC to manage authorisation enables us to both avoid extending these original page implementation (and run the risk of introducing a regression defect), and (perhaps more importantly) reuse our authorisation logic to secure any other parts of the application - current or future. Take a look at the <code class="docutils literal notranslate"><span class="pre">withAuthority</span></code> HOC:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Navigate</span><span class="p">,</span><span class="w"> </span><span class="nx">useLocation</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useAuthentication</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../contexts/AuthenticationProvider&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">WithAuthority</span><span class="p">({</span><span class="w"> </span><span class="nx">children</span><span class="p">,</span><span class="w"> </span><span class="nx">authorities</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useAuthentication</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useLocation</span><span class="p">();</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">user</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">Navigate</span> <span class="na">to</span><span class="o">=</span><span class="s">&quot;/login&quot;</span> <span class="na">state</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">next</span><span class="w"> </span><span class="p">}}</span> <span class="p">/&gt;;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">authorities</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">authority</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">authorities</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">authority</span><span class="p">)</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">).</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">Navigate</span> <span class="na">to</span><span class="o">=</span><span class="s">&quot;/&quot;</span> <span class="p">/&gt;;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">children</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">withAuthority</span></code> HOC wraps an arbitrary set of child components (<code class="docutils literal notranslate"><span class="pre">children</span></code>) and takes a list of strings (<code class="docutils literal notranslate"><span class="pre">authorities</span></code>) that configure which authorities the logged in user must have to access the child components</p></li>
+<li><p>if there is no user yet - because, for example, the DOM is still in the process of rendering for the first time - then we’ll simply return null and wait for the user to be initialised</p></li>
+<li><p>if the user has been initialised and the user is <code class="docutils literal notranslate"><span class="pre">null</span></code>, then we know that the user is not authenticated, they’ll need to authenticate before they can access the protected child components, se we’ll redirect them to login page (you can provide the <code class="docutils literal notranslate"><span class="pre">state</span></code> prop to <code class="docutils literal notranslate"><span class="pre">Navigate</span></code> to enqueue a second redirect that - for example - the login page can use to return the user to the protected resource once authentication is complete)</p></li>
+<li><p>if the user exists but doesn’t have the required authority then we’ll redirect them to the root of the application</p></li>
+<li><p>if none of the above hold then it must be the case that the current user is authenticated and authorised to access the wrapped components, so we’ll return them to be rendered</p></li>
+</ol>
+</section>
+<section id="putting-it-all-together-with-a-new-router-component">
+<h3>Putting it all together with a new Router component<a class="headerlink" href="#putting-it-all-together-with-a-new-router-component" title="Permalink to this heading">#</a></h3>
+<p>The final step is to adjust our React Router component implementation to expose the new login page, and apply our <code class="docutils literal notranslate"><span class="pre">withAuthority</span></code> HOC to the privileged <code class="docutils literal notranslate"><span class="pre">Votes</span></code> page.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">AppRoutes</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Home</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/vote&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Vote</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span>
+                    <span class="na">path</span><span class="o">=</span><span class="s">&quot;/admin/votes&quot;</span>
+                    <span class="na">element</span><span class="o">=</span><span class="p">{(</span>
+<span class="w">                        </span><span class="p">&lt;</span><span class="nt">WithAuthority</span> <span class="na">authorities</span><span class="o">=</span><span class="p">{[</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="p">]}&gt;</span>
+<span class="w">                            </span><span class="p">&lt;</span><span class="nt">Votes</span> <span class="p">/&gt;</span>
+<span class="w">                        </span><span class="p">&lt;/</span><span class="nt">WithAuthority</span><span class="p">&gt;</span>
+<span class="w">                    </span><span class="p">)}</span>
+                <span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/verdict&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Verdict</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/login&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Login</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;*&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Navigate</span> <span class="na">to</span><span class="o">=</span><span class="s">&quot;/&quot;</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+<span class="w">            </span><span class="p">&lt;/</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Most of the above should look familiar - here’s what’s new:</p>
+<ol class="arabic simple">
+<li><p>the login page gets it’s own route - <code class="docutils literal notranslate"><span class="pre">/login</span></code></p></li>
+<li><p>we’re using the <code class="docutils literal notranslate"><span class="pre">withAuthority</span></code> HOC to wrap the <code class="docutils literal notranslate"><span class="pre">Votes</span></code> page, and configured it to only be exposed to users with the <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code> authority</p></li>
+</ol>
+<p>And that’s it for the UI, you should be able to run this all locally now, just start the UI using NPM - as shown in previous milestones, remembering also to set the relevant environment variables. Try forc</p>
+</section>
+</section>
+<section id="deploy-to-render">
+<h2>Deploy to Render<a class="headerlink" href="#deploy-to-render" title="Permalink to this heading">#</a></h2>
+<p>We’ve deployed to Render a few times now - if you need a refresher,  return to a previous milestone for detailed instructions on how to deploy; note that for this deployment you’ll need to:</p>
+<ol class="arabic simple">
+<li><p>update your database schema</p></li>
+<li><p>push changes for both the API and UI</p></li>
+<li><p>and, finally, the API configuration has been extended, you’ll need to add a few further properties to the <code class="docutils literal notranslate"><span class="pre">JAVA_OPTS</span></code> environment variable declared in Render, see the table below for details:</p></li>
+</ol>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jwt.secret</span></code></p></td>
+<td><p>a long, hard to guess random string</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jwt.timeToLive.seconds</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">60</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jwt.issuer</span></code></p></td>
+<td><p>set this to the domain of your Web Service</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cookies.timeToLive.seconds</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">360000</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cookies.domain</span></code></p></td>
+<td><p>set this - also - to the domain of your Web Service</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cookies.secure</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin.username</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admin</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin.password</span></code></p></td>
+<td><p>again, something hard to guess</p></td>
+</tr>
+</tbody>
+</table>
+<p>Congratulations, you now have a secure system!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./react-example"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="swen90007-react-example-primer-milestone-2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Milestone 2: Core Functionality</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../extra_tools/tools_and_plugins.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Useful Tools and IntelliJ Plugins</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-overview">An overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-tokens">Access tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refresh-tokens">Refresh tokens</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persisting-refresh-tokens">Persisting refresh tokens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-api-secured-by-spring-security">An API secured by Spring Security</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-the-tokens">Modelling the tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-refresh-token-repository">A refresh token repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-and-validating-json-web-tokens">Generating and validating JSON Web Tokens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login-refresh-and-logout-resources">Login, refresh and logout resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-security-configuration">Spring Security configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#context-aware-configuration">Context aware configuration</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-static-in-memory-user-directory">A static, in memory user directory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#token-aware-servlet-filter">Token aware Servlet Filter</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-api-security">Verify API security</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ui-extensions">UI extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-changes">Client changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-authentication-provider-context">An authentication provider Context</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#personalised-experience-and-logout">Personalised experience and logout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-higher-order-component">A <em>Higher-Order Component</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together-with-a-new-router-component">Putting it all together with a new Router component</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-to-render">Deploy to Render</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -71,7 +71,7 @@ JSPs are used in conjunction with servlets.
 
 ## Apache Tomcat
 
-When deploying locally (before pushing to Heroku), you will make use of Apache Tomcat.
+When deploying locally (before pushing to Render), you will make use of Apache Tomcat.
 
 Apache Tomcat is an open source Java servlet container that implements several core Java enterprise specs, namely 
 Java Servlet and Java Server Pages (JSP).

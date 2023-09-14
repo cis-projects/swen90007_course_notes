@@ -6,6 +6,8 @@ in the following directory: {Macintosh HD}/Library/Java/JavaVirtualMachines. If 
 machine, please download one first before attempting these steps.
 ```
 
+## Create New Java Project
+
 Launch IntelliJ and select New Project:
 
 ![](resources/4_create_project_1.png)
@@ -16,113 +18,61 @@ Select Java Enterprise and enter the information as shown below.
 Make sure you create the project in a directory you will remember. You will need to push it to GitHub.
 ```
 
-![](resources/4_create_project_2.png)
+![](resources/4_create_project_2_Jakarta.jpg)
 
 ```{important}
-IntelliJ comes bundled with Java Enterprise Edition. If it's not in this list, it means the installation was likely 
+IntelliJ comes bundled with Jakarta Enterprise Edition. If it's not in this list, it means the installation was likely 
 corrupted. Try uninstalling and re-installing IntelliJ.
 ```
 
-In the same window, select New to create a new Application Server:
-
-![](resources/4_create_project_3.png)
-
-Select Tomcat Server:
-
-![](resources/4_create_project_4.png)
-
-Select Browse:
-
-![](resources/4_create_project_5.png)
-
-Navigate to wherever you unzipped the Tomcat server you downloaded in step 2. Select the outermost folder then select 
-Open:
-
-![](resources/4_create_project_6.png)
-
-Select OK:
-
-![](resources/4_create_project_7.png)
-
-Select Next:
-
-![](resources/4_create_project_8.png)
-
 Make sure Servlet is selected then select Finish:
 
-![](resources/4_create_project_9.png)
+![](resources/4_create_project_3_Jakarta.jpg)
 
-IntelliJ will create a HelloWorld Servlet project by default.
+IntelliJ will create a HelloWorld Servlet project by default. You can see three files has been created - a jsp file, 
+a Servelet and a pom.xml. Maven uses pom.xml to manage dependencies. 
+
+![](resources/4_create_project_4_pages.png)
 
 ```{important}
-Once IntelliJ has finished creating the project (this could take a minute or more), you should test Tomcat has 
-been set up successfully.
+Once IntelliJ has finished creating the project (this could take a minute or more), you need to set up Tomcat 
+Server to deploy the code on the server and see JSP in the browser.
 ```
 
-In the upper-right corner, select Run on the Tomcat configuration:
 
-![](resources/4_create_project_10.png)
+## Run with Tomcat 10 Server
 
-````{admonition} If You Cannot Select Run Configuration
-:class: error, dropdown
+In the top right corner of intellij you can find a dropdown where you can add/edit the configurations.
+![](resources/4_add_new_config.png)
 
-Select Add Configuration:
+![](resources/4_add_config.png)
 
-![](resources/6_github_clone_4.png)
+After you click on add configurations, a popup will open where you can choose Tomcat local as your server.
+![](resources/4_add_tomcat_config.png)
 
-Add a new Tomcat local configuration:
+Once you select the Tomcat local, it will ask you to select the path of the Tomcat folder extracted from gzip. Also set the jre path to jdk 17/18.
+![](resources/4_add_tomcat_path.png) 
 
-![](resources/6_github_clone_5.png)
+Once done, go to the Deployment tab, click on + sign to add an artifact for the server and select the name of the war with exploded version
 
-Select Configure (Application Server may or may not already be populated - ignore it):
+![](resources/4_add_war.png)
 
-![](resources/6_github_clone_6.png)
+Also set the application context path as / to run your url has localhost:8080/. If you want to name your application say as 
+music_events you can set this application context as music_events and your web url will look like localhost:8080/music_event/hello-servlet.
+![](resources/4_set_path.png)
 
-Select the Open icon:
+Once done click the run button in the top right corner. This will start the tomcat server.
+![](resources/4_run_tomcat.png)
 
-![](resources/6_github_clone_7.png)
+Once the tomcat has started successfully you can see the tomcat server logs at the bottom window.
 
-Select the folder where you unzipped the Tomcat directory in [Step 2: Download Tomcat](2_tomcat_download.md):
+![](resources/4_tomcat_started.png)
 
-![](resources/6_github_clone_8.png)
-
-Select OK:
-![](resources/6_github_clone_9.png)
-
-Select Deployment:
-
-![](resources/6_github_clone_10.png)
-
-Select the Add icon:
-
-![](resources/6_github_clone_11.png)
-
-Select Artifact:
-
-![](resources/6_github_clone_12.png)
-
-Select demo:war exploded:
-
-![](resources/6_github_clone_13.png)
-
-```{note}
-A Web application can be deployed to the Tomcat server as an exploded directory where files and folders 
-are presented in the file system as separate items. A WAR file is a Web Archive file. An exploded WAR file means 
-the structure is the exact same as an archive file but not zipped into an archive form.*
-```
-
-Select Apply then OK:
-
-![](resources/6_github_clone_14.png)
-````
-
-The project should be deployed to localhost:
+Once you can see that your server is running on port 8080 you can view this in the browser. The project should be 
+deployed to localhost:
 
 ![](resources/4_create_project_11.png)
 
-To shut down the server, return to IntelliJ and select Stop:
-
-![](resources/4_create_project_12.png)
 
 ```{admonition} What's Next
 Please proceed to [Step 5: Setup GitHub Repository](5_github_setup.md).
