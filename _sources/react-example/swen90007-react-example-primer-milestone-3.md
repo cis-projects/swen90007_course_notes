@@ -312,7 +312,7 @@ public class JwtTokenServiceImpl implements TokenService {
   
     @Override  
     public Token createToken(UserDetails user) {  
-        return createToken(user.getUsername(), user.getAuthorities());  
+        return generateToken(user.getUsername(), user.getAuthorities());  
     }  
   
     @Override  
@@ -324,7 +324,7 @@ public class JwtTokenServiceImpl implements TokenService {
             throw new BadCredentialsException("bad refresh token");  
         }  
         repository.delete(refreshTokenId);  
-        return createToken(getUsername(claims), getAuthorities(claims));  
+        return generateToken(getUsername(claims), getAuthorities(claims));  
     } 
   
     @Override  
@@ -332,7 +332,7 @@ public class JwtTokenServiceImpl implements TokenService {
         repository.deleteAllForUsername(username);  
     }  
   
-    private Token createToken(String username, Collection<? extends GrantedAuthority> authorities) {  
+    private Token generateToken(String username, Collection<? extends GrantedAuthority> authorities) {  
   
         var now = new Date();  
         var expires = Date.from(now.toInstant().plusSeconds(timeToLiveSeconds));  
