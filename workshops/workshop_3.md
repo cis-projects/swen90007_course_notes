@@ -1,5 +1,3 @@
-{ Any React docs? }
-
 # Workshop 3
 
 ```{admonition} By Now You Should Have
