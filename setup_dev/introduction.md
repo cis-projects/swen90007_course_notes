@@ -40,10 +40,10 @@ Should be done by all team members (except the team member who did steps 3 and 4
 
 Should be done by all team members.
 
-## [Step 8: Setup Docker for Java Application](9_setup_docker.md)
+## [Step 8: Setup Docker for Java Application](8_setup_docker.md)
 
 Should be done by all team members.
 
-## [Step 9: Deploy Project to Render](10_render_deploy.md)
+## [Step 9: Deploy Project to Render](9_render_deploy.md)
 
 Should be done by all team members to gain more experience. Final deployment can be done by one member as Render needs login for you to deploy.

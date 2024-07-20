@@ -123,5 +123,5 @@ You can verify in DockerHub that your image has been successfully pushed.
 ![](resources/9_setup_docker_9_tag.png)
 
 ```{admonition} What's Next
-Please proceed to [Step 9: Deploy to Render](10_render_deploy.md).
+Please proceed to [Step 9: Deploy to Render](9_render_deploy.md).
 ```

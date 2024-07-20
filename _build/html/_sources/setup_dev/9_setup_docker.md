@@ -1,35 +1,27 @@
-# Step 8: Setup Docker 
+# Step 8: Setup Docker
 
 ## Setup Docker on Local Environment
 
 Docker provides a container to run your applications isolated from the other processes running on host machine.
 
 Install Docker Desktop based on your Operating System. [Download Docker](https://docs.docker.com/desktop/)
-After you have installed the docker, run the docker from your application menu. You can see an empty Docker Dashboard 
-opens up.
+After you have installed the docker, run the docker from your application menu. You can see an empty Docker Dashboard opens up.
 
 ![](resources/9_setup_docker_1_dashboard.png)
 
-
 **Why run docker?**
 
-Because it helps you to standardise your installations regardless of your operating system and focus only on the steps 
-necessary for you to run your applications.
+Because it helps you to standardise your installations regardless of your operating system and focus only on the steps necessary for you to run your applications.
 
 **What does that even mean?**
 
-Remember how you had to set several environment variables to run Java, install jdk, maven etc and perform different steps
-as a prerequisite to fulfill before you can start writing and deploying your applications. With Docker, you can just do it 
-using a single line by using pre-existing Docker Image.
+Remember how you had to set several environment variables to run Java, install jdk, maven etc and perform different steps as a prerequisite to fulfill before you can start writing and deploying your applications. With Docker, you can just do it using a single line by using pre-existing Docker Image.
 
 **What is a Docker Image?**
 
-A Docker image contains everything needed to run an application - all dependencies, configurations, scripts, binaries. There
-are prexisting images in [Docker Hub](https://hub.docker.com/) that you can use to define installations/configurations/dependencies
-like maven or java. 
+A Docker image contains everything needed to run an application - all dependencies, configurations, scripts, binaries. There are prexisting images in [Docker Hub](https://hub.docker.com/) that you can use to define installations/configurations/dependencies like maven or java.
 
-Below will help you to fetch an image which has all the necessary configurations for maven and then you can simply run 
-maven commands without getting into the hassle of performing installations steps on different machines.
+Below will help you to fetch an image which has all the necessary configurations for maven and then you can simply run maven commands without getting into the hassle of performing installations steps on different machines.
 
 ```
 FROM maven:3.9-amazoncorretto-17 AS build
@@ -37,20 +29,16 @@ FROM maven:3.9-amazoncorretto-17 AS build
 
 **Why do we need Docker in our Java Applicaiton?**
 
-Since you will be deploying your application on a cloud provider, it is easier to deploy a docker container 
-than performing multiple steps on the cloud instances/servers. In our case we will deploy our application on Render
+Since you will be deploying your application on a cloud provider, it is easier to deploy a docker container than performing multiple steps on the cloud instances/servers. In our case we will deploy our application on Render
 which does not provide support for Java but provides support for Docker images.
 
 Learn more about Docker [here](https://docs.docker.com/get-started/)
 
 ## Running Java Application with Docker
 
-In your case you will use two pre-existing images maven and java to build your application using maven and run your
-application using the java Docker image. Using these two you will create your own Application's Image that you can push 
-to Docker hub and deploy on Render.
+In your case you will use two pre-existing images maven and java to build your application using maven and run your application using the java Docker image. Using these two you will create your own Application's Image that you can push to Docker hub and deploy on Render.
 
-To get started in your project repo, create a file named `Dockerfile`. For simplicity and avoid complications, 
-keep the name as is. Add the following content to your Dockerfile.
+To get started in your project repo, create a file named `Dockerfile`. For simplicity and avoid complications, keep the name as is. Add the following content to your Dockerfile.
 
 ```dockerfile
 # build stage
@@ -67,7 +55,7 @@ FROM tomcat:10.0.27-jre17
 COPY --from=build /app/target/demo-1.0-SNAPSHOT.war $CATALINA_HOME/webapps/jsp-demo.war
 ```
 
-This file performs following actions: 
+This file performs following actions:
 
 1. Pulls a maven image from DockerHub that contains all your configuration required to build your applications
 2. Sets a working director named app
@@ -77,30 +65,26 @@ This file performs following actions:
 6. Copy the war from the target folder from your build stage (step 4) to the webapps  directory of tomcat server
 7. Expose port 8080, when your application start, the embedded tomcat container sets port 8080.
 
-
-To build this docker image on your local machine, the docker application must be running. Else you will face an error.
-To build the docker image, run below command 
+To build this docker image on your local machine, the docker application must be running. Else you will face an error. To build the docker image, run below command:
 
 ```
 docker build -t jsp-demo .
 ```
 
-The option -t defines a tag for your docker image, in this case named as jsp-demo. The . in the end of the command signifies
-where the Dockerfile can be found. Thus, you need to run this command from the folder where you have Dockerfile. 
-Once the image is built you can see this in your dashboard as well. 
+The option -t defines a tag for your docker image, in this case named as jsp-demo. The . in the end of the command signifies where the Dockerfile can be found. Thus, you need to run this command from the folder where you have Dockerfile. Once the image is built you can see this in your dashboard as well.
 
 ![](resources/9_setup_docker_2_image.png)
 
-To run the docker image on your local machine run below command - 
+To run the docker image on your local machine run below command:
+
 ```
 docker run -p 8090:8080 jsp-demo
 ```
-The above command deploys the docker container from the image named jsp-demo created in previous step and maps the port 
-8090 to 8080. the port 8080 is the port of embedded tomcat that you have exposed from your code. The port 8090 is the port where the 
-docker container is listening to handle the requests. 
 
-Alternatively, you can run the docker container from the dashboard as well. Also you can set any port of your choice 
-and not just 8090
+The above command deploys the docker container from the image named jsp-demo created in previous step and maps the port 8090 to 8080. the port 8080 is the port of embedded tomcat that you have exposed from your code. The port 8090 is the port where the docker container is listening to handle the requests.
+
+Alternatively, you can run the docker container from the dashboard as well. Also you can set any port of your choice and not just 8090
+
 ![](resources/9_setup_docker_3_run.png)
 
 Once the container is running then if you type http://localhost:8090/jsp-demo on your web browser,
@@ -138,8 +122,6 @@ You can verify in DockerHub that your image has been successfully pushed.
 
 ![](resources/9_setup_docker_9_tag.png)
 
-
 ```{admonition} What's Next
 Please proceed to [Step 9: Deploy to Render](10_render_deploy.md).
 ```
-

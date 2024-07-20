@@ -45,3 +45,8 @@ python -m pip install -r requirements.txt
 jb build .
 ```
 
+## Publish
+
+```shell
+ghp-import -n -p -f _build/html
+```

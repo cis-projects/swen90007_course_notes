@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>JSPs and Servlets &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'archived/first_java_app/jsp_servlets';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../introduction/introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_3.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_4.html">Architectural Decisions Records (ADRs)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../react-example/swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../react-example/swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Farchived/first_java_app/jsp_servlets.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/archived/first_java_app/jsp_servlets.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>JSPs and Servlets</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servlets">Servlets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-server-pages">Java Server Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-tomcat">Apache Tomcat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-apache-tomcat">Introduction to Apache Tomcat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-a-container">Benefits of a Container</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mvc-pattern">MVC Pattern</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jsps-and-servlets">
+<h1>JSPs and Servlets<a class="headerlink" href="#jsps-and-servlets" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this subject, you will create an application using Java Server Pages (JSPs) and Servlets.
+This guide will provide you an overview of both.</p>
+<p>They form the foundation of Java web development and free you from issues around deployment of standalone applications.
+Creating a web application using the Java framework means your application is scalable and deployable to anyone with a web browser.</p>
+<div class="admonition-revision admonition">
+<p class="admonition-title">Revision</p>
+<p>Before we get into JSPs and Servlets, a quick reminder about HTTP…</p>
+<p>There are two main HTTP methods you will make use of during the semester: GET and POST. These are HTML methods
+(not Java) and are used under different circumstances:</p>
+<ol class="arabic">
+<li><p>The GET method is used to request a resource from the server to send back as a response.<br />
+Data you send with a GET method is appended to the URL: <code class="docutils literal notranslate"><span class="pre">/test/demo_form.jsp?name=value&amp;id=value</span></code><br />
+In this case, <code class="docutils literal notranslate"><span class="pre">/test/demo_form</span></code> is the path to the resource on the server and everything after <code class="docutils literal notranslate"><span class="pre">?</span></code> are
+request parameters.
+This means:</p>
+<ul class="simple">
+<li><p>GET requests can be cached,</p></li>
+<li><p>GET requests remain in the browser history,</p></li>
+<li><p>GET requests can be bookmarked,</p></li>
+<li><p>GET requests should never be used when dealing with sensitive data (as the request parameters are sent in the URL),</p></li>
+<li><p>GET requests have length restrictions, and</p></li>
+<li><p>GET requests are only used to request data (not modify).</p></li>
+</ul>
+</li>
+<li><p>The POST method is used to send form data and request a resource from the server. The data sent is stored in the body
+of an HTTP request:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">demo_form</span><span class="o">.</span><span class="n">jsp</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">unimelb</span><span class="o">.</span><span class="n">com</span>
+<span class="n">name</span><span class="o">=</span><span class="n">value</span><span class="o">&amp;</span><span class="n">course</span><span class="o">=</span><span class="n">value</span>
+</pre></div>
+</div>
+<p>This means:</p>
+<ul class="simple">
+<li><p>POST requests are never cached,</p></li>
+<li><p>POST requests do not remain in the browser history,</p></li>
+<li><p>POST requests cannot be bookmarked, and</p></li>
+<li><p>POST requests have no restrictions on data length.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+<section id="servlets">
+<h2>Servlets<a class="headerlink" href="#servlets" title="Link to this heading">#</a></h2>
+<p>A servlet is used to implement web applications and is simply a class which responds to an HTTP request.
+Servlets provide a low-level API for receiving and responding to HTTP requests - in this subject you will be using
+servlets to receive and write HTTP requests and responses.<br />
+There are many frameworks built as a higher-level abstraction of servlets (for example, Spring, Apache Struts,
+etc.) that remove the necessity to manually write and respond to HTTP requests, however, you are not permitted
+to use these frameworks in this subject. This subject will teach you the building blocks of modern Java
+web applications.</p>
+<p>Servlets run in a servlet container which handles the networking side (for example, parsing an HTTP request,
+connection handling, etc.).</p>
+</section>
+<section id="java-server-pages">
+<h2>Java Server Pages<a class="headerlink" href="#java-server-pages" title="Link to this heading">#</a></h2>
+<p>Java Server Pages is a server-side programming technology that enables the creation of a dynamic, platform-
+independent method for building web-based applications.</p>
+<div class="admonition-jsps-vs-html admonition">
+<p class="admonition-title">JSPs vs HTML</p>
+<p>HTML cannot generate dynamic content.</p>
+</div>
+<div class="admonition-jsps-vs-javascript admonition">
+<p class="admonition-title">JSPs vs. JavaScript</p>
+<p>JavaScript is client-side, whereas JSPs are server-side (JavaScript is also not part of the Java platform - don’t let
+the name fool you).</p>
+</div>
+<div class="admonition-jsps-vs-pure-servlets admonition">
+<p class="admonition-title">JSPs vs. Pure Servlets</p>
+<p>JSPs are used in conjunction with servlets.</p>
+</div>
+</section>
+<section id="apache-tomcat">
+<h2>Apache Tomcat<a class="headerlink" href="#apache-tomcat" title="Link to this heading">#</a></h2>
+<p>When deploying locally (before pushing to Render), you will make use of Apache Tomcat.</p>
+<p>Apache Tomcat is an open source Java servlet container that implements several core Java enterprise specs, namely
+Java Servlet and Java Server Pages (JSP).</p>
+<section id="introduction-to-apache-tomcat">
+<h3>Introduction to Apache Tomcat<a class="headerlink" href="#introduction-to-apache-tomcat" title="Link to this heading">#</a></h3>
+<p>Apache Tomcat acts as both a web server and a servlet container.<br />
+A web server receives a request from a user, finds the resource, and returns a response to the user. This
+response could be another page, image, video, etc.<br />
+Web servers are great at serving static content in response to requests. However, if you need dynamically created
+pages that don’t exist before the request, or the ability to write/save data to the database, you can’t rely
+solely on the web server. This is the role servlets play - they are able to dynamically create pages to send as a
+response to the client. You can add logic into the servlets to tell them what to do dependent on what parameters
+are sent in the request.</p>
+<p>However, web servers need a way to communicate requests and responses to servlets. This is the role Apache
+Tomcat serves as a servlet container. Servlets don’t have main methods the server can call, so instead when the
+web server gets a request for a servlet, the server hands the request to the container in which the servlet is
+deployed (Tomcat). The container gives the HTTP request to the servlet and calls the servlet’s <code class="docutils literal notranslate"><span class="pre">doGet()</span></code>
+and <code class="docutils literal notranslate"><span class="pre">doPost()</span></code> methods. You can see the interaction between these elements:</p>
+<p><img alt="" src="../../_images/jsp_servlets_2.png" /></p>
+</section>
+<section id="benefits-of-a-container">
+<h3>Benefits of a Container<a class="headerlink" href="#benefits-of-a-container" title="Link to this heading">#</a></h3>
+<p>Apache Tomcat, as a container, handles a number of issues for you:</p>
+<ol class="arabic simple">
+<li><p><em>Communications support:</em> The container creates an easy way for your server to talk to your servlets. The container
+knows the protocol to use to speak to the server, so you don’t have to make use of an API in your servlets in order to
+speak to the server.</p></li>
+<li><p><em>Lifecycle management:</em> The container controls the life and death of your servlets. It loads classes, instantiates
+servlets, knows which servlet method to call, and handles garbage collection, so you don’t have to worry as much about
+managing resources.</p></li>
+<li><p><em>JSP support:</em> The container translates JSP code into Java.</p></li>
+</ol>
+</section>
+</section>
+<section id="mvc-pattern">
+<h2>MVC Pattern<a class="headerlink" href="#mvc-pattern" title="Link to this heading">#</a></h2>
+<p>Now we will describe how Tomcat, servlets, and JSPs are used together in the MVC (model view controller)
+pattern. You will be making use of the MVC pattern in this subject in the assignment.</p>
+<p>In this case, the model in MVC is the domain model, the controller in MVC is servlets, and the view in MVC is
+JSPs. You can see the interaction between these elements:</p>
+<p><img alt="" src="../../_images/jsp_servlets_1.png" /></p>
+<p>Now you don’t actually need a view (JSPs) to format HTML web pages.<br />
+For example, adding the below to a servlet will generate a dynamically created web page:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">)</span> <span class="n">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">setContentType</span><span class="p">(</span><span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+
+    <span class="n">PrintWriter</span> <span class="n">out</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">getWriter</span><span class="p">();</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;&quot;</span><span class="p">);</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s2">&quot;&lt;/h1&gt;&quot;</span><span class="p">);</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As is probably obvious, this is a tedious way of creating dynamic pages and anything more than basic HTML becomes
+extremely time-consuming.
+Creating views (JSPs) allows developers to separate the page content from the servlet logic. It also makes it simpler
+for developers to work across different aspects of the application - by keeping view logic in servlets, front-end
+developers need to learn how to work with servlets to make changes.</p>
+<p>To avoid both of these issues, you will make use of JSPs - Java introduced into HTML:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Test</span> <span class="n">page</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<span class="o">&lt;%=</span> <span class="n">new</span> <span class="n">java</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">Date</span><span class="p">()</span> <span class="o">%&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Add this into any JSP in your project and run Tomcat - now the webpage will dynamically write the date and
+time on your webpage:</p>
+<p><img alt="" src="../../_images/jsp_servlets_3.png" /></p>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s Next</p>
+<p>Now if you want to practice what you’ve learned, try the tutorial to <a class="reference internal" href="first_web_app.html"><span class="std std-doc">Create Your First Web App</span></a>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./archived/first_java_app"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#servlets">Servlets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#java-server-pages">Java Server Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-tomcat">Apache Tomcat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-apache-tomcat">Introduction to Apache Tomcat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-a-container">Benefits of a Container</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mvc-pattern">MVC Pattern</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
