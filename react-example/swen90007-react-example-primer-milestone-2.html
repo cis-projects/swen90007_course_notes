@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Milestone 2: Core Functionality &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
@@ -15,54 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'react-example/swen90007-react-example-primer-milestone-2';</script>
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Milestone 3: Authentication" href="swen90007-react-example-primer-milestone-3.html" />
@@ -76,19 +72,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -110,12 +110,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,9 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../introduction/introduction.html">
+  
   
   
   
@@ -142,12 +154,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -157,23 +180,12 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frequently Asked Questions (FAQs)</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference external" href="https://www.notion.so/1d6be145ac5c496fb3880db430b93fab?v=664aac86a62e4ece9a4092126f8e2b7a">SWEN90007 Software Design and Architecture</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Java Web Application</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/jsp_servlets.html">JSPs and Servlets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/first_web_app.html">Create Your First Web Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/java_postgresql.html">Introduction to Java and PostgreSQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../first_java_app/maven.html">Introduction to Maven</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_4.html">Architectural Decisions Records (ADRs)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
@@ -185,8 +197,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_setup_docker.html">Step 8: Setup Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_dev/10_render_deploy.html">Step 9: Deploy to Render</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
 <ul class="current nav bd-sidenav">
@@ -196,10 +206,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Milestone 2: Core Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra Resources</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../extra_tools/tools_and_plugins.html">Useful Tools and IntelliJ Plugins</a></li>
 </ul>
 
     </div>
@@ -215,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -224,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -353,26 +359,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -440,10 +448,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="milestone-2-core-functionality">
-<h1>Milestone 2: Core Functionality<a class="headerlink" href="#milestone-2-core-functionality" title="Permalink to this heading">#</a></h1>
+<h1>Milestone 2: Core Functionality<a class="headerlink" href="#milestone-2-core-functionality" title="Link to this heading">#</a></h1>
 <p>By the end of this milestone we will have:</p>
 <ul class="simple">
 <li><p>core functionality for the system implemented</p></li>
@@ -459,7 +467,7 @@ document.write(`
 </ul>
 </div>
 <section id="database-schema-changes">
-<h2>Database schema changes<a class="headerlink" href="#database-schema-changes" title="Permalink to this heading">#</a></h2>
+<h2>Database schema changes<a class="headerlink" href="#database-schema-changes" title="Link to this heading">#</a></h2>
 <p>The system we’re building needs to be able to manage votes, however at the moment all the system does is serve dummy data. We’ll need to make a few changes to our database so that it’s able to store votes. But first, we’ll spend a moment crafting a cleanup script, which comes in handy if we ever want to purge our database of test data. Add the following SQL to a  <code class="docutils literal notranslate"><span class="pre">drop.sql</span></code> file, and run it against your database to blow away our current dummy schema.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="p">;</span><span class="w">  </span>
 <span class="k">DROP</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">;</span><span class="w">  </span>
@@ -496,14 +504,14 @@ document.write(`
 </div>
 </section>
 <section id="api-changes">
-<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this heading">#</a></h2>
+<h2>API changes<a class="headerlink" href="#api-changes" title="Link to this heading">#</a></h2>
 <p>We’ll need to extend the current API so that it can serve votes and the current verdict.</p>
 <div class="caution admonition">
 <p class="admonition-title">Purpose of this example</p>
 <p>Please be aware that the purpose of this example is to introduce you to working with React, <em>not</em> to provide an example implementation of the various patterns covered in this course. Beware that the API implementation discussed in this section does not make use of many of the patterns that you are required to engage with in this subject.</p>
 </div>
 <section id="working-with-json">
-<h3>Working with JSON<a class="headerlink" href="#working-with-json" title="Permalink to this heading">#</a></h3>
+<h3>Working with JSON<a class="headerlink" href="#working-with-json" title="Link to this heading">#</a></h3>
 <p>Our API will utilise JavaScript Object Notation (JSON) as a <em>data transfer format</em>, thus we’ll need to marshal and unmarshal Java objects to and from JSON. JSON is relatively complicated - to build your own JSON parsing would be a fairly significant undertaking, and complete waste of time - so we’ll make use of one of the more popular libraries <a class="reference external" href="https://github.com/FasterXML/jackson">Jackson</a>. Include the following coordinates in you Maven configuration (<code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>).</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;properties&gt;</span><span class="w">  </span>
 <span class="w">    </span><span class="nt">&lt;jackson.version&gt;</span>2.14.2<span class="nt">&lt;/jackson.version&gt;</span><span class="w">   </span>
@@ -525,7 +533,7 @@ document.write(`
 </div>
 </section>
 <section id="a-simple-domain">
-<h3>A simple domain<a class="headerlink" href="#a-simple-domain" title="Permalink to this heading">#</a></h3>
+<h3>A simple domain<a class="headerlink" href="#a-simple-domain" title="Link to this heading">#</a></h3>
 <p>We’ll implement a very simple domain, we’ll create - amongst others - a <code class="docutils literal notranslate"><span class="pre">Vote</span></code> and <code class="docutils literal notranslate"><span class="pre">Verdict</span></code> class. See the <code class="docutils literal notranslate"><span class="pre">Vote</span></code> class below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.domain</span><span class="p">;</span><span class="w">  </span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.annotation.JsonIgnore</span><span class="p">;</span><span class="w">  </span>
@@ -660,7 +668,7 @@ document.write(`
 </div>
 </section>
 <section id="data-layer">
-<h3>Data layer<a class="headerlink" href="#data-layer" title="Permalink to this heading">#</a></h3>
+<h3>Data layer<a class="headerlink" href="#data-layer" title="Link to this heading">#</a></h3>
 <p>Creating a database connection is expensive, and this expense adds up if our API is to be called often. To avoid the overhead involved in creating connections we’ll implement a very simple connection pool.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.port.postgres</span><span class="p">;</span><span class="w">  </span>
 <span class="w">  </span>
@@ -828,19 +836,19 @@ document.write(`
 </ol>
 </section>
 <section id="api-layer-and-servlets">
-<h3>API layer and Servlets<a class="headerlink" href="#api-layer-and-servlets" title="Permalink to this heading">#</a></h3>
+<h3>API layer and Servlets<a class="headerlink" href="#api-layer-and-servlets" title="Link to this heading">#</a></h3>
 <section id="some-house-keeping">
-<h4>Some house keeping<a class="headerlink" href="#some-house-keeping" title="Permalink to this heading">#</a></h4>
+<h4>Some house keeping<a class="headerlink" href="#some-house-keeping" title="Link to this heading">#</a></h4>
 <p>We can now implement the various Servlets that will expose our domain as an API. Let’s clean up a little first by removing the existing <code class="docutils literal notranslate"><span class="pre">TestResource</span></code>, which we won’t need anymore.</p>
 </section>
 <section id="a-few-utilities">
-<h4>A few utilities<a class="headerlink" href="#a-few-utilities" title="Permalink to this heading">#</a></h4>
+<h4>A few utilities<a class="headerlink" href="#a-few-utilities" title="Link to this heading">#</a></h4>
 <p>Two of the key responsibilities of the API layer will be working with JSON and handling errors from the domain. To simplify our Servlet implementations we’ll delegate as much JSON and error handling as is sensible to a number of shared utility classes.</p>
 <p>For each request, we’ll likely need to return a response, which will involve - at the very least - setting a status on the response and marshalling an object to a JSON response body. We’ll use a <code class="docutils literal notranslate"><span class="pre">ResponseEntity</span></code> class to unify returning data to the UI, and an implementation of a <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code> interface - <code class="docutils literal notranslate"><span class="pre">MarshallingRequestHandler</span></code> - to unify how we marshal domain objects to JSON.</p>
 <p>We’ll need to return errors if things don’t quite work out within the domain. We’ll use the <code class="docutils literal notranslate"><span class="pre">Error</span></code> class to unify how we serve an error response, and the <code class="docutils literal notranslate"><span class="pre">ErrorHandler</span></code> to convert thrown exceptions to an appropriate error response.</p>
 </section>
 <section id="servlet-context">
-<h4>Servlet Context<a class="headerlink" href="#servlet-context" title="Permalink to this heading">#</a></h4>
+<h4>Servlet Context<a class="headerlink" href="#servlet-context" title="Link to this heading">#</a></h4>
 <p>In this project we’re observing the <em>Inversion of Control</em> (IoC) pattern, and without a <em>Dependency Injection</em> framework with which to implement Inversion of Control we’re left with the responsibility of managing the dependencies of all our components explicitly - that is, we will need to, (by-hand) build up our application by instantiating each component and providing each with the various specific implementations on which it should depend. We’ll use an implementation of the <code class="docutils literal notranslate"><span class="pre">ServletContextListener</span></code> class as an entry-point for instantiating the key components of our system.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.api</span><span class="p">;</span><span class="w">  </span>
 <span class="w">  </span>
@@ -895,7 +903,7 @@ document.write(`
 </ol>
 </section>
 <section id="the-servlets-finally">
-<h4>The Servlets, finally<a class="headerlink" href="#the-servlets-finally" title="Permalink to this heading">#</a></h4>
+<h4>The Servlets, finally<a class="headerlink" href="#the-servlets-finally" title="Link to this heading">#</a></h4>
 <p>There are a number of Servlets to implement, thankfully they’re all relatively similar so we’ll only look at one, the <code class="docutils literal notranslate"><span class="pre">VerdictResource</span></code> Servlet.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.unimelb.swen90007.reactexampleapi.api</span><span class="p">;</span><span class="w">  </span>
 <span class="w">  </span>
@@ -937,10 +945,10 @@ document.write(`
 </section>
 </section>
 <section id="security-updates">
-<h3>Security updates<a class="headerlink" href="#security-updates" title="Permalink to this heading">#</a></h3>
+<h3>Security updates<a class="headerlink" href="#security-updates" title="Link to this heading">#</a></h3>
 <p>Our existing security configuration was appropriate for the very simple test endpoint we build in previous milestones, however we’ve now made some fairly significant changes that require a revised configuration.</p>
 <section id="cors">
-<h4>CORS<a class="headerlink" href="#cors" title="Permalink to this heading">#</a></h4>
+<h4>CORS<a class="headerlink" href="#cors" title="Link to this heading">#</a></h4>
 <p>The current CORS configuration handles only HTTP GET methods, we’ll need to configure it to handle both POST and PUT as well.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Bean</span><span class="w">  </span>
 <span class="kd">public</span><span class="w"> </span><span class="n">CorsConfigurationSource</span><span class="w"> </span><span class="nf">corsConfigurationSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
@@ -955,7 +963,7 @@ document.write(`
 </div>
 </section>
 <section id="cross-site-request-forgery-csrf">
-<h4>Cross Site Request Forgery (CSRF)<a class="headerlink" href="#cross-site-request-forgery-csrf" title="Permalink to this heading">#</a></h4>
+<h4>Cross Site Request Forgery (CSRF)<a class="headerlink" href="#cross-site-request-forgery-csrf" title="Link to this heading">#</a></h4>
 <p>Spring Security ships with CSRF protections. These protections are applied to modifying HTTP methods (POST, PUT etc), and ensure attackers can’t <em>replay</em> a user’s request (after stealing a session) by requiring that such requests are sent with a CSRF token HTTP header (set to a value that would be impossible for an attacker to discover or guess). We won’t be tackling CSRF in this milestone so we’ll just disable it for now.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Bean</span><span class="w">  </span>
 <span class="kd">public</span><span class="w"> </span><span class="n">SecurityFilterChain</span><span class="w"> </span><span class="nf">securityFilterChain</span><span class="p">(</span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
@@ -969,10 +977,10 @@ document.write(`
 </section>
 </section>
 <section id="verifying-the-api-with-httpie">
-<h3>Verifying the API with HTTPie<a class="headerlink" href="#verifying-the-api-with-httpie" title="Permalink to this heading">#</a></h3>
+<h3>Verifying the API with HTTPie<a class="headerlink" href="#verifying-the-api-with-httpie" title="Link to this heading">#</a></h3>
 <p>After spending some time studying the API source code associated with this milestone, make whatever changes you need to align your implementation so that we can begin verifying our API. We’ll conduct this verification with <a class="reference external" href="https://httpie.io/">HTTPie</a>, an excellent HTTP client and CLI tool (for those that prefer a UI, HTTPie also has a desktop application similar to Postman), find out how you can install it <a class="reference external" href="https://httpie.io/docs/cli/installation">here</a>. Once you have the HTTPie CLI installed locally let’s verify that each of our endpoints work.</p>
 <section id="verdict">
-<h4>/verdict<a class="headerlink" href="#verdict" title="Permalink to this heading">#</a></h4>
+<h4>/verdict<a class="headerlink" href="#verdict" title="Link to this heading">#</a></h4>
 <p>Use HTTPie to hit the verdict endpoint</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/verdict
 </pre></div>
@@ -1002,7 +1010,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </div>
 </section>
 <section id="vote">
-<h4>/vote<a class="headerlink" href="#vote" title="Permalink to this heading">#</a></h4>
+<h4>/vote<a class="headerlink" href="#vote" title="Link to this heading">#</a></h4>
 <p>Use HTTPie to POST a new vote</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/vote<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;Testy McTestington&#39;</span><span class="w"> </span><span class="nv">email</span><span class="o">=</span><span class="s1">&#39;test@testerz.com&#39;</span><span class="w"> </span>supporting:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
@@ -1013,7 +1021,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </div>
 </section>
 <section id="manage-vote">
-<h4>/manage/vote<a class="headerlink" href="#manage-vote" title="Permalink to this heading">#</a></h4>
+<h4>/manage/vote<a class="headerlink" href="#manage-vote" title="Link to this heading">#</a></h4>
 <p>Let’s verify that we can get all the votes</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/manage/vote
 </pre></div>
@@ -1026,10 +1034,10 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </section>
 </section>
 <section id="extending-the-ui">
-<h2>Extending the UI<a class="headerlink" href="#extending-the-ui" title="Permalink to this heading">#</a></h2>
+<h2>Extending the UI<a class="headerlink" href="#extending-the-ui" title="Link to this heading">#</a></h2>
 <p>Now we come to the rather large job of building out the core functionality required of the UI.</p>
 <section id="an-api-client">
-<h3>An API client<a class="headerlink" href="#an-api-client" title="Permalink to this heading">#</a></h3>
+<h3>An API client<a class="headerlink" href="#an-api-client" title="Link to this heading">#</a></h3>
 <p>In the previous implementation we made fetch calls directly within our components, this is fine for simple tasks but a better approach is to delegate the complexity of dispatching calls to the API to another part of the application that can be shared across components. We’ll create <code class="docutils literal notranslate"><span class="pre">api.js</span></code> for this purpose.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">;</span>
 
@@ -1093,7 +1101,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </ol>
 </section>
 <section id="managing-state-with-react-contexts">
-<h3>Managing state with React Contexts<a class="headerlink" href="#managing-state-with-react-contexts" title="Permalink to this heading">#</a></h3>
+<h3>Managing state with React Contexts<a class="headerlink" href="#managing-state-with-react-contexts" title="Link to this heading">#</a></h3>
 <p>In previous milestones we implemented application state with the <code class="docutils literal notranslate"><span class="pre">useState</span></code> hook and learnt how we can use component props to deliver state to the parts of the application that require it. These tools are perfect for managing state in a local way, and should be your first port of call when designing components. However, you may come across situations where some aspect of application state must be shared across a number of relatively unrelated components. Distributing this state, with the tools we currently know, involves identifying a common parent component to manage the shared state, and have it pass the state to it’s children - who in turn may need to pass the state to their own children, until finally the state is injected into the various components that require it. If the common parent is a distant ancestor of the components that actually require the shared state, then passing the state through the entire lineage of child components becomes an incredibly cumbersome and brittle exercise. There is, thankfully, another way.</p>
 <p>React <em>Context</em> hooks provide a simple way to deliver state to parts of our application without the use of props, and thus avoid the problematic requirement that props must be passed by parent components. The API client we just implemented represents application state that we’d prefer is simply delivered to where it’s needed, it will be used by various containers that send requests to the API and marshal received data into a component hierarchy,  but also by more simple components that display dynamic data.</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createContext</span><span class="p">,</span><span class="w"> </span><span class="nx">useContext</span><span class="p">,</span><span class="w"> </span><span class="nx">useMemo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
@@ -1105,7 +1113,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">ApiProvider</span><span class="p">({</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useMemo</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Api</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="w">  </span><span class="nx">REACT_APP_API_BASE_URL</span><span class="p">),</span><span class="w"> </span><span class="p">[]);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">ApiContext</span><span class="p">.</span><span class="na">Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">api</span><span class="p">}&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">ApiContext</span><span class="p">.</span><span class="na">Provider</span><span class="w"> </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">api</span><span class="p">}&gt;</span>
 <span class="w">            </span><span class="p">{</span><span class="nx">children</span><span class="p">}</span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">ApiContext</span><span class="p">.</span><span class="na">Provider</span><span class="p">&gt;</span>
 <span class="w">    </span><span class="p">);</span>
@@ -1136,8 +1144,8 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
-<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
 <span class="w">                </span><span class="p">&lt;</span><span class="nt">ApiProvider</span><span class="p">&gt;</span>
 <span class="w">                    </span><span class="c1">// other components, for example the</span>
 <span class="w">                    </span><span class="c1">// the Verdict component below</span>
@@ -1179,7 +1187,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </ol>
 </section>
 <section id="routing-pages">
-<h3>Routing pages<a class="headerlink" href="#routing-pages" title="Permalink to this heading">#</a></h3>
+<h3>Routing pages<a class="headerlink" href="#routing-pages" title="Link to this heading">#</a></h3>
 <p>Let’s take a step back and consider the requirements for this application, we need to implement three core use cases.</p>
 <ul class="simple">
 <li><p>all users can view the current verdict</p></li>
@@ -1208,10 +1216,10 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
 <span class="w">        </span><span class="p">&lt;</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
 <span class="w">            </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="p">&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;vote&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Vote</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;admin/votes&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Votes</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;verdict&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Verdict</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;*&quot;</span> <span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Home</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;vote&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Vote</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;admin/votes&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Votes</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;verdict&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Verdict</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;*&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Home</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
 <span class="w">            </span><span class="p">&lt;/</span><span class="nt">Routes</span><span class="p">&gt;</span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
 <span class="w">    </span><span class="p">);</span>
@@ -1235,10 +1243,10 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <span class="w">  </span>
 <span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
-<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
 <span class="w">                </span><span class="p">&lt;</span><span class="nt">ApiProvider</span><span class="p">&gt;</span>
-<span class="w">                    </span><span class="p">&lt;</span><span class="nt">Routes</span> <span class="p">/&gt;</span>
+<span class="w">                    </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="w"> </span><span class="p">/&gt;</span>
 <span class="w">                </span><span class="p">&lt;/</span><span class="nt">ApiProvider</span><span class="p">&gt;</span>
 <span class="w">            </span><span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1268,7 +1276,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </div>
 </section>
 <section id="the-useeffect-hook">
-<h3>The <code class="docutils literal notranslate"><span class="pre">useEffect</span></code> hook<a class="headerlink" href="#the-useeffect-hook" title="Permalink to this heading">#</a></h3>
+<h3>The <code class="docutils literal notranslate"><span class="pre">useEffect</span></code> hook<a class="headerlink" href="#the-useeffect-hook" title="Link to this heading">#</a></h3>
 <p>We’re very close to done with the functional side of our application, we have an API client, appropriately available where its needed via a Context, and some basic routing configured. The final element that requires some attention is how to fetch data from the API when a component is mounted to the DOM. In previous milestones we leant how to fetch data in response to a user action - such as clicking a button. However, for some use cases we’d prefer that data be fetched automatically - it would be ridiculous, for example, to require users that navigate to the verdict page to also click a <em>fetch votes</em> button.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">useEffect</span></code> hook is used to when we need to synchronise our component with an external system (such as by fetching data from that external system). The <code class="docutils literal notranslate"><span class="pre">useEffect</span></code> hook is triggered when the component is mounted to the DOM, or when any of its dependencies are modified. We’ll take a look at a stripped down version of the <code class="docutils literal notranslate"><span class="pre">Verdict</span></code> component to understand how it’s used in this application.</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useEffect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
@@ -1318,7 +1326,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </ol>
 </section>
 <section id="css-modules">
-<h3>CSS Modules<a class="headerlink" href="#css-modules" title="Permalink to this heading">#</a></h3>
+<h3>CSS Modules<a class="headerlink" href="#css-modules" title="Link to this heading">#</a></h3>
 <p>Before we wrap up extending the UI we’ll spend a few moments to understand how CSS Modules have been used to manage styling in this project. The primary objective of CSS Modules is to provide a way to <em>scope</em> styles to a particular component, which helps avoid managing all styling within one massive complicated stylesheet. To use CSS Modules, you simply declare your styles within a file with extension <code class="docutils literal notranslate"><span class="pre">.module.css</span></code>, and then apply those styles to the markup of a component by importing it - like any other JS module - and binding it to the elements you wish to style. Take a quick look at the <code class="docutils literal notranslate"><span class="pre">Card.module.css</span></code> CSS Module which is used to style the <code class="docutils literal notranslate"><span class="pre">Card</span></code> component.</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">Card</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
@@ -1343,11 +1351,11 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Card</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">subtitle</span><span class="p">,</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">Card</span><span class="p">}&gt;</span>
-<span class="w">            </span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">CardTitle</span><span class="p">}&gt;{</span><span class="nx">title</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="w">            </span><span class="p">{(</span><span class="nx">subtitle</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">CardSubtitle</span><span class="p">}&gt;{</span><span class="nx">subtitle</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;)}</span>
-<span class="w">            </span><span class="p">&lt;</span><span class="nt">hr</span> <span class="p">/&gt;</span>
-<span class="w">            </span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">CardContent</span><span class="p">}&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">Card</span><span class="p">}&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">CardTitle</span><span class="p">}&gt;{</span><span class="nx">title</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">{(</span><span class="nx">subtitle</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">CardSubtitle</span><span class="p">}&gt;{</span><span class="nx">subtitle</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;)}</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">hr</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">CardContent</span><span class="p">}&gt;</span>
 <span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">}</span>
 <span class="w">            </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1359,13 +1367,13 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </section>
 </section>
 <section id="deployment-again">
-<h2>Deployment, again<a class="headerlink" href="#deployment-again" title="Permalink to this heading">#</a></h2>
+<h2>Deployment, again<a class="headerlink" href="#deployment-again" title="Link to this heading">#</a></h2>
 <section id="database">
-<h3>Database<a class="headerlink" href="#database" title="Permalink to this heading">#</a></h3>
+<h3>Database<a class="headerlink" href="#database" title="Link to this heading">#</a></h3>
 <p>If you’ve not done so already (because, for example, you’ve been developing against a local database), you will need to update the schema of the Render managed database. Run - in order - scripts <code class="docutils literal notranslate"><span class="pre">drop.sql</span></code>, <code class="docutils literal notranslate"><span class="pre">init.sql</span></code> and <code class="docutils literal notranslate"><span class="pre">load.sql</span></code> against the database, as demonstrated in previous milestones.</p>
 </section>
 <section id="api-and-ui">
-<h3>API and UI<a class="headerlink" href="#api-and-ui" title="Permalink to this heading">#</a></h3>
+<h3>API and UI<a class="headerlink" href="#api-and-ui" title="Link to this heading">#</a></h3>
 <p>You should already have a Render Web Service and Static Site setup for the API and UI, respectively. Committing and pushing the code contributed by this milestone to your GitHub repository should be enough to trigger Render to build and deploy your new system (thank you, <em>Continuous Deployment</em> 🥳); however, if you’ve disabled automated deployment from GitHub, then you will need manually trigger deployment after your changes have been committed and pushed to the deployment branch.</p>
 <p>Once your’ve deployed your latest changes, checkout the UI, the home page should look something like this:</p>
 <p><img alt="home page" src="../_images/home-page.png" /></p>
@@ -1404,11 +1412,10 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="swen90007-react-example-primer-milestone-1.html"
@@ -1428,10 +1435,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1439,6 +1443,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1505,9 +1510,10 @@ By School of Computing and Information Systems, The University of Melbourne
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1531,8 +1537,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
