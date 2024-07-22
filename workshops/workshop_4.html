@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="../setup_dev/introduction.html" />
-    <link rel="prev" title="Workshop 3" href="workshop_3.html" />
+    <link rel="prev" title="Workshop 3" href="workshop_3_jsps.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,10 +184,10 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workshop_2.html">Workshop 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workshop_3.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_3_jsps.html">Workshop 3</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop 4</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
@@ -200,7 +200,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/8_setup_docker.html">Step 8: Setup Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_render_deploy.html">Step 9: Deploy to Render</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
@@ -405,7 +405,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architectural-decisions-records-adrs">Architectural Decisions Records (ADRs)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-adr">Example ADR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adr-part-2">ADR - Part 2</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#title">Title</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#decision">Decision</a></li>
@@ -413,16 +414,44 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences">Consequences</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#positive">Positive</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#negative">Negative</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#compliance">Compliance</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives-considered">Alternatives Considered</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#compliance">Compliance</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#active-record-pattern">Active Record Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Consequences</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Positive</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Negative</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adr-part-3">ADR - Part 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Title</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Context</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Decision</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Implementation Strategy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Consequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Positive</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Negative</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Compliance</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Alternatives Considered</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pessimistic-locking">Pessimistic Locking</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Consequences</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Positive</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Negative</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Notes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -451,14 +480,17 @@ document.write(`
 <li><p>Decisions are made, but documents aren’t preserved for posterity so others (now or in the future) attempting to understand your code can’t.</p></li>
 </ul>
 </section>
-<section id="example-adr">
-<h3>Example ADR<a class="headerlink" href="#example-adr" title="Link to this heading">#</a></h3>
-<div class="admonition-bare-minimum-adr admonition">
-<p class="admonition-title">Bare Minimum ADR</p>
-<p>The example provided below is just for illustration purposes and does not contain sufficient discussion nor justification.
-Your team is free to make use of this template, but make sure it is more fully fleshed out. Your discussion should follow the Course Notes.</p>
-<p>An ADR should be created for each pattern required for the assessment.</p>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<p>[1] <a class="reference external" href="https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/welcome.html">AWS Prescriptive Guidance</a>
+[2] <a class="reference external" href="https://adr.github.io">ADR GitHub</a></p>
+<div class="admonition-adr-templates admonition">
+<p class="admonition-title">ADR Templates</p>
+<p>The examples provided below are just for illustration purposes and does not contain sufficient discussion nor justification.</p>
 </div>
+</section>
+<section id="adr-part-2">
+<h3>ADR - Part 2<a class="headerlink" href="#adr-part-2" title="Link to this heading">#</a></h3>
 <section id="title">
 <h4>Title<a class="headerlink" href="#title" title="Link to this heading">#</a></h4>
 <p>Implementing the Data Mapper Pattern for ABC Application</p>
@@ -473,6 +505,7 @@ Your team is free to make use of this template, but make sure it is more fully f
 </section>
 <section id="implementation-strategy">
 <h4>Implementation Strategy<a class="headerlink" href="#implementation-strategy" title="Link to this heading">#</a></h4>
+<p><em>Make use of diagrams here</em></p>
 <ul class="simple">
 <li><p>Data Access Layer: Introduce a Data Access Layer (DAL) that contains mapper classes for the objects User, Post, and Action, which will be responsible for transferring data between their corresponding database tables and business objects.</p></li>
 </ul>
@@ -491,15 +524,33 @@ Your team is free to make use of this template, but make sure it is more fully f
 <li><p>Complexity: Data Mapper Pattern adds complexity, as it requires separation of logic between domain model objects.</p></li>
 </ul>
 </section>
-</section>
-<section id="alternatives-considered">
-<h4>Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Link to this heading">#</a></h4>
-<p><em>Discuss alternatives considered</em></p>
 <section id="compliance">
 <h5>Compliance<a class="headerlink" href="#compliance" title="Link to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Any new object with a corresponding database table must have a mapper class created.</p></li>
 </ul>
+</section>
+</section>
+<section id="alternatives-considered">
+<h4>Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Link to this heading">#</a></h4>
+<section id="active-record-pattern">
+<h5>Active Record Pattern<a class="headerlink" href="#active-record-pattern" title="Link to this heading">#</a></h5>
+<section id="id1">
+<h6>Consequences<a class="headerlink" href="#id1" title="Link to this heading">#</a></h6>
+<p>It was decided by the team to not adopt the Active Record Pattern. While the pattern had many positive reasons for adoption, it was ultimately decided that the lower complexity and development time did not outweigh our desire and need for future scalability. Knowing that the Active Record Pattern would become a hinderance to the development of further functionality in the future, it was decided against.</p>
+</section>
+<section id="id2">
+<h6>Positive<a class="headerlink" href="#id2" title="Link to this heading">#</a></h6>
+<ul class="simple">
+<li><p>Complexity: Low complexity and development time to implement.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h6>Negative<a class="headerlink" href="#id3" title="Link to this heading">#</a></h6>
+<ul class="simple">
+<li><p>Scalability: It does not promote scalability in the way Data Mapper Pattern does.</p></li>
+</ul>
+</section>
 </section>
 </section>
 <section id="notes">
@@ -521,10 +572,82 @@ Your team is free to make use of this template, but make sure it is more fully f
 </div>
 </section>
 </section>
-<section id="references">
-<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
-<p>[1] <a class="reference external" href="https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/welcome.html">AWS Prescriptive Guidance</a>
-[2] <a class="reference external" href="https://adr.github.io">ADR GitHub</a></p>
+<section id="adr-part-3">
+<h3>ADR - Part 3<a class="headerlink" href="#adr-part-3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h4>Title<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Implementing the Optimistic Locking for concurrency issue 1.</p>
+</section>
+<section id="id5">
+<h4>Context<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Concurrency issue 1: Students simultaneously RSVP to an event.</p>
+<p>Our application requires concurrency controls for situations where multipple students RSVP to the same event simultaneously.</p>
+</section>
+<section id="id6">
+<h4>Decision<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>We will implement optimistic locking for this use case…</p>
+</section>
+<section id="id7">
+<h4>Implementation Strategy<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p><em>Make use of diagrams here</em></p>
+<ul class="simple">
+<li><p>Data Access Layer: Requires creation of data locking classes for each object…</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>Consequences<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<section id="id9">
+<h5>Positive<a class="headerlink" href="#id9" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Complexity: It is less complex than…</p></li>
+</ul>
+</section>
+<section id="id10">
+<h5>Negative<a class="headerlink" href="#id10" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Loss of data: It may frustrate users due to…</p></li>
+</ul>
+</section>
+<section id="id11">
+<h5>Compliance<a class="headerlink" href="#id11" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Any new object with a corresponding database table must have a mapper class created.</p></li>
+</ul>
+</section>
+</section>
+<section id="id12">
+<h4>Alternatives Considered<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<section id="pessimistic-locking">
+<h5>Pessimistic Locking<a class="headerlink" href="#pessimistic-locking" title="Link to this heading">#</a></h5>
+<section id="id13">
+<h6>Consequences<a class="headerlink" href="#id13" title="Link to this heading">#</a></h6>
+</section>
+<section id="id14">
+<h6>Positive<a class="headerlink" href="#id14" title="Link to this heading">#</a></h6>
+</section>
+<section id="id15">
+<h6>Negative<a class="headerlink" href="#id15" title="Link to this heading">#</a></h6>
+</section>
+</section>
+</section>
+<section id="id16">
+<h4>Notes<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Author</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Jane Doe</p></td>
+<td><p>0.1</p></td>
+<td><p>Initial proposed version</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -560,7 +683,7 @@ Your team is free to make use of this template, but make sure it is more fully f
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="workshop_3.html"
+       href="workshop_3_jsps.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -595,7 +718,8 @@ Your team is free to make use of this template, but make sure it is more fully f
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architectural-decisions-records-adrs">Architectural Decisions Records (ADRs)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-adr">Example ADR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adr-part-2">ADR - Part 2</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#title">Title</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#decision">Decision</a></li>
@@ -603,16 +727,44 @@ Your team is free to make use of this template, but make sure it is more fully f
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences">Consequences</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#positive">Positive</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#negative">Negative</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#compliance">Compliance</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives-considered">Alternatives Considered</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#compliance">Compliance</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#active-record-pattern">Active Record Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Consequences</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Positive</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Negative</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adr-part-3">ADR - Part 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Title</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Context</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Decision</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Implementation Strategy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Consequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Positive</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Negative</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Compliance</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Alternatives Considered</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pessimistic-locking">Pessimistic Locking</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Consequences</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Positive</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Negative</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Notes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
