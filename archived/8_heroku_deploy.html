@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -184,10 +184,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_4.html">Architectural Decisions Records (ADRs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3_jsps.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_4.html">Workshop 4</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Development Setup</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
@@ -197,8 +197,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/8_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_render_deploy.html">Step 9: Deploy to Render</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Example Project</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Project Development Setup</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
@@ -420,25 +422,25 @@ document.write(`
 <section id="set-up-repository-to-work-with-heroku">
 <h2>Set Up Repository to Work with Heroku<a class="headerlink" href="#set-up-repository-to-work-with-heroku" title="Link to this heading">#</a></h2>
 <p>Open the project in IntelliJ and right-click on the project outermost folder and select New -&gt; File:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_10.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_10.png" /></p>
 <p>Title the file ‘system.properties’:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_11.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_11.png" /></p>
 <p>Enter the following into the file and save it:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">version</span><span class="o">=</span><span class="mi">11</span>
 </pre></div>
 </div>
-<p><img alt="" src="archived/resources/8_heroku_deploy_12.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_12.png" /></p>
 <p>Once again, right-click on the project outermost folder and select New -&gt; File:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_10.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_10.png" /></p>
 <p>Title the new file ‘Procfile’:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_13.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_13.png" /></p>
 <p>If it prompts you to register file type association, select the first option and press OK:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_14.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_14.png" /></p>
 <p>In the file, enter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar $WEBAPP_RUNNER_OPTS --port $PORT target/demo-1.0-SNAPSHOT.war
 </pre></div>
 </div>
-<p><img alt="" src="archived/resources/8_heroku_deploy_15.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_15.png" /></p>
 </section>
 <section id="deploy-to-heroku">
 <h2>Deploy to Heroku<a class="headerlink" href="#deploy-to-heroku" title="Link to this heading">#</a></h2>
@@ -467,9 +469,9 @@ introduces a new bug).</p>
 </div>
 <p>First create a Heroku account <a class="reference external" href="https://www.heroku.com">here</a>. Only one team member needs to do this.</p>
 <p>Select Create New Application:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_8.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_8.png" /></p>
 <p>Enter an application name and select Create App:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_9.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_9.png" /></p>
 <p>Update the pom.xml file to add the Heroku webapp-runner dependency:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">artifactItem</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="n">heroku</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
@@ -556,25 +558,25 @@ introduces a new bug).</p>
 </div>
 <p>Push this change to the repository.</p>
 <p>Login to Heroku and select the Application:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_16.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_16.png" /></p>
 <p>Select Deploy:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_17.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_17.png" /></p>
 <p>Select Connect to GitHub and follow the prompts:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_20.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_20.png" /></p>
 <p>Once connected, select drop-down menu and choose the GitHub Classroom SWEN900072021:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_39.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_39.png" /></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You must be Admin of the project repository in order for Heroku to be able to connect to it.</p>
 </div>
 <p>Select Search. Once Heroku finds the repository, select Connect:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_18.png" /></p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_19.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_18.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_19.png" /></p>
 <p>Follow the prompts to enable automatic deployment and select a branch you wish to deploy <em>(this is up to your team to
 decide)</em>:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_23.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_23.png" /></p>
 <p>It will take up a minute or two to build, but once done, select View to view your application:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_24.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_24.png" /></p>
 <p>Now the code on the branch selected will be deployed to Heroku.</p>
 </div>
 <div class="note dropdown admonition">
@@ -669,7 +671,7 @@ To create the repository as a Heroku application, enter:</p>
 </pre></div>
 </div>
 <p>This will create the application on Heroku:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_1.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_1.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can rename the application (and change the URL) by logging into Heroku and going to settings.</p>
@@ -679,7 +681,7 @@ To create the repository as a Heroku application, enter:</p>
 </pre></div>
 </div>
 <p>It will take a few minutes to build:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_2.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_2.png" /></p>
 <p>Now you can go to the URL above, and your project will be deployed.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -688,18 +690,18 @@ To create the repository as a Heroku application, enter:</p>
 <p>To make life easier, you can create a Heroku configuration in IntelliJ to allow you to deploy changes to the application
 with only one click. This is entirely optional.</p>
 <p>Open the project in IntelliJ and select Add Configuration:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_3.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_3.png" /></p>
 <p>Select the icon for Add and then scroll down and select Maven:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_4.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_4.png" /></p>
 <p>Enter the following into the Command Line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">heroku</span><span class="p">:</span><span class="n">deploy</span><span class="o">-</span><span class="n">war</span>
 </pre></div>
 </div>
-<p><img alt="" src="archived/resources/8_heroku_deploy_5.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_5.png" /></p>
 <p>Select Run:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_6.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_6.png" /></p>
 <p>It will take a few minutes to build, but once done, the application will be viewable at the URL:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_7.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_7.png" /></p>
 <p>Now everytime you make changes and want to deploy, you can select Run Configuration.</p>
 </div>
 <div class="note dropdown admonition">
@@ -718,33 +720,33 @@ with only one click. This is entirely optional.</p>
 <p>We can no longer use the local instance of the PostgreSQL database, so we have to migrate to a Heroku managed
 PostgreSQL instance.</p>
 <p>Log into Heroku and select the application. Then select Resources:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_25.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_25.png" /></p>
 <p>Search and select Heroku PostgreSQL:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_26.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_26.png" /></p>
 <p>Select Submit Order Form (make sure you have selected the free hobby-development database):</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_27.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_27.png" /></p>
 <p>Once it has been added on to the application, launch Heroku Postgres</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_28.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_28.png" /></p>
 <p>Select Settings:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_29.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_29.png" /></p>
 <p>Select View Credentials:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_30.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_30.png" /></p>
 <p>Launch pgAdmin on your computer. Right-click the server and select Create -&gt; Server:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_31.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_31.png" /></p>
 <p>In the pop-up dialog box, enter a name (it does not matter what you choose):</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_32.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_32.png" /></p>
 <p>Select the Connection tab and enter the credentials provided by Heroku:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_34.png" /></p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_33.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_34.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_33.png" /></p>
 <p>Select the Advanced tab and enter the name of the database in the DB Restriction field. If you do not do this, you will
 see thousands of other databases managed by Heroku. Select Save:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_35.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_35.png" /></p>
 <p>In order to test the connection, select the newly connected database and right-click on Tables and select Query Tool:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_36.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_36.png" /></p>
 <p>Enter a random SQL query and click the Run icon:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_37.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_37.png" /></p>
 <p>It should return a successful query, and the table should now be visible once you refresh:</p>
-<p><img alt="" src="archived/resources/8_heroku_deploy_38.png" /></p>
+<p><img alt="" src="../_images/8_heroku_deploy_38.png" /></p>
 </section>
 </section>
 
