@@ -24,15 +24,9 @@ On completion of this subject the student is expected to:
 
 ## Assessments
 
-There are 4 parts for assessments in this subject
+There are 4 parts to the assignment this semester.
 
-| Part | Description | Weighting |
-|--|--|--|
-| 1A | Once you decide on your project description, identify the domain model. | 15% |
-| 1B | Develop one use case and deploy your application. | 5% |
-| 2 | Design and implement your app as described in Application Domain and as defined by the use cases identified in Part 1. | 40% |
-| 3 | The ability to have multiple users in the application will be enabled. This gives place to concurrency issues that you must address. | 30% |
-| 4 | Produce a report reflecting on the performance of your system. | 10% |
+*Please see LMS for assignments and rubrics*
 
 ```{admonition} Hurdle requirement
 :class: warning
@@ -67,7 +61,7 @@ For each assessment submission, you will be asked to review the contributions of
 
 ### Task Tracking
 
-[GitHub Issues](https://github.com/features/issues) is a Kanban board your team can use to track team tasks.
+[GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) is a Kanban board your team can use to track team tasks.
 
 ### Collaborative Documentation
 

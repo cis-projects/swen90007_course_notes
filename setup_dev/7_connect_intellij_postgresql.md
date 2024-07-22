@@ -56,5 +56,5 @@ The newly created table should be viewable in pgAdmin:
 ```{admonition} What's Next
 The next step is to setup Docker and then deploy the application to Render. We recommend you deploy a sample application
 on Render as Part 1B assessment and start early on this. 
-Proceed to [Step 8: Setup Docker for Java Application](9_setup_docker.md).
+Proceed to [Step 8: Setup Docker for Java Application](8_setup_docker.md).
 ```

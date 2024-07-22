@@ -14,14 +14,16 @@ When decisions aren't documented, the result is one or many anti-patterns:
 - Decisions are made, but the teams don't understand the benefits or consequences of the decision.
 - Decisions are made, but documents aren't preserved for posterity so others (now or in the future) attempting to understand your code can't.
 
-### Example ADR
+### References
 
-```{admonition} Bare Minimum ADR
-The example provided below is just for illustration purposes and does not contain sufficient discussion nor justification.
-Your team is free to make use of this template, but make sure it is more fully fleshed out. Your discussion should follow the Course Notes.
+[1] [AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/welcome.html)
+[2] [ADR GitHub](https://adr.github.io)
 
-An ADR should be created for each pattern required for the assessment.
+```{admonition} ADR Templates
+The examples provided below are just for illustration purposes and does not contain sufficient discussion nor justification.
 ```
+
+### ADR - Part 2
 
 #### Title
 
@@ -37,6 +39,8 @@ We will implement the Data Mapper pattern for the ABC application.
 
 #### Implementation Strategy
 
+*Make use of diagrams here*
+
 - Data Access Layer: Introduce a Data Access Layer (DAL) that contains mapper classes for the objects User, Post, and Action, which will be responsible for transferring data between their corresponding database tables and business objects.
 
 #### Consequences
@@ -49,13 +53,25 @@ We will implement the Data Mapper pattern for the ABC application.
 
 - Complexity: Data Mapper Pattern adds complexity, as it requires separation of logic between domain model objects.
 
-#### Alternatives Considered
-
-*Discuss alternatives considered*
-
 ##### Compliance
 
 - Any new object with a corresponding database table must have a mapper class created.
+
+#### Alternatives Considered
+
+##### Active Record Pattern
+
+###### Consequences
+
+It was decided by the team to not adopt the Active Record Pattern. While the pattern had many positive reasons for adoption, it was ultimately decided that the lower complexity and development time did not outweigh our desire and need for future scalability. Knowing that the Active Record Pattern would become a hinderance to the development of further functionality in the future, it was decided against.
+
+###### Positive 
+
+- Complexity: Low complexity and development time to implement.
+
+###### Negative
+
+- Scalability: It does not promote scalability in the way Data Mapper Pattern does.
 
 #### Notes
 
@@ -63,7 +79,56 @@ We will implement the Data Mapper pattern for the ABC application.
 | --- | --- | --- |
 | Jane Doe | 0.1 | Initial proposed version |
 
-### References
+### ADR - Part 3
 
-[1] [AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/welcome.html)
-[2] [ADR GitHub](https://adr.github.io)
+#### Title
+
+Implementing the Optimistic Locking for concurrency issue 1.
+
+#### Context
+
+Concurrency issue 1: Students simultaneously RSVP to an event.
+
+
+
+Our application requires concurrency controls for situations where multipple students RSVP to the same event simultaneously.
+
+#### Decision
+
+We will implement optimistic locking for this use case...
+
+#### Implementation Strategy
+
+*Make use of diagrams here*
+
+- Data Access Layer: Requires creation of data locking classes for each object...
+
+#### Consequences
+
+##### Positive
+
+- Complexity: It is less complex than...
+
+##### Negative
+
+- Loss of data: It may frustrate users due to...
+
+##### Compliance
+
+- Any new object with a corresponding database table must have a mapper class created.
+
+#### Alternatives Considered
+
+##### Pessimistic Locking
+
+###### Consequences
+
+###### Positive 
+
+###### Negative
+
+#### Notes
+
+| Author | Version | Changelog |
+| --- | --- | --- |
+| Jane Doe | 0.1 | Initial proposed version |
