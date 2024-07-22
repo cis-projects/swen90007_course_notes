@@ -1,13 +1,7 @@
 # Workshop 3
 
-```{admonition} By Now You Should Have
-:class: important
-- Completed part 1A
-- Completed set up of development environment to progress part 2
-```
-
-```{admonition} Today's Workshop
-Purpose of today's workshop is to begin working on part 1B of the project and discuss Java web development.
+```{admonition} JSPs
+This workshop material will only be useful for students completing the assessment using JSPs.
 ```
 
 ## Java Web Development
@@ -106,13 +100,3 @@ Apache TomCat, as a container, handles several issues for you:
 1. Head First Servlets & JSP by Bryan Basham; and
 2. Check course notes for resources to practice creating your first web project using servlets and JSPs.
 ```
-
-## Time for a Demo
-
-```{attention}
-You can download the demo file from the repository.
-```
-
-## Next Week
-
-Your team will demo a pattern.

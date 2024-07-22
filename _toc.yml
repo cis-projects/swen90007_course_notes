@@ -8,9 +8,9 @@ parts:
     chapters:
     - file: workshops/workshop_1
     - file: workshops/workshop_2
-    - file: workshops/workshop_3
+    - file: workshops/workshop_3_jsps
     - file: workshops/workshop_4
-  - caption: Project Development Setup
+  - caption: JSP Project Development Setup
     chapters:
     - file: setup_dev/introduction
     - file: setup_dev/1_intellij_install
@@ -22,7 +22,7 @@ parts:
     - file: setup_dev/7_connect_intellij_postgresql
     - file: setup_dev/8_setup_docker
     - file: setup_dev/9_render_deploy
-  - caption: React Example Project
+  - caption: React Project Development Setup
     chapters:
     - file: react-example/swen90007-react-example-primer
     - file: react-example/swen90007-react-example-primer-milestone--1
