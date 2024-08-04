@@ -101,7 +101,7 @@ You should now notice that two containers are now running, one for the PostgreSQ
 
 ## Jakarta Servlets (formerly Java Servlets)
 
-[Jakarta Servlets](https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/servlets/servlets.html) provide us a low level API with which to implement custom handling of requests to a web server like Tomcat. Many Java web development frameworks - such as Spring and Spring Boot - make use of the Jakarta Servlet API, this subject aims to familiarise you with Jakarto Servlets and in doing so provide you an appreciation for how such frameworks simplify Java development for the web.
+[Jakarta Servlets](https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/servlets/servlets.html) provide us a low level API with which to implement custom handling of requests to a web server like Tomcat. Many Java web development frameworks - such as Spring and Spring Boot - make use of the Jakarta Servlet API, this subject aims to familiarise you with Jakarta Servlets and in doing so provide you an appreciation for how such frameworks simplify Java development for the web.
 
 A Jakarta Servlet is essentially just a class that implements an interface understood by a web server container. By defining a number of lifecycle methods such as `doGet` or `doPost` on a our servlet we can instruct the web server container to dispatch the handling of received requests to our custom servlet implementation.
 
