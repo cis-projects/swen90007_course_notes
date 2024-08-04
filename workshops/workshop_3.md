@@ -109,7 +109,7 @@ You should now notice that two containers are now running, one for the PostgreSQ
 
 [Jakarta Servlets](https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/servlets/servlets.html) provide us a low level API with which to implement custom handling of requests to a web server like Tomcat. Many Java web development frameworks - such as Spring and Spring Boot - make use of the Jakarta Servlet API, this subject aims to familiarise you with Jakarta Servlets and in doing so provide you an appreciation for how such frameworks simplify Java development for the web.
 
-A Jakarta Servlet is essentially just a class that implements an interface understood by a web server container. By defining a number of lifecycle methods such as `doGet` or `doPost` on a our servlet we can instruct the web server container to dispatch the handling of received requests to our custom servlet implementation.
+A Jakarta Servlet is essentially just a class that implements an interface understood by a web server container. By defining a number of lifecycle methods such as `doGet` or `doPost` on our servlet we can instruct the web server container to dispatch the handling of received requests to our custom servlet implementation.
 
 Consider the servlet below:
 
@@ -117,18 +117,18 @@ Consider the servlet below:
 @WebServlet(name = "all-users-servlet", value = "/users")
 public class UsersServlet extends HttpServlet {
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        var user = new User();
-        user.setId(UUID.randomUUID().toString());
-        user.setName(request.getParameter("name"));
-        user.setDateOfBirth(DateTimeFormatter.ISO_DATE.parse(request.getParameter("dob"), LocalDate::from));
-        UserRepository.getInstance().add(user);
-        response.sendRedirect(String.format("%s/users", request.getContextPath()));
-    }
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    var user = new User();
+    user.setId(UUID.randomUUID().toString());
+    user.setName(request.getParameter("name"));
+    user.setDateOfBirth(DateTimeFormatter.ISO_DATE.parse(request.getParameter("dob"), LocalDate::from));
+    UserRepository.getInstance().add(user);
+    response.sendRedirect(String.format("%s/users", request.getContextPath()));
+  }
 }
 ```
 
-The `UserServlet`class is a servlet that can respond to HTTP requests (you can define servlets for other protocols too), it implements the `HttpServlet` class, and defines custom handling for HTTP requests with a POST method. We provide meta data to the web container via the `@WebServlet` annotation, which instructs the container to invoke this Servlet when it receives a request to the `/users` endpoint.
+The `UserServlet`class is a servlet that can respond to HTTP requests (you can define servlets for other protocols too), it implements the `HttpServlet` class, and defines custom handling for HTTP requests with a POST method (the `doPost` method). We provide meta data to the web container via the `@WebServlet` annotation, which instructs the container to invoke this Servlet when it receives a request to the `/users` endpoint. `HttpServletRequest` and `HttpServletResponse` provide our custom implementation access to the original HTTP request (along with all its headers, parameters and body - if present), and a way to configure the response.
 
 ## Jakarta Server Pages (JSP, formerly JavaServer Pages)
 
@@ -140,31 +140,31 @@ JSPs provide a scalable way for developers to dynamically generate web pages usi
 <%@ page import="java.util.Optional" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <head>
-        <title>User</title>
-    </head>
-    <% Optional<User> user = (Optional<User>) request.getAttribute("user"); %>
-    <body>
-    <% if (user.isPresent()) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>User</th>
-                </tr>
-            </thead>
-            <tr>
-                <td>Name</td>
-                <td><%= user.get().getName() %></td>
-            </tr>
-            <tr>
-                <td>Date of birth</td>
-                <td><%= user.get().getDateOfBirth().format(DateTimeFormatter.ISO_DATE) %></td>
-            </tr>
-        </table>
-    <% } else { %>
-        <p>User does not exist</p>
-    <% } %>
-    </body>
+  <head>
+    <title>User</title>
+  </head>
+  <% Optional<User> user = (Optional<User>) request.getAttribute("user"); %>
+  <body>
+  <% if (user.isPresent()) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>Name</td>
+        <td><%= user.get().getName() %></td>
+      </tr>
+      <tr>
+        <td>Date of birth</td>
+        <td><%= user.get().getDateOfBirth().format(DateTimeFormatter.ISO_DATE) %></td>
+      </tr>
+    </table>
+  <% } else { %>
+    <p>User does not exist</p>
+  <% } %>
+  </body>
 </html>
 ```
 
@@ -174,11 +174,11 @@ JSPs require a compatible web server to interpret them, generate HTML, and then 
 @WebServlet(name = "all-users-servlet", value = "/users")
 public class UsersServlet extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String id = request.getParameter("id");
-        request.setAttribute("user", UserRepository.getInstance().get(id));
-        request.getRequestDispatcher("WEB-INF/userDetail.jsp").forward(request, response);
-    }
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    String id = request.getParameter("id");
+    request.setAttribute("user", UserRepository.getInstance().get(id));
+    request.getRequestDispatcher("WEB-INF/userDetail.jsp").forward(request, response);
+  }
 }
 ```
 
