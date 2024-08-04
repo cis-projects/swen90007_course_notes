@@ -390,7 +390,7 @@ public class JwtTokenServiceImpl implements TokenService {
 
 Our API will need to serve tokens to the UI, we'll add two new Servlets for this purpose; a `TokenResource` Servlet that will accept `POST` and `PUT` requests to an `/auth/token` endpoint - implementing login and token refresh, respectively; and `LogoutResource`, for - no surprises - logout. This is not our *first rodeo* with respect to Servlets, so we won't discuss either of them in depth here (check out the source code instead); however, we will very quickly take a look at how the `TokenResource` manages browser cookies.
 
-:::{adminition} Cookies
+:::{admonition} Cookies
 :class: note
 Cookies are managed by the browser and provide a means by which an application can cache such things as login information for session management, or other data to provide a personalised experience. The server can request that a user's browser cache a cookie by setting one or more  `Set-Cookie` headers on the response; after which point the browser includes the cookie with subsequent requests by setting the `Cookie` header. Because cookies often store sensitive information they are a prime target for attackers seeking to impersonate legitimate users, and so it's important to ensure that a few best practices are followed when using cookies - we'll discuss a few of these practices, but you should check out the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) for an in-depth treatment.
 :::
