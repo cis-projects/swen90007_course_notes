@@ -208,5 +208,5 @@ The HTML rendered by this component would simply be:
 
 :::{admonition} React vs JSP
 :class: caution
-  Beware, React is a powerful but vast library; if you choose to use React you will need to maintain two code bases, a React UI and a Java API built with Jakarta Servlets, as detailed above. If you and your team are new to web development you might like to consider building your UI with JSP instead.
+  Beware, React is a powerful but vast library; the learning curve can be steep and if you choose to use React you will need to maintain two code bases, a React UI and a Java API built with Jakarta Servlets, as detailed above. If you and your team are new to web development you might like to consider building your UI with JSP instead.
 :::
