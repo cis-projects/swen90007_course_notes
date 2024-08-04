@@ -206,7 +206,7 @@ The HTML rendered by this component would simply be:
 <p>I am a very simple component</p>
 ```
 
-:::{admonition} DockerHub
+:::{admonition} React vs JSP
 :class: caution
   Beware, React is a powerful but vast library; if you choose to use React you will need to maintain two code bases, a React UI and a Java API built with Jakarta Servlets, as detailed above. If you and your team are new to web development you might like to consider building your UI with JSP instead.
 :::
