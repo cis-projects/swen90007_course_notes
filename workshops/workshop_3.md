@@ -33,7 +33,7 @@ The command above starts a Docker container with a containerised PostgreSQL data
 
 :::{admonition} DockerHub
 :class: note
-  Note that the Docker image we are using is the official PostgreSQL supported image, you can learn more about this image and its usage [here](https://hub.docker.com/_/postgres/) on DockerHub.
+  Note that the Docker image we are using is the official PostgreSQL supported image, you can learn more about this image and its usage on DockerHub [here](https://hub.docker.com/_/postgres/).
 :::
 
 PostgreSQL ships with a CLI tool, [psql](https://www.postgresql.org/docs/current/app-psql.html), for managing PostgreSQL databases. We'll use psql to verify the PostgreSQL database we deployed with Docker is working as it should. You can install this tool if you like, or simply use Docker to run a containerised version of psql without the need to install psql at all (just as we did earlier when deploying the PostgreSQL database itself). We'll demonstrate the latter approach; but to do so, we first need to understand a little about how Docker manages networking between containers. For two Docker containers to interact with each other they need to be assigned to the same network, by default Docker neither creates any networks nor assigns containers to networks. If we are going to use Docker to run psql then we need to explicitly instruct Docker to create a network to which it can connect both our PostgreSQL and psql containers.
@@ -50,17 +50,17 @@ We can then connect the running PostgreSQL container to our new network:
 docker network connect workshop-3 postgres
 ```
 
-Finally, we can run psql in a container that can connect to our PostgreSQL database
+Finally, we can run psql in a container that can connect to our PostgreSQL database:
 
 ```shell
 docker run -it --rm --network workshop-3 postgres:15 sh -c "exec psql -h postgres -U postgres"
 ```
 
-The command above introduces a few new concepts. The `-it` flags start the container in interactive mode, which means that Docker will attach our shell to the container and we'll be able to both receive the container output and send our own input (forwarding our commands to the containerised psql program). The `--network` parameter connects the container to the `workshop-3` network on startup. Finally, `sh -c "exec psql -h postgres -U postgres"` instructs Docker to override the default entrypoint for the `postgres:15` image (which simply starts the database) and instead start psql in a shell, note that here psql is started with the `-h` parameter set to `postgres` which is the name of the PostgreSQL database container started earlier (Docker maintains its own DNS, and assigns a hostname for each container equal to the container's name - which we set earlier via the `--name` parameter).
+The command above introduces a few new concepts. The `-it` flags start the container in interactive mode, which means that Docker will attach our shell to the container and we'll be able to both receive the container output and send our own input (Docker will forward our commands to the containerised psql program). The `--network` parameter connects the container to the `workshop-3` network on startup. Finally, `sh -c "exec psql -h postgres -U postgres"` instructs Docker to override the default entrypoint for the `postgres:15` image (which would simply start the database) and instead start psql in a shell, note that here psql is started with the `-h` parameter set to `postgres` which is the name of the PostgreSQL database container started earlier (Docker maintains its own DNS, and assigns a hostname to each container equal to the container's name - which we set earlier via the `--name` parameter).
 
-After running the above command you should find yourself within the psql CLI, connected to the PostgreSQL database. psql should prompt you for a password, simply enter `password`. Then execute `\l` to list the databases, there should just be one `postgres`. Finally execute `\q` to quit.
+After running the above command you should find yourself within the psql CLI, connected to the PostgreSQL database. psql should prompt you for a password, simply enter `password`. Then execute `\l` to list the databases, there should just be one, `postgres`. Finally execute `\q` to quit.
 
-Congratulations, you've just deployed a PostgreSQL database, and administered this database with psql, all without having to install PostgreSQL or psql. Hopefully you can see how easy it is to deploy software with Docker; if you wished, you could deploy all kinds of useful systems in this way - other databases such as MongoDB, message brokers such as RabbitMQ, monitoring tools such as Prometheus, most modern software development tools have well supported Docker images available.
+Congratulations, you've just deployed a PostgreSQL database, and administered this database with psql - without ever having to install PostgreSQL or psql. Hopefully you can see how easy it is to deploy software with Docker; if you wish, you can deploy all kinds of useful systems in this way - other databases such as MongoDB, message brokers such as RabbitMQ, monitoring tools such as Prometheus, and the majority of other modern software development tools all have well supported Docker images available.
 
 There is one other tool that is very useful when developing with PostgreSQL, [pgAdmin](https://www.pgadmin.org/). Much like psql, pgAdmin is a management tool for PostgreSQL databases; unlike psql, pgAdmin is a web application with a neat graphical UI that makes administering a PostgreSQL database both intuitive and easy. Let's deploy pgAdmin with Docker, and in the process introduce [Docker Compose](https://docs.docker.com/compose/).
 
@@ -99,11 +99,11 @@ Notice that the file above declares a service `postgres`, which defines a Postgr
 docker compose up -d
 ```
 
-You should now notice that two containers are now running, one for the PostgreSQL database and another for pgAdmin. Open a browser and navigate to `http://localhost:8080` to access pgAdmin, login by providing `admin@pgadmin.com` and `password` as username and password respectively. After setting up a new Server definition in pgAdmin you should be able to administrate the PostgreSQL database via the pgAdmin UI.
+You should now notice that two containers are now running, one for the PostgreSQL database and another for pgAdmin. Open a browser and navigate to `http://localhost:8081` to access pgAdmin, login by providing `admin@pgadmin.com` and `password` as username and password respectively. After setting up a new server definition in pgAdmin you should be able to administrate the PostgreSQL database via the pgAdmin UI (when setting up the server definition, remember that you will need to use the Docker DNS to refer to the PostgreSQL database container, when using Docker Compose a containers hostname is, by default, set to the name of the service - i.e. `postgres`).
 
 ## Tomcat
 
-[Tomcat](https://tomcat.apache.org/) is a Java web server and Servlet container, which simply means that Tomcat is able to both receive HTTP requests and run Java applications in response to such requests. Tomcat simplifies the task of developing Java applications for the web by handling much of the complicated HTTP stuff for us, marshalling the request by parsing the path, parameters, head and body etc, and forwarding this on to our Java code, and finally constructing a valid HTTP response from data returned by our Java implementation.
+[Tomcat](https://tomcat.apache.org/) is a Java web server and servlet container, which simply means that Tomcat is able to both receive HTTP requests and run Java applications in response to such requests. Tomcat simplifies the task of developing Java applications for the web by doing much of the complicated HTTP handling for us, marshalling the request by parsing the path, parameters, head and body etc, forwarding this on to our Java code, and finally constructing a valid HTTP response from data returned by our Java implementation.
 
 ## Jakarta Servlets (formerly Java Servlets)
 
@@ -128,11 +128,11 @@ public class UsersServlet extends HttpServlet {
 }
 ```
 
-The `UserServlet`class is a servlet, it implements the `HttpServlet` class, and defines custom handling for HTTP requests with a POST method. We provide meta data to the web container via the `@WebServlet` annotation, which instructs the container to invoke this Servlet when it receives a request to the `/users` endpoint.
+The `UserServlet`class is a servlet that can respond to HTTP requests (you can define servlets for other protocols too), it implements the `HttpServlet` class, and defines custom handling for HTTP requests with a POST method. We provide meta data to the web container via the `@WebServlet` annotation, which instructs the container to invoke this Servlet when it receives a request to the `/users` endpoint.
 
 ## Jakarta Server Pages (JSP, formerly JavaServer Pages)
 
-JSPs provide a scalable way for developers to dynamically generate web pages using Java. JSPs are a mixture of HTML and Java, take a few moments to study the following JSP that generates a user details page, and notice that it really is just a few HTML tags interspersed with Java to dynamically inject additional HTML to the page.
+JSPs provide a scalable way for developers to dynamically generate web pages using Java. JSPs are a mixture of HTML and Java; take a few moments to study the following JSP, `userDetail.jsp`, that generates a user details page, and notice that it really is just a few HTML tags interspersed with Java to dynamically inject additional HTML to the page.
 
 ```jsp
 <%@ page import="au.edu.unimelb.swen90007.demo.domain.User" %>
@@ -168,7 +168,7 @@ JSPs provide a scalable way for developers to dynamically generate web pages usi
 </html>
 ```
 
-JSPs require a compatible web server to interpret them, generate HTML and then serve it as a response, they integrate seamlessly with the Jakarta Servlet API, the following servlet implementation serves the user details page above.
+JSPs require a compatible web server to interpret them, generate HTML, and then serve that HTML as a response; thankfully the Jakarta Servlet API provides us all we need to direct the web server to construct a response using JSP. The following servlet implementation serves the user details page above, it instructs the web server to respond with HTML generated by `userDetail.jsp`, it also sets any dynamic data (such as the `user` attribute) that the JSP requires.
 
 ```java
 @WebServlet(name = "all-users-servlet", value = "/users")
@@ -184,16 +184,16 @@ public class UsersServlet extends HttpServlet {
 
 ## React
 
-[React](https://react.dev/) is an incredibly popular JavaScript library for developing rich reactive UIs. Unlike JSP, React runs client-side, meaning that it runs directly in the user's browser, using JavaScript to manipulate the [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) (DOM) rendered by the browser - note that JSP is a server-side technology, it runs on the server, which uses JSP templates to generate HTML in response to requests.
+[React](https://react.dev/) is an incredibly popular JavaScript library for developing rich reactive UIs. Unlike JSP, React runs client-side, meaning that it runs directly in the user's browser, using JavaScript to manipulate the [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) (DOM) rendered by the browser. Note that JSP is a server-side technology, meaning that it runs on the server, it's used to generate static HTML (often without any JavaScript) in response to requests.
 
-The primitive building block of all React systems is the component. Components allow us to decompose large complicated systems into a collection of simple, easy to understand, and ideally reusable, units of functionality. A component is essentially just a function (or class! There are a few implementation styles) that returns JavaScript and XML (JSX). Components can be as simple as the the one below, which returns a \<p> element to be rendered.
+The primitive building block of all React systems is the component. Components allow us to decompose large complicated systems into a collection of simple, easy to understand, and ideally reusable, units of functionality. A component is essentially just a function (or class! There are a few implementation styles) that returns JavaScript and XML (JSX). Components can be as simple as the the one below, which returns a `<p>` element to be rendered.
 
 ```jsx
 import React from 'react';
 
 function Simple() {
   return (
-    <p>some static value</p>
+    <p>I am a very simple component</p>
   );
 }
 
@@ -203,7 +203,10 @@ export default Simple;
 The HTML rendered by this component would simply be:
 
 ```html
-<p>some static value</p>
+<p>I am a very simple component</p>
 ```
 
-React is a powerful but vast library, beware that if you choose to use React you will need to maintain two code bases, a React UI and a Java API built with Jakarta Servlets as detailed above.
+:::{admonition} DockerHub
+:class: caution
+  Beware, React is a powerful but vast library; if you choose to use React you will need to maintain two code bases, a React UI and a Java API built with Jakarta Servlets, as detailed above. If you and your team are new to web development you might like to consider building your UI with JSP instead.
+:::
