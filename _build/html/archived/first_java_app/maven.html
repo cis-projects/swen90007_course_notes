@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Introduction to Maven &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
@@ -14,51 +15,54 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'archived/first_java_app/maven';</script>
-    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -70,23 +74,19 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -108,22 +108,12 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -138,13 +128,9 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
-  
-    
   
 
 <a class="navbar-brand logo" href="../../introduction/introduction.html">
-  
   
   
   
@@ -154,23 +140,12 @@
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -184,7 +159,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_2.html">Workshop 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_3_jsps.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_3.html">Workshop 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workshops/workshop_4.html">Workshop 4</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
@@ -223,7 +198,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -232,14 +207,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -361,28 +336,26 @@
 </button>
 
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -430,18 +403,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-maven">
-<h1>Introduction to Maven<a class="headerlink" href="#introduction-to-maven" title="Link to this heading">#</a></h1>
+<h1>Introduction to Maven<a class="headerlink" href="#introduction-to-maven" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>In the project, you will make use of Apache Maven.</p>
 <p>Maven is a tool that is used for building and managing any Java-based project.
 It is a standard way to build projects and provides a clear definition of what the project consists of.</p>
 </section>
 <section id="why-maven-is-used">
-<h2>Why Maven is Used<a class="headerlink" href="#why-maven-is-used" title="Link to this heading">#</a></h2>
+<h2>Why Maven is Used<a class="headerlink" href="#why-maven-is-used" title="Permalink to this heading">#</a></h2>
 <p>When developing an application, we face a number of challenges:</p>
 <ol class="arabic simple">
 <li><p>Adding JARs of project dependencies,</p></li>
@@ -459,7 +432,7 @@ It is a standard way to build projects and provides a clear definition of what t
 <p>In doing so, it automates project builds and saves a countless amount of time.</p>
 </section>
 <section id="maven-project-structure">
-<h2>Maven Project Structure<a class="headerlink" href="#maven-project-structure" title="Link to this heading">#</a></h2>
+<h2>Maven Project Structure<a class="headerlink" href="#maven-project-structure" title="Permalink to this heading">#</a></h2>
 <p>Maven projects all have a common project structure. Having a common directory layout allows users familiar with one
 Maven project to immediately feel at home in another Maven project.</p>
 <p>A Maven’s project structure looks like this:</p>
@@ -488,7 +461,7 @@ subdirectory for each type: main for the main build artifact, resources for imag
 tests, and webapp for the site.</p>
 </section>
 <section id="pom-file">
-<h2>POM File<a class="headerlink" href="#pom-file" title="Link to this heading">#</a></h2>
+<h2>POM File<a class="headerlink" href="#pom-file" title="Permalink to this heading">#</a></h2>
 <p>All Maven projects contain a project object model (POM) file - it is a one-stop-shop for all things concerning the
 project.</p>
 <p>Maven builds a project using a standardised POM file and a set of plugins. As Maven uses a templated POM file, it means
@@ -552,27 +525,27 @@ navigating many projects.</p>
 </pre></div>
 </div>
 <section id="group-id">
-<h3>Group ID<a class="headerlink" href="#group-id" title="Link to this heading">#</a></h3>
+<h3>Group ID<a class="headerlink" href="#group-id" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">groupId</span></code> is unique amongst an organisation or a project.</p>
 <p>It defines where your project lives in the local Maven repository. For example, the project above has a <code class="docutils literal notranslate"><span class="pre">groupId</span></code>
 of <code class="docutils literal notranslate"><span class="pre">org.codehaus.mojo</span></code> and so is accessible at <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo</span></code>.</p>
 </section>
 <section id="artifact-id">
-<h3>Artifact ID<a class="headerlink" href="#artifact-id" title="Link to this heading">#</a></h3>
+<h3>Artifact ID<a class="headerlink" href="#artifact-id" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">artifactId</span></code> is the name the project is known by.<br />
 In addition, it further specifies where the project resides in the Maven repository. For example, the project above has
 an <code class="docutils literal notranslate"><span class="pre">artifactId</span></code> of <code class="docutils literal notranslate"><span class="pre">my-project</span></code> - this means the project resides in
 <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo/my-project</span></code>.</p>
 </section>
 <section id="version">
-<h3>Version<a class="headerlink" href="#version" title="Link to this heading">#</a></h3>
+<h3>Version<a class="headerlink" href="#version" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">version</span></code> number allows users to delineate versions of the same project. After each release, you might like to
 iterate the <code class="docutils literal notranslate"><span class="pre">version</span></code> of your project allowing developers to know which project you are referring to.<br />
 Additionally, the <code class="docutils literal notranslate"><span class="pre">version</span></code> fully specifies the path to the project in the Maven repository. For example, the
 above project is <code class="docutils literal notranslate"><span class="pre">version</span></code> 1.0 and so resides in <code class="docutils literal notranslate"><span class="pre">.m2/repository/org/codehaus/mojo/my-project/1.0</span></code>.</p>
 </section>
 <section id="packaging">
-<h3>Packaging<a class="headerlink" href="#packaging" title="Link to this heading">#</a></h3>
+<h3>Packaging<a class="headerlink" href="#packaging" title="Permalink to this heading">#</a></h3>
 <p>If you have created the web application using IntelliJ, the POM file will specify WAR packaging.
 WAR (Web Application Resource) files are used to package web applications to deploy them to servlets.
 WAR files have a pre-defined structure that must be followed:</p>
@@ -594,7 +567,7 @@ internal structure that must be followed).</p>
 <p>Specifying the correct packaging is important as it defines the default list of goals which execute on each
 corresponding build lifecycle stage for a particular package structure. For example, the goals on WAR packaging are:</p>
 <section id="war-packaging-goals">
-<h4>WAR Packaging Goals<a class="headerlink" href="#war-packaging-goals" title="Link to this heading">#</a></h4>
+<h4>WAR Packaging Goals<a class="headerlink" href="#war-packaging-goals" title="Permalink to this heading">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">phases</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">process</span><span class="o">-</span><span class="n">resources</span><span class="o">&gt;</span>
     <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">maven</span><span class="o">.</span><span class="n">plugins</span><span class="p">:</span><span class="n">maven</span><span class="o">-</span><span class="n">resources</span><span class="o">-</span><span class="n">plugin</span><span class="p">:</span><span class="mf">2.6</span><span class="p">:</span><span class="n">resources</span>
@@ -638,7 +611,7 @@ other developers and projects.</p></li>
 </section>
 </section>
 <section id="dependencies">
-<h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h3>
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">#</a></h3>
 <p>Dependency management is a core feature of Maven. The dependency management section is a mechanism for
 centralising dependency information.
 This feature is facilitated by reading the dependencies specified in the POM file.</p>
@@ -667,7 +640,7 @@ Then navigate to the Maven repository, which usually resides at: /&lt;home_direc
 </div>
 <p>You can search for Maven dependencies is in the <a class="reference external" href="https://search.maven.org">central Maven repository</a>.</p>
 <section id="adding-a-new-dependency-in-intellij">
-<h4>Adding a New Dependency in IntelliJ<a class="headerlink" href="#adding-a-new-dependency-in-intellij" title="Link to this heading">#</a></h4>
+<h4>Adding a New Dependency in IntelliJ<a class="headerlink" href="#adding-a-new-dependency-in-intellij" title="Permalink to this heading">#</a></h4>
 <p>There are 2 ways you can install Maven dependencies in IntelliJ.</p>
 <div class="note dropdown admonition">
 <p class="admonition-title">1. Install via IntelliJ Template</p>
@@ -708,7 +681,7 @@ As an example, we will search for the PostgreSQL JAR. Search and select the JAR 
 </section>
 </section>
 <section id="maven-compile">
-<h2>Maven Compile<a class="headerlink" href="#maven-compile" title="Link to this heading">#</a></h2>
+<h2>Maven Compile<a class="headerlink" href="#maven-compile" title="Permalink to this heading">#</a></h2>
 <p>When you build a project, the project is compiled and a <code class="docutils literal notranslate"><span class="pre">target</span></code> directory is created; the target directory
 is used to house all output of the build.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── target
@@ -772,12 +745,16 @@ the project (as discussed above). When you execute run in TomCat (or push to Ren
 
               
               
-              
-              
-                <footer class="prev-next-footer d-print-none">
+                <footer class="bd-footer-article">
                   
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -785,7 +762,6 @@ the project (as discussed above). When you execute run in TomCat (or push to Ren
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -832,10 +808,9 @@ By School of Computing and Information Systems, The University of Melbourne
   
   <div class="footer-item">
     
-
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -859,8 +834,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

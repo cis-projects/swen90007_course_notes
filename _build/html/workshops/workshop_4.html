@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Workshop 4 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
@@ -14,55 +15,58 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_4';</script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="../setup_dev/introduction.html" />
-    <link rel="prev" title="Workshop 3" href="workshop_3_jsps.html" />
+    <link rel="prev" title="Workshop 3" href="workshop_3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -72,23 +76,19 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -110,20 +110,12 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -138,13 +130,9 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
-  
-    
   
 
 <a class="navbar-brand logo" href="../introduction/introduction.html">
-  
   
   
   
@@ -154,23 +142,12 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -184,7 +161,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="workshop_1.html">Workshop 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workshop_2.html">Workshop 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workshop_3_jsps.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_3.html">Workshop 3</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop 4</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
@@ -223,7 +200,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -232,14 +209,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -361,28 +338,26 @@
 </button>
 
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -463,14 +438,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="workshop-4">
-<h1>Workshop 4<a class="headerlink" href="#workshop-4" title="Link to this heading">#</a></h1>
+<h1>Workshop 4<a class="headerlink" href="#workshop-4" title="Permalink to this heading">#</a></h1>
 <section id="architectural-decisions-records-adrs">
-<h2>Architectural Decisions Records (ADRs)<a class="headerlink" href="#architectural-decisions-records-adrs" title="Link to this heading">#</a></h2>
+<h2>Architectural Decisions Records (ADRs)<a class="headerlink" href="#architectural-decisions-records-adrs" title="Permalink to this heading">#</a></h2>
 <section id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h3>
 <p>ADRs are a lightweight and effective tool at documenting the decisions behind the adoption of an architectural pattern in software projects. ADRs document each architectural decision and state the context, reasons, and consequences behind the adoption of that architectural decision.</p>
 <p>Individually, an ADR represents one architectural decisions. Collectively, ADRs form a decision log for a project, providing necessary project context and detailed design and implementation guidance.</p>
 <p>When decisions aren’t documented, the result is one or many anti-patterns:</p>
@@ -481,7 +456,7 @@ document.write(`
 </ul>
 </section>
 <section id="references">
-<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<h3>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h3>
 <p>[1] <a class="reference external" href="https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/welcome.html">AWS Prescriptive Guidance</a>
 [2] <a class="reference external" href="https://adr.github.io">ADR GitHub</a></p>
 <div class="admonition-adr-templates admonition">
@@ -490,63 +465,63 @@ document.write(`
 </div>
 </section>
 <section id="adr-part-2">
-<h3>ADR - Part 2<a class="headerlink" href="#adr-part-2" title="Link to this heading">#</a></h3>
+<h3>ADR - Part 2<a class="headerlink" href="#adr-part-2" title="Permalink to this heading">#</a></h3>
 <section id="title">
-<h4>Title<a class="headerlink" href="#title" title="Link to this heading">#</a></h4>
+<h4>Title<a class="headerlink" href="#title" title="Permalink to this heading">#</a></h4>
 <p>Implementing the Data Mapper Pattern for ABC Application</p>
 </section>
 <section id="context">
-<h4>Context<a class="headerlink" href="#context" title="Link to this heading">#</a></h4>
+<h4>Context<a class="headerlink" href="#context" title="Permalink to this heading">#</a></h4>
 <p>ABC application requires a robust mechanism to handle data persistence and retrieval operations for its social media application. Our current approach tightly couples business logic with data access code, meaning business logic is often written into SQL queries in the object classes. This means that there are often many almost identical functions created to cater for each business logic, making the system difficult to maintain and scale. As business logic increases in the future, complexity will increase. To address this, we need a pattern that removes business logic from the class objects and provides a clear separation of concerns.</p>
 </section>
 <section id="decision">
-<h4>Decision<a class="headerlink" href="#decision" title="Link to this heading">#</a></h4>
+<h4>Decision<a class="headerlink" href="#decision" title="Permalink to this heading">#</a></h4>
 <p>We will implement the Data Mapper pattern for the ABC application.</p>
 </section>
 <section id="implementation-strategy">
-<h4>Implementation Strategy<a class="headerlink" href="#implementation-strategy" title="Link to this heading">#</a></h4>
+<h4>Implementation Strategy<a class="headerlink" href="#implementation-strategy" title="Permalink to this heading">#</a></h4>
 <p><em>Make use of diagrams here</em></p>
 <ul class="simple">
 <li><p>Data Access Layer: Introduce a Data Access Layer (DAL) that contains mapper classes for the objects User, Post, and Action, which will be responsible for transferring data between their corresponding database tables and business objects.</p></li>
 </ul>
 </section>
 <section id="consequences">
-<h4>Consequences<a class="headerlink" href="#consequences" title="Link to this heading">#</a></h4>
+<h4>Consequences<a class="headerlink" href="#consequences" title="Permalink to this heading">#</a></h4>
 <section id="positive">
-<h5>Positive<a class="headerlink" href="#positive" title="Link to this heading">#</a></h5>
+<h5>Positive<a class="headerlink" href="#positive" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Scalability: Given the growth projection of ABC Corporation’s social media application, we expect to extend the functionality over the coming years. By implementing the Data Mapper Pattern, we can recylce database query methods and minimise the requirements of writing new code.</p></li>
 </ul>
 </section>
 <section id="negative">
-<h5>Negative<a class="headerlink" href="#negative" title="Link to this heading">#</a></h5>
+<h5>Negative<a class="headerlink" href="#negative" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Complexity: Data Mapper Pattern adds complexity, as it requires separation of logic between domain model objects.</p></li>
 </ul>
 </section>
 <section id="compliance">
-<h5>Compliance<a class="headerlink" href="#compliance" title="Link to this heading">#</a></h5>
+<h5>Compliance<a class="headerlink" href="#compliance" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Any new object with a corresponding database table must have a mapper class created.</p></li>
 </ul>
 </section>
 </section>
 <section id="alternatives-considered">
-<h4>Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Link to this heading">#</a></h4>
+<h4>Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Permalink to this heading">#</a></h4>
 <section id="active-record-pattern">
-<h5>Active Record Pattern<a class="headerlink" href="#active-record-pattern" title="Link to this heading">#</a></h5>
+<h5>Active Record Pattern<a class="headerlink" href="#active-record-pattern" title="Permalink to this heading">#</a></h5>
 <section id="id1">
-<h6>Consequences<a class="headerlink" href="#id1" title="Link to this heading">#</a></h6>
+<h6>Consequences<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h6>
 <p>It was decided by the team to not adopt the Active Record Pattern. While the pattern had many positive reasons for adoption, it was ultimately decided that the lower complexity and development time did not outweigh our desire and need for future scalability. Knowing that the Active Record Pattern would become a hinderance to the development of further functionality in the future, it was decided against.</p>
 </section>
 <section id="id2">
-<h6>Positive<a class="headerlink" href="#id2" title="Link to this heading">#</a></h6>
+<h6>Positive<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h6>
 <ul class="simple">
 <li><p>Complexity: Low complexity and development time to implement.</p></li>
 </ul>
 </section>
 <section id="id3">
-<h6>Negative<a class="headerlink" href="#id3" title="Link to this heading">#</a></h6>
+<h6>Negative<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h6>
 <ul class="simple">
 <li><p>Scalability: It does not promote scalability in the way Data Mapper Pattern does.</p></li>
 </ul>
@@ -554,8 +529,8 @@ document.write(`
 </section>
 </section>
 <section id="notes">
-<h4>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h4>
-<div class="pst-scrollable-table-container"><table class="table">
+<h4>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h4>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Author</p></th>
 <th class="head"><p>Version</p></th>
@@ -569,70 +544,69 @@ document.write(`
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 </section>
 <section id="adr-part-3">
-<h3>ADR - Part 3<a class="headerlink" href="#adr-part-3" title="Link to this heading">#</a></h3>
+<h3>ADR - Part 3<a class="headerlink" href="#adr-part-3" title="Permalink to this heading">#</a></h3>
 <section id="id4">
-<h4>Title<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<h4>Title<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p>Implementing the Optimistic Locking for concurrency issue 1.</p>
 </section>
 <section id="id5">
-<h4>Context<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<h4>Context<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <p>Concurrency issue 1: Students simultaneously RSVP to an event.</p>
 <p>Our application requires concurrency controls for situations where multipple students RSVP to the same event simultaneously.</p>
 </section>
 <section id="id6">
-<h4>Decision<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<h4>Decision<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
 <p>We will implement optimistic locking for this use case…</p>
 </section>
 <section id="id7">
-<h4>Implementation Strategy<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<h4>Implementation Strategy<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <p><em>Make use of diagrams here</em></p>
 <ul class="simple">
 <li><p>Data Access Layer: Requires creation of data locking classes for each object…</p></li>
 </ul>
 </section>
 <section id="id8">
-<h4>Consequences<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<h4>Consequences<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
 <section id="id9">
-<h5>Positive<a class="headerlink" href="#id9" title="Link to this heading">#</a></h5>
+<h5>Positive<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Complexity: It is less complex than…</p></li>
 </ul>
 </section>
 <section id="id10">
-<h5>Negative<a class="headerlink" href="#id10" title="Link to this heading">#</a></h5>
+<h5>Negative<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Loss of data: It may frustrate users due to…</p></li>
 </ul>
 </section>
 <section id="id11">
-<h5>Compliance<a class="headerlink" href="#id11" title="Link to this heading">#</a></h5>
+<h5>Compliance<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p>Any new object with a corresponding database table must have a mapper class created.</p></li>
 </ul>
 </section>
 </section>
 <section id="id12">
-<h4>Alternatives Considered<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<h4>Alternatives Considered<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h4>
 <section id="pessimistic-locking">
-<h5>Pessimistic Locking<a class="headerlink" href="#pessimistic-locking" title="Link to this heading">#</a></h5>
+<h5>Pessimistic Locking<a class="headerlink" href="#pessimistic-locking" title="Permalink to this heading">#</a></h5>
 <section id="id13">
-<h6>Consequences<a class="headerlink" href="#id13" title="Link to this heading">#</a></h6>
+<h6>Consequences<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h6>
 </section>
 <section id="id14">
-<h6>Positive<a class="headerlink" href="#id14" title="Link to this heading">#</a></h6>
+<h6>Positive<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h6>
 </section>
 <section id="id15">
-<h6>Negative<a class="headerlink" href="#id15" title="Link to this heading">#</a></h6>
+<h6>Negative<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h6>
 </section>
 </section>
 </section>
 <section id="id16">
-<h4>Notes<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
-<div class="pst-scrollable-table-container"><table class="table">
+<h4>Notes<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h4>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Author</p></th>
 <th class="head"><p>Version</p></th>
@@ -646,7 +620,6 @@ document.write(`
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 </section>
 </section>
@@ -677,13 +650,14 @@ document.write(`
 
               
               
-              
-              
-                <footer class="prev-next-footer d-print-none">
+                <footer class="bd-footer-article">
                   
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="workshop_3_jsps.html"
+       href="workshop_3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -700,7 +674,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -708,7 +685,6 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -788,10 +764,9 @@ By School of Computing and Information Systems, The University of Melbourne
   
   <div class="footer-item">
     
-
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -815,8 +790,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
