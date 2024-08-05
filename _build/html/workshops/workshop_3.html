@@ -383,6 +383,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tomcat">Tomcat</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakarta-servlets-formerly-java-servlets">Jakarta Servlets (formerly Java Servlets)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakarta-server-pages-jsp-formerly-javaserver-pages">Jakarta Server Pages (JSP, formerly JavaServer Pages)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jsps-servlets-domain-model-model-view-controller-pattern">JSPs + Servlets + Domain Model = Model View Controller Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">MVC Pattern In Your Assignment</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#react">React</a></li>
 </ul>
             </nav>
@@ -547,6 +551,29 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="jsps-servlets-domain-model-model-view-controller-pattern">
+<h2>JSPs + Servlets + Domain Model = Model View Controller Pattern<a class="headerlink" href="#jsps-servlets-domain-model-model-view-controller-pattern" title="Permalink to this heading">#</a></h2>
+<p><img alt="MVC pattern" src="../_images/mvc_pattern.png" /></p>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<p>JSPs (or view) layer represents the output of the application, usually some form of UI. The presentation layer is used
+to display the Model data fetched by the Controller.</p>
+</div>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<p>Controller layer acts as an interface between View and Model. It receives requests from the View layer and processes
+them, including the necessary validations.</p>
+</div>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<p>Domain model is the layer which contains business logic of the system, and also represents the state of the
+application.</p>
+</div>
+<section id="mvc-pattern-in-your-assignment">
+<h3>MVC Pattern In Your Assignment<a class="headerlink" href="#mvc-pattern-in-your-assignment" title="Permalink to this heading">#</a></h3>
+<p><img alt="MVC pattern in this project" src="../_images/mvc_assignment.png" /></p>
+</section>
+</section>
 <section id="react">
 <h2>React<a class="headerlink" href="#react" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://react.dev/">React</a> is an incredibly popular JavaScript library for developing rich reactive UIs. Unlike JSP, React runs client-side, meaning that it runs directly in the user’s browser, using JavaScript to manipulate the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Document Object Model</a> (DOM) rendered by the browser. Note that JSP is a server-side technology, meaning that it runs on the server, it’s used to generate static HTML (often without any JavaScript) in response to requests.</p>
@@ -645,6 +672,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tomcat">Tomcat</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakarta-servlets-formerly-java-servlets">Jakarta Servlets (formerly Java Servlets)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jakarta-server-pages-jsp-formerly-javaserver-pages">Jakarta Server Pages (JSP, formerly JavaServer Pages)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jsps-servlets-domain-model-model-view-controller-pattern">JSPs + Servlets + Domain Model = Model View Controller Pattern</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mvc-pattern-in-your-assignment">MVC Pattern In Your Assignment</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#react">React</a></li>
 </ul>
   </nav></div>

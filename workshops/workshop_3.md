@@ -182,6 +182,29 @@ public class UsersServlet extends HttpServlet {
 }
 ```
 
+## JSPs + Servlets + Domain Model = Model View Controller Pattern
+
+![MVC pattern](resources/mvc_pattern.png)
+
+```{admonition} Definition
+JSPs (or view) layer represents the output of the application, usually some form of UI. The presentation layer is used 
+to display the Model data fetched by the Controller.
+```
+
+```{admonition} Definition
+Controller layer acts as an interface between View and Model. It receives requests from the View layer and processes 
+them, including the necessary validations.
+```
+
+```{admonition} Definition
+Domain model is the layer which contains business logic of the system, and also represents the state of the 
+application.
+```
+
+### MVC Pattern In Your Assignment
+
+![MVC pattern in this project](resources/mvc_assignment.png)
+
 ## React
 
 [React](https://react.dev/) is an incredibly popular JavaScript library for developing rich reactive UIs. Unlike JSP, React runs client-side, meaning that it runs directly in the user's browser, using JavaScript to manipulate the [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) (DOM) rendered by the browser. Note that JSP is a server-side technology, meaning that it runs on the server, it's used to generate static HTML (often without any JavaScript) in response to requests.
