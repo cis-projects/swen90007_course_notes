@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Workshop 3 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
@@ -14,51 +15,54 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_3';</script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Workshop 4" href="workshop_4.html" />
@@ -72,23 +76,19 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -110,20 +110,12 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -138,13 +130,9 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
-  
-    
   
 
 <a class="navbar-brand logo" href="../introduction/introduction.html">
-  
   
   
   
@@ -154,23 +142,12 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -223,7 +200,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -232,14 +209,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -361,28 +338,26 @@
 </button>
 
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -418,34 +393,36 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="workshop-3">
-<h1>Workshop 3<a class="headerlink" href="#workshop-3" title="Link to this heading">#</a></h1>
+<h1>Workshop 3<a class="headerlink" href="#workshop-3" title="Permalink to this heading">#</a></h1>
 <p>This workshop introduces the key components that form the <em>technology stack</em> taught in this subject. This introduction will be <em>brief</em>, after this workshop you should make sure to work through one of the two guides - on either JSP or React - which cover, in great detail, how to set up a development environment.</p>
 <section id="docker">
-<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h2>
-<p>The first technology we’ll take a look at is <a class="reference external" href="https://www.docker.com/">Docker</a>. Docker has been around a long while now assisting developers develop and deploy large distributed systems of ever increasing complexity. Docker is a containerisation solution, it provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams “build [their software] once, [and] run [it] anywhere”. Docker works in much the same way, it provides a virtual environment - called a container - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of any software (more, or less - there are, of course, limitations to all solutions 😙). From simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution, which you can deploy to any environment that’s also running Docker. In this workshop we’ll use Docker to deploy a local version of a PostgreSQL database and administrative UI without ever having to install it.</p>
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading">#</a></h2>
+<p>The first technology we’ll take a look at is <a class="reference external" href="https://www.docker.com/">Docker</a>. Docker has been around a long while now assisting developers develop and deploy large distributed systems of ever increasing complexity. Docker is a containerisation solution, it provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams “build [their software] once, [and] run [it] anywhere”. Docker works in much the same way, it provides a virtual environment - called a container - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of any software (more, or less - there are, of course, limitations to all solutions 😙). From simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution, which you can deploy to any environment that’s also running Docker. In this workshop we’ll use Docker to deploy a local version of a PostgreSQL database and administrative UI without ever having to install them.</p>
 <p>Docker Desktop is a handy UI for Docker that ships with the latest Docker CLI and daemon, install it <a class="reference external" href="https://www.docker.com/products/docker-desktop/">here</a>. Once installed, you’ll need to launch Docker Desktop, which will, in turn, launch Docker services such as the Docker Daemon. Verify your installation by running the <code class="docutils literal notranslate"><span class="pre">hello-world</span></code> image:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
 </pre></div>
 </div>
 <p>The previous command should run a container that prints - amongst other things - <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">from</span> <span class="pre">Docker!</span></code> to the console.</p>
-<blockquote>
-<div><p>Docker images are essentially binaries, libraries and files packaged in such a way that Docker can run them as a container</p>
-</div></blockquote>
+<div class="note admonition">
+<p class="admonition-title">Images</p>
+<p>Docker images are essentially binaries, libraries and files packaged in such a way that Docker can run them as a container</p>
+</div>
 </section>
 <section id="postgresql">
-<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Link to this heading">#</a></h2>
+<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.postgresql.org/">PostgreSQL</a> is widely considered the ‘Swiss Army Knife’ of databases because it’s both reliable and packed full of features. At its core PostegreSQL is a Relational Database Management System, and that’s how we will be using it in this subject, but PostgreSQL is capable of much more; it can be used as a document store in much the same way MongoDB is, a message broker, or a graph database, and has extensions for handling time-series data, full-text search, and even Machine Learning analytics.</p>
 <p>Using Docker, let’s deploy a PostgreSQL database to our local system:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>postgres:15<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password<span class="w"> </span>-v<span class="w"> </span>./data:/var/lib/postgresql/data<span class="w"> </span>postgres:15
 </pre></div>
 </div>
 <p>The command above starts a Docker container with a containerised PostgreSQL database. The <code class="docutils literal notranslate"><span class="pre">--rm</span></code> flag instructs Docker to remove the container once it is stopped, which will be handy later. The <code class="docutils literal notranslate"><span class="pre">--name</span></code> parameter sets the name of our container to <code class="docutils literal notranslate"><span class="pre">postgres</span></code>, which will also be handy later 😀. The <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag starts the container in detached mode, which simply means that Docker will not attach our shell to the stdout (standard output) of the container, allowing us to run the container in the background and continue working in our current shell. The <code class="docutils literal notranslate"><span class="pre">-p</span></code> parameter maps our host machine’s port 5432 to the container’s internal port 5432 (which is the port that PostgreSQL is configured to listen on by default), allowing us to access the PostgreSQL process at <code class="docutils literal notranslate"><span class="pre">localhost:5432</span></code>. The <code class="docutils literal notranslate"><span class="pre">-e</span></code> parameter sets the <code class="docutils literal notranslate"><span class="pre">POSTGRES_PASSWORD</span></code> environment variable, which PostgreSQL uses to set the password for the default <code class="docutils literal notranslate"><span class="pre">postgres</span></code> user and database. Finally, the <code class="docutils literal notranslate"><span class="pre">-v</span></code> parameter instructs Docker to create a volume at <code class="docutils literal notranslate"><span class="pre">./data</span></code> on our host machine and mount this to <code class="docutils literal notranslate"><span class="pre">/var/lib/postgresql/data</span></code> in the container (where PostgreSQL persists its data), ensuring that any changes we make to the database are preserved even when we stop the container.</p>
-<blockquote>
-<div><p>Note that the Docker image we are using is the official PostgreSQL supported image, you can learn more about this image and its usage <a class="reference external" href="https://hub.docker.com/_/postgres/">here</a></p>
-</div></blockquote>
+<div class="note admonition">
+<p class="admonition-title">DockerHub</p>
+<p>Note that the Docker image we are using is the official PostgreSQL supported image, you can learn more about this image and its usage on DockerHub <a class="reference external" href="https://hub.docker.com/_/postgres/">here</a>.</p>
+</div>
 <p>PostgreSQL ships with a CLI tool, <a class="reference external" href="https://www.postgresql.org/docs/current/app-psql.html">psql</a>, for managing PostgreSQL databases. We’ll use psql to verify the PostgreSQL database we deployed with Docker is working as it should. You can install this tool if you like, or simply use Docker to run a containerised version of psql without the need to install psql at all (just as we did earlier when deploying the PostgreSQL database itself). We’ll demonstrate the latter approach; but to do so, we first need to understand a little about how Docker manages networking between containers. For two Docker containers to interact with each other they need to be assigned to the same network, by default Docker neither creates any networks nor assigns containers to networks. If we are going to use Docker to run psql then we need to explicitly instruct Docker to create a network to which it can connect both our PostgreSQL and psql containers.</p>
 <p>Let’s create a network now:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>workshop-3
@@ -455,13 +432,13 @@ document.write(`
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>network<span class="w"> </span>connect<span class="w"> </span>workshop-3<span class="w"> </span>postgres
 </pre></div>
 </div>
-<p>Finally, we can run psql in a container that can connect to our PostgreSQL database</p>
+<p>Finally, we can run psql in a container that can connect to our PostgreSQL database:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>workshop-3<span class="w"> </span>postgres:15<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;exec psql -h postgres -U postgres&quot;</span>
 </pre></div>
 </div>
-<p>The command above introduces a few new concepts. The <code class="docutils literal notranslate"><span class="pre">-it</span></code> flags start the container in interactive mode, which means that Docker will attach our shell to the container and we’ll be able to both receive the container output and send our own input (forwarding our commands to the containerised psql program). The <code class="docutils literal notranslate"><span class="pre">--network</span></code> parameter connects the container to the <code class="docutils literal notranslate"><span class="pre">workshop-3</span></code> network on startup. Finally, <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">-c</span> <span class="pre">&quot;exec</span> <span class="pre">psql</span> <span class="pre">-h</span> <span class="pre">postgres</span> <span class="pre">-U</span> <span class="pre">postgres&quot;</span></code> instructs Docker to override the default entrypoint for the <code class="docutils literal notranslate"><span class="pre">postgres:15</span></code> image (which simply starts the database) and instead start psql in a shell, note that here psql is started with the <code class="docutils literal notranslate"><span class="pre">-h</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">postgres</span></code> which is the name of the PostgreSQL database container started earlier (Docker maintains its own DNS, and assigns a hostname for each container equal to the container’s name - which we set earlier via the <code class="docutils literal notranslate"><span class="pre">--name</span></code> parameter).</p>
-<p>After running the above command you should find yourself within the psql CLI, connected to the PostgreSQL database. psql should prompt you for a password, simply enter <code class="docutils literal notranslate"><span class="pre">password</span></code>. Then execute <code class="docutils literal notranslate"><span class="pre">\l</span></code> to list the databases, there should just be one <code class="docutils literal notranslate"><span class="pre">postgres</span></code>. Finally execute <code class="docutils literal notranslate"><span class="pre">\q</span></code> to quit.</p>
-<p>Congratulations, you’ve just deployed a PostgreSQL database, and administered this database with psql, all without having to install PostgreSQL or psql. Hopefully you can see how easy it is to deploy software with Docker; if you wished, you could deploy all kinds of useful systems in this way - other databases such as MongoDB, message brokers such as RabbitMQ, monitoring tools such as Prometheus, most modern software development tools have well supported Docker images available.</p>
+<p>The command above introduces a few new concepts. The <code class="docutils literal notranslate"><span class="pre">-it</span></code> flags start the container in interactive mode, which means that Docker will attach our shell to the container and we’ll be able to both receive the container output and send our own input (Docker will forward our commands to the containerised psql program). The <code class="docutils literal notranslate"><span class="pre">--network</span></code> parameter connects the container to the <code class="docutils literal notranslate"><span class="pre">workshop-3</span></code> network on startup. Finally, <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">-c</span> <span class="pre">&quot;exec</span> <span class="pre">psql</span> <span class="pre">-h</span> <span class="pre">postgres</span> <span class="pre">-U</span> <span class="pre">postgres&quot;</span></code> instructs Docker to override the default entrypoint for the <code class="docutils literal notranslate"><span class="pre">postgres:15</span></code> image (which would simply start the database) and instead start psql in a shell, note that here psql is started with the <code class="docutils literal notranslate"><span class="pre">-h</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">postgres</span></code> which is the name of the PostgreSQL database container started earlier (Docker maintains its own DNS, and assigns a hostname to each container equal to the container’s name - which we set earlier via the <code class="docutils literal notranslate"><span class="pre">--name</span></code> parameter).</p>
+<p>After running the above command you should find yourself within the psql CLI, connected to the PostgreSQL database. psql should prompt you for a password, simply enter <code class="docutils literal notranslate"><span class="pre">password</span></code>. Then execute <code class="docutils literal notranslate"><span class="pre">\l</span></code> to list the databases, there should just be one, <code class="docutils literal notranslate"><span class="pre">postgres</span></code>. Finally execute <code class="docutils literal notranslate"><span class="pre">\q</span></code> to quit.</p>
+<p>Congratulations, you’ve just deployed a PostgreSQL database, and administered this database with psql - without ever having to install PostgreSQL or psql. Hopefully you can see how easy it is to deploy software with Docker; if you wish, you can deploy all kinds of useful systems in this way - other databases such as MongoDB, message brokers such as RabbitMQ, monitoring tools such as Prometheus, and the majority of other modern software development tools all have well supported Docker images available.</p>
 <p>There is one other tool that is very useful when developing with PostgreSQL, <a class="reference external" href="https://www.pgadmin.org/">pgAdmin</a>. Much like psql, pgAdmin is a management tool for PostgreSQL databases; unlike psql, pgAdmin is a web application with a neat graphical UI that makes administering a PostgreSQL database both intuitive and easy. Let’s deploy pgAdmin with Docker, and in the process introduce <a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a>.</p>
 <p>Like PostgreSQL itself, pgAdmin has a well supported Docker image, you can find out more about it <a class="reference external" href="https://hub.docker.com/r/dpage/pgadmin4/">here</a>. This image is easy to deploy using <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code>, but you might be starting to realize that running multiple containers and having to configure their networking can be a little tedious using the Docker CLI. Docker Compose provides a way to define multi-container applications as a single easy to maintain (and share) file, and is particularly handy when developing distributed systems comprised of many interacting processes. Save the following Docker Compose configuration in a file called <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
@@ -494,91 +471,91 @@ document.write(`
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </pre></div>
 </div>
-<p>You should now notice that two containers are now running, one for the PostgreSQL database and another for pgAdmin. Open a browser and navigate to <code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code> to access pgAdmin, login by providing <code class="docutils literal notranslate"><span class="pre">admin&#64;pgadmin.com</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code> as username and password respectively. After setting up a new Server definition in pgAdmin you should be able to administrate the PostgreSQL database via the pgAdmin UI.</p>
+<p>You should now notice that two containers are now running, one for the PostgreSQL database and another for pgAdmin. Open a browser and navigate to <code class="docutils literal notranslate"><span class="pre">http://localhost:8081</span></code> to access pgAdmin, login by providing <code class="docutils literal notranslate"><span class="pre">admin&#64;pgadmin.com</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code> as username and password respectively. After setting up a new server definition in pgAdmin you should be able to administrate the PostgreSQL database via the pgAdmin UI (when setting up the server definition, remember that you will need to use the Docker DNS to refer to the PostgreSQL database container, when using Docker Compose a containers hostname is, by default, set to the name of the service - i.e. <code class="docutils literal notranslate"><span class="pre">postgres</span></code>).</p>
 </section>
 <section id="tomcat">
-<h2>Tomcat<a class="headerlink" href="#tomcat" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://tomcat.apache.org/">Tomcat</a> is a Java web server and Servlet container, which simply means that Tomcat is able to both receive HTTP requests and run Java applications in response to such requests. Tomcat simplifies the task of developing Java applications for the web by handling much of the complicated HTTP stuff for us, marshalling the request by parsing the path, parameters, head and body etc, and forwarding this on to our Java code, and finally constructing a valid HTTP response from data returned by our Java implementation.</p>
+<h2>Tomcat<a class="headerlink" href="#tomcat" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://tomcat.apache.org/">Tomcat</a> is a Java web server and servlet container, which simply means that Tomcat is able to both receive HTTP requests and run Java applications in response to such requests. Tomcat simplifies the task of developing Java applications for the web by doing much of the complicated HTTP handling for us, marshalling the request by parsing the path, parameters, head and body etc, forwarding this on to our Java code, and finally constructing a valid HTTP response from data returned by our Java implementation.</p>
 </section>
 <section id="jakarta-servlets-formerly-java-servlets">
-<h2>Jakarta Servlets (formerly Java Servlets)<a class="headerlink" href="#jakarta-servlets-formerly-java-servlets" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/servlets/servlets.html">Jakarta Servlets</a> provide us a low level API with which to implement custom handling of requests to a web server like Tomcat. Many Java web development frameworks - such as Spring and Spring Boot - make use of the Jakarta Servlet API, this subject aims to familiarise you with Jakarto Servlets and in doing so provide you an appreciation for how such frameworks simplify Java development for the web.</p>
-<p>A Jakarta Servlet is essentially just a class that implements an interface understood by a web server container. By defining a number of lifecycle methods such as <code class="docutils literal notranslate"><span class="pre">doGet</span></code> or <code class="docutils literal notranslate"><span class="pre">doPost</span></code> on a our servlet we can instruct the web server container to dispatch the handling of received requests to our custom servlet implementation.</p>
+<h2>Jakarta Servlets (formerly Java Servlets)<a class="headerlink" href="#jakarta-servlets-formerly-java-servlets" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/servlets/servlets.html">Jakarta Servlets</a> provide us a low level API with which to implement custom handling of requests to a web server like Tomcat. Many Java web development frameworks - such as Spring and Spring Boot - make use of the Jakarta Servlet API, this subject aims to familiarise you with Jakarta Servlets and in doing so provide you an appreciation for how such frameworks simplify Java development for the web.</p>
+<p>A Jakarta Servlet is essentially just a class that implements an interface understood by a web server container. By defining a number of lifecycle methods such as <code class="docutils literal notranslate"><span class="pre">doGet</span></code> or <code class="docutils literal notranslate"><span class="pre">doPost</span></code> on our servlet we can instruct the web server container to dispatch the handling of received requests to our custom servlet implementation.</p>
 <p>Consider the servlet below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@WebServlet</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;all-users-servlet&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/users&quot;</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UsersServlet</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">setDateOfBirth</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;dob&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">::</span><span class="n">from</span><span class="p">));</span>
-<span class="w">        </span><span class="n">UserRepository</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%s/users&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getContextPath</span><span class="p">()));</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span>
+<span class="w">    </span><span class="n">user</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
+<span class="w">    </span><span class="n">user</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">user</span><span class="p">.</span><span class="na">setDateOfBirth</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;dob&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">::</span><span class="n">from</span><span class="p">));</span>
+<span class="w">    </span><span class="n">UserRepository</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%s/users&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getContextPath</span><span class="p">()));</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">UserServlet</span></code>class is a servlet, it implements the <code class="docutils literal notranslate"><span class="pre">HttpServlet</span></code> class, and defines custom handling for HTTP requests with a POST method. We provide meta data to the web container via the <code class="docutils literal notranslate"><span class="pre">&#64;WebServlet</span></code> annotation, which instructs the container to invoke this Servlet when it receives a request to the <code class="docutils literal notranslate"><span class="pre">/users</span></code> endpoint.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">UserServlet</span></code>class is a servlet that can respond to HTTP requests (you can define servlets for other protocols too), it implements the <code class="docutils literal notranslate"><span class="pre">HttpServlet</span></code> class, and defines custom handling for HTTP requests with a POST method (the <code class="docutils literal notranslate"><span class="pre">doPost</span></code> method). We provide meta data to the web container via the <code class="docutils literal notranslate"><span class="pre">&#64;WebServlet</span></code> annotation, which instructs the container to invoke this Servlet when it receives a request to the <code class="docutils literal notranslate"><span class="pre">/users</span></code> endpoint. <code class="docutils literal notranslate"><span class="pre">HttpServletRequest</span></code> and <code class="docutils literal notranslate"><span class="pre">HttpServletResponse</span></code> provide our custom implementation access to the original HTTP request (along with all its headers, parameters and body - if present), and a way to configure the response.</p>
 </section>
 <section id="jakarta-server-pages-jsp-formerly-javaserver-pages">
-<h2>Jakarta Server Pages (JSP, formerly JavaServer Pages)<a class="headerlink" href="#jakarta-server-pages-jsp-formerly-javaserver-pages" title="Link to this heading">#</a></h2>
-<p>JSPs provide a scalable way for developers to dynamically generate web pages using Java. JSPs are a mixture of HTML and Java, take a few moments to study the following JSP that generates a user details page, and notice that it really is just a few HTML tags interspersed with Java to dynamically inject additional HTML to the page.</p>
+<h2>Jakarta Server Pages (JSP, formerly JavaServer Pages)<a class="headerlink" href="#jakarta-server-pages-jsp-formerly-javaserver-pages" title="Permalink to this heading">#</a></h2>
+<p>JSPs provide a scalable way for developers to dynamically generate web pages using Java. JSPs are a mixture of HTML and Java; take a few moments to study the following JSP, <code class="docutils literal notranslate"><span class="pre">userDetail.jsp</span></code>, that generates a user details page, and notice that it really is just a few HTML tags interspersed with Java to dynamically inject additional HTML to the page.</p>
 <div class="highlight-jsp notranslate"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;au.edu.unimelb.swen90007.demo.domain.User&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
 <span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;java.time.format.DateTimeFormatter&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
 <span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;java.util.Optional&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
 <span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
 <span class="nt">&lt;html&gt;</span>
-<span class="w">    </span><span class="nt">&lt;head&gt;</span>
-<span class="w">        </span><span class="nt">&lt;title&gt;</span>User<span class="nt">&lt;/title&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/head&gt;</span>
-<span class="w">    </span><span class="k">&lt;%</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">);</span><span class="w"> </span><span class="k">%&gt;</span>
-<span class="w">    </span><span class="nt">&lt;body&gt;</span>
-<span class="w">    </span><span class="k">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">%&gt;</span>
-<span class="w">        </span><span class="nt">&lt;table&gt;</span>
-<span class="w">            </span><span class="nt">&lt;thead&gt;</span>
-<span class="w">                </span><span class="nt">&lt;tr&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;th&gt;</span>User<span class="nt">&lt;/th&gt;</span>
-<span class="w">                </span><span class="nt">&lt;/tr&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/thead&gt;</span>
-<span class="w">            </span><span class="nt">&lt;tr&gt;</span>
-<span class="w">                </span><span class="nt">&lt;td&gt;</span>Name<span class="nt">&lt;/td&gt;</span>
-<span class="w">                </span><span class="nt">&lt;td&gt;</span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="k">%&gt;</span><span class="nt">&lt;/td&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/tr&gt;</span>
-<span class="w">            </span><span class="nt">&lt;tr&gt;</span>
-<span class="w">                </span><span class="nt">&lt;td&gt;</span>Date<span class="w"> </span>of<span class="w"> </span>birth<span class="nt">&lt;/td&gt;</span>
-<span class="w">                </span><span class="nt">&lt;td&gt;</span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">getDateOfBirth</span><span class="p">().</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE</span><span class="p">)</span><span class="w"> </span><span class="k">%&gt;</span><span class="nt">&lt;/td&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/tr&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/table&gt;</span>
-<span class="w">    </span><span class="k">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">%&gt;</span>
-<span class="w">        </span><span class="nt">&lt;p&gt;</span>User<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist<span class="nt">&lt;/p&gt;</span>
-<span class="w">    </span><span class="k">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">%&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/body&gt;</span>
+<span class="w">  </span><span class="nt">&lt;head&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>User<span class="nt">&lt;/title&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/head&gt;</span>
+<span class="w">  </span><span class="k">&lt;%</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">);</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="w">  </span><span class="nt">&lt;body&gt;</span>
+<span class="w">  </span><span class="k">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="w">    </span><span class="nt">&lt;table&gt;</span>
+<span class="w">      </span><span class="nt">&lt;thead&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">          </span><span class="nt">&lt;th&gt;</span>User<span class="nt">&lt;/th&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/thead&gt;</span>
+<span class="w">      </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>Name<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="k">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">      </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>Date<span class="w"> </span>of<span class="w"> </span>birth<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">getDateOfBirth</span><span class="p">().</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE</span><span class="p">)</span><span class="w"> </span><span class="k">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/table&gt;</span>
+<span class="w">  </span><span class="k">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="w">    </span><span class="nt">&lt;p&gt;</span>User<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="k">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </pre></div>
 </div>
-<p>JSPs require a compatible web server to interpret them, generate HTML and then serve it as a response, they integrate seamlessly with the Jakarta Servlet API, the following servlet implementation serves the user details page above.</p>
+<p>JSPs require a compatible web server to interpret them, generate HTML, and then serve that HTML as a response; thankfully the Jakarta Servlet API provides us all we need to direct the web server to construct a response using JSP. The following servlet implementation serves the user details page above, it instructs the web server to respond with HTML generated by <code class="docutils literal notranslate"><span class="pre">userDetail.jsp</span></code>, it also sets any dynamic data (such as the <code class="docutils literal notranslate"><span class="pre">user</span></code> attribute) that the JSP requires.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@WebServlet</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;all-users-servlet&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/users&quot;</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UsersServlet</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">UserRepository</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
-<span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&quot;WEB-INF/userDetail.jsp&quot;</span><span class="p">).</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">UserRepository</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&quot;WEB-INF/userDetail.jsp&quot;</span><span class="p">).</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="react">
-<h2>React<a class="headerlink" href="#react" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://react.dev/">React</a> is an incredibly popular JavaScript library for developing rich reactive UIs. Unlike JSP, React runs client-side, meaning that it runs directly in the user’s browser, using JavaScript to manipulate the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Document Object Model</a> (DOM) rendered by the browser - note that JSP is a server-side technology, it runs on the server, which uses JSP templates to generate HTML in response to requests.</p>
-<p>The primitive building block of all React systems is the component. Components allow us to decompose large complicated systems into a collection of simple, easy to understand, and ideally reusable, units of functionality. A component is essentially just a function (or class! There are a few implementation styles) that returns JavaScript and XML (JSX). Components can be as simple as the the one below, which returns a &lt;p&gt; element to be rendered.</p>
+<h2>React<a class="headerlink" href="#react" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://react.dev/">React</a> is an incredibly popular JavaScript library for developing rich reactive UIs. Unlike JSP, React runs client-side, meaning that it runs directly in the user’s browser, using JavaScript to manipulate the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Document Object Model</a> (DOM) rendered by the browser. Note that JSP is a server-side technology, meaning that it runs on the server, it’s used to generate static HTML (often without any JavaScript) in response to requests.</p>
+<p>The primitive building block of all React systems is the component. Components allow us to decompose large complicated systems into a collection of simple, easy to understand, and ideally reusable, units of functionality. A component is essentially just a function (or class! There are a few implementation styles) that returns JavaScript and XML (JSX). Components can be as simple as the the one below, which returns a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element to be rendered.</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">Simple</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">some</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">value</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">I</span><span class="w"> </span><span class="nx">am</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">very</span><span class="w"> </span><span class="nx">simple</span><span class="w"> </span><span class="nx">component</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="w">  </span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -586,10 +563,13 @@ document.write(`
 </pre></div>
 </div>
 <p>The HTML rendered by this component would simply be:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>some static value<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>I am a very simple component<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>React is a powerful but vast library, beware that if you choose to use React you will need to maintain two code bases, a React UI and a Java API built with Jakarta Servlets as detailed above.</p>
+<div class="caution admonition">
+<p class="admonition-title">React vs JSP</p>
+<p>Beware, React is a powerful but vast library; the learning curve can be steep and if you choose to use React you will need to maintain two code bases, a React UI and a Java API built with Jakarta Servlets, as detailed above. If you and your team are new to web development you might like to consider building your UI with JSP instead.</p>
+</div>
 </section>
 </section>
 
@@ -618,10 +598,11 @@ document.write(`
 
               
               
-              
-              
-                <footer class="prev-next-footer d-print-none">
+                <footer class="bd-footer-article">
                   
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="workshop_2.html"
@@ -641,7 +622,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -649,7 +633,6 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -684,10 +667,9 @@ By School of Computing and Information Systems, The University of Melbourne
   
   <div class="footer-item">
     
-
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -711,8 +693,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
