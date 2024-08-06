@@ -26,7 +26,7 @@ The previous command should run a container that prints - amongst other things -
 Using Docker, let's deploy a PostgreSQL database to our local system:
 
 ```shell
-docker run --rm --name postgres:15 -d -p 5432:5432 -e POSTGRES_PASSWORD=password -v ./data:/var/lib/postgresql/data postgres:15
+docker run --rm --name postgres -d -p 5432:5432 -e POSTGRES_PASSWORD=password -v ./data:/var/lib/postgresql/data postgres:15
 ```
 
 The command above starts a Docker container with a containerised PostgreSQL database. The `--rm` flag instructs Docker to remove the container once it is stopped, which will be handy later. The `--name` parameter sets the name of our container to `postgres`, which will also be handy later 😀. The `-d` flag starts the container in detached mode, which simply means that Docker will not attach our shell to the stdout (standard output) of the container, allowing us to run the container in the background and continue working in our current shell. The `-p` parameter maps our host machine's port 5432 to the container's internal port 5432 (which is the port that PostgreSQL is configured to listen on by default), allowing us to access the PostgreSQL process at `localhost:5432`. The `-e` parameter sets the `POSTGRES_PASSWORD` environment variable, which PostgreSQL uses to set the password for the default `postgres` user and database. Finally, the `-v` parameter instructs Docker to create a volume at `./data` on our host machine and mount this to `/var/lib/postgresql/data` in the container (where PostgreSQL persists its data), ensuring that any changes we make to the database are preserved even when we stop the container.
