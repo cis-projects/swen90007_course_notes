@@ -9,7 +9,6 @@ parts:
     - file: workshops/workshop_1
     - file: workshops/workshop_2
     - file: workshops/workshop_3
-    - file: workshops/workshop_4
   - caption: JSP Project Development Setup
     chapters:
     - file: setup_dev/introduction
