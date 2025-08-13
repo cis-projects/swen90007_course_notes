@@ -26,7 +26,7 @@ mkdir swen90007-example
 cd swen90007-exampled
 git init
 echo "# SWEN90007 Example Project" >> README.md
-git -ma ":tada: Initial commit"
+git commit -ma ":tada: Initial commit"
 ```
 
 ## React project
