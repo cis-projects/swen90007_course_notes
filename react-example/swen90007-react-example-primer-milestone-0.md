@@ -178,7 +178,7 @@ Select *Save* and notice that the new database is available under *Databases*.
 
 ![PostgreSQL Database Created](resources/milestone-0/postgres-database-created.png)
 
-Let's take a moment to verify that our new user and database work as required. Right click on *Servers* and select *Create* > *Server...*.
+Let's take a moment to verify that our new user and database work as required. Right click on *Servers* and select *Register* > *Server...*.
 
 ![Create PostgreSQL Server](resources/milestone-0/create-postgres-server.png)
 
