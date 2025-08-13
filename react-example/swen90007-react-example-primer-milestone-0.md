@@ -23,7 +23,7 @@ Let's first create a new directory to house our project and initialise this as a
 
 ```shell
 mkdir swen90007-example
-cd swen90007-exampled
+cd swen90007-example
 git init
 echo "# SWEN90007 Example Project" >> README.md
 git -ma ":tada: Initial commit"
