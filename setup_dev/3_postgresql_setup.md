@@ -9,7 +9,7 @@ Download the PostgreSQL Database installer:
 ```
 
 Double-click on the installer file, an installation wizard will appear and guide you through multiple steps where you 
-can choose different options that you would like to have in PostgreSQL. Note, that you can downlaod the recent version 15
+can choose different options that you would like to have in PostgreSQL. Note, that you can download the recent version 15
 of PostGres instead of 10.
 
 Click the Next button:
