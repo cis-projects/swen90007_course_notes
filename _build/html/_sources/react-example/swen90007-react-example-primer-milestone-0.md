@@ -23,10 +23,10 @@ Let's first create a new directory to house our project and initialise this as a
 
 ```shell
 mkdir swen90007-example
-cd swen90007-exampled
+cd swen90007-example
 git init
 echo "# SWEN90007 Example Project" >> README.md
-git -ma ":tada: Initial commit"
+git commit -ma ":tada: Initial commit"
 ```
 
 ## React project
@@ -178,7 +178,7 @@ Select *Save* and notice that the new database is available under *Databases*.
 
 ![PostgreSQL Database Created](resources/milestone-0/postgres-database-created.png)
 
-Let's take a moment to verify that our new user and database work as required. Right click on *Servers* and select *Create* > *Server...*.
+Let's take a moment to verify that our new user and database work as required. Right click on *Servers* and select *Register* > *Server...*.
 
 ![Create PostgreSQL Server](resources/milestone-0/create-postgres-server.png)
 
