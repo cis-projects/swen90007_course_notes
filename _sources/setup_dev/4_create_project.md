@@ -73,6 +73,10 @@ deployed to localhost:
 
 ![](resources/4_create_project_11.png)
 
+## Troubleshooting
+If you have a permission issue (on Mac or Linux), run the following command:
+```
+chmod a+x /path/to/tomcat/bin/catalina.sh
 
 ```{admonition} What's Next
 Please proceed to [Step 5: Setup GitHub Repository](5_github_setup.md).
