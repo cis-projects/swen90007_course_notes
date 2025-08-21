@@ -26,7 +26,6 @@ To submit part 1, there are a number of things you need to do:
 ```{caution}
 Teaching team can see when you create a tag and we will check to make sure it is before the deadline.
 ```
-- Submit the project checklist via the LMS. In the checklist, you should include the URL for the GitHub tag you created.
 ```{note}
 To learn how to create a tag, please see GitHub documentation [here](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags).
 ```
