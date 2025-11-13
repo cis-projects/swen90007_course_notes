@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Workshop 3 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
   
@@ -19,50 +18,47 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_3';</script>
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="../setup_dev/introduction.html" />
@@ -76,7 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,9 +137,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../introduction/introduction.html">
+  
   
   
   
@@ -142,12 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -337,20 +357,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -396,13 +418,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="workshop-3">
-<h1>Workshop 3<a class="headerlink" href="#workshop-3" title="Permalink to this heading">#</a></h1>
+<h1>Workshop 3<a class="headerlink" href="#workshop-3" title="Link to this heading">#</a></h1>
 <p>This workshop introduces the key components that form the <em>technology stack</em> taught in this subject. This introduction will be <em>brief</em>, after this workshop you should make sure to work through one of the two guides - on either JSP or React - which cover, in great detail, how to set up a development environment.</p>
 <section id="docker">
-<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading">#</a></h2>
+<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h2>
 <p>The first technology we’ll take a look at is <a class="reference external" href="https://www.docker.com/">Docker</a>. Docker has been around a long while now assisting developers develop and deploy large distributed systems of ever increasing complexity. Docker is a containerisation solution, it provides a way for us to build a version of our software that we can run anywhere. Java developers will find this concept familiar - after all, Java is marketed as a solution in which teams “build [their software] once, [and] run [it] anywhere”. Docker works in much the same way, it provides a virtual environment - called a container - in which an application can run. However, unlike the Java Virtual Machine (JVM), Docker is not limited to running Java applications, it can build and run a portable version of any software (more, or less - there are, of course, limitations to all solutions 😙). From simple one-off shell scripts to fully fledged servers with a persistent presence, Docker is able to easily build a portable solution, which you can deploy to any environment that’s also running Docker. In this workshop we’ll use Docker to deploy a local version of a PostgreSQL database and administrative UI without ever having to install them.</p>
 <p>Docker Desktop is a handy UI for Docker that ships with the latest Docker CLI and daemon, install it <a class="reference external" href="https://www.docker.com/products/docker-desktop/">here</a>. Once installed, you’ll need to launch Docker Desktop, which will, in turn, launch Docker services such as the Docker Daemon. Verify your installation by running the <code class="docutils literal notranslate"><span class="pre">hello-world</span></code> image:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
@@ -415,7 +437,7 @@ document.write(`
 </div>
 </section>
 <section id="postgresql">
-<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading">#</a></h2>
+<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.postgresql.org/">PostgreSQL</a> is widely considered the ‘Swiss Army Knife’ of databases because it’s both reliable and packed full of features. At its core PostegreSQL is a Relational Database Management System, and that’s how we will be using it in this subject, but PostgreSQL is capable of much more; it can be used as a document store in much the same way MongoDB is, a message broker, or a graph database, and has extensions for handling time-series data, full-text search, and even Machine Learning analytics.</p>
 <p>Using Docker, let’s deploy a PostgreSQL database to our local system:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password<span class="w"> </span>-v<span class="w"> </span>./data:/var/lib/postgresql/data<span class="w"> </span>postgres:15
@@ -477,11 +499,11 @@ document.write(`
 <p>You should now notice that two containers are now running, one for the PostgreSQL database and another for pgAdmin. Open a browser and navigate to <code class="docutils literal notranslate"><span class="pre">http://localhost:8081</span></code> to access pgAdmin, login by providing <code class="docutils literal notranslate"><span class="pre">admin&#64;pgadmin.com</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code> as username and password respectively. After setting up a new server definition in pgAdmin you should be able to administrate the PostgreSQL database via the pgAdmin UI (when setting up the server definition, remember that you will need to use the Docker DNS to refer to the PostgreSQL database container, when using Docker Compose a containers hostname is, by default, set to the name of the service - i.e. <code class="docutils literal notranslate"><span class="pre">postgres</span></code>).</p>
 </section>
 <section id="tomcat">
-<h2>Tomcat<a class="headerlink" href="#tomcat" title="Permalink to this heading">#</a></h2>
+<h2>Tomcat<a class="headerlink" href="#tomcat" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://tomcat.apache.org/">Tomcat</a> is a Java web server and servlet container, which simply means that Tomcat is able to both receive HTTP requests and run Java applications in response to such requests. Tomcat simplifies the task of developing Java applications for the web by doing much of the complicated HTTP handling for us, marshalling the request by parsing the path, parameters, head and body etc, forwarding this on to our Java code, and finally constructing a valid HTTP response from data returned by our Java implementation.</p>
 </section>
 <section id="jakarta-servlets-formerly-java-servlets">
-<h2>Jakarta Servlets (formerly Java Servlets)<a class="headerlink" href="#jakarta-servlets-formerly-java-servlets" title="Permalink to this heading">#</a></h2>
+<h2>Jakarta Servlets (formerly Java Servlets)<a class="headerlink" href="#jakarta-servlets-formerly-java-servlets" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/servlets/servlets.html">Jakarta Servlets</a> provide us a low level API with which to implement custom handling of requests to a web server like Tomcat. Many Java web development frameworks - such as Spring and Spring Boot - make use of the Jakarta Servlet API, this subject aims to familiarise you with Jakarta Servlets and in doing so provide you an appreciation for how such frameworks simplify Java development for the web.</p>
 <p>A Jakarta Servlet is essentially just a class that implements an interface understood by a web server container. By defining a number of lifecycle methods such as <code class="docutils literal notranslate"><span class="pre">doGet</span></code> or <code class="docutils literal notranslate"><span class="pre">doPost</span></code> on our servlet we can instruct the web server container to dispatch the handling of received requests to our custom servlet implementation.</p>
 <p>Consider the servlet below:</p>
@@ -502,7 +524,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">UserServlet</span></code>class is a servlet that can respond to HTTP requests (you can define servlets for other protocols too), it implements the <code class="docutils literal notranslate"><span class="pre">HttpServlet</span></code> class, and defines custom handling for HTTP requests with a POST method (the <code class="docutils literal notranslate"><span class="pre">doPost</span></code> method). We provide meta data to the web container via the <code class="docutils literal notranslate"><span class="pre">&#64;WebServlet</span></code> annotation, which instructs the container to invoke this Servlet when it receives a request to the <code class="docutils literal notranslate"><span class="pre">/users</span></code> endpoint. <code class="docutils literal notranslate"><span class="pre">HttpServletRequest</span></code> and <code class="docutils literal notranslate"><span class="pre">HttpServletResponse</span></code> provide our custom implementation access to the original HTTP request (along with all its headers, parameters and body - if present), and a way to configure the response.</p>
 </section>
 <section id="jakarta-server-pages-jsp-formerly-javaserver-pages">
-<h2>Jakarta Server Pages (JSP, formerly JavaServer Pages)<a class="headerlink" href="#jakarta-server-pages-jsp-formerly-javaserver-pages" title="Permalink to this heading">#</a></h2>
+<h2>Jakarta Server Pages (JSP, formerly JavaServer Pages)<a class="headerlink" href="#jakarta-server-pages-jsp-formerly-javaserver-pages" title="Link to this heading">#</a></h2>
 <p>JSPs provide a scalable way for developers to dynamically generate web pages using Java. JSPs are a mixture of HTML and Java; take a few moments to study the following JSP, <code class="docutils literal notranslate"><span class="pre">userDetail.jsp</span></code>, that generates a user details page, and notice that it really is just a few HTML tags interspersed with Java to dynamically inject additional HTML to the page.</p>
 <div class="highlight-jsp notranslate"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;au.edu.unimelb.swen90007.demo.domain.User&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
 <span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;java.time.format.DateTimeFormatter&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
@@ -551,7 +573,7 @@ document.write(`
 </div>
 </section>
 <section id="jsps-servlets-domain-model-model-view-controller-pattern">
-<h2>JSPs + Servlets + Domain Model = Model View Controller Pattern<a class="headerlink" href="#jsps-servlets-domain-model-model-view-controller-pattern" title="Permalink to this heading">#</a></h2>
+<h2>JSPs + Servlets + Domain Model = Model View Controller Pattern<a class="headerlink" href="#jsps-servlets-domain-model-model-view-controller-pattern" title="Link to this heading">#</a></h2>
 <p><img alt="MVC pattern" src="../_images/mvc_pattern.png" /></p>
 <div class="admonition-definition admonition">
 <p class="admonition-title">Definition</p>
@@ -569,12 +591,12 @@ them, including the necessary validations.</p>
 application.</p>
 </div>
 <section id="mvc-pattern-in-your-assignment">
-<h3>MVC Pattern In Your Assignment<a class="headerlink" href="#mvc-pattern-in-your-assignment" title="Permalink to this heading">#</a></h3>
+<h3>MVC Pattern In Your Assignment<a class="headerlink" href="#mvc-pattern-in-your-assignment" title="Link to this heading">#</a></h3>
 <p><img alt="MVC pattern in this project" src="../_images/mvc_assignment.png" /></p>
 </section>
 </section>
 <section id="react">
-<h2>React<a class="headerlink" href="#react" title="Permalink to this heading">#</a></h2>
+<h2>React<a class="headerlink" href="#react" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://react.dev/">React</a> is an incredibly popular JavaScript library for developing rich reactive UIs. Unlike JSP, React runs client-side, meaning that it runs directly in the user’s browser, using JavaScript to manipulate the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Document Object Model</a> (DOM) rendered by the browser. Note that JSP is a server-side technology, meaning that it runs on the server, it’s used to generate static HTML (often without any JavaScript) in response to requests.</p>
 <p>The primitive building block of all React systems is the component. Components allow us to decompose large complicated systems into a collection of simple, easy to understand, and ideally reusable, units of functionality. A component is essentially just a function (or class! There are a few implementation styles) that returns JavaScript and XML (JSX). Components can be as simple as the the one below, which returns a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element to be rendered.</p>
 <div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
@@ -624,11 +646,10 @@ application.</p>
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="workshop_2.html"
@@ -648,10 +669,7 @@ application.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -659,6 +677,7 @@ application.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -697,9 +716,10 @@ By School of Computing and Information Systems, The University of Melbourne
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -723,8 +743,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
