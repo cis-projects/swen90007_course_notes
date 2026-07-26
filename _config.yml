@@ -3,7 +3,7 @@
 
 title: SWEN90007 Software Design and Architecture Course Notes
 author: School of Computing and Information Systems, The University of Melbourne
-logo: logo.png
+logo: assets/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -28,7 +28,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  favicon: favicon.png
+  favicon: assets/favicon.png
   use_issues_button: true
   use_repository_button: true
 
