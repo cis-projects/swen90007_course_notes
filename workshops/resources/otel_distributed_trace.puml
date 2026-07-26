@@ -1,0 +1,44 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+title One request as a single distributed trace
+
+actor Member
+participant "Presentation\n(Servlet)" as P
+participant "Service" as S
+participant "Domain\n(borrow logic)" as D
+database "Data source\n(JDBC)" as DB
+participant "Email Service\n(separate service)" as EX
+
+Member -> P : HTTP request
+activate P #ADD8E6
+note right of P : **auto span**\nincoming HTTP (agent)
+P -> S : borrow(copy)
+activate S #ADD8E6
+S -> D : loan.create()
+activate D #F5DEB3
+note right of D : **hand-authored span**\nyour business logic
+D --> S
+deactivate D
+S -> DB : INSERT loan
+activate DB #ADD8E6
+note right of DB : **auto span**\nJDBC (agent)
+DB --> S
+deactivate DB
+S -> EX : POST /notify (HTTP)
+activate EX #90EE90
+note right of EX : the **same trace**\ncrosses the network\nboundary
+EX --> S
+deactivate EX
+S --> P
+deactivate S
+P --> Member : response
+deactivate P
+
+legend right
+  |= colour |= span |
+  |<#ADD8E6>   | created automatically by the OTel agent |
+  |<#F5DEB3>   | hand-authored around your business logic |
+  |<#90EE90>   | the separate (payment/email) service |
+endlegend
+@enduml

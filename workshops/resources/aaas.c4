@@ -1,0 +1,86 @@
+specification {
+    color hot-pink #ff69b4
+    element actor {
+        notation 'Actor'
+        style { shape person; color hot-pink }
+    }
+    element software-system {
+        notation 'Software System'
+        style { color green }
+    }
+    element container { notation 'Container' }
+    element component {
+        notation 'Component'
+        style { shape component }
+    }
+}
+
+model {
+    user = actor 'User'
+    oai = software-system 'OpenAI' { style { icon tech:openai } }
+    zai = software-system 'Z.ai'
+    aix = software-system 'AIX'
+    aaas = software-system 'AaaS' {
+        container gw 'API Gateway' { style { icon tech:envoy } }
+        container ah 'Agent Harness' {
+            component api 'AI Agent Harness API'
+            component mq 'Message Broker' { style { shape queue } }
+            component rep 'Agent Repository'
+            component oc 'OpenAI Client'
+            component w 'Agent Worker'
+
+            api -> mq 'Publishes messages to'
+            api -> rep 'Manages Agents via'
+            w -> mq 'Consumes messages from'
+            w -> rep 'Retrieves Agents via'
+            w -> oc 'Calls models via'
+        }
+        container lp 'LLM Provider'
+        container ad 'AaaS Datastore' { style { shape storage; icon tech:postgresql } }
+
+        gw -> ah.api 'Forwards requests to' { technology 'HTTPS' }
+        ah.oc -> lp 'Accesses models via' { technology 'HTTPS' }
+        ah.rep -> ad 'Stores data in' { technology 'TCP' }
+    }
+
+    aix -> aaas.gw 'Consumes AI Agent Harness API' { technology 'HTTPS' }
+    aaas.lp -> oai 'Accesses services provided by' { technology 'HTTPS' }
+    aaas.lp -> zai 'Accesses services provided by' { technology 'HTTPS' }
+    user -> aix 'Uses in browser'
+    user -> aaas.gw 'Uses in automation' { technology 'HTTPS' }
+}
+
+views {
+    view index { include * }
+    view aaas-container {
+        include aaas.*, aaas.* -> *, * -> aaas.*
+    }
+    view ah-component {
+        include aaas.ah.*, aaas.ah.* -> *, * -> aaas.ah.*
+    }
+    dynamic view create-new-agent {
+        user -> aaas.gw 'POST /agents {newAgent}'
+        -> aaas.ah.api 'forward request'
+        -> aaas.ah.rep 'getAgentByName(newAgent.name)'
+        -> aaas.ad 'SELECT * FROM agents WHERE name = name'
+        -> aaas.ah.rep 'row'
+        alt {
+            when 'row exists' {
+                aaas.ah.rep -> aaas.ah.rep 'existing = map(row)'
+            } else {
+                aaas.ah.rep -> aaas.ah.rep 'existing = null'
+            }
+        }
+        aaas.ah.rep -> aaas.ah.api 'existing'
+        alt {
+            when 'existing != null' {
+                aaas.ah.api -> aaas.gw '400 agent already exists'
+            } else {
+                aaas.ah.api -> aaas.ah.rep 'save(newAgent)'
+                -> aaas.ad 'INSERT INTO agents (name, created_at) VALUES (newAgent.name, OffsetDateTime.now())'
+                aaas.ah.api -> aaas.gw '201 agent created'
+            }
+        }
+        aaas.gw -> user 'forward response'
+    }
+}
