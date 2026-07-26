@@ -125,15 +125,15 @@ Here's how the semester lays out — the four deliverables, the two oral-assessm
 | **1** | 27 Jul | **Workshop 1** — teams, subject & project overview | Semester begins |
 | **2** | 3 Aug | **Workshop 2** — domain modelling & diagram-as-code | GitHub org invitations sent |
 | **3** | 10 Aug | **Workshop 3** — dev stack: Docker, PostgreSQL, Tomcat, Servlets/JSP, MVC, React | 📌 **Part 1A due** — Fri 14 Aug |
-| **4** | 17 Aug | Project work — build Part 1B | |
+| **4** | 17 Aug | **Workshop 4** — arc42 & C4 documentation (Part 1B) | |
 | **5** | 24 Aug | Project work — finish & deploy Part 1B | 📌 **Part 1B due** — Mon 24 Aug (+ individual videos to Canvas) |
 | **6** | 31 Aug | Project work — Part 2 | |
 | **7** | 7 Sep | Project work — Part 2 | |
-| **8** | 14 Sep | Project work — Part 2 | |
+| **8** | 14 Sep | **Workshop 7** — observability with OpenTelemetry | |
 | **9** | 21 Sep | **Part 2 demonstrations** (interactive oral) | 📌 **Part 2 due** — Mon 21 Sep · demos this week |
 | — | 28 Sep | 🏖️ **Mid-semester non-teaching week** | No classes |
 | **10** | 5 Oct | Project work — Part 3 | |
-| **11** | 12 Oct | Project work — Part 3 | |
+| **11** | 12 Oct | **Workshop 8** — performance testing with k6 | |
 | **12** | 19 Oct | **Part 3 demonstrations** (interactive oral) | 📌 **Part 3 due** — Mon 19 Oct · demos this week |
 
 Teaching weeks and the non-teaching week above are **derived from the spec's due dates** and should be confirmed against the final Semester 2, 2026 academic calendar; the **due dates themselves are authoritative**. Workshops run every week — from Week 4 they're your team's dedicated project time with your tutor, and lectures introduce the patterns you'll need for each part before it is due.
@@ -176,10 +176,9 @@ Use a Kanban board to track and assign team tasks:
 
 ### Collaborative Documentation
 
-You will be required to collaborate on requirements as a team. For shared documents you can use:
+Your **GitHub Wiki** is the official home for your project documentation, and it is assessed at every submission. It comes with a provided **arc42** skeleton (with **C4** and UML diagrams); your team fills it in and keeps it current all semester — design decisions, architecture, and your weekly meeting minutes all live there. At each submission point you export the Wiki as a single PDF into your repository and create a release tag.
 
-- Google Docs
-- A `/docs` folder in your team's GitHub repository
+Your Wiki is created with your repository in Week 2. Until then, a shared space like Google Docs is fine for early drafting — but the assessed version must end up in the Wiki.
 
 ## Before Next Week
 

@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workshop 7 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_7';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Workshop 8" href="workshop_8.html" />
+    <link rel="prev" title="Architecture Documentation Workshop" href="workshop_4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_3.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_4.html">Architecture Documentation Workshop</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_8.html">Workshop 8</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/8_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_render_deploy.html">Step 9: Deploy to Render</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fworkshops/workshop_7.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workshops/workshop_7.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop 7</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-pillars">The three pillars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-you-instrument-it">How you instrument it</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-distributed-trace-the-test-of-your-layering">The distributed trace (the test of your layering)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#golden-signals-dashboard-part-3">Golden-signals dashboard (Part 3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-each-piece-is-due">When each piece is due</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-observability-checklist">Part 2 observability checklist</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-7">
+<h1>Workshop 7<a class="headerlink" href="#workshop-7" title="Link to this heading">#</a></h1>
+<div class="important admonition">
+<p class="admonition-title">By Now You Should Have</p>
+<ul class="simple">
+<li><p>Submitted <strong>Part 1B</strong> — a use case deployed end-to-end on Render, with your arc42/C4 Wiki started.</p></li>
+<li><p>Begun <strong>Part 2</strong> — the core patterns, and your integration of the provided <strong>Payment Service</strong> as a second deployable service.</p></li>
+<li><p>Kept your CI/CD pipeline and Wiki current, and recorded your workshop minutes.</p></li>
+</ul>
+</div>
+<p>A running enterprise system is <strong>operated, not just deployed</strong> — teams rely on telemetry to understand what a live system is doing. In this project you instrument your application to emit the <strong>three pillars of observability</strong> using <strong>OpenTelemetry (OTel)</strong>, the industry-standard, vendor-neutral instrumentation framework. You deliver <strong>basic instrumentation and one cross-layer trace in Part 2</strong>, and <strong>golden-signals dashboards in Part 3</strong>.</p>
+<p>This isn’t a DevOps subject — the goal is that you can <em>see your architecture running and reason about its behaviour</em>, a skill you use directly in the Part 3 performance exercise.</p>
+<section id="the-three-pillars">
+<h2>The three pillars<a class="headerlink" href="#the-three-pillars" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pillar</p></th>
+<th class="head"><p>What it is</p></th>
+<th class="head"><p>Example in your app</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Metrics</strong></p></td>
+<td><p>Aggregated numbers over time</p></td>
+<td><p>a counter of confirmed bookings; request latency</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Logs</strong></p></td>
+<td><p>Timestamped event records</p></td>
+<td><p>“payment rejected for booking 42”</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Traces</strong></p></td>
+<td><p>The path of a single request across components, as nested <strong>spans</strong></p></td>
+<td><p>one Reserve-Seat request, end to end</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="how-you-instrument-it">
+<h2>How you instrument it<a class="headerlink" href="#how-you-instrument-it" title="Link to this heading">#</a></h2>
+<p>You don’t hand-write everything. OpenTelemetry gives you two complementary layers:</p>
+<ol class="arabic simple">
+<li><p><strong>The OTel Java auto-instrumentation agent.</strong> Attached at JVM startup — no code changes — it automatically traces incoming HTTP requests and JDBC calls. You add it as a <code class="docutils literal notranslate"><span class="pre">-javaagent</span></code> when you launch your fat JAR.</p></li>
+<li><p><strong>A few hand-authored spans and metrics</strong> (2–4 is plenty) around your key business transactions — for example, a span around the ticket-price calculation in Reserve Seat, or a counter for confirmed bookings. Hand-authored instrumentation is what demonstrates you understand what the agent is doing on your behalf.</p></li>
+</ol>
+<p>You then <strong>export</strong> your telemetry to an observability back-end where it can be queried and visualised — a free hosted tier such as <strong>Grafana Cloud</strong> is fine.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Starting the agent, and a hand-authored span</p>
+<p>Attach the agent when you launch the app:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>java -javaagent:opentelemetry-javaagent.jar \
+     -Dotel.service.name=ticketing-app \
+     -Dotel.exporter.otlp.endpoint=$OTEL_ENDPOINT \
+     -jar app.jar
+</pre></div>
+</div>
+<p>Wrap a business transaction in your own span:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tracer</span><span class="w"> </span><span class="n">tracer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GlobalOpenTelemetry</span><span class="p">.</span><span class="na">getTracer</span><span class="p">(</span><span class="s">&quot;ticketing&quot;</span><span class="p">);</span>
+
+<span class="n">Span</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tracer</span><span class="p">.</span><span class="na">spanBuilder</span><span class="p">(</span><span class="s">&quot;reserve-seat.price-calculation&quot;</span><span class="p">).</span><span class="na">startSpan</span><span class="p">();</span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Scope</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">span</span><span class="p">.</span><span class="na">makeCurrent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Money</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pricingRules</span><span class="p">.</span><span class="na">priceFor</span><span class="p">(</span><span class="n">seat</span><span class="p">);</span><span class="w">   </span><span class="c1">// your domain logic</span>
+<span class="w">    </span><span class="n">span</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;seat.tier&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">seat</span><span class="p">.</span><span class="na">tier</span><span class="p">().</span><span class="na">name</span><span class="p">());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">span</span><span class="p">.</span><span class="na">end</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And a metric — a counter for confirmed bookings:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">LongCounter</span><span class="w"> </span><span class="n">confirmed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GlobalOpenTelemetry</span><span class="p">.</span><span class="na">getMeter</span><span class="p">(</span><span class="s">&quot;ticketing&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">counterBuilder</span><span class="p">(</span><span class="s">&quot;bookings.confirmed&quot;</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+<span class="n">confirmed</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="the-distributed-trace-the-test-of-your-layering">
+<h2>The distributed trace (the test of your layering)<a class="headerlink" href="#the-distributed-trace-the-test-of-your-layering" title="Link to this heading">#</a></h2>
+<p>The concrete deliverable is a <strong>single request that produces one trace crossing your layers and the network boundary</strong> into the Payment Service. This is the real test of both your instrumentation <em>and</em> your layered architecture: if your layers are cleanly separated, the trace shows it.</p>
+<p>Below, a “borrow” request in the <strong>library</strong> system (the same shape as your Reserve-Seat → Payment Service flow) becomes one trace. The agent creates the HTTP and JDBC spans; you hand-author the span around the domain logic; and the <em>same trace</em> continues across the network into the separate service.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/otel_distributed_trace.svg"><img alt="Sequence diagram of one request traced across presentation, service, domain, data source, and an external service" src="../_images/otel_distributed_trace.svg" style="width: 620px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">One request, one trace — crossing presentation → service → domain → data source, and the network boundary into a separate service.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In your project this is a <strong>Reserve Seat</strong> request whose trace crosses <code class="docutils literal notranslate"><span class="pre">presentation</span> <span class="pre">→</span> <span class="pre">service</span> <span class="pre">→</span> <span class="pre">domain</span> <span class="pre">→</span> <span class="pre">data</span> <span class="pre">source</span></code> and into the Payment Service’s <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/quote</span></code>. The Payment Service we provide is <strong>already instrumented</strong>, so the trace crosses into it automatically once both services export to the same back-end. What’s assessed is <em>your</em> instrumentation on the main-application side — the hand-authored spans and your metrics/dashboards. The cross-boundary trace demonstrates your integration; your spans demonstrate your understanding.</p>
+</section>
+<section id="golden-signals-dashboard-part-3">
+<h2>Golden-signals dashboard (Part 3)<a class="headerlink" href="#golden-signals-dashboard-part-3" title="Link to this heading">#</a></h2>
+<p>For Part 3 you build a basic dashboard framing the health of your system in terms of the <strong>four golden signals</strong>. One panel per signal is enough.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal</p></th>
+<th class="head"><p>Question it answers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Latency</strong></p></td>
+<td><p>How long do requests take?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Traffic</strong></p></td>
+<td><p>How much demand is the system under?</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Errors</strong></p></td>
+<td><p>What proportion of requests fail?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Saturation</strong></p></td>
+<td><p>How full is the system (CPU, connections, memory)?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Not required:</strong> alerting rules, sampling strategies, SLOs/error budgets, or instrumenting every use case.</p>
+</section>
+<section id="when-each-piece-is-due">
+<h2>When each piece is due<a class="headerlink" href="#when-each-piece-is-due" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Deliverable</p></th>
+<th class="head text-center"><p>Part 2</p></th>
+<th class="head text-center"><p>Part 3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Auto-agent + 2–4 hand-authored spans/metrics</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>keep current</p></td>
+</tr>
+<tr class="row-odd"><td><p>One distributed trace crossing your layers + Payment Service</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>Golden-signals dashboards</p></td>
+<td class="text-center"><p>—</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p>Telemetry used for performance analysis</p></td>
+<td class="text-center"><p>—</p></td>
+<td class="text-center"><p>✅ (see <a class="reference internal" href="workshop_8.html"><span class="doc std std-doc">Workshop 8</span></a>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="part-2-observability-checklist">
+<h2>Part 2 observability checklist<a class="headerlink" href="#part-2-observability-checklist" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The <strong>OTel Java agent</strong> is attached at startup and exporting to your back-end (e.g. Grafana Cloud).</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>2–4 hand-authored spans/metrics</strong> wrap your key business transactions.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A <strong>distributed trace</strong> for one Reserve-Seat request visibly crosses <code class="docutils literal notranslate"><span class="pre">presentation</span> <span class="pre">→</span> <span class="pre">service</span> <span class="pre">→</span> <span class="pre">domain</span> <span class="pre">→</span> <span class="pre">data</span> <span class="pre">source</span></code> <strong>and</strong> into the Payment Service.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A <strong>screenshot of that trace</strong> is in your Wiki (#8 Cross-cutting Concepts), with a brief description of your setup.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./workshops"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="workshop_4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Architecture Documentation Workshop</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="workshop_8.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Workshop 8</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-pillars">The three pillars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-you-instrument-it">How you instrument it</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-distributed-trace-the-test-of-your-layering">The distributed trace (the test of your layering)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#golden-signals-dashboard-part-3">Golden-signals dashboard (Part 3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-each-piece-is-due">When each piece is due</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-observability-checklist">Part 2 observability checklist</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

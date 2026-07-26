@@ -1,0 +1,1096 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workshop 4 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_4';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Workshop 7" href="workshop_7.html" />
+    <link rel="prev" title="Workshop 3" href="workshop_3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_3.html">Workshop 3</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workshop 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_7.html">Workshop 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_8.html">Workshop 8</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/8_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_render_deploy.html">Step 9: Deploy to Render</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fworkshops/workshop_4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workshops/workshop_4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop 4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-a-methodology">Why do we need a methodology?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arc42-framework">The arc42 framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-c4-model">The C4 Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-diagrams-as-code-with-likec4">Model-based diagrams-as-code with LikeC4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-a-system">Modelling a system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-c4-model-specification-in-likec4">A C4 Model specification in LikeC4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-software-systems">Modelling software systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-system-context-diagram">Generating a system context diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-containers">Modelling containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-components">Modelling components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-diagrams">Dynamic diagrams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automation">Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-repository-and-wiki-pages">Create repository and wiki pages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-automation">Apply automation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-4">
+<h1>Workshop 4<a class="headerlink" href="#workshop-4" title="Link to this heading">#</a></h1>
+<p>This workshop introduces a methodology for documenting software architectures by leveraging arc42 and the C4 Model.</p>
+<p>Specifically, it covers:</p>
+<ul class="simple">
+<li><p>why we need a methodology for authoring documentation</p></li>
+<li><p>an introduction to the <a class="reference external" href="https://arc42.org/">arc42</a> framework for documenting software architecture</p></li>
+<li><p>an introduction to the <a class="reference external" href="https://c4model.com">C4 Model</a> approach to software architecture diagramming</p></li>
+<li><p>a model-based diagrams-as-code workflow for generating C4 Model diagrams with <a class="reference external" href="https://likec4.dev/">LikeC4</a></p></li>
+</ul>
+<section id="why-do-we-need-a-methodology">
+<h2>Why do we need a methodology?<a class="headerlink" href="#why-do-we-need-a-methodology" title="Link to this heading">#</a></h2>
+<p>Quality documentation is a critical, and often under-prioritized, non-function requirement of any software system. Poor (or non-existent!) documentation adversely impacts a team’s ability to effectively evolve a software system, engage external stakeholders, or onboard new members.</p>
+<p>As developers embarking on documenting a software system, we’re often tripped up because it’s:</p>
+<ul class="simple">
+<li><p>not obvious <em>what</em> needs to be communicated in the documentation.</p></li>
+<li><p>nor is it clear <em>how</em> to best communicate <em>what</em> needs to be communicated.</p></li>
+</ul>
+<p>This is entirely understandable - as developers, we tend to prioritize building deep expertise delivering working, performant software over communication skills. Even with the best intentions, it’s easy to fall into <em>anti-patterns</em> that rely on internal mental models of what quality documentation ‘is like’ (rather sophisticated, tested, models that capture what quality actually ‘is’), to produce the kind of ‘developer prose’ that results in unreadable, ineffective project wikis. Thankfully there are many resources out there that take the guess-work out of authoring quality documentation. This workshop aims to introduce you to two such resources - arc42 and the C4 Model.</p>
+<blockquote>
+<div><p>arc42 and the C4 Model assist us to systematically and repeatably apply principals of technical documentation, if you’re interested in these underlying principals consider this <a class="reference external" href="https://www.innoq.com/en/blog/2022/01/principles-of-technical-documentation/">30 minute read</a></p>
+</div></blockquote>
+</section>
+<section id="the-arc42-framework">
+<h2>The arc42 framework<a class="headerlink" href="#the-arc42-framework" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://arc42.org/">arc42</a> framework provides a lightweight approach to software architecture documentation, it outlines <em>what</em> is best to document and <em>how</em> we should do it; allowing us to focus on the task of documenting with confidence. Specifically, arc42 aims to produce documentation that answers questions such as:</p>
+<ul class="simple">
+<li><p><em>why</em> does this system exist?</p></li>
+<li><p><em>what</em> components collaborate to implement feature A?</p></li>
+<li><p><em>how</em> is this system deployed?</p></li>
+<li><p><em>when</em> transaction B fails what kind of compensation is executed?</p></li>
+<li><p>as an integrating system, <em>where</em> can I find a specification to consume this system’s API?</p></li>
+<li><p><em>when</em> did we decide to store system data in product C, <em>who</em> decided this, and are the forces that drove that decision still relevant?</p></li>
+</ul>
+<p>You will notice that these questions could be quite difficult to answer by simply interrogating the system’s source code or version control history - and it would be especially challenging to answer many of these for large complicated systems (which are often implemented across multiple code bases, each with their own version control history) without additional context. Typically, it’s impossible for external stakeholders to find the answers they require without quality documentation that captures the wider context in which a system exists. Internal team members may have better luck, but will also struggle if the question is concerned with a part of the system unfamiliar to them. In the absence of quality documentation, the solution is often to ‘find the person who knows’; however, this strategy exposes any serious project to significant risk: what if this ‘person who knows’ moves out of the team and is no longer available, or simply forgets the critical context required?</p>
+<p>The arc42 template is comprised of 12 sections that have been developed to provide the maximum critical context to safeguard a project for the least amount of effort. Details regarding each section can be found on the arc42 website, but we will focus on just three in this subject:</p>
+<ul class="simple">
+<li><p><strong>Context and Scope</strong>: this section documents the wider context in which the software system exists, it identifies the external users and systems that use or integrate with the system.</p></li>
+<li><p><strong>Building Block View</strong>: this section documents the static decomposition of the system, it captures how code is organized into components and the dependencies between these component parts.</p></li>
+<li><p><strong>Runtime View</strong>: this section captures the dynamic behavior of the running system, it details how important features work, how data flows through the system, and how exceptional behavior is handled.</p></li>
+</ul>
+</section>
+<section id="the-c4-model">
+<h2>The C4 Model<a class="headerlink" href="#the-c4-model" title="Link to this heading">#</a></h2>
+<p>Just as arc42 provides an approach for structuring our documentation, the <a class="reference external" href="https://c4model.com">C4 Model</a> provides an approach for generating high-quality software architecture diagrams. The C4 Model was developed as an ‘unofficial’ evolution of UML, at a time where teams were abandoning heavy upfront design practices demanded by UML in favour of Agile and just-in-time design. Ultimately C4 tries to reinstate ‘just enough’ structure and syntax to realize some of the great communication benefits that a shared understanding of UML provided, while remaining light-weight enough to be compatible with Agile ways of working.</p>
+<p>The C4 Model provides a set of hierarchical abstractions paired with hierarchical diagrams that capture the static decomposition of a software system from four levels of granularity.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>C4 Model abstraction</p></th>
+<th class="head"><p>C4 Model diagram</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Software System</p></td>
+<td><p>System Context</p></td>
+<td><p>Software systems represent the highest order and least granular scope for the C4 Model hierarchy. Software systems are defined as a grouping of C4 Model containers that work together to provide a service. At this scope we are primarily focussed on capturing the relationships between our subject system and external systems or users</p></td>
+</tr>
+<tr class="row-odd"><td><p>Container</p></td>
+<td><p>Container</p></td>
+<td><p>Containers are typically standalone applications or services that can be ‘deployed’. Candidates for modeling as C4 containers include a web UI running in a user’s browser, the backend application serving such a web UI, a RDBMS server, or message broker - which together might form the components for a SaaS software system.</p></td>
+</tr>
+<tr class="row-even"><td><p>Component</p></td>
+<td><p>Component</p></td>
+<td><p>Components are logical groupings of code that implement the functionality of a container. The language in which a container is implemented has a significant impact over what might qualify as a component, in the object oriented paradigm a component is often an interface and implementing classes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code</p></td>
+<td><p>Code</p></td>
+<td><p>The most granular scope is the code itself. This scope is seldom included in architecture documentation because code is considered high entropy and keeping such documentation aligned with a changing code base is rarely worth the effort. However, for critical parts of a system a few code diagrams (typically UML class, sequence or ER diagrams) may be useful.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="model-based-diagrams-as-code-with-likec4">
+<h2>Model-based diagrams-as-code with LikeC4<a class="headerlink" href="#model-based-diagrams-as-code-with-likec4" title="Link to this heading">#</a></h2>
+<p>Diagrams-as-code is an approach to generating software diagrams from code-like markup instead of manually crafting diagrams in a visual editor. The key benefits of a diagrams-as-code approach are:</p>
+<ul class="simple">
+<li><p>because the diagrams are code, they can be tracked in version control just like any other code source.</p></li>
+<li><p>styling and placement of diagram elements is handled by an engine, meaning that we don’t have to worry about arranging elements in the first place or re-arranging them when we make updates.</p></li>
+<li><p>because the diagrams are code we can easily build tooling that emits or processes this code as part of an automated build pipeline.</p></li>
+</ul>
+<p>If you’ve ever used tools like PlantUML or Mermaid you will be familiar with the concept of diagrams-as-code, and perhaps have experienced the benefits outlined previously first-hand. Tools like PlantUML and Mermaid are excellent for quickly generating small one-off diagrams, but they have some significant limitations when it comes to documenting an entire system’s architecture, most notably they provide little support for generating multiple views of a software system in a consistent way. Tools like LikeC4 extend the diagrams-as-code approach by enabling us to model a software system once; and from this single source of truth, generate multiple views of the system.</p>
+<p>Model-based approaches provide:</p>
+<ul class="simple">
+<li><p>a single source of truth from which diagrams can be generated in a consistent way.</p></li>
+<li><p>the ability to declare and generate multiple ‘views’ of a system as a series of diagrams, which is particularly helpful for managing the complexity of documenting large systems.</p></li>
+<li><p>greater tooling opportunities that emit or process the model to enforce constraints or enrich the model with meta data to improve meaning.</p></li>
+</ul>
+<p>LikeC4 provides a syntax and tooling (via the LikeC4 CLI) to declare the C4 Model hierarchical abstractions in code and from this generate corresponding C4 Model diagrams.</p>
+</section>
+<section id="modelling-a-system">
+<h2>Modelling a system<a class="headerlink" href="#modelling-a-system" title="Link to this heading">#</a></h2>
+<p>The remainder of this workshop shows you how to leverage the C4 Model (and LikeC4) to document a hypothetical Agent as a Service software system:</p>
+<p><em>The Agent as a Service (AaaS) system provides users the ability to configure AI agents to act on their behalf in a secure environment. Users consume AaaS services via two interfaces, the AI Experience (AIX) web UI (maintained by an external team), or directly via a RESTfull AI Agent Harness API exposed by the AaaS - AIX consumes AaaS via this same REST API. The AaaS is currently integrated with two LLM providers, OpenAI and <a class="reference external" href="http://Z.ai">Z.ai</a>. The AaaS is deployed as four applications; an Envoy Proxy that acts as a gateway to the AaaS system, an Agent Harness application that exposes the AI Agent Harness API and implements all agent logic; an LLM Provider application that routes requests from the Agent Harness to LLM services provided by OpenAI and <a class="reference external" href="http://Z.ai">Z.ai</a>; a PostgreSQL database in which all AaaS data is stored.</em></p>
+<section id="a-c4-model-specification-in-likec4">
+<h3>A C4 Model specification in LikeC4<a class="headerlink" href="#a-c4-model-specification-in-likec4" title="Link to this heading">#</a></h3>
+<p>To model a systems in LikeC4 we first need to declare a <em>specification</em>, which defines what <em>elements</em> are appropriate for the model.</p>
+<p>The C4 Model hierarchy is comprised of software systems, containers, components and code, however we will not be documenting code so we’ll leave this level of the hierarchy out of our specification. The following LikeC4 specification defines the C4 Model hierarchy, add it to a <code class="docutils literal notranslate"><span class="pre">aaas.c4</span></code> file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    element actor {
+        notation &#39;Actor&#39;
+        style {
+            shape person
+        }
+    }
+    element software-system {
+        notation &#39;Software System&#39;
+        style {
+            color green
+        }
+    }
+    element container {
+        notation &#39;Container&#39;
+    }
+    element component {
+        notation &#39;Component&#39;
+        style {
+            shape component
+        }
+    }
+}
+</pre></div>
+</div>
+<p>While actors are not a level of the C4 Model hierarchy, it’s critical that we can capture system users. We’ll add an actor element for this purpose:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    element actor {
+        notation &#39;Actor&#39;
+        style {
+            shape person
+        }
+    }
+
+    // other elements...
+}
+</pre></div>
+</div>
+</section>
+<section id="modelling-software-systems">
+<h3>Modelling software systems<a class="headerlink" href="#modelling-software-systems" title="Link to this heading">#</a></h3>
+<p>Now we can begin modeling the software system level of the AaaS system. From the system description we know that the external consumers of the AaaS system are a single User actor and the AIX web UI, and the external systems on which AaaS depends are the LLM services provided by OpenAI and <a class="reference external" href="http://Z.ai">Z.ai</a>. We can model these systems as so:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    // elements...
+}
+
+model {
+    user = actor &#39;User&#39;
+    oai = software-system &#39;OpenAI&#39; {
+        style {
+            icon tech:openai
+        }
+    }
+    zai = software-system &#39;Z.ai&#39;
+    aix = software-system &#39;AIX&#39;
+    aaas = software-system &#39;AaaS&#39;
+
+    aix -&gt; aaas &#39;Consumes AI Agent Harness API&#39; {
+        technology &#39;HTTPS&#39;
+    }
+    aaas -&gt; oai &#39;Accesses services provided by&#39;  {
+        technology &#39;HTTPS&#39;
+    }
+    aaas -&gt; zai &#39;Accesses services provided by&#39;  {
+        technology &#39;HTTPS&#39;
+    }
+    user -&gt; aix &#39;Uses in browser&#39;
+    user -&gt; aaas &#39;Uses in automation&#39;  {
+        technology &#39;HTTPS&#39;
+    }
+}
+</pre></div>
+</div>
+</section>
+<section id="generating-a-system-context-diagram">
+<h3>Generating a system context diagram<a class="headerlink" href="#generating-a-system-context-diagram" title="Link to this heading">#</a></h3>
+<p>We now have both a specification and model, which is enough to begin generating diagrams.</p>
+<blockquote>
+<div><p>The LikeC4 tooling demonstrated in this workshop requires that you have NodeJS installed. If you don’t have NodeJS, install the latest version from the <a class="reference external" href="https://nodejs.org/en/download">official NodeJS website</a>.</p>
+</div></blockquote>
+<p>LikeC4 provides a number of ways to generate diagrams from <code class="docutils literal notranslate"><span class="pre">.c4</span></code> files, and the first we’ll look at is the LikeC4 server, which can generate a live preview that gives us instantaneous feedback as we modify our model. In the same directory as your <code class="docutils literal notranslate"><span class="pre">aaas.c4</span></code> file, start the server with the <code class="docutils literal notranslate"><span class="pre">LikeC4</span></code> CLI:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>likec4@1.59.1<span class="w"> </span>start
+</pre></div>
+</div>
+<p>On starting the server the LikeC4 UI should be launched in your default browser. Notice that there is a single diagram titled ‘Landscape view’, click on this diagram to view a C4 Model system context diagram generated from our AaaS model. To see the live preview in action, change the color of actors to hot pink by adding a custom color and modifying the actor element styling:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    color hot-pink #ff69b4
+    element actor {
+        notation &#39;Actor&#39;
+        style {
+            shape person
+            color hot-pink
+        }
+    }
+
+    // other elements...
+}
+
+model {
+    // software systems and relationships...
+}
+</pre></div>
+</div>
+<p>The system context diagram should now look something like:</p>
+<p><img alt="alt text" src="../_images/system-context.png" /></p>
+</section>
+<section id="modelling-containers">
+<h3>Modelling containers<a class="headerlink" href="#modelling-containers" title="Link to this heading">#</a></h3>
+<p>This is an excellent start, but we can generate far more views than just the C4 system context. Let’s model out the containers that comprise the AaaS system and generate a C4 Model container diagram. Add the following containers to the <code class="docutils literal notranslate"><span class="pre">aaas</span></code> software system:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    // elements...
+}
+
+model {
+    // other software systems and relationships...
+
+    aaas = software-system &#39;AaaS&#39; {
+        container gw &#39;API Gateway&#39; {
+            style {
+                icon tech:envoy
+            }
+        }
+        container ah &#39;Agent Harness&#39;
+        container lp &#39;LLM Provider&#39;
+        container ad &#39;AaaS Datastore&#39; {
+            style {
+                shape storage
+                icon tech:postgresql
+            }
+        }
+
+        gw -&gt; ah &#39;Forwards requests to&#39; {
+            technology &#39;HTTPS&#39;
+        }
+        ah -&gt; lp &#39;Accesses models via&#39; {
+            technology &#39;HTTPS&#39;
+        }
+        ah -&gt; ad &#39;Stores data in&#39; {
+            technology &#39;TCP&#39;
+        }
+    }
+
+    // other software systems and relationships...
+}
+</pre></div>
+</div>
+<p>You will notice that adding these containers to the model has no effect on the generated system context diagram. This is expected, the default view that generates this system context diagram only includes elements at the top level of the model, our freshly declared containers are a level too deep. To capture these containers in a C4 container diagram we will need to declare an new LikeC4 <em>view</em>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    // elements...
+}
+
+model {
+    // software systems and relationships...
+}
+
+views {
+    view aaas-container {
+        include 
+            aaas.*,
+            aaas.* -&gt; *,
+            * -&gt; aaas.*
+    }
+}
+</pre></div>
+</div>
+<p>This view adds a new diagram to the LikeC4 server that renders elements according to the <code class="docutils literal notranslate"><span class="pre">include</span></code> directive. The <code class="docutils literal notranslate"><span class="pre">aaas.*</span></code> statement selects all direct children of the AaaS software system (ie its containers), and the <code class="docutils literal notranslate"><span class="pre">aaas.*</span> <span class="pre">-&gt;</span> <span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">-&gt;</span> <span class="pre">aaas.*</span></code> statements select all outgoing and incoming relationships between AaaS containers and external software systems or actors. The new diagram should look something like below:</p>
+<p><img alt="AaaS Container Diagram" src="../_images/aaas-container.png" /></p>
+<p>You might be wondering why the relationships between the AaaS, it’s actors, and external systems have not been rendered. The reason for this is that these relationships have been declared between software systems, rather than between software systems and the newly included containers. Now that we have containers modeled we can be more precise with how we’ve modeled the relationships between elements. For example, we’ve currently declared a relationship <code class="docutils literal notranslate"><span class="pre">aix</span> <span class="pre">-&gt;</span> <span class="pre">aaas</span></code>, but from the system description we are lead to believe that external systems consume the AaaS system via an API Gateway, updating this relationship to <code class="docutils literal notranslate"><span class="pre">aix</span> <span class="pre">-&gt;</span> <span class="pre">aaas.gw</span></code> better reflects this architectural decision. Make the following modifications to the relationships in the model:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    // elements...
+}
+
+model {
+    // other systems and relationships...
+
+    aix -&gt; aaas.gw &#39;Consumes AI Agent Harness API&#39; {
+        technology &#39;HTTPS&#39;
+    }
+    aaas.lp -&gt; oai &#39;Accesses services provided by&#39;  {
+        technology &#39;HTTPS&#39;
+    }
+    aaas.lp -&gt; zai &#39;Accesses services provided by&#39;  {
+        technology &#39;HTTPS&#39;
+    }
+    user -&gt; aix &#39;Uses in browser&#39;
+    user -&gt; aaas.gw &#39;Uses in automation&#39;  {
+        technology &#39;HTTPS&#39;
+    }
+}
+
+views {
+    // views...
+}
+</pre></div>
+</div>
+<p>After applying the updates above, the container diagram should look something like:</p>
+<p><img alt="AaaS Container Diagram with context" src="../_images/aaas-container-in-context.png" /></p>
+<blockquote>
+<div><p>It’s generally a good idea to present diagrams in context, in the C4 Model this typically means that when constructing container or component diagrams we should include external software systems and actors directly related to the elements that are the subject of the diagram.</p>
+</div></blockquote>
+</section>
+<section id="modelling-components">
+<h3>Modelling components<a class="headerlink" href="#modelling-components" title="Link to this heading">#</a></h3>
+<p>Let’s now turn to working on a component diagram for the Agent Harness container. The system description does not describe the components of the Agent Harness in great detail so we’ll make a few up. Add the following to the <code class="docutils literal notranslate"><span class="pre">aaas.c4</span></code> document:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    // elements...
+}
+
+model {
+    // other software systems and relationships...
+
+    aaas = software-system &#39;AaaS&#39; {
+        // other containers and relationships...
+
+        container ah &#39;Agent Harness&#39; {
+            component api &#39;AI Agent Harness API&#39;
+            component mq &#39;Message Broker&#39; {
+                style {
+                    shape queue
+                }
+            }
+            component rep &#39;Agent Repository&#39;
+            component oc &#39;OpenAI Client&#39;
+            component w &#39;Agent Worker&#39;
+
+            api -&gt; mq &#39;Publishes messages to&#39;
+            api -&gt; rep &#39;Manages Agents via&#39;
+            w -&gt; mq &#39;Consumes messages from&#39;
+            w -&gt; rep &#39;Retrieves Agents via&#39;
+            w -&gt; oc &#39;Calls models via&#39; 
+        }
+
+        // other containers and relationships...
+
+        gw -&gt; ah.api &#39;Forwards requests to&#39; {
+            technology &#39;HTTPS&#39;
+        }
+        ah.oc -&gt; lp &#39;Accesses models via&#39; {
+            technology &#39;HTTPS&#39;
+        }
+        ah.rep -&gt; ad &#39;Stores data in&#39; {
+            technology &#39;TCP&#39;
+        }
+    }
+
+    // other software systems and relationships...
+
+    views {
+        // other views...
+
+        view ah-component {
+            include 
+                aaas.ah.*,
+                aaas.ah.* -&gt; *,
+                * -&gt; aaas.ah.*
+        }
+    }
+}
+</pre></div>
+</div>
+<p>Note that in addition to including a number of new components, we’ve updated the relationships between the Agent Harness container and other AaaS containers to reference these new components (for example the API Gateway consumes the AI Agent Harness API component - <code class="docutils literal notranslate"><span class="pre">gw</span> <span class="pre">-&gt;</span> <span class="pre">ah.api</span></code>). We’ve also added an additional view that includes all Agent Harness components, the diagram generated from this view should look something like:</p>
+<p><img alt="Agent Harness Component Diagram" src="../_images/ah-component.png" /></p>
+</section>
+<section id="dynamic-diagrams">
+<h3>Dynamic diagrams<a class="headerlink" href="#dynamic-diagrams" title="Link to this heading">#</a></h3>
+<p>We now have a complete C4 Model for the AaaS system and can generate all of the high-value static diagrams that we might need for the <em>Context and Scope</em> and <em>Building Block View</em> sections of the arc42 template. But what about the class of dynamic diagrams expected in the arc42 <em>Runtime View</em> section? LikeC4 helps us out here as well by providing a way to declare dynamic views rendered as collaboration or sequence diagrams. The following dynamic view captures a hypothetical ‘create new agent’ flow through the AaaS system:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>specification {
+    // elements...
+}
+
+model {
+    // systems and relationships...
+}
+
+views {
+    // other views...
+
+    dynamic view create-new-agent {
+        user -&gt; aaas.gw &#39;POST /agents {newAgent}&#39;
+        -&gt; aaas.ah.api &#39;forward request&#39;
+        -&gt; aaas.ah.rep &#39;getAgentByName(newAgent.name)&#39;
+        -&gt; aaas.ad &#39;SELECT * FROM agents WHERE name = name&#39;
+        -&gt; aaas.ah.rep &#39;row&#39;
+        alt {
+            when &#39;row exists&#39; {
+                aaas.ah.rep -&gt; aaas.ah.rep &#39;existing = map(row)&#39;
+            } else {
+                aaas.ah.rep -&gt; aaas.ah.rep &#39;existing = null&#39;
+            }
+        }
+        aaas.ah.rep -&gt; aaas.ah.api &#39;existing&#39;
+        alt {
+            when &#39;existing != null&#39; {
+                aaas.ah.api -&gt; aaas.gw &#39;400 agent already exists&#39;
+                
+            } else {
+                aaas.ah.api -&gt; aaas.ah.rep &#39;save(newAgent)&#39;
+                -&gt; aaas.ad &#39;INSERT INTO agents (name, created_at) VALUES (newAgent.name, OffsetDateTime.now())&#39;
+                aaas.ah.api -&gt; aaas.gw &#39;201 agent created&#39;
+            }
+        }
+        aaas.gw -&gt; user &#39;forward response&#39;
+    }
+}
+</pre></div>
+</div>
+<p>The generated diagram should look something like:</p>
+<p><img alt="Create New Agent Sequence Diagram" src="../_images/create-new-agent.png" /></p>
+<blockquote>
+<div><p>Note that you may need to select ‘render as a sequence diagram’ in the LikeC4 server UI, as LikeC4 renders dynamic views as collaboration diagrams by default.</p>
+</div></blockquote>
+</section>
+<section id="automation">
+<h3>Automation<a class="headerlink" href="#automation" title="Link to this heading">#</a></h3>
+<p>As previously mentioned, one of the benefits of adopting a diagrams-as-code approach is that we can develop tooling that processes this code in useful ways. In this section we’ll automate the generation of C4 Model diagrams with LikeC4, and publish these diagrams to a GitHub wiki.</p>
+<section id="create-repository-and-wiki-pages">
+<h4>Create repository and wiki pages<a class="headerlink" href="#create-repository-and-wiki-pages" title="Link to this heading">#</a></h4>
+<p>Create a new public repository (only public repositories created under the GitHub free tier are allocated a wiki) and add the following pages to the wiki:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Home</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Agent as a Service</span>
+
+Welcome to the documentation for the Agent as a Service system. Find arc42 sections below:
+
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Context and Scope</span>](<span class="na">03-context-and-scope</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Building Block View</span>](<span class="na">05-building-block-view</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Runtime View</span>](<span class="na">06-runtime-view</span>)
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">03-context-and-scope</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Context and Scope</span>
+
+![<span class="nt">AaaS System Context Diagram</span>](<span class="na">images/index.png</span>)
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">05-building-block-view</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Building Block View</span>
+
+<span class="gu">## AaaS Containers</span>
+
+![<span class="nt">AaaS Container Diagram</span>](<span class="na">images/aaas-container.png</span>)
+
+<span class="gu">## Agent Harness Components</span>
+
+![<span class="nt">Agent Harness Component Diagram</span>](<span class="na">images/ah-component.png</span>)
+</pre></div>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">06-runtime-view</span></code></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Runtime View</span>
+
+<span class="gu">## Create New Agent Flow</span>
+
+![<span class="nt">Create New Agent Flow Sequence Diagram</span>](<span class="na">images/create-new-agent.png</span>)
+</pre></div>
+</div>
+</section>
+<section id="apply-automation">
+<h4>Apply automation<a class="headerlink" href="#apply-automation" title="Link to this heading">#</a></h4>
+<p>You will notice that the images referenced in these pages do not exist, we’ll fix that with our automation. Clone the repository and add the following workflow to <code class="docutils literal notranslate"><span class="pre">.github/workflows/publish-wiki.yaml</span></code> that defines a GitHub Action to generate and publish images to your wiki:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish to GitHub Wiki</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docs/**</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">.github/workflows/publish-wiki.yaml</span><span class="p p-Indicator">]</span>
+
+<span class="nt">concurrency</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs</span>
+<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">permissions</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">wiki</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish to GitHub Wiki</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Code</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{github.repository}}</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{github.repository}}</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup NodeJS</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v7</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;24.11&quot;</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Playwright Browsers</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npx playwright@1.60.0 install --with-deps</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate Diagrams</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">npx likec4@1.59.1 export png $GITHUB_WORKSPACE/${{github.repository}} -o $GITHUB_WORKSPACE/${{github.repository}}/build --seq --notation</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Wiki</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{github.repository}}.wiki</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{github.repository}}.wiki</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Push to wiki</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">set -e</span>
+<span class="w">          </span><span class="no">cd $GITHUB_WORKSPACE/${{github.repository}}.wiki</span>
+<span class="w">          </span><span class="no">cp -r $GITHUB_WORKSPACE/${{github.repository}}/build ./images</span>
+<span class="w">          </span><span class="no">git config --local user.email &quot;action@github.com&quot;</span>
+<span class="w">          </span><span class="no">git config --local user.name &quot;GitHub Action&quot;</span>
+<span class="w">          </span><span class="no">git add .</span>
+<span class="w">          </span><span class="no">git diff-index --quiet HEAD || git commit -m &quot;chore(ci): publish wiki&quot; &amp;&amp; git push</span>
+</pre></div>
+</div>
+<p>This Action definition, checks out the repository, and using the LikeC4 CLI exports our views as PNGs, before finally committing these exported views to the wiki.</p>
+<p>Finally, add the <code class="docutils literal notranslate"><span class="pre">aaas.c4</span></code> to the root of the repository, and commit and push both the workflow and LikeC4 model. GitHub should run the Action and after it’s complete the generated diagrams should be displayed in the wiki.</p>
+<blockquote>
+<div><p>This kind of automation is particularly useful for keeping documentation aligned with the implementation of the system. Because the LikeC4 model is code and can be co-located with the rest of the system source, we can easily integrate it into a standard PR review process.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./workshops"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="workshop_3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Workshop 3</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="workshop_7.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Workshop 7</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-a-methodology">Why do we need a methodology?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arc42-framework">The arc42 framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-c4-model">The C4 Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-diagrams-as-code-with-likec4">Model-based diagrams-as-code with LikeC4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-a-system">Modelling a system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-c4-model-specification-in-likec4">A C4 Model specification in LikeC4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-software-systems">Modelling software systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-system-context-diagram">Generating a system context diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-containers">Modelling containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-components">Modelling components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-diagrams">Dynamic diagrams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automation">Automation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-repository-and-wiki-pages">Create repository and wiki pages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-automation">Apply automation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
