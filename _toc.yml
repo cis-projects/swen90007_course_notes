@@ -10,7 +10,6 @@ parts:
     - file: workshops/workshop_2
     - file: workshops/workshop_3
     - file: workshops/workshop_4
-    - file: workshops/workshop_6
     - file: workshops/workshop_7
     - file: workshops/workshop_8
   - caption: JSP Project Development Setup
