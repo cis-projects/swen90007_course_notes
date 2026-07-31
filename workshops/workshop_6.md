@@ -2,30 +2,41 @@
 
 This workshop introduces continuous integration and continuous delivery (CI/CD), and walks you through building a pipeline for your team's repository with [GitHub Actions](https://docs.github.com/en/actions).
 
+Everything here targets the stack you're building on: a **Java back-end built with Maven**, packaged as an embedded-Tomcat fat JAR and deployed to Render. If your team chose React for the front-end, there's a second job to add — JSP teams need only the Java pipeline.
+
 Specifically, it covers:
 
 - why teams automate build, test and deployment steps
 - the anatomy of a GitHub Actions workflow
-- a taxonomy of pipeline stages - what a pipeline should actually do
-- a hands-on, step-by-step build of a pipeline in your own repository
-- a quick reference of complete workflows for common technology stacks
+- a taxonomy of pipeline stages — what a pipeline should actually do
+- how to build a pipeline that fits inside the subject's shared Actions minutes budget
+- a hands-on, step-by-step build of that pipeline in your own repository
 
-```{admonition} By the end of this workshop
+```{admonition} By the end of this session
 :class: important
 Your team repository should have a working CI/CD pipeline that automatically checks code quality, runs tests, and (optionally) deploys your application every time someone pushes code or opens a pull request.
 ```
 
-Your pipeline is a living part of your project. Start with the basics today and evolve it as the project grows - add end-to-end tests, security scanning, or automated releases when you're ready.
+```{admonition} Tip
+:class: tip
+Your CI/CD pipeline is a living part of your project. Start with the basics today and evolve it as your project grows — add integration tests, security scanning, or automated releases when you're ready.
+```
 
 ## Why CI/CD?
 
-Without automation, teams rely on manual processes and good intentions: *did you run the tests before merging?* *Is the formatting consistent?* *Does the build still work?* These questions lead to inconsistency, broken main branches, and stressful deployments. CI/CD replaces the questions with checks that run the same way every time, for everyone.
+### The problem
+
+Without automation, teams rely on manual processes: "Did you run the tests before merging?" "Is the formatting consistent?" "Does the build still work?" These questions lead to inconsistency, broken main branches, and stressful deployments.
+
+### The solution
 
 | Term | What it means | Analogy |
 | --- | --- | --- |
 | **Continuous Integration (CI)** | Automatically build, lint, and test code on every push or pull request. | A spell-checker that runs every time you save a document. |
 | **Continuous Delivery (CD)** | Automatically prepare a release-ready artifact after CI passes. | The document is formatted and ready to print at any moment. |
 | **Continuous Deployment** | Automatically deploy to production when CI/CD passes on the main branch. | The document is printed and mailed the moment it's approved. |
+
+There's a direct assessment argument too. Parts 2 and 3 are assessed from a **tagged release that is deployed and running**, and you demonstrate your pipeline at the interactive oral. A pipeline that builds and deploys the tag for you turns "did someone remember to redeploy before the deadline?" into a question nobody has to ask.
 
 ## Anatomy of a GitHub Actions workflow
 
@@ -53,16 +64,21 @@ jobs:                            # One or more jobs (run in parallel by default)
 
 | Concept | Explanation |
 | --- | --- |
-| **Workflow** | The entire YAML file. A repository can have multiple workflows. |
+| **Workflow** | The entire YAML file. A repo can have multiple workflows. |
 | **Trigger (`on`)** | When the workflow runs: `push`, `pull_request`, `schedule`, `workflow_dispatch` (manual), etc. |
 | **Job** | A unit of work that runs on a fresh virtual machine. Jobs run in parallel unless you add `needs:`. |
-| **Step** | A single task inside a job - either a shell command (`run:`) or a reusable action (`uses:`). |
-| **Action** | A reusable, community-maintained step (e.g. `actions/checkout@v4`). Browse them at the [GitHub Marketplace](https://github.com/marketplace?type=actions). |
-| **Artifact** | A file produced by a job (e.g. a build output or test report) that can be downloaded or passed to another job. |
+| **Step** | A single task inside a job — either a shell command (`run:`) or a reusable action (`uses:`). |
+| **Action** | A reusable, community-maintained step (e.g., `actions/checkout@v4`). Browse them at [GitHub Marketplace → Actions](https://github.com/marketplace?type=actions). |
+| **Artifact** | A file produced by a job (e.g., a build output, test report) that can be downloaded or passed to another job. |
 
-## Pipeline taxonomy - what should your pipeline do?
+```{admonition} Every job starts from nothing
+:class: note
+A job runs on a **fresh** virtual machine. It has no JDK configured, no local Maven repository, and no copy of your code until you check it out. This is exactly why CI catches "works on my machine" problems — and, as the next section shows, it's also why every extra job costs you real time.
+```
 
-A well-designed pipeline is made up of **stages**, each with a clear purpose. Below is a taxonomy of common stages; you do not need all of them on day one - start small and grow.
+## Pipeline taxonomy — what should your pipeline do?
+
+A well-designed pipeline is made up of **stages**, each with a clear purpose. Below is a taxonomy of common pipeline stages. You do not need all of them on day one — start small and grow.
 
 ::::{grid} 1 1 2 2
 :gutter: 3
@@ -73,7 +89,7 @@ A well-designed pipeline is made up of **stages**, each with a clear purpose. Be
 
 1. Code quality
 ^^^
-Linting, format checks, static analysis.
+Checkstyle, formatting, static analysis.
 :::
 
 :::{grid-item-card}
@@ -82,7 +98,7 @@ Linting, format checks, static analysis.
 
 2. Test
 ^^^
-Unit tests, integration tests, coverage.
+JUnit unit tests, integration tests, coverage.
 :::
 
 :::{grid-item-card}
@@ -91,7 +107,7 @@ Unit tests, integration tests, coverage.
 
 3. Build
 ^^^
-Compile, bundle, build a Docker image, upload the artifact.
+Compile, package the fat JAR, upload the artifact.
 :::
 
 :::{grid-item-card}
@@ -100,7 +116,7 @@ Compile, bundle, build a Docker image, upload the artifact.
 
 4. Review gates
 ^^^
-Require passing checks on pull requests, auto-assign reviewers.
+Require passing checks on PRs, auto-assign reviewers.
 :::
 
 :::{grid-item-card}
@@ -109,91 +125,134 @@ Require passing checks on pull requests, auto-assign reviewers.
 
 5. Deploy (CD)
 ^^^
-Staging preview, production deploy, rollback strategy.
+Deploy to Render on merge, or on a release tag.
 :::
 ::::
 
-Stages 1 to 4 typically run on **every push and pull request**; stage 5 usually runs on the **main branch only**.
+Stages 1 to 4 typically run on **every push and pull request**; stage 5 usually runs on the **main branch only**, or on a tag.
 
-### Code quality - "is the code clean?"
+Conveniently, the first three map onto phases of the Maven build lifecycle, so a single `mvn verify` runs all of them in one pass. Keep that in mind as you read — it's the key to a cheap pipeline.
 
-**Purpose:** enforce consistent style and catch common mistakes before anyone reviews the code.
+### Code quality — "is the code clean?"
 
-| Tool | Language / stack | What it does | GitHub Action |
-| --- | --- | --- | --- |
-| **ESLint** | JavaScript / TypeScript | Linting: catches bugs, enforces style rules | `eslint` via `npm` / `npx` |
-| **Prettier** | JS / TS / CSS / HTML / Markdown | Formatting: consistent whitespace, quotes, etc. | `npx prettier --check .` |
-| **Flake8** | Python | PEP 8 linting | `pip install flake8 && flake8 .` |
-| **Black** | Python | Opinionated auto-formatter | `pip install black && black --check .` |
-| **Ruff** | Python | Very fast linter and formatter (replaces Flake8 + Black) | `pip install ruff && ruff check .` |
-| **Checkstyle** | Java | Style and convention checker | [checkstyle/checkstyle-action](https://github.com/checkstyle/checkstyle-action) |
-| **Spotless** | Java / Kotlin (Gradle) | Formatting via a Gradle plugin | `./gradlew spotlessCheck` |
-| **SwiftLint** | Swift (iOS) | Swift style enforcement | [norio-nomura/action-swiftlint](https://github.com/norio-nomura/action-swiftlint) |
+**Purpose:** Enforce consistent style and catch common mistakes before anyone reviews the code.
 
-### Automated testing - "does the code work?"
-
-**Purpose:** run your test suite automatically so broken code never reaches the main branch.
-
-| Test type | When to use | Examples |
+| Tool | What it does | Maven goal |
 | --- | --- | --- |
-| **Unit tests** | Test individual functions or classes in isolation. *Every team should have these.* | `pytest`, `jest`, JUnit |
-| **Integration tests** | Test how multiple components work together (e.g. API + database). | `supertest` (Node), `pytest` with fixtures, Spring Boot `@SpringBootTest` |
-| **End-to-end (E2E) tests** | Simulate real user interaction through a browser. *Optional but powerful.* | Cypress, Playwright, Selenium |
+| **Checkstyle** | Style and convention checking against a rule set (Google or Sun checks make a good starting point) | `mvn -B checkstyle:check` |
+| **Spotless** | Auto-formatting, with a `check` goal that fails CI when files aren't formatted | `mvn -B spotless:check` |
+| **PMD** | Static analysis for common bad practice, dead code, and copy-paste | `mvn -B pmd:check` |
+| **SpotBugs** | Bytecode analysis for likely bugs — null dereferences, unclosed resources, ignored return values | `mvn -B spotbugs:check` |
 
-**Code coverage** measures what percentage of your code is exercised by tests. Consider adding a coverage report to track progress over time.
+Pick **one** to start with. Checkstyle is the usual choice because the rules are easy to agree on and the failures are unambiguous. SpotBugs earns its place later in the semester — it's good at spotting the resource leaks that show up once you're managing your own JDBC connections.
 
-| Coverage tool | Stack | GitHub Action / command |
+```{admonition} Bind the check to a phase
+:class: tip
+If you bind these plugins to a lifecycle phase in your `pom.xml` (Checkstyle to `validate`, SpotBugs to `verify`) they run as part of `mvn verify` — no separate CI step, and the same command works on your laptop.
+```
+
+### Automated testing — "does the code work?"
+
+**Purpose:** Run your test suite automatically so broken code never reaches the main branch.
+
+| Test type | When to use | How it runs |
 | --- | --- | --- |
-| **coverage.py + pytest-cov** | Python | `pytest --cov=src --cov-report=xml` |
-| **Jest (built-in)** | JS / TS | `npx jest --coverage` |
-| **JaCoCo** | Java | Gradle/Maven plugin, generates `jacoco.xml` |
+| **Unit tests** | Test individual classes in isolation — mappers, domain logic, your Unit of Work. *Every team should have these.* | JUnit 5 via Surefire, `mvn -B test` |
+| **Integration tests** | Test components together against a real PostgreSQL database. | JUnit 5 + [Testcontainers](https://java.testcontainers.org/) via Failsafe, named `*IT.java`, `mvn -B verify` |
+| **Performance tests** | Measure throughput and latency under load (Part 3). | k6 — see Workshop 8. Run these on a schedule or manually, **not** on every push |
 
-### Build verification - "does the project compile and bundle?"
+**Code coverage** measures what percentage of your code is exercised by tests. [JaCoCo](https://www.jacoco.org/jacoco/trunk/doc/maven.html) is the standard choice: bind `prepare-agent` and `report` in your `pom.xml` and a report appears in `target/site/jacoco/` on every `mvn verify`.
 
-**Purpose:** make sure the project can be successfully built from a clean environment - not just on your laptop.
+```{admonition} Testcontainers costs minutes
+:class: caution
+Testcontainers is excellent — it spins up a real PostgreSQL container so your mappers are tested against the database they'll actually run on. It also pulls a Docker image on every CI run. Keep integration tests in a separate Failsafe run and consider limiting them to pull requests against `main` rather than every push to a feature branch.
+```
 
-| Task | Example command | Why it matters |
+### Build verification — "does the project compile and package?"
+
+**Purpose:** Make sure the project can be successfully built from a clean environment — not just on your laptop.
+
+| Task | Command | Why it matters |
 | --- | --- | --- |
-| Compile / transpile | `npm run build`, `./gradlew build`, `dotnet build` | Catches missing dependencies or type errors. |
-| Docker image build | `docker build -t myapp .` | Ensures the container can be assembled. |
-| Upload artifact | `actions/upload-artifact@v4` | Saves the build output for deployment or inspection. |
+| Compile and test | `mvn -B verify` | Catches missing dependencies, and anything that only compiles because of stale state in your IDE. |
+| Package the fat JAR | `maven-shade-plugin`, bound to `package` | Produces the single self-contained JAR — your code plus embedded Tomcat — that Render runs. If this breaks, you cannot deploy. |
+| Upload the artifact | `actions/upload-artifact@v4` | Lets you download the exact JAR a run produced, which is invaluable when the deployed build misbehaves but your local one doesn't. |
 
-### Review gates - "is this pull request safe to merge?"
+### Review gates — "is this PR safe to merge?"
 
-**Purpose:** use GitHub features to prevent merging code that hasn't passed your pipeline.
+**Purpose:** Use GitHub features to prevent merging code that hasn't passed your pipeline.
 
 | Feature | How to set it up |
 | --- | --- |
 | **Required status checks** | Settings → Branches → Branch protection rules → Require status checks to pass. Select your CI job names. |
 | **Required reviews** | Same page → Require approvals (set to 1 or 2). |
-| **Auto-assign reviewers** | Use the [auto-assign action](https://github.com/kentaro-m/auto-assign-action) or GitHub's built-in `CODEOWNERS` file. |
-| **Pull request labelling** | Use [actions/labeler](https://github.com/actions/labeler) to auto-label pull requests by file path. |
+| **Auto-assign reviewers** | Use the [auto-assign action](https://github.com/kentaro-m/auto-assign-action) or GitHub's built-in CODEOWNERS file. |
+| **PR labelling** | Use [actions/labeler](https://github.com/actions/labeler) to auto-label PRs by file path. |
 
-### Continuous deployment - "ship it automatically"
+This is also where CI starts paying for itself as a *team* practice. With five people committing to one repository, a protected `main` is what stops a broken build from blocking everyone else's work an hour before a deadline.
 
-**Purpose:** once CI passes on the main branch, deploy to a live environment without manual steps.
+### Continuous deployment — "ship it automatically"
 
-| Platform | Action / approach | Notes |
+**Purpose:** Once CI passes, get the new version onto Render without anyone clicking anything.
+
+You have three options, and the cheapest one is probably the right one:
+
+| Approach | Actions minutes | When to use it |
 | --- | --- | --- |
-| **Vercel** | Automatic on push (zero config for Next.js / React) | Also generates deploy previews on pull requests. |
-| **Netlify** | Automatic on push (similar to Vercel) | Great for static sites and SPAs. |
-| **Railway / Render** | Automatic deploys from a connected branch | Good for full-stack apps with databases. |
-| **AWS (S3 + CloudFront)** | [aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials) | For static hosting on AWS. |
-| **Docker → Cloud Run / ECS** | Build image → push to registry → deploy | More advanced; a good stretch goal. |
-| **GitHub Pages** | [actions/deploy-pages](https://github.com/actions/deploy-pages) | Free hosting for static sites and docs. |
+| **Render auto-deploy on commit** | None — Render watches the branch itself | The sensible default while you're building |
+| **Render auto-deploy after CI checks pass** | None | Once you have branch protection: Render waits for your green checks, then deploys |
+| **Deploy hook called from a workflow** | A few seconds | When you need to deploy something Render can't detect on its own — most usefully, a **release tag** |
 
-```{admonition} Choosing a platform
-:class: tip
-If your client has not specified a hosting platform, Vercel, Netlify or Railway are the easiest starting points and have generous free tiers.
+The second option is worth setting up properly: it's configured on the service's Settings page in the Render dashboard, and it means a red pipeline never reaches your deployed URL. See [Render's deploy documentation](https://render.com/docs/deploys) for the setting, and [deploy hooks](https://render.com/docs/deploy-hooks) for the third option.
+
+## Your Actions minutes budget
+
+```{admonition} A shared, finite pool
+:class: warning
+GitHub Actions minutes are a **shared pool across the whole subject** — roughly 200 minutes per team per month. Your repositories are private, so every minute a workflow runs is drawn from it. If the pool is exhausted, deployments stop **for every team in the subject**, and wasteful CI can be raised at your oral assessment.
 ```
+
+This constraint is not an obstacle to good CI — it's the reason to write good CI. Consider a naive pipeline with three jobs (`lint`, `test`, `build`). Each one gets a fresh runner, so each one checks out the repository, installs a JDK, and downloads your entire dependency tree from Maven Central before doing any useful work. Call it three minutes per run. Five teammates pushing fifteen times a week comes to about 45 minutes a week — and you're out of minutes before the end of the month.
+
+The same checks in a single cached job take well under a minute. Six levers, roughly in order of impact:
+
+::::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item-card} 1. One job, not three
+Maven's lifecycle already runs quality checks, tests and packaging in order. `mvn -B verify` does all three in one JVM on one runner — one checkout, one JDK setup, one dependency resolution.
+:::
+
+:::{grid-item-card} 2. Cache `~/.m2`
+`actions/setup-java` will do it for you with `cache: maven`. Downloading dependencies is most of a cold build; caching turns minutes into seconds.
+:::
+
+:::{grid-item-card} 3. Cancel superseded runs
+A `concurrency` group with `cancel-in-progress: true` stops the previous run when you push a fix thirty seconds later. Nobody needs CI results for a commit that's already been replaced.
+:::
+
+:::{grid-item-card} 4. Don't run twice per change
+If you trigger on both `push` and `pull_request` for the same branch, a PR from a branch in your own repo runs the pipeline **twice**. Trigger `push` on `main` only, and let `pull_request` cover everything else.
+:::
+
+:::{grid-item-card} 5. Filter paths
+Wiki edits, `README` changes and documentation don't need a Java build. `paths-ignore` skips the run entirely.
+:::
+
+:::{grid-item-card} 6. Let Render do the deploying
+Render can watch your branch itself, at no cost in Actions minutes. Reserve workflow-triggered deploys for the cases Render can't handle, like tags.
+:::
+::::
+
+You can see what you've spent under **Settings → Billing** on the organisation, and each run shows its duration in the Actions tab. Check it occasionally — a pipeline that quietly doubled in cost is much easier to fix in Week 6 than in Week 12.
 
 ## Hands-on: build your pipeline step by step
 
-Work through the steps below in your team repository, adapting the snippets to your technology stack using the tables above and the complete workflows in **Quick reference**, later in this workshop.
+Work through the steps below in your team repository. Steps 1 to 5 build the pipeline up one stage at a time so you can see each part fail and pass; Step 6 then consolidates them into the single efficient job you'll actually keep.
 
-### Step 1 - Hello World workflow
+### Step 1 — Hello World workflow
 
-**Goal:** verify that GitHub Actions is working in your repository.
+**Goal:** Verify that GitHub Actions is working in your repo.
 
 1. Create the folder `.github/workflows/` in your repository.
 2. Add a file called `ci.yml` with the following content:
@@ -218,65 +277,43 @@ jobs:
 
 3. Commit and push.
 
-```{admonition} Checkpoint
+```{admonition} ✅ Checkpoint
 :class: note
 Open the **Actions** tab on GitHub. You should see a green check mark and the log message.
 ```
 
-### Step 2 - Code quality (linting and formatting)
+### Step 2 — Code quality (Checkstyle)
 
-**Goal:** add automated style and quality checks to your pipeline.
+**Goal:** Add automated style checking to your pipeline.
 
-Pick the snippet that matches your stack, or adapt one from the taxonomy tables above.
+First, add the plugin to your `pom.xml` and bind it to the `validate` phase, so it runs early and fails fast:
 
-::::{tab-set}
-
-:::{tab-item} JavaScript / TypeScript
-
-```yaml
-jobs:
-  lint:
-    name: Lint & Format Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - name: Run ESLint
-        run: npx eslint . --ext .js,.jsx,.ts,.tsx
-      - name: Check Prettier formatting
-        run: npx prettier --check .
+```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-checkstyle-plugin</artifactId>
+  <version>3.6.0</version>
+  <configuration>
+    <configLocation>checkstyle.xml</configLocation>
+    <consoleOutput>true</consoleOutput>
+    <failOnViolation>true</failOnViolation>
+    <violationSeverity>warning</violationSeverity>
+  </configuration>
+  <executions>
+    <execution>
+      <id>checkstyle-validate</id>
+      <phase>validate</phase>
+      <goals>
+        <goal>check</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
 ```
 
-**Prerequisite:** make sure `eslint` and `prettier` are in your `devDependencies` and that you have config files (`.eslintrc.*`, `.prettierrc`).
-:::
+Add a `checkstyle.xml` rule set at the root of the repository — starting from Google's or Sun's published checks and deleting the rules your team disagrees with is a perfectly respectable approach, and a faster route to consensus than writing one from scratch.
 
-:::{tab-item} Python
-
-```yaml
-jobs:
-  lint:
-    name: Lint & Format Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install ruff
-      - name: Run Ruff linter
-        run: ruff check .
-      - name: Check Ruff formatting
-        run: ruff format --check .
-```
-
-Ruff combines linting and formatting in a single, very fast tool.
-:::
-
-:::{tab-item} Java
+Then replace the `hello` job in `ci.yml`:
 
 ```yaml
 jobs:
@@ -289,67 +326,27 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - name: Run Checkstyle via Gradle
-        run: ./gradlew checkstyleMain checkstyleTest
+          cache: maven
+      - name: Run Checkstyle
+        run: mvn -B --no-transfer-progress checkstyle:check
 ```
 
-**Prerequisite:** add the Checkstyle plugin to your `build.gradle` and include a `checkstyle.xml` config file.
-:::
-
-::::
+```{admonition} What the flags do
+:class: note
+`-B` (batch mode) stops Maven emitting interactive progress, and `--no-transfer-progress` suppresses the download chatter. Together they turn thousands of lines of CI log into something you can actually read when a build fails.
+```
 
 **Try it:**
 
-- [ ] Push code with a deliberate style violation, and watch the pipeline **fail**.
-- [ ] Fix the violation, push again, and watch the pipeline turn **green**.
+- [ ] Push code with a deliberate style violation → watch the pipeline **fail**.
+- [ ] Fix the violation → push again → pipeline turns **green**.
+- [ ] Look at the run time of the second run compared with the first. The Maven cache should have made it noticeably faster.
 
-### Step 3 - Automated testing
+### Step 3 — Automated testing
 
-**Goal:** run your test suite on every push and pull request.
-
-::::{tab-set}
-
-:::{tab-item} JavaScript / TypeScript
+**Goal:** Run your JUnit suite on every push and pull request.
 
 ```yaml
-jobs:
-  test:
-    name: Unit Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - name: Run tests
-        run: npx jest --ci --coverage
-```
-:::
-
-:::{tab-item} Python
-
-```yaml
-jobs:
-  test:
-    name: Unit Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - name: Run tests with coverage
-        run: pytest --cov=src --cov-report=term-missing
-```
-:::
-
-:::{tab-item} Java
-
-```yaml
-jobs:
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -359,80 +356,82 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+          cache: maven
       - name: Run tests
-        run: ./gradlew test
+        run: mvn -B --no-transfer-progress test
 ```
-:::
 
-::::
+Surefire picks up anything named `*Test.java` automatically. If you've added Failsafe for integration tests (`*IT.java`), those run under `mvn verify` instead — which is what Step 6 will use.
 
 **Try it:**
 
-- [ ] Write a simple test that passes, push, and watch the pipeline turn green.
-- [ ] Break the test intentionally, push, and watch it turn red.
-- [ ] Fix it, push, and watch it turn green again.
+- [ ] Write a simple test that passes → push → green.
+- [ ] Break the test intentionally → push → red.
+- [ ] Fix it → push → green again.
 
-### Step 4 - Build verification
+### Step 4 — Build the fat JAR
 
-**Goal:** ensure your project compiles or bundles successfully in a clean environment.
+**Goal:** Ensure the deployable artifact builds in a clean environment.
 
-::::{tab-set}
+Your application is deployed as a single self-contained JAR containing your code, its dependencies, and embedded Tomcat. That's the Shade plugin's job:
 
-:::{tab-item} JavaScript / TypeScript
-
-```yaml
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm run build
+```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-shade-plugin</artifactId>
+  <version>3.6.0</version>
+  <executions>
+    <execution>
+      <phase>package</phase>
+      <goals>
+        <goal>shade</goal>
+      </goals>
+      <configuration>
+        <transformers>
+          <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+            <mainClass>au.edu.unimelb.swen90007.Main</mainClass>
+          </transformer>
+        </transformers>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
 ```
-:::
 
-:::{tab-item} Java
+And the job that builds and keeps it:
 
 ```yaml
-jobs:
   build:
-    name: Build
+    name: Package
     runs-on: ubuntu-latest
+    needs: [lint, test]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
-      - name: Build with Gradle
-        run: ./gradlew build -x test   # skip tests here; they ran in the test job
+          cache: maven
+      - name: Package fat JAR
+        run: mvn -B --no-transfer-progress package -DskipTests
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: |
+            target/*.jar
+            !target/original-*.jar
+          retention-days: 5
 ```
-:::
 
-:::{tab-item} Docker
-
-```yaml
-jobs:
-  build:
-    name: Docker Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build Docker image
-        run: docker build -t myapp:${{ github.sha }} .
+```{admonition} ✅ Checkpoint
+:class: note
+Download the artifact from the run summary page and run it locally with `java -jar`. What starts up should be identical to what Render will run.
 ```
-:::
 
-::::
+### Step 5 — Branch protection & PR checks
 
-### Step 5 - Branch protection and pull request checks
-
-**Goal:** prevent merging code that hasn't passed the pipeline.
+**Goal:** Prevent merging code that hasn't passed the pipeline.
 
 This step is done in **GitHub Settings**, not in a YAML file:
 
@@ -440,81 +439,108 @@ This step is done in **GitHub Settings**, not in a YAML file:
 2. Click **Add branch protection rule**.
 3. Set **Branch name pattern** to `main` (and optionally `develop`).
 4. Enable the following:
-    - **Require a pull request before merging**
-    - **Require approvals** - set to at least 1
-    - **Require status checks to pass before merging** - search for and select your CI job names (e.g. `lint`, `test`, `build`)
-    - **Require branches to be up to date before merging**
+    - ✅ **Require a pull request before merging**
+    - ✅ **Require approvals** — set to at least 1
+    - ✅ **Require status checks to pass before merging** — search for and select your CI job names
+    - ✅ **Require branches to be up to date before merging**
 5. Click **Create** / **Save changes**.
 
-```{admonition} Checkpoint
+```{admonition} ✅ Checkpoint
 :class: note
-Create a pull request with a failing test. The merge button should be blocked with a message indicating that the required checks have not passed.
+Create a PR with a failing test. You should see the merge button blocked with a message indicating the required checks have not passed.
 ```
 
-### Step 6 - Continuous deployment (optional)
+### Step 6 — Consolidate into one job
 
-**Goal:** automatically deploy your app when code is merged to `main`.
+**Goal:** Get the same coverage for a fraction of the minutes.
 
-::::{tab-set}
+You now have three jobs doing three checkouts, three JDK installs and three dependency resolutions. Because Checkstyle is bound to `validate`, tests run at `test`, and Shade runs at `package`, a single `mvn verify` performs all of it in order — and stops at the first failure, exactly as the separate jobs did.
 
-:::{tab-item} GitHub Pages
-
-For static sites and docs:
+Replace the whole of `ci.yml`:
 
 ```yaml
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: [lint, test, build]      # only deploy after CI passes
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['**.md', 'docs/**']
+  pull_request:
+    paths-ignore: ['**.md', 'docs/**']
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Checkstyle, test & package
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-java@v4
         with:
-          node-version: 20
-          cache: npm
-      - run: npm ci && npm run build
-      - uses: actions/upload-pages-artifact@v3
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - name: Verify
+        run: mvn -B --no-transfer-progress verify
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
         with:
-          path: ./dist          # adjust to your build output folder
-      - uses: actions/deploy-pages@v4
-```
-:::
-
-:::{tab-item} Vercel
-
-Vercel connects directly to your GitHub repository and deploys automatically - no YAML needed. It also creates **preview deployments** on every pull request.
-
-1. Go to [vercel.com](https://vercel.com/) and import your GitHub repository.
-2. Vercel will auto-detect your framework and deploy.
-3. Every pull request gets a unique preview URL for testing.
-:::
-
-:::{tab-item} Railway
-
-Similar to Vercel, Railway connects to your repository and auto-deploys. It supports backend services, databases, and background workers.
-
-1. Go to [railway.app](https://railway.app/) → New Project → Deploy from GitHub repo.
-2. Configure environment variables in the Railway dashboard.
-:::
-
-::::
-
-```{admonition} Deployment requirements
-:class: caution
-If your client has specific deployment requirements, follow those. The options above are suggestions for teams choosing their own hosting.
+          name: app-jar
+          path: |
+            target/*.jar
+            !target/original-*.jar
+          retention-days: 5
 ```
 
-## Quick reference: complete workflows
+Note the trigger change: `push` now fires on `main` only, while `pull_request` covers every branch. Previously a PR from a branch in your own repository ran the pipeline twice for the same commit.
 
-Below is a consolidated reference for common GitHub Actions configurations - copy the relevant pieces into your `ci.yml`.
+```{admonition} ✅ Checkpoint
+:class: important
+Compare the total run time against the three-job version in the Actions tab, then update your branch protection rule — the required status check is now `verify`, and your old job names no longer exist. **A protection rule pointing at a deleted job blocks every merge**, so fix this before you go home.
+```
 
-::::{admonition} Full workflow - Node.js
+**Try it:**
+
+- [ ] Push a change to a Markdown file only. No workflow should run at all.
+- [ ] Push twice in quick succession. The first run should be cancelled automatically.
+
+### Step 7 — (Optional) Deploy on a release tag
+
+**Goal:** Have your submission tag deploy itself.
+
+Your submissions are release tags of the form `SWEN90007_2026_Part1A_<team name>`. A workflow that deploys when such a tag is pushed means the deployed application and the tagged code can't drift apart.
+
+First, create a deploy hook: in the Render dashboard, open your service → **Settings** → **Deploy Hook**, and copy the URL. Then add it to GitHub under **Settings → Secrets and variables → Actions → New repository secret**, named `RENDER_DEPLOY_HOOK_URL`.
+
+```yaml
+name: Deploy
+
+on:
+  push:
+    tags: ['SWEN90007_2026_Part*']
+
+jobs:
+  deploy:
+    name: Trigger Render deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call deploy hook
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: curl -fsS -X POST "$DEPLOY_HOOK"
+```
+
+```{admonition} Anyone with the hook URL can deploy your service
+:class: warning
+The deploy hook needs no other authentication, so treat it like a password: it belongs in GitHub Secrets and nowhere else — not in `ci.yml`, not in your Wiki, not in a screenshot in your report. Passing it through `env:` rather than interpolating it directly into the `run:` line keeps it out of the workflow logs.
+```
+
+## Quick reference
+
+::::{admonition} Complete `ci.yml` — Java / Maven
 :class: dropdown
 
 ```yaml
@@ -522,172 +548,124 @@ name: CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
+    paths-ignore: ['**.md', 'docs/**']
   pull_request:
-    branches: [main, develop]
+    paths-ignore: ['**.md', 'docs/**']
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  lint:
-    name: Lint & Format
+  verify:
+    name: Checkstyle, test & package
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-java@v4
         with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npx eslint . --ext .js,.jsx,.ts,.tsx
-      - run: npx prettier --check .
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - name: Verify
+        run: mvn -B --no-transfer-progress verify
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: |
+            target/*.jar
+            !target/original-*.jar
+          retention-days: 5
+```
+::::
 
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npx jest --ci --coverage
+::::{admonition} Additional job — React front-end
+:class: dropdown
 
-  build:
-    name: Build
+Only for teams that chose React. This assumes the front-end lives in a `frontend/` directory; the `paths` filter means it runs only when front-end code actually changes, and the Java job's `paths-ignore` can be extended with `'frontend/**'` so the two don't trigger each other.
+
+```yaml
+  frontend:
+    name: Front-end lint, test & build
     runs-on: ubuntu-latest
-    needs: [lint, test]
+    if: github.event_name == 'pull_request'
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: frontend/package-lock.json
       - run: npm ci
+      - run: npx eslint .
+      - run: npm test -- --run
       - run: npm run build
 ```
+
+JSP teams need nothing here — your views are part of the Maven build and are covered by `mvn verify`.
 ::::
 
-::::{admonition} Full workflow - Python
+::::{admonition} Deploy on tag — Render
 :class: dropdown
 
 ```yaml
-name: CI
+name: Deploy
 
 on:
   push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
+    tags: ['SWEN90007_2026_Part*']
 
 jobs:
-  lint:
-    name: Lint & Format
+  deploy:
+    name: Trigger Render deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install ruff
-      - run: ruff check .
-      - run: ruff format --check .
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - run: pytest --cov=src --cov-report=term-missing
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    needs: [lint, test]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - run: python -m py_compile src/main.py   # adjust to your entry point
+      - name: Call deploy hook
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: curl -fsS -X POST "$DEPLOY_HOOK"
 ```
 ::::
 
-::::{admonition} Full workflow - Java / Gradle
-:class: dropdown
-
-```yaml
-name: CI
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
-
-jobs:
-  lint:
-    name: Checkstyle
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
-      - run: ./gradlew checkstyleMain checkstyleTest
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
-      - run: ./gradlew test
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    needs: [lint, test]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
-      - run: ./gradlew build -x test
+```{admonition} Plugin versions
+:class: note
+The plugin versions in this workshop were current when it was written. Pin a version for every plugin — an unpinned plugin resolves differently over time and produces builds that fail for one teammate and not another — and check [Maven Central](https://central.sonatype.com) for the current release when you add one.
 ```
-::::
 
-## Expected outcome
+## Expected outcome & checklist
 
 By the end of this workshop, your team repository should have:
 
-- [ ] A `.github/workflows/ci.yml` file committed to your repository.
-- [ ] A **code quality stage** - a linter and/or formatter runs on every push and pull request.
-- [ ] A **test stage** - at least one unit test runs automatically.
-- [ ] A **build stage** - the project compiles or bundles in a clean CI environment.
-- [ ] **Branch protection** - `main` requires passing CI checks before merge.
-- [ ] Pull requests showing green checks or red crosses, providing instant feedback.
-- [ ] *(Stretch goal)* Continuous deployment to a preview or staging environment.
+- [ ] A `.github/workflows/ci.yml` file committed to your repo.
+- [ ] **Code quality stage** — Checkstyle runs on every push/PR and fails the build on violations.
+- [ ] **Test stage** — at least one JUnit test runs automatically.
+- [ ] **Build stage** — the fat JAR packages successfully in a clean CI environment.
+- [ ] **Branch protection** — `main` requires passing CI checks before merge.
+- [ ] **A consolidated job** with Maven caching, a `concurrency` group, and no duplicate `push`/`pull_request` runs.
+- [ ] PRs show ✅ green checks or ❌ red crosses providing instant feedback.
+- [ ] *(Stretch goal)* Deployment to Render on merge to `main` or on a release tag.
 
-Your repository should end up structured something like this:
+Record in your Wiki which of these you've done and why — the pipeline is part of what's assessed in Parts 2 and 3, and you'll be asked to walk through it at the oral.
+
+### Expected repository structure
 
 ```text
 your-repo/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml              ← your pipeline definition
-├── src/                        ← source code
-├── tests/                      ← test files
-├── package.json / requirements.txt / build.gradle   ← dependencies
+│       ├── ci.yml              ← your pipeline definition
+│       └── deploy.yml          ← optional, deploy on tag
+├── src/
+│   ├── main/java/              ← application code
+│   └── test/java/              ← JUnit tests
+├── frontend/                   ← React teams only
+├── checkstyle.xml              ← your agreed rule set
+├── pom.xml                     ← dependencies and plugins
 └── README.md
 ```
 
@@ -699,20 +677,24 @@ your-repo/
 | --- | --- |
 | GitHub Actions documentation | <https://docs.github.com/en/actions> |
 | Workflow syntax reference | <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions> |
+| `actions/setup-java` (including Maven caching) | <https://github.com/actions/setup-java> |
 | GitHub Marketplace (Actions) | <https://github.com/marketplace?type=actions> |
 
-### Stack-specific guides
+### Maven plugins
 
-| Stack | Guide |
+| Plugin | Link |
 | --- | --- |
-| Python | <https://realpython.com/github-actions-python/> |
-| Java / Spring Boot | <https://kscodes.com/spring-boot/spring-boot-ci-cd-with-github-actions/> |
-| React / Next.js | <https://nextjs.org/docs/app/building-your-application/deploying> |
-| Flutter / mobile | <https://docs.flutter.dev/deployment/cd#github-actions> |
+| Checkstyle | <https://maven.apache.org/plugins/maven-checkstyle-plugin/> |
+| Surefire (unit tests) | <https://maven.apache.org/surefire/maven-surefire-plugin/> |
+| Failsafe (integration tests) | <https://maven.apache.org/surefire/maven-failsafe-plugin/> |
+| Shade (fat JAR) | <https://maven.apache.org/plugins/maven-shade-plugin/> |
+| JaCoCo (coverage) | <https://www.jacoco.org/jacoco/trunk/doc/maven.html> |
 
-### Example repositories
+### Deployment and testing
 
-| Repository | Description |
+| Resource | Link |
 | --- | --- |
-| <https://github.com/actions/starter-workflows> | GitHub's official starter workflow templates for many languages |
-| <https://github.com/alexmalins/github-actions-cicd-example> | A simple Python CI/CD example |
+| Render — deploying and auto-deploy settings | <https://render.com/docs/deploys> |
+| Render — deploy hooks | <https://render.com/docs/deploy-hooks> |
+| Testcontainers for Java | <https://java.testcontainers.org/> |
+| GitHub's official starter workflows | <https://github.com/actions/starter-workflows> |
