@@ -163,23 +163,6 @@ fail:
 docker run -p 8080:8080 -e FAILURE_RATE=1.0 ghcr.io/swen90007-2026/payment-stub:latest
 ```
 
-## Why the Payment Calls Sit Outside a DB Transaction
-
-Neither the `/quote` call nor the `/payments` call should sit inside a database
-transaction in your application code.
-
-```{important}
-A slow or failing external network call must never be held inside a DB transaction: it
-would pin connections/locks for the duration of the call, and it couples the atomicity of
-your own domain writes to a third party's availability.
-```
-
-Because the payment stub is stateless, it has nothing to roll back on its own side - your
-application owns all of the records, and is responsible for compensating (for example,
-releasing a seat you had provisionally held) if a later step in the workflow fails. Design
-your booking/payment flow with this in mind: make the external call outside your
-transaction boundary, then commit (or compensate) based on the result.
-
 ## Troubleshooting
 
 - **`unauthorized` / `denied` on pull** - re-run the `docker login ghcr.io` step; PATs can
