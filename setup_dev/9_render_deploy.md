@@ -81,3 +81,7 @@ Open the url in the browser and you can see your application is deployed success
 (like 'jsp-demo' in our case) in the url.
 
 ![](resources/10_deploy_render_13_web.png)
+
+```{admonition} What's Next
+Please proceed to [Step 10: Set Up the Payment Stub](10_payment_stub.md).
+```
