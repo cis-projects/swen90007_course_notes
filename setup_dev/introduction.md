@@ -16,7 +16,7 @@ Please follow the steps in order.
 
 Should be done by all team members.
 
-## [Step 2: Download Tomcat](3_postgresql_setup.md)
+## [Step 2: Download Tomcat](2_tomcat_download.md)
 
 Should be done by all members.
 
@@ -47,3 +47,7 @@ Should be done by all team members.
 ## [Step 9: Deploy Project to Render](9_render_deploy.md)
 
 Should be done by all team members to gain more experience. Final deployment can be done by one member as Render needs login for you to deploy.
+
+## [Step 10: Set Up the Payment Stub](10_payment_stub.md)
+
+Should be done by all team members.
