@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Step 10: Set Up the Payment Stub &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'setup_dev/10_payment_stub';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="React Example Project Primer" href="../react-example/swen90007-react-example-primer.html" />
+    <link rel="prev" title="Step 9: Deploy to Render" href="9_render_deploy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_3.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_4.html">Workshop 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_7.html">Workshop 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop_8.html">Workshop 8</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_render_deploy.html">Step 9: Deploy to Render</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Step 10: Set Up the Payment Stub</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fsetup_dev/10_payment_stub.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/setup_dev/10_payment_stub.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Step 10: Set Up the Payment Stub</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authenticate-to-ghcr">Authenticate to GHCR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-the-image">Pull the Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-it">Run It</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-docker-compose">Run with Docker Compose</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-endpoints">The Endpoints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-quote"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/quote</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-payments"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payments</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-healthz"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/healthz</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observability-optional">Observability (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="step-10-set-up-the-payment-stub">
+<h1>Step 10: Set Up the Payment Stub<a class="headerlink" href="#step-10-set-up-the-payment-stub" title="Link to this heading">#</a></h1>
+<p>Your project integrates with a <strong>payment stub</strong> - a stateless stand-in for a 3rd-party
+payment provider. It stores nothing: it receives a request, applies a deterministic
+decline rule, injects a realistic network delay (and, optionally, a random failure), and
+returns. It exists to give you a taste of working with an external service that your
+application does not control - including the parts of that experience that are
+inconvenient by design, like latency and occasional failures.</p>
+<p>The payment stub runs as its own container, alongside your application, using the same
+Docker skills you picked up in <a class="reference internal" href="8_setup_docker.html"><span class="std std-doc">Step 8</span></a>. It is published as a
+pre-built image, so you do not need its source code - just Docker.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Should be done by all team members.</p>
+</div>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Docker Desktop must be installed and running. If you have not done this yet, go back to
+<a class="reference internal" href="8_setup_docker.html"><span class="std std-doc">Step 8: Setup Docker</span></a> first.</p>
+</div>
+</section>
+<section id="authenticate-to-ghcr">
+<h2>Authenticate to GHCR<a class="headerlink" href="#authenticate-to-ghcr" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The payment stub image is currently <strong>public</strong> - you can skip this step and go straight
+to <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span></code> below. This section is kept here in case visibility changes back to
+private later.</p>
+</div>
+<p>The payment stub image is published to GitHub Container Registry (GHCR). If the image is
+private, log in once with a GitHub Personal Access Token (PAT) before you can pull it:</p>
+<ol class="arabic simple">
+<li><p>Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens
+(classic) → Generate new token.</p></li>
+<li><p>Scope: <code class="docutils literal notranslate"><span class="pre">read:packages</span></code> only.</p></li>
+<li><p>Log in from your terminal:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;&lt;YOUR_PAT&gt;&quot;</span> <span class="o">|</span> <span class="n">docker</span> <span class="n">login</span> <span class="n">ghcr</span><span class="o">.</span><span class="n">io</span> <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">YOUR_GITHUB_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span><span class="o">-</span><span class="n">stdin</span>
+</pre></div>
+</div>
+<p>You only need to do this once per machine - the login is cached by Docker.</p>
+</section>
+<section id="pull-the-image">
+<h2>Pull the Image<a class="headerlink" href="#pull-the-image" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">ghcr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">swen90007</span><span class="o">-</span><span class="mi">2026</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">stub</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+<p>Other available tags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">latest</span></code> - most recent build of <code class="docutils literal notranslate"><span class="pre">main</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sha-&lt;short-sha&gt;</span></code> - a specific commit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vX.Y.Z</span></code> - a specific release, if tagged</p></li>
+</ul>
+</section>
+<section id="run-it">
+<h2>Run It<a class="headerlink" href="#run-it" title="Link to this heading">#</a></h2>
+<p>Quickest way, with defaults (payment threshold $1000, 10% processing fee, 3-8s simulated
+latency, no random failures):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">8080</span> <span class="n">ghcr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">swen90007</span><span class="o">-</span><span class="mi">2026</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">stub</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+<p>Check it is alive:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">healthz</span>
+</pre></div>
+</div>
+<section id="run-with-docker-compose">
+<h3>Run with Docker Compose<a class="headerlink" href="#run-with-docker-compose" title="Link to this heading">#</a></h3>
+<p>If your application already has a <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>, it is easier to add the payment
+stub as another service in the same file, rather than running it separately:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">payment-stub</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/swen90007-2026/payment-stub:latest</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">DECLINE_THRESHOLD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000.00&quot;</span>
+<span class="w">      </span><span class="nt">PROCESSING_FEE_RATE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.10&quot;</span>
+<span class="w">      </span><span class="nt">LATENCY_MIN_MS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3000&quot;</span>
+<span class="w">      </span><span class="nt">LATENCY_MAX_MS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8000&quot;</span>
+<span class="w">      </span><span class="nt">FAILURE_RATE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.0&quot;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Add this as a service alongside your own app’s compose file so both run together on the
+same Docker network, and your application can reach the stub at <code class="docutils literal notranslate"><span class="pre">http://payment-stub:8080</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="the-endpoints">
+<h2>The Endpoints<a class="headerlink" href="#the-endpoints" title="Link to this heading">#</a></h2>
+<section id="post-quote">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/quote</span></code><a class="headerlink" href="#post-quote" title="Link to this heading">#</a></h3>
+<p>Call this the moment your app attempts to use the payment service (for example, when a
+user lands on the payment step). Returns a processing fee for the amount, plus a decision
+that mimics a rejection when the amount is too large.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">quote</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> \
+  <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;amount&quot;: 120.00, &quot;attendeeRef&quot;: &quot;attendee-123&quot;}&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;quoteRef&quot;</span><span class="p">:</span> <span class="s2">&quot;b1e2c3d4-...&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;processingFee&quot;</span><span class="p">:</span> <span class="mf">12.00</span><span class="p">,</span>
+  <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ACCEPTED&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2026-07-19T10:15:30.000Z&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="post-payments">
+<h3><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payments</span></code><a class="headerlink" href="#post-payments" title="Link to this heading">#</a></h3>
+<p>Call this when a user actually pays for a booking.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">payments</span> \
+  <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> \
+  <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;amount&quot;: 120.00, &quot;bookingRef&quot;: &quot;booking-456&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>Both endpoints apply the same rule: an amount above <code class="docutils literal notranslate"><span class="pre">DECLINE_THRESHOLD</span></code> returns <code class="docutils literal notranslate"><span class="pre">REJECTED</span></code>
+with reason <code class="docutils literal notranslate"><span class="pre">AMOUNT_ABOVE_THRESHOLD</span></code>. Every response is delayed by a random amount between
+<code class="docutils literal notranslate"><span class="pre">LATENCY_MIN_MS</span></code> and <code class="docutils literal notranslate"><span class="pre">LATENCY_MAX_MS</span></code> (default: at least ~3 seconds), and with probability
+<code class="docutils literal notranslate"><span class="pre">FAILURE_RATE</span></code> the request instead fails with a configured 5xx - a separate, transient
+failure path distinct from a clean <code class="docutils literal notranslate"><span class="pre">REJECTED</span></code> decision.</p>
+</section>
+<section id="get-healthz">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/healthz</span></code><a class="headerlink" href="#get-healthz" title="Link to this heading">#</a></h3>
+<p>Liveness check. Not subject to latency, failure injection, or auth.</p>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<p>All configuration is via environment variables, readable at container runtime - no image
+rebuild required.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PORT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8080</span></code></p></td>
+<td><p>HTTP listen port</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DECLINE_THRESHOLD</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1000.00</span></code></p></td>
+<td><p>Amounts strictly above this are <code class="docutils literal notranslate"><span class="pre">REJECTED</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PROCESSING_FEE_RATE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.10</span></code></p></td>
+<td><p>Fraction of amount returned as <code class="docutils literal notranslate"><span class="pre">processingFee</span></code> by <code class="docutils literal notranslate"><span class="pre">/quote</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LATENCY_MIN_MS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3000</span></code></p></td>
+<td><p>Minimum artificial delay applied to every response</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">LATENCY_MAX_MS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8000</span></code></p></td>
+<td><p>Maximum artificial delay (must be ≥ <code class="docutils literal notranslate"><span class="pre">LATENCY_MIN_MS</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FAILURE_RATE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+<td><p>Probability (0-1) of an injected 5xx failure</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FAILURE_HTTP_STATUS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">503</span></code></p></td>
+<td><p>HTTP status used for the injected failure</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FAILURE_CODE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UPSTREAM_UNAVAILABLE</span></code></p></td>
+<td><p>Machine-readable code in the injected failure body</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FAILURE_MESSAGE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Payment</span> <span class="pre">provider</span> <span class="pre">temporarily</span> <span class="pre">unavailable</span></code></p></td>
+<td><p>Human-readable message in the injected failure body</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SHARED_SECRET</span></code></p></td>
+<td><p>(unset)</p></td>
+<td><p>If set, requests must send a matching <code class="docutils literal notranslate"><span class="pre">X-Payment-Secret</span></code> header, or receive <code class="docutils literal notranslate"><span class="pre">401</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_ENDPOINT</span></code></p></td>
+<td><p>(unset)</p></td>
+<td><p>OTLP/HTTP collector endpoint. Telemetry is fully disabled while unset</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_HEADERS</span></code></p></td>
+<td><p>(unset)</p></td>
+<td><p>OTLP auth headers, e.g. <code class="docutils literal notranslate"><span class="pre">Authorization=Basic</span> <span class="pre">&lt;token&gt;</span></code> for Grafana Cloud</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OTEL_SERVICE_NAME</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">payment-stub</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">service.name</span></code> on emitted spans/metrics</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example, to exercise your application’s error-handling path, force every request to
+fail:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">8080</span> <span class="o">-</span><span class="n">e</span> <span class="n">FAILURE_RATE</span><span class="o">=</span><span class="mf">1.0</span> <span class="n">ghcr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">swen90007</span><span class="o">-</span><span class="mi">2026</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">stub</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+</section>
+<section id="observability-optional">
+<h2>Observability (optional)<a class="headerlink" href="#observability-optional" title="Link to this heading">#</a></h2>
+<p>The stub is instrumented with OpenTelemetry (traces + metrics), but export is <strong>off by
+default</strong> - with no telemetry config set, it just runs standalone with no errors. If you
+want to see requests flowing through it as traces/metrics (for example, to demonstrate
+distributed tracing across your app and the stub), set <code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_ENDPOINT</span></code> (and
+<code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_HEADERS</span></code> if your collector needs auth) the same way as any other
+config - via <code class="docutils literal notranslate"><span class="pre">-e</span></code> flags on <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code>, or <code class="docutils literal notranslate"><span class="pre">environment:</span></code> keys in your compose service.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See the payment-stub project’s README “Observability / OpenTelemetry” section for the
+exact setup of both a hosted Grafana Cloud endpoint and a local <code class="docutils literal notranslate"><span class="pre">otel-lgtm</span></code> stack you can
+run entirely on your own machine.</p>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">unauthorized</span></code> / <code class="docutils literal notranslate"><span class="pre">denied</span></code> on pull</strong> - re-run the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">login</span> <span class="pre">ghcr.io</span></code> step; PATs can
+expire.</p></li>
+<li><p><strong>Nothing responds on <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code></strong> - check <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>; ensure nothing else is
+bound to port 8080.</p></li>
+<li><p><strong>Every request takes at least 3 seconds</strong> - expected; the stub simulates latency
+(<code class="docutils literal notranslate"><span class="pre">LATENCY_MIN_MS=3000</span></code> by default).</p></li>
+</ul>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s Next</p>
+<p>This is the final step of the project setup guide. You should now have your project
+running locally with IntelliJ, Tomcat, PostgreSQL, Docker, a deployment on Render, and the
+payment stub running alongside your application. Head back to the workshops or your
+project brief to start integrating the payment stub into your application.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./setup_dev"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="9_render_deploy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Step 9: Deploy to Render</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../react-example/swen90007-react-example-primer.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">React Example Project Primer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authenticate-to-ghcr">Authenticate to GHCR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-the-image">Pull the Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-it">Run It</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-docker-compose">Run with Docker Compose</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-endpoints">The Endpoints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-quote"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/quote</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-payments"><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/payments</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-healthz"><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/healthz</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observability-optional">Observability (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
