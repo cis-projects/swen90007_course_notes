@@ -24,6 +24,7 @@ parts:
     - file: setup_dev/7_connect_intellij_postgresql
     - file: setup_dev/8_setup_docker
     - file: setup_dev/9_render_deploy
+    - file: setup_dev/10_payment_stub
   - caption: React Project Development Setup
     chapters:
     - file: react-example/swen90007-react-example-primer
