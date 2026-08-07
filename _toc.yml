@@ -33,3 +33,4 @@ parts:
     - file: react-example/swen90007-react-example-primer-milestone-1
     - file: react-example/swen90007-react-example-primer-milestone-2
     - file: react-example/swen90007-react-example-primer-milestone-3
+    - file: react-example/swen90007-react-example-primer-payment-stub
