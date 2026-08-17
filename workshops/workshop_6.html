@@ -14,83 +14,87 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_6';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../_static/searchtools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  
-  <dialog id="pst-search-dialog">
-    
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -98,6 +102,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -105,59 +110,10 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
+</form></div>
   </div>
   
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -168,8 +124,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -184,8 +139,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../introduction/introduction.html">
   
@@ -199,17 +152,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -259,19 +216,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -280,14 +232,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -396,7 +348,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -410,19 +362,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -442,7 +402,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-ci-cd">Why CI/CD?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The solution</a></li>
@@ -465,7 +425,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-hello-world-workflow">Step 1 — Hello World workflow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-code-quality-checkstyle">Step 2 — Code quality (Checkstyle)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-automated-testing">Step 3 — Automated testing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-fat-jar">Step 4 — Build the fat JAR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-deployable-artifact">Step 4 — Build the deployable artifact</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-branch-protection-pr-checks">Step 5 — Branch protection &amp; PR checks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-consolidate-into-one-job">Step 6 — Consolidate into one job</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-optional-deploy-on-a-release-tag">Step 7 — (Optional) Deploy on a release tag</a></li>
@@ -496,7 +456,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="workshop-6">
 <h1>Workshop 6<a class="headerlink" href="#workshop-6" title="Link to this heading">#</a></h1>
 <p>This workshop introduces continuous integration and continuous delivery (CI/CD), and walks you through building a pipeline for your team’s repository with <a class="reference external" href="https://docs.github.com/en/actions">GitHub Actions</a>.</p>
-<p>Everything here targets the stack you’re building on: a <strong>Java back-end built with Maven</strong>, packaged as an embedded-Tomcat fat JAR and deployed to Render. If your team chose React for the front-end, there’s a second job to add — JSP teams need only the Java pipeline.</p>
+<p>Everything here targets the stack you’re building on: a Java back-end built with Maven, packaged as a Docker image and deployed to Render. The pipeline below works the same whether your build produces a WAR (the setup in the course notes) or an executable JAR — only the artifact filename changes, and that is flagged where it matters.</p>
 <p>Specifically, it covers:</p>
 <ul class="simple">
 <li><p>why teams automate build, test and deployment steps</p></li>
@@ -521,7 +481,7 @@
 </section>
 <section id="the-solution">
 <h3>The solution<a class="headerlink" href="#the-solution" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
 <th class="head"><p>What it means</p></th>
@@ -543,7 +503,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>There’s a direct assessment argument too. Parts 2 and 3 are assessed from a <strong>tagged release that is deployed and running</strong>, and you demonstrate your pipeline at the interactive oral. A pipeline that builds and deploys the tag for you turns “did someone remember to redeploy before the deadline?” into a question nobody has to ask.</p>
 </section>
 </section>
@@ -569,7 +528,7 @@
 </div>
 <section id="key-concepts">
 <h3>Key concepts<a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concept</p></th>
 <th class="head"><p>Explanation</p></th>
@@ -596,7 +555,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <div class="note admonition">
 <p class="admonition-title">Every job starts from nothing</p>
 <p>A job runs on a <strong>fresh</strong> virtual machine. It has no JDK configured, no local Maven repository, and no copy of your code until you check it out. This is exactly why CI catches “works on my machine” problems — and, as the next section shows, it’s also why every extra job costs you real time.</p>
@@ -640,7 +598,7 @@
 </ol>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">Compile, package the fat JAR, upload the artifact.</p>
+<p class="sd-card-text">Compile, package the deployable artifact, upload it.</p>
 </div>
 </div>
 </div>
@@ -675,7 +633,7 @@
 <section id="code-quality-is-the-code-clean">
 <h3>Code quality — “is the code clean?”<a class="headerlink" href="#code-quality-is-the-code-clean" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Enforce consistent style and catch common mistakes before anyone reviews the code.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Tool</p></th>
 <th class="head"><p>What it does</p></th>
@@ -701,7 +659,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>Pick <strong>one</strong> to start with. Checkstyle is the usual choice because the rules are easy to agree on and the failures are unambiguous. SpotBugs earns its place later in the semester — it’s good at spotting the resource leaks that show up once you’re managing your own JDBC connections.</p>
 <div class="tip admonition">
 <p class="admonition-title">Bind the check to a phase</p>
@@ -711,7 +668,7 @@
 <section id="automated-testing-does-the-code-work">
 <h3>Automated testing — “does the code work?”<a class="headerlink" href="#automated-testing-does-the-code-work" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Run your test suite automatically so broken code never reaches the main branch.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Test type</p></th>
 <th class="head"><p>When to use</p></th>
@@ -733,7 +690,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>Code coverage</strong> measures what percentage of your code is exercised by tests. <a class="reference external" href="https://www.jacoco.org/jacoco/trunk/doc/maven.html">JaCoCo</a> is the standard choice: bind <code class="docutils literal notranslate"><span class="pre">prepare-agent</span></code> and <code class="docutils literal notranslate"><span class="pre">report</span></code> in your <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> and a report appears in <code class="docutils literal notranslate"><span class="pre">target/site/jacoco/</span></code> on every <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code>.</p>
 <div class="caution admonition">
 <p class="admonition-title">Testcontainers costs minutes</p>
@@ -743,7 +699,7 @@
 <section id="build-verification-does-the-project-compile-and-package">
 <h3>Build verification — “does the project compile and package?”<a class="headerlink" href="#build-verification-does-the-project-compile-and-package" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Make sure the project can be successfully built from a clean environment — not just on your laptop.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Task</p></th>
 <th class="head"><p>Command</p></th>
@@ -755,22 +711,21 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">verify</span></code></p></td>
 <td><p>Catches missing dependencies, and anything that only compiles because of stale state in your IDE.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Package the fat JAR</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">maven-shade-plugin</span></code>, bound to <code class="docutils literal notranslate"><span class="pre">package</span></code></p></td>
-<td><p>Produces the single self-contained JAR — your code plus embedded Tomcat — that Render runs. If this breaks, you cannot deploy.</p></td>
+<tr class="row-odd"><td><p>Package the artifact</p></td>
+<td><p>mvn package</p></td>
+<td><p>Produces the WAR (or executable JAR) that your Dockerfile copies into the image Render runs. If this breaks, you cannot deploy.</p></td>
 </tr>
 <tr class="row-even"><td><p>Upload the artifact</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">actions/upload-artifact&#64;v4</span></code></p></td>
-<td><p>Lets you download the exact JAR a run produced, which is invaluable when the deployed build misbehaves but your local one doesn’t.</p></td>
+<td><p>actions/upload-artifact&#64;v4</p></td>
+<td><p>Lets you download the exact artefact a run produced, which is invaluable when the deployed build misbehaves but your local one doesn’t.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="review-gates-is-this-pr-safe-to-merge">
 <h3>Review gates — “is this PR safe to merge?”<a class="headerlink" href="#review-gates-is-this-pr-safe-to-merge" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Use GitHub features to prevent merging code that hasn’t passed your pipeline.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>How to set it up</p></th>
@@ -791,14 +746,13 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>This is also where CI starts paying for itself as a <em>team</em> practice. With five people committing to one repository, a protected <code class="docutils literal notranslate"><span class="pre">main</span></code> is what stops a broken build from blocking everyone else’s work an hour before a deadline.</p>
 </section>
 <section id="continuous-deployment-ship-it-automatically">
 <h3>Continuous deployment — “ship it automatically”<a class="headerlink" href="#continuous-deployment-ship-it-automatically" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Once CI passes, get the new version onto Render without anyone clicking anything.</p>
 <p>You have three options, and the cheapest one is probably the right one:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Approach</p></th>
 <th class="head"><p>Actions minutes</p></th>
@@ -820,7 +774,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>The second option is worth setting up properly: it’s configured on the service’s Settings page in the Render dashboard, and it means a red pipeline never reaches your deployed URL. See <a class="reference external" href="https://render.com/docs/deploys">Render’s deploy documentation</a> for the setting, and <a class="reference external" href="https://render.com/docs/deploy-hooks">deploy hooks</a> for the third option.</p>
 </section>
 </section>
@@ -1006,10 +959,12 @@
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Fix it → push → green again.</p></li>
 </ul>
 </section>
-<section id="step-4-build-the-fat-jar">
-<h3>Step 4 — Build the fat JAR<a class="headerlink" href="#step-4-build-the-fat-jar" title="Link to this heading">#</a></h3>
+<section id="step-4-build-the-deployable-artifact">
+<h3>Step 4 — Build the deployable artifact<a class="headerlink" href="#step-4-build-the-deployable-artifact" title="Link to this heading">#</a></h3>
 <p><strong>Goal:</strong> Ensure the deployable artifact builds in a clean environment.</p>
-<p>Your application is deployed as a single self-contained JAR containing your code, its dependencies, and embedded Tomcat. That’s the Shade plugin’s job:</p>
+<p>Your application is packaged by Maven and then copied into a Docker image, which is what Render runs. On the setup in the course notes that artefact is a .war, produced by the default package phase. No extra plugin configuration is required.</p>
+<p>:class: dropdown
+You will need the Shade plugin to produce a single self-contained JAR. Everything else in this workshop is unchanged; substitute <code class="docutils literal notranslate"><span class="pre">*.jar</span></code> for <code class="docutils literal notranslate"><span class="pre">*.war</span></code> in the artifact paths below.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
 <span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
@@ -1044,21 +999,19 @@
 <span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
 <span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
 <span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Package fat JAR</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Package</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B --no-transfer-progress package -DskipTests</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload JAR</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload artifact</span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-jar</span>
-<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">            </span><span class="no">target/*.jar</span>
-<span class="w">            </span><span class="no">!target/original-*.jar</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-artifact</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target/*.war</span><span class="w">        </span><span class="c1"># or target/*.jar if you build an executable JAR</span>
 <span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </pre></div>
 </div>
 <div class="note admonition">
 <p class="admonition-title">✅ Checkpoint</p>
-<p>Download the artifact from the run summary page and run it locally with <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span></code>. What starts up should be identical to what Render will run.</p>
+<p>Download the artefact from the run summary page. It is the same file your Dockerfile copies into the image: build the image locally with docker build, run it, and what starts up is what Render will run.</p>
 </div>
 </section>
 <section id="step-5-branch-protection-pr-checks">
@@ -1262,7 +1215,7 @@
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A <code class="docutils literal notranslate"><span class="pre">.github/workflows/ci.yml</span></code> file committed to your repo.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Code quality stage</strong> — Checkstyle runs on every push/PR and fails the build on violations.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Test stage</strong> — at least one JUnit test runs automatically.</p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Build stage</strong> — the fat JAR packages successfully in a clean CI environment.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Build stage</strong> — the deployable artefact packages successfully in a clean CI environment.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Branch protection</strong> — <code class="docutils literal notranslate"><span class="pre">main</span></code> requires passing CI checks before merge.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>A consolidated job</strong> with Maven caching, a <code class="docutils literal notranslate"><span class="pre">concurrency</span></code> group, and no duplicate <code class="docutils literal notranslate"><span class="pre">push</span></code>/<code class="docutils literal notranslate"><span class="pre">pull_request</span></code> runs.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> PRs show ✅ green checks or ❌ red crosses providing instant feedback.</p></li>
@@ -1291,7 +1244,7 @@
 <h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <section id="official-documentation">
 <h3>Official documentation<a class="headerlink" href="#official-documentation" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Resource</p></th>
 <th class="head"><p>Link</p></th>
@@ -1312,11 +1265,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="maven-plugins">
 <h3>Maven plugins<a class="headerlink" href="#maven-plugins" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Plugin</p></th>
 <th class="head"><p>Link</p></th>
@@ -1332,7 +1284,7 @@
 <tr class="row-even"><td><p>Failsafe (integration tests)</p></td>
 <td><p><a class="reference external" href="https://maven.apache.org/surefire/maven-failsafe-plugin/">https://maven.apache.org/surefire/maven-failsafe-plugin/</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Shade (fat JAR)</p></td>
+<tr class="row-odd"><td><p>Shade (fat JAR - optional)</p></td>
 <td><p><a class="reference external" href="https://maven.apache.org/plugins/maven-shade-plugin/">https://maven.apache.org/plugins/maven-shade-plugin/</a></p></td>
 </tr>
 <tr class="row-even"><td><p>JaCoCo (coverage)</p></td>
@@ -1340,11 +1292,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="deployment-and-testing">
 <h3>Deployment and testing<a class="headerlink" href="#deployment-and-testing" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Resource</p></th>
 <th class="head"><p>Link</p></th>
@@ -1365,7 +1316,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 </section>
 </section>
@@ -1397,7 +1347,7 @@
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
 </div>
@@ -1407,17 +1357,15 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-ci-cd">Why CI/CD?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The solution</a></li>
@@ -1440,7 +1388,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-hello-world-workflow">Step 1 — Hello World workflow</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-code-quality-checkstyle">Step 2 — Code quality (Checkstyle)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-automated-testing">Step 3 — Automated testing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-fat-jar">Step 4 — Build the fat JAR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-deployable-artifact">Step 4 — Build the deployable artifact</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-branch-protection-pr-checks">Step 5 — Branch protection &amp; PR checks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-consolidate-into-one-job">Step 6 — Consolidate into one job</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-optional-deploy-on-a-release-tag">Step 7 — (Optional) Deploy on a release tag</a></li>
@@ -1505,8 +1453,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

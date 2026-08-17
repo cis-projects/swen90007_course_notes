@@ -2,7 +2,7 @@
 
 This workshop introduces continuous integration and continuous delivery (CI/CD), and walks you through building a pipeline for your team's repository with [GitHub Actions](https://docs.github.com/en/actions).
 
-Everything here targets the stack you're building on: a **Java back-end built with Maven**, packaged as an embedded-Tomcat fat JAR and deployed to Render. If your team chose React for the front-end, there's a second job to add — JSP teams need only the Java pipeline.
+Everything here targets the stack you're building on: a Java back-end built with Maven, packaged as a Docker image and deployed to Render. The pipeline below works the same whether your build produces a WAR (the setup in the course notes) or an executable JAR — only the artifact filename changes, and that is flagged where it matters.
 
 Specifically, it covers:
 
@@ -107,7 +107,7 @@ JUnit unit tests, integration tests, coverage.
 
 3. Build
 ^^^
-Compile, package the fat JAR, upload the artifact.
+Compile, package the deployable artifact, upload it.
 :::
 
 :::{grid-item-card}
@@ -175,8 +175,8 @@ Testcontainers is excellent — it spins up a real PostgreSQL container so your 
 | Task | Command | Why it matters |
 | --- | --- | --- |
 | Compile and test | `mvn -B verify` | Catches missing dependencies, and anything that only compiles because of stale state in your IDE. |
-| Package the fat JAR | `maven-shade-plugin`, bound to `package` | Produces the single self-contained JAR — your code plus embedded Tomcat — that Render runs. If this breaks, you cannot deploy. |
-| Upload the artifact | `actions/upload-artifact@v4` | Lets you download the exact JAR a run produced, which is invaluable when the deployed build misbehaves but your local one doesn't. |
+| Package the artifact | mvn package | Produces the WAR (or executable JAR) that your Dockerfile copies into the image Render runs. If this breaks, you cannot deploy. | 
+| Upload the artifact | actions/upload-artifact@v4 | Lets you download the exact artefact a run produced, which is invaluable when the deployed build misbehaves but your local one doesn't. |
 
 ### Review gates — "is this PR safe to merge?"
 
@@ -369,11 +369,14 @@ Surefire picks up anything named `*Test.java` automatically. If you've added Fai
 - [ ] Break the test intentionally → push → red.
 - [ ] Fix it → push → green again.
 
-### Step 4 — Build the fat JAR
+### Step 4 — Build the deployable artifact
 
 **Goal:** Ensure the deployable artifact builds in a clean environment.
 
-Your application is deployed as a single self-contained JAR containing your code, its dependencies, and embedded Tomcat. That's the Shade plugin's job:
+Your application is packaged by Maven and then copied into a Docker image, which is what Render runs. On the setup in the course notes that artefact is a .war, produced by the default package phase. No extra plugin configuration is required.
+
+:class: dropdown
+You will need the Shade plugin to produce a single self-contained JAR. Everything else in this workshop is unchanged; substitute `*.jar` for `*.war` in the artifact paths below.
 
 ```xml
 <plugin>
@@ -412,21 +415,19 @@ And the job that builds and keeps it:
           distribution: temurin
           java-version: 21
           cache: maven
-      - name: Package fat JAR
+      - name: Package
         run: mvn -B --no-transfer-progress package -DskipTests
-      - name: Upload JAR
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-jar
-          path: |
-            target/*.jar
-            !target/original-*.jar
+          name: app-artifact
+          path: target/*.war        # or target/*.jar if you build an executable JAR
           retention-days: 5
 ```
 
 ```{admonition} ✅ Checkpoint
 :class: note
-Download the artifact from the run summary page and run it locally with `java -jar`. What starts up should be identical to what Render will run.
+Download the artefact from the run summary page. It is the same file your Dockerfile copies into the image: build the image locally with docker build, run it, and what starts up is what Render will run.
 ```
 
 ### Step 5 — Branch protection & PR checks
@@ -644,7 +645,7 @@ By the end of this workshop, your team repository should have:
 - [ ] A `.github/workflows/ci.yml` file committed to your repo.
 - [ ] **Code quality stage** — Checkstyle runs on every push/PR and fails the build on violations.
 - [ ] **Test stage** — at least one JUnit test runs automatically.
-- [ ] **Build stage** — the fat JAR packages successfully in a clean CI environment.
+- [ ] **Build stage** — the deployable artefact packages successfully in a clean CI environment.
 - [ ] **Branch protection** — `main` requires passing CI checks before merge.
 - [ ] **A consolidated job** with Maven caching, a `concurrency` group, and no duplicate `push`/`pull_request` runs.
 - [ ] PRs show ✅ green checks or ❌ red crosses providing instant feedback.
@@ -687,7 +688,7 @@ your-repo/
 | Checkstyle | <https://maven.apache.org/plugins/maven-checkstyle-plugin/> |
 | Surefire (unit tests) | <https://maven.apache.org/surefire/maven-surefire-plugin/> |
 | Failsafe (integration tests) | <https://maven.apache.org/surefire/maven-failsafe-plugin/> |
-| Shade (fat JAR) | <https://maven.apache.org/plugins/maven-shade-plugin/> |
+| Shade (fat JAR - optional) | <https://maven.apache.org/plugins/maven-shade-plugin/> |
 | JaCoCo (coverage) | <https://www.jacoco.org/jacoco/trunk/doc/maven.html> |
 
 ### Deployment and testing
