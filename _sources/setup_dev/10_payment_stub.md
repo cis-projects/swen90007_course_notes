@@ -166,6 +166,94 @@ fail:
 docker run -p 8080:8080 -e FAILURE_RATE=1.0 ghcr.io/swen90007-2026/payment-stub:latest
 ```
 
+## Calling the Payment Stub from Java
+
+`java.net.http.HttpClient` ships with Java 17, so no new HTTP dependency is required. For
+JSON, use the same Jackson coordinates as the rest of the project (see [Milestone 2 of the
+React primer](../react-example/swen90007-react-example-primer-milestone-2.md) for where
+`ObjectMapper` comes from):
+
+```xml
+<properties>
+    <jackson.version>2.14.2</jackson.version>
+</properties>
+
+<dependencies>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+    </dependency>
+</dependencies>
+```
+
+A minimal gateway wrapping the two endpoints:
+
+```java
+public class PaymentStubGateway {
+
+    private final HttpClient client = HttpClient.newHttpClient();
+    private final ObjectMapper mapper = new ObjectMapper();
+    private final URI baseUri; // e.g. http://payment-stub:8080, from config
+
+    public PaymentStubGateway(URI baseUri) {
+        this.baseUri = baseUri;
+    }
+
+    public PaymentResponse quote(BigDecimal amount, String attendeeRef) throws IOException, InterruptedException {
+        return post("/quote", Map.of("amount", amount, "attendeeRef", attendeeRef));
+    }
+
+    public PaymentResponse pay(BigDecimal amount, String bookingRef) throws IOException, InterruptedException {
+        return post("/payments", Map.of("amount", amount, "bookingRef", bookingRef));
+    }
+
+    private PaymentResponse post(String path, Object body) throws IOException, InterruptedException {
+        var request = HttpRequest.newBuilder(baseUri.resolve(path))
+                .header("Content-Type", "application/json")
+                .timeout(Duration.ofSeconds(15)) // comfortably above LATENCY_MAX_MS (default 8s)
+                .POST(HttpRequest.BodyPublishers.ofString(mapper.writeValueAsString(body)))
+                .build();
+
+        var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() >= 500) {
+            // transient infrastructure failure - distinct from a REJECTED decision, handle separately
+            throw new PaymentGatewayUnavailableException(response.body());
+        }
+
+        return mapper.readValue(response.body(), PaymentResponse.class);
+    }
+}
+```
+
+```{note}
+Set the request timeout well above `LATENCY_MAX_MS` (default `8000`ms) - e.g. 15 seconds.
+The default `HttpClient` timeout, or any short timeout you set yourself, will fail against a
+perfectly healthy stub simply because every response is deliberately slow.
+```
+
+The response needs handling on two, distinct axes:
+
+- **A `200` with `"status": "REJECTED"`** is a clean business decision the stub returns on
+  purpose (amount above `DECLINE_THRESHOLD`) - surface it to the user as a declined payment.
+- **A 5xx** (`FAILURE_HTTP_STATUS`, default `503`, with a `FAILURE_CODE` in the body) is a
+  transient failure the stub injects at `FAILURE_RATE` - treat it like any other unavailable
+  upstream (retry, or fail the operation with a "try again" message), not as a decline.
+- **A `401`** means `SHARED_SECRET` is set on the stub but your request did not send a
+  matching `X-Payment-Secret` header.
+
+For the base URL, read `http://localhost:8080` (running the stub with `docker run` on your
+machine) or `http://payment-stub:8080` (running it as a Compose service, per the tip above)
+from configuration rather than hardcoding it, so local and deployed environments differ only
+by config.
+
+```{tip}
+Put this behind a small interface (e.g. `PaymentGateway`) and inject it into your service
+layer, rather than calling `HttpClient` directly from a servlet. It keeps the slow, flaky
+external call out of your request-handling code and makes it trivial to stub out in tests.
+```
+
 ## Observability (optional)
 
 The stub is instrumented with OpenTelemetry (traces + metrics), but export is **off by

@@ -99,6 +99,14 @@ Implementing this stack will be a complicated undertaking. In an effort to manag
 - full-duplex communication with Websockets
 - some additional integrations
 
+#### Payment Stub
+
+- integrating with the payment stub, a stand-in for a 3rd-party payment provider, from your
+  API and UI
+
+This one sits outside the milestone sequence - once Docker is set up in *Milestone 1:
+Deployment* you can do it at any point.
+
 :::{admonition} Skipping milestones
 :class: caution
 Each milestone builds upon the implementation contributed by previous milestones. You should plan to complete each milestone in order; however, you may wish to skip early milestones if you're confident in your React, JavaEE or integration abilities. If you do skip early milestones, checkout the source code contributed by the previous milestone - for example, if you plan to start from *Milestone 1: Deployment* checkout the code from *Milestone 0: Hello world*. Note that *Milestone -1: Tools* will take you through installing critical dependencies such as a compatible Java JDK and Node.js runtime, be sure to confirm your local development environment is properly set up before proceeding with any of the other milestones.
