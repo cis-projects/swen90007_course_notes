@@ -1,0 +1,1464 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workshop 6 &#8212; SWEN90007 Software Design and Architecture Course Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_6OLD';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../introduction/introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workshops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="workshop_1.html">Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_2.html">Workshop 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_3.html">Workshop 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_4.html">Workshop 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_6.html">Workshop 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_7.html">Workshop 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop_8.html">Workshop 8</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">JSP Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/1_intellij_install.html">Step 1: Install IntelliJ Professional Edition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/2_tomcat_download.html">Step 2: Download Tomcat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/3_postgresql_setup.html">Step 3: Setup PostgreSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/4_create_project.html">Step 4: Create Project in IntelliJ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/5_github_setup.html">Step 5: Setup GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/6_github_clone.html">Step 6: Clone GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/7_connect_intellij_postgresql.html">Step 7: Connect IntelliJ Project to Local PostgreSQL Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/8_setup_docker.html">Step 8: Setup Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/9_render_deploy.html">Step 9: Deploy to Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_dev/10_payment_stub.html">Step 10: Set Up the Payment Stub</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">React Project Development Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer.html">React Example Project Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone--1.html">Milestone -1: Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-0.html">Milestone 0: Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-1.html">Milestone 1: Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-2.html">Milestone 2: Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-milestone-3.html">Milestone 3: Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../react-example/swen90007-react-example-primer-payment-stub.html">Payment Stub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cis-projects/swen90007_course_notes/issues/new?title=Issue%20on%20page%20%2Fworkshops/workshop_6OLD.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workshops/workshop_6OLD.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop 6</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-ci-cd">Why CI/CD?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-github-actions-workflow">Anatomy of a GitHub Actions workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">Key concepts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-taxonomy-what-should-your-pipeline-do">Pipeline taxonomy — what should your pipeline do?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-quality-is-the-code-clean">Code quality — “is the code clean?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-testing-does-the-code-work">Automated testing — “does the code work?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-verification-does-the-project-compile-and-package">Build verification — “does the project compile and package?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-gates-is-this-pr-safe-to-merge">Review gates — “is this PR safe to merge?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-deployment-ship-it-automatically">Continuous deployment — “ship it automatically”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-actions-minutes-budget">Your Actions minutes budget</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-build-your-pipeline-step-by-step">Hands-on: build your pipeline step by step</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-hello-world-workflow">Step 1 — Hello World workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-code-quality-checkstyle">Step 2 — Code quality (Checkstyle)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-automated-testing">Step 3 — Automated testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-deployable-artifact">Step 4 — Build the deployable artifact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-branch-protection-pr-checks">Step 5 — Branch protection &amp; PR checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-consolidate-into-one-job">Step 6 — Consolidate into one job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-optional-deploy-on-a-release-tag">Step 7 — (Optional) Deploy on a release tag</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">Quick reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-outcome-checklist">Expected outcome &amp; checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-repository-structure">Expected repository structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#official-documentation">Official documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maven-plugins">Maven plugins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-and-testing">Deployment and testing</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-6">
+<h1>Workshop 6<a class="headerlink" href="#workshop-6" title="Link to this heading">#</a></h1>
+<p>This workshop introduces continuous integration and continuous delivery (CI/CD), and walks you through building a pipeline for your team’s repository with <a class="reference external" href="https://docs.github.com/en/actions">GitHub Actions</a>.</p>
+<p>Everything here targets the stack you’re building on: a Java back-end built with Maven, packaged as a Docker image and deployed to Render. The pipeline below works the same whether your build produces a WAR (the setup in the course notes) or an executable JAR — only the artifact filename changes, and that is flagged where it matters.</p>
+<p>Specifically, it covers:</p>
+<ul class="simple">
+<li><p>why teams automate build, test and deployment steps</p></li>
+<li><p>the anatomy of a GitHub Actions workflow</p></li>
+<li><p>a taxonomy of pipeline stages — what a pipeline should actually do</p></li>
+<li><p>how to build a pipeline that fits inside the subject’s shared Actions minutes budget</p></li>
+<li><p>a hands-on, step-by-step build of that pipeline in your own repository</p></li>
+</ul>
+<div class="important admonition">
+<p class="admonition-title">By the end of this session</p>
+<p>Your team repository should have a working CI/CD pipeline that automatically checks code quality, runs tests, and (optionally) deploys your application every time someone pushes code or opens a pull request.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Your CI/CD pipeline is a living part of your project. Start with the basics today and evolve it as your project grows — add integration tests, security scanning, or automated releases when you’re ready.</p>
+</div>
+<section id="why-ci-cd">
+<h2>Why CI/CD?<a class="headerlink" href="#why-ci-cd" title="Link to this heading">#</a></h2>
+<section id="the-problem">
+<h3>The problem<a class="headerlink" href="#the-problem" title="Link to this heading">#</a></h3>
+<p>Without automation, teams rely on manual processes: “Did you run the tests before merging?” “Is the formatting consistent?” “Does the build still work?” These questions lead to inconsistency, broken main branches, and stressful deployments.</p>
+</section>
+<section id="the-solution">
+<h3>The solution<a class="headerlink" href="#the-solution" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>What it means</p></th>
+<th class="head"><p>Analogy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Continuous Integration (CI)</strong></p></td>
+<td><p>Automatically build, lint, and test code on every push or pull request.</p></td>
+<td><p>A spell-checker that runs every time you save a document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Continuous Delivery (CD)</strong></p></td>
+<td><p>Automatically prepare a release-ready artifact after CI passes.</p></td>
+<td><p>The document is formatted and ready to print at any moment.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Continuous Deployment</strong></p></td>
+<td><p>Automatically deploy to production when CI/CD passes on the main branch.</p></td>
+<td><p>The document is printed and mailed the moment it’s approved.</p></td>
+</tr>
+</tbody>
+</table>
+<p>There’s a direct assessment argument too. Parts 2 and 3 are assessed from a <strong>tagged release that is deployed and running</strong>, and you demonstrate your pipeline at the interactive oral. A pipeline that builds and deploys the tag for you turns “did someone remember to redeploy before the deadline?” into a question nobody has to ask.</p>
+</section>
+</section>
+<section id="anatomy-of-a-github-actions-workflow">
+<h2>Anatomy of a GitHub Actions workflow<a class="headerlink" href="#anatomy-of-a-github-actions-workflow" title="Link to this heading">#</a></h2>
+<p>Every pipeline lives in a YAML file inside <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code>. Here is the skeleton:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span><span class="w">                         </span><span class="c1"># Display name in the Actions tab</span>
+
+<span class="nt">on</span><span class="p">:</span><span class="w">                              </span><span class="c1"># Trigger events</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span><span class="w">                            </span><span class="c1"># One or more jobs (run in parallel by default)</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w">       </span><span class="c1"># The virtual machine type</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span><span class="w">          </span><span class="c1"># Step 1: clone the repo</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run a command</span><span class="w">                </span><span class="c1"># Step 2: any shell command</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Pipeline is running!&quot;</span>
+</pre></div>
+</div>
+<section id="key-concepts">
+<h3>Key concepts<a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Workflow</strong></p></td>
+<td><p>The entire YAML file. A repo can have multiple workflows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Trigger (<code class="docutils literal notranslate"><span class="pre">on</span></code>)</strong></p></td>
+<td><p>When the workflow runs: <code class="docutils literal notranslate"><span class="pre">push</span></code>, <code class="docutils literal notranslate"><span class="pre">pull_request</span></code>, <code class="docutils literal notranslate"><span class="pre">schedule</span></code>, <code class="docutils literal notranslate"><span class="pre">workflow_dispatch</span></code> (manual), etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Job</strong></p></td>
+<td><p>A unit of work that runs on a fresh virtual machine. Jobs run in parallel unless you add <code class="docutils literal notranslate"><span class="pre">needs:</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Step</strong></p></td>
+<td><p>A single task inside a job — either a shell command (<code class="docutils literal notranslate"><span class="pre">run:</span></code>) or a reusable action (<code class="docutils literal notranslate"><span class="pre">uses:</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Action</strong></p></td>
+<td><p>A reusable, community-maintained step (e.g., <code class="docutils literal notranslate"><span class="pre">actions/checkout&#64;v4</span></code>). Browse them at <a class="reference external" href="https://github.com/marketplace?type=actions">GitHub Marketplace → Actions</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Artifact</strong></p></td>
+<td><p>A file produced by a job (e.g., a build output, test report) that can be downloaded or passed to another job.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="note admonition">
+<p class="admonition-title">Every job starts from nothing</p>
+<p>A job runs on a <strong>fresh</strong> virtual machine. It has no JDK configured, no local Maven repository, and no copy of your code until you check it out. This is exactly why CI catches “works on my machine” problems — and, as the next section shows, it’s also why every extra job costs you real time.</p>
+</div>
+</section>
+</section>
+<section id="pipeline-taxonomy-what-should-your-pipeline-do">
+<h2>Pipeline taxonomy — what should your pipeline do?<a class="headerlink" href="#pipeline-taxonomy-what-should-your-pipeline-do" title="Link to this heading">#</a></h2>
+<p>A well-designed pipeline is made up of <strong>stages</strong>, each with a clear purpose. Below is a taxonomy of common pipeline stages. You do not need all of them on day one — start small and grow.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-rounded-3 sd-border-0 docutils">
+<div class="sd-card-header sd-bg-secondary sd-text-white sd-font-weight-bold docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Code quality</p></li>
+</ol>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Checkstyle, formatting, static analysis.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-rounded-3 sd-border-0 docutils">
+<div class="sd-card-header sd-bg-secondary sd-text-white sd-font-weight-bold docutils">
+<ol class="arabic simple" start="2">
+<li><p class="sd-card-text">Test</p></li>
+</ol>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">JUnit unit tests, integration tests, coverage.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-rounded-3 sd-border-0 docutils">
+<div class="sd-card-header sd-bg-secondary sd-text-white sd-font-weight-bold docutils">
+<ol class="arabic simple" start="3">
+<li><p class="sd-card-text">Build</p></li>
+</ol>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Compile, package the deployable artifact, upload it.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-rounded-3 sd-border-0 docutils">
+<div class="sd-card-header sd-bg-secondary sd-text-white sd-font-weight-bold docutils">
+<ol class="arabic simple" start="4">
+<li><p class="sd-card-text">Review gates</p></li>
+</ol>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Require passing checks on PRs, auto-assign reviewers.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-rounded-3 sd-border-0 docutils">
+<div class="sd-card-header sd-bg-secondary sd-text-white sd-font-weight-bold docutils">
+<ol class="arabic simple" start="5">
+<li><p class="sd-card-text">Deploy (CD)</p></li>
+</ol>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Deploy to Render on merge, or on a release tag.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Stages 1 to 4 typically run on <strong>every push and pull request</strong>; stage 5 usually runs on the <strong>main branch only</strong>, or on a tag.</p>
+<p>Conveniently, the first three map onto phases of the Maven build lifecycle, so a single <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code> runs all of them in one pass. Keep that in mind as you read — it’s the key to a cheap pipeline.</p>
+<section id="code-quality-is-the-code-clean">
+<h3>Code quality — “is the code clean?”<a class="headerlink" href="#code-quality-is-the-code-clean" title="Link to this heading">#</a></h3>
+<p><strong>Purpose:</strong> Enforce consistent style and catch common mistakes before anyone reviews the code.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p>What it does</p></th>
+<th class="head"><p>Maven goal</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Checkstyle</strong></p></td>
+<td><p>Style and convention checking against a rule set (Google or Sun checks make a good starting point)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">checkstyle:check</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Spotless</strong></p></td>
+<td><p>Auto-formatting, with a <code class="docutils literal notranslate"><span class="pre">check</span></code> goal that fails CI when files aren’t formatted</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">spotless:check</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PMD</strong></p></td>
+<td><p>Static analysis for common bad practice, dead code, and copy-paste</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">pmd:check</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SpotBugs</strong></p></td>
+<td><p>Bytecode analysis for likely bugs — null dereferences, unclosed resources, ignored return values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">spotbugs:check</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Pick <strong>one</strong> to start with. Checkstyle is the usual choice because the rules are easy to agree on and the failures are unambiguous. SpotBugs earns its place later in the semester — it’s good at spotting the resource leaks that show up once you’re managing your own JDBC connections.</p>
+<div class="tip admonition">
+<p class="admonition-title">Bind the check to a phase</p>
+<p>If you bind these plugins to a lifecycle phase in your <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> (Checkstyle to <code class="docutils literal notranslate"><span class="pre">validate</span></code>, SpotBugs to <code class="docutils literal notranslate"><span class="pre">verify</span></code>) they run as part of <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code> — no separate CI step, and the same command works on your laptop.</p>
+</div>
+</section>
+<section id="automated-testing-does-the-code-work">
+<h3>Automated testing — “does the code work?”<a class="headerlink" href="#automated-testing-does-the-code-work" title="Link to this heading">#</a></h3>
+<p><strong>Purpose:</strong> Run your test suite automatically so broken code never reaches the main branch.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Test type</p></th>
+<th class="head"><p>When to use</p></th>
+<th class="head"><p>How it runs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Unit tests</strong></p></td>
+<td><p>Test individual classes in isolation — mappers, domain logic, your Unit of Work. <em>Every team should have these.</em></p></td>
+<td><p>JUnit 5 via Surefire, <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">test</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Integration tests</strong></p></td>
+<td><p>Test components together against a real PostgreSQL database.</p></td>
+<td><p>JUnit 5 + <a class="reference external" href="https://java.testcontainers.org/">Testcontainers</a> via Failsafe, named <code class="docutils literal notranslate"><span class="pre">*IT.java</span></code>, <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">verify</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Performance tests</strong></p></td>
+<td><p>Measure throughput and latency under load (Part 3).</p></td>
+<td><p>k6 — see Workshop 8. Run these on a schedule or manually, <strong>not</strong> on every push</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Code coverage</strong> measures what percentage of your code is exercised by tests. <a class="reference external" href="https://www.jacoco.org/jacoco/trunk/doc/maven.html">JaCoCo</a> is the standard choice: bind <code class="docutils literal notranslate"><span class="pre">prepare-agent</span></code> and <code class="docutils literal notranslate"><span class="pre">report</span></code> in your <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> and a report appears in <code class="docutils literal notranslate"><span class="pre">target/site/jacoco/</span></code> on every <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code>.</p>
+<div class="caution admonition">
+<p class="admonition-title">Testcontainers costs minutes</p>
+<p>Testcontainers is excellent — it spins up a real PostgreSQL container so your mappers are tested against the database they’ll actually run on. It also pulls a Docker image on every CI run. Keep integration tests in a separate Failsafe run and consider limiting them to pull requests against <code class="docutils literal notranslate"><span class="pre">main</span></code> rather than every push to a feature branch.</p>
+</div>
+</section>
+<section id="build-verification-does-the-project-compile-and-package">
+<h3>Build verification — “does the project compile and package?”<a class="headerlink" href="#build-verification-does-the-project-compile-and-package" title="Link to this heading">#</a></h3>
+<p><strong>Purpose:</strong> Make sure the project can be successfully built from a clean environment — not just on your laptop.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Command</p></th>
+<th class="head"><p>Why it matters</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Compile and test</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">verify</span></code></p></td>
+<td><p>Catches missing dependencies, and anything that only compiles because of stale state in your IDE.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Package the artifact</p></td>
+<td><p>mvn package</p></td>
+<td><p>Produces the WAR (or executable JAR) that your Dockerfile copies into the image Render runs. If this breaks, you cannot deploy.</p></td>
+</tr>
+<tr class="row-even"><td><p>Upload the artifact</p></td>
+<td><p>actions/upload-artifact&#64;v4</p></td>
+<td><p>Lets you download the exact artefact a run produced, which is invaluable when the deployed build misbehaves but your local one doesn’t.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="review-gates-is-this-pr-safe-to-merge">
+<h3>Review gates — “is this PR safe to merge?”<a class="headerlink" href="#review-gates-is-this-pr-safe-to-merge" title="Link to this heading">#</a></h3>
+<p><strong>Purpose:</strong> Use GitHub features to prevent merging code that hasn’t passed your pipeline.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>How to set it up</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Required status checks</strong></p></td>
+<td><p>Settings → Branches → Branch protection rules → Require status checks to pass. Select your CI job names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Required reviews</strong></p></td>
+<td><p>Same page → Require approvals (set to 1 or 2).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Auto-assign reviewers</strong></p></td>
+<td><p>Use the <a class="reference external" href="https://github.com/kentaro-m/auto-assign-action">auto-assign action</a> or GitHub’s built-in CODEOWNERS file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PR labelling</strong></p></td>
+<td><p>Use <a class="reference external" href="https://github.com/actions/labeler">actions/labeler</a> to auto-label PRs by file path.</p></td>
+</tr>
+</tbody>
+</table>
+<p>This is also where CI starts paying for itself as a <em>team</em> practice. With five people committing to one repository, a protected <code class="docutils literal notranslate"><span class="pre">main</span></code> is what stops a broken build from blocking everyone else’s work an hour before a deadline.</p>
+</section>
+<section id="continuous-deployment-ship-it-automatically">
+<h3>Continuous deployment — “ship it automatically”<a class="headerlink" href="#continuous-deployment-ship-it-automatically" title="Link to this heading">#</a></h3>
+<p><strong>Purpose:</strong> Once CI passes, get the new version onto Render without anyone clicking anything.</p>
+<p>You have three options, and the cheapest one is probably the right one:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Approach</p></th>
+<th class="head"><p>Actions minutes</p></th>
+<th class="head"><p>When to use it</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Render auto-deploy on commit</strong></p></td>
+<td><p>None — Render watches the branch itself</p></td>
+<td><p>The sensible default while you’re building</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Render auto-deploy after CI checks pass</strong></p></td>
+<td><p>None</p></td>
+<td><p>Once you have branch protection: Render waits for your green checks, then deploys</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Deploy hook called from a workflow</strong></p></td>
+<td><p>A few seconds</p></td>
+<td><p>When you need to deploy something Render can’t detect on its own — most usefully, a <strong>release tag</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>The second option is worth setting up properly: it’s configured on the service’s Settings page in the Render dashboard, and it means a red pipeline never reaches your deployed URL. See <a class="reference external" href="https://render.com/docs/deploys">Render’s deploy documentation</a> for the setting, and <a class="reference external" href="https://render.com/docs/deploy-hooks">deploy hooks</a> for the third option.</p>
+</section>
+</section>
+<section id="your-actions-minutes-budget">
+<h2>Your Actions minutes budget<a class="headerlink" href="#your-actions-minutes-budget" title="Link to this heading">#</a></h2>
+<div class="warning admonition">
+<p class="admonition-title">A shared, finite pool</p>
+<p>GitHub Actions minutes are a <strong>shared pool across the whole subject</strong> — roughly 200 minutes per team per month. Your repositories are private, so every minute a workflow runs is drawn from it. If the pool is exhausted, deployments stop <strong>for every team in the subject</strong>, and wasteful CI can be raised at your oral assessment.</p>
+</div>
+<p>This constraint is not an obstacle to good CI — it’s the reason to write good CI. Consider a naive pipeline with three jobs (<code class="docutils literal notranslate"><span class="pre">lint</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">build</span></code>). Each one gets a fresh runner, so each one checks out the repository, installs a JDK, and downloads your entire dependency tree from Maven Central before doing any useful work. Call it three minutes per run. Five teammates pushing fifteen times a week comes to about 45 minutes a week — and you’re out of minutes before the end of the month.</p>
+<p>The same checks in a single cached job take well under a minute. Six levers, roughly in order of impact:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+1. One job, not three</div>
+<p class="sd-card-text">Maven’s lifecycle already runs quality checks, tests and packaging in order. <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">-B</span> <span class="pre">verify</span></code> does all three in one JVM on one runner — one checkout, one JDK setup, one dependency resolution.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+2. Cache <code class="docutils literal notranslate"><span class="pre">~/.m2</span></code></div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">actions/setup-java</span></code> will do it for you with <code class="docutils literal notranslate"><span class="pre">cache:</span> <span class="pre">maven</span></code>. Downloading dependencies is most of a cold build; caching turns minutes into seconds.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+3. Cancel superseded runs</div>
+<p class="sd-card-text">A <code class="docutils literal notranslate"><span class="pre">concurrency</span></code> group with <code class="docutils literal notranslate"><span class="pre">cancel-in-progress:</span> <span class="pre">true</span></code> stops the previous run when you push a fix thirty seconds later. Nobody needs CI results for a commit that’s already been replaced.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+4. Don’t run twice per change</div>
+<p class="sd-card-text">If you trigger on both <code class="docutils literal notranslate"><span class="pre">push</span></code> and <code class="docutils literal notranslate"><span class="pre">pull_request</span></code> for the same branch, a PR from a branch in your own repo runs the pipeline <strong>twice</strong>. Trigger <code class="docutils literal notranslate"><span class="pre">push</span></code> on <code class="docutils literal notranslate"><span class="pre">main</span></code> only, and let <code class="docutils literal notranslate"><span class="pre">pull_request</span></code> cover everything else.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+5. Filter paths</div>
+<p class="sd-card-text">Wiki edits, <code class="docutils literal notranslate"><span class="pre">README</span></code> changes and documentation don’t need a Java build. <code class="docutils literal notranslate"><span class="pre">paths-ignore</span></code> skips the run entirely.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+6. Let Render do the deploying</div>
+<p class="sd-card-text">Render can watch your branch itself, at no cost in Actions minutes. Reserve workflow-triggered deploys for the cases Render can’t handle, like tags.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>You can see what you’ve spent under <strong>Settings → Billing</strong> on the organisation, and each run shows its duration in the Actions tab. Check it occasionally — a pipeline that quietly doubled in cost is much easier to fix in Week 6 than in Week 12.</p>
+</section>
+<section id="hands-on-build-your-pipeline-step-by-step">
+<h2>Hands-on: build your pipeline step by step<a class="headerlink" href="#hands-on-build-your-pipeline-step-by-step" title="Link to this heading">#</a></h2>
+<p>Work through the steps below in your team repository. Steps 1 to 5 build the pipeline up one stage at a time so you can see each part fail and pass; Step 6 then consolidates them into the single efficient job you’ll actually keep.</p>
+<section id="step-1-hello-world-workflow">
+<h3>Step 1 — Hello World workflow<a class="headerlink" href="#step-1-hello-world-workflow" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Verify that GitHub Actions is working in your repo.</p>
+<ol class="arabic simple">
+<li><p>Create the folder <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code> in your repository.</p></li>
+<li><p>Add a file called <code class="docutils literal notranslate"><span class="pre">ci.yml</span></code> with the following content:</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">hello</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hello CI</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;CI pipeline is running on branch ${{ github.ref_name }}&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Commit and push.</p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title">✅ Checkpoint</p>
+<p>Open the <strong>Actions</strong> tab on GitHub. You should see a green check mark and the log message.</p>
+</div>
+</section>
+<section id="step-2-code-quality-checkstyle">
+<h3>Step 2 — Code quality (Checkstyle)<a class="headerlink" href="#step-2-code-quality-checkstyle" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Add automated style checking to your pipeline.</p>
+<p>First, add the plugin to your <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> and bind it to the <code class="docutils literal notranslate"><span class="pre">validate</span></code> phase, so it runs early and fails fast:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>maven-checkstyle-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.6.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;configuration&gt;</span>
+<span class="w">    </span><span class="nt">&lt;configLocation&gt;</span>checkstyle.xml<span class="nt">&lt;/configLocation&gt;</span>
+<span class="w">    </span><span class="nt">&lt;consoleOutput&gt;</span>true<span class="nt">&lt;/consoleOutput&gt;</span>
+<span class="w">    </span><span class="nt">&lt;failOnViolation&gt;</span>true<span class="nt">&lt;/failOnViolation&gt;</span>
+<span class="w">    </span><span class="nt">&lt;violationSeverity&gt;</span>warning<span class="nt">&lt;/violationSeverity&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/configuration&gt;</span>
+<span class="w">  </span><span class="nt">&lt;executions&gt;</span>
+<span class="w">    </span><span class="nt">&lt;execution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>checkstyle-validate<span class="nt">&lt;/id&gt;</span>
+<span class="w">      </span><span class="nt">&lt;phase&gt;</span>validate<span class="nt">&lt;/phase&gt;</span>
+<span class="w">      </span><span class="nt">&lt;goals&gt;</span>
+<span class="w">        </span><span class="nt">&lt;goal&gt;</span>check<span class="nt">&lt;/goal&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/goals&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/execution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>Add a <code class="docutils literal notranslate"><span class="pre">checkstyle.xml</span></code> rule set at the root of the repository — starting from Google’s or Sun’s published checks and deleting the rules your team disagrees with is a perfectly respectable approach, and a faster route to consensus than writing one from scratch.</p>
+<p>Then replace the <code class="docutils literal notranslate"><span class="pre">hello</span></code> job in <code class="docutils literal notranslate"><span class="pre">ci.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">lint</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkstyle</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
+<span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
+<span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Checkstyle</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B --no-transfer-progress checkstyle:check</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">What the flags do</p>
+<p><code class="docutils literal notranslate"><span class="pre">-B</span></code> (batch mode) stops Maven emitting interactive progress, and <code class="docutils literal notranslate"><span class="pre">--no-transfer-progress</span></code> suppresses the download chatter. Together they turn thousands of lines of CI log into something you can actually read when a build fails.</p>
+</div>
+<p><strong>Try it:</strong></p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Push code with a deliberate style violation → watch the pipeline <strong>fail</strong>.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Fix the violation → push again → pipeline turns <strong>green</strong>.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Look at the run time of the second run compared with the first. The Maven cache should have made it noticeably faster.</p></li>
+</ul>
+</section>
+<section id="step-3-automated-testing">
+<h3>Step 3 — Automated testing<a class="headerlink" href="#step-3-automated-testing" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Run your JUnit suite on every push and pull request.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit Tests</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
+<span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
+<span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B --no-transfer-progress test</span>
+</pre></div>
+</div>
+<p>Surefire picks up anything named <code class="docutils literal notranslate"><span class="pre">*Test.java</span></code> automatically. If you’ve added Failsafe for integration tests (<code class="docutils literal notranslate"><span class="pre">*IT.java</span></code>), those run under <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code> instead — which is what Step 6 will use.</p>
+<p><strong>Try it:</strong></p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Write a simple test that passes → push → green.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Break the test intentionally → push → red.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Fix it → push → green again.</p></li>
+</ul>
+</section>
+<section id="step-4-build-the-deployable-artifact">
+<h3>Step 4 — Build the deployable artifact<a class="headerlink" href="#step-4-build-the-deployable-artifact" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Ensure the deployable artifact builds in a clean environment.</p>
+<p>Your application is packaged by Maven and then copied into a Docker image, which is what Render runs. On the setup in the course notes that artefact is a .war, produced by the default package phase. No extra plugin configuration is required.</p>
+<p>:class: dropdown
+You will need the Shade plugin to produce a single self-contained JAR. Everything else in this workshop is unchanged; substitute <code class="docutils literal notranslate"><span class="pre">*.jar</span></code> for <code class="docutils literal notranslate"><span class="pre">*.war</span></code> in the artifact paths below.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.6.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;executions&gt;</span>
+<span class="w">    </span><span class="nt">&lt;execution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+<span class="w">      </span><span class="nt">&lt;goals&gt;</span>
+<span class="w">        </span><span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/goals&gt;</span>
+<span class="w">      </span><span class="nt">&lt;configuration&gt;</span>
+<span class="w">        </span><span class="nt">&lt;transformers&gt;</span>
+<span class="w">          </span><span class="nt">&lt;transformer</span><span class="w"> </span><span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;mainClass&gt;</span>au.edu.unimelb.swen90007.Main<span class="nt">&lt;/mainClass&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/transformer&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/transformers&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/configuration&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/execution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>And the job that builds and keeps it:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Package</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">lint</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">test</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
+<span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
+<span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Package</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B --no-transfer-progress package -DskipTests</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload artifact</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-artifact</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target/*.war</span><span class="w">        </span><span class="c1"># or target/*.jar if you build an executable JAR</span>
+<span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">✅ Checkpoint</p>
+<p>Download the artefact from the run summary page. It is the same file your Dockerfile copies into the image: build the image locally with docker build, run it, and what starts up is what Render will run.</p>
+</div>
+</section>
+<section id="step-5-branch-protection-pr-checks">
+<h3>Step 5 — Branch protection &amp; PR checks<a class="headerlink" href="#step-5-branch-protection-pr-checks" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Prevent merging code that hasn’t passed the pipeline.</p>
+<p>This step is done in <strong>GitHub Settings</strong>, not in a YAML file:</p>
+<ol class="arabic simple">
+<li><p>Go to your repository → <strong>Settings</strong> → <strong>Branches</strong>.</p></li>
+<li><p>Click <strong>Add branch protection rule</strong>.</p></li>
+<li><p>Set <strong>Branch name pattern</strong> to <code class="docutils literal notranslate"><span class="pre">main</span></code> (and optionally <code class="docutils literal notranslate"><span class="pre">develop</span></code>).</p></li>
+<li><p>Enable the following:</p>
+<ul class="simple">
+<li><p>✅ <strong>Require a pull request before merging</strong></p></li>
+<li><p>✅ <strong>Require approvals</strong> — set to at least 1</p></li>
+<li><p>✅ <strong>Require status checks to pass before merging</strong> — search for and select your CI job names</p></li>
+<li><p>✅ <strong>Require branches to be up to date before merging</strong></p></li>
+</ul>
+</li>
+<li><p>Click <strong>Create</strong> / <strong>Save changes</strong>.</p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title">✅ Checkpoint</p>
+<p>Create a PR with a failing test. You should see the merge button blocked with a message indicating the required checks have not passed.</p>
+</div>
+</section>
+<section id="step-6-consolidate-into-one-job">
+<h3>Step 6 — Consolidate into one job<a class="headerlink" href="#step-6-consolidate-into-one-job" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Get the same coverage for a fraction of the minutes.</p>
+<p>You now have three jobs doing three checkouts, three JDK installs and three dependency resolutions. Because Checkstyle is bound to <code class="docutils literal notranslate"><span class="pre">validate</span></code>, tests run at <code class="docutils literal notranslate"><span class="pre">test</span></code>, and Shade runs at <code class="docutils literal notranslate"><span class="pre">package</span></code>, a single <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code> performs all of it in order — and stops at the first failure, exactly as the separate jobs did.</p>
+<p>Replace the whole of <code class="docutils literal notranslate"><span class="pre">ci.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">concurrency</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ci-${{ github.ref }}</span>
+<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">verify</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkstyle, test &amp; package</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
+<span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
+<span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B --no-transfer-progress verify</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload JAR</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-jar</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">target/*.jar</span>
+<span class="w">            </span><span class="no">!target/original-*.jar</span>
+<span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</pre></div>
+</div>
+<p>Note the trigger change: <code class="docutils literal notranslate"><span class="pre">push</span></code> now fires on <code class="docutils literal notranslate"><span class="pre">main</span></code> only, while <code class="docutils literal notranslate"><span class="pre">pull_request</span></code> covers every branch. Previously a PR from a branch in your own repository ran the pipeline twice for the same commit.</p>
+<div class="important admonition">
+<p class="admonition-title">✅ Checkpoint</p>
+<p>Compare the total run time against the three-job version in the Actions tab, then update your branch protection rule — the required status check is now <code class="docutils literal notranslate"><span class="pre">verify</span></code>, and your old job names no longer exist. <strong>A protection rule pointing at a deleted job blocks every merge</strong>, so fix this before you go home.</p>
+</div>
+<p><strong>Try it:</strong></p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Push a change to a Markdown file only. No workflow should run at all.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Push twice in quick succession. The first run should be cancelled automatically.</p></li>
+</ul>
+</section>
+<section id="step-7-optional-deploy-on-a-release-tag">
+<h3>Step 7 — (Optional) Deploy on a release tag<a class="headerlink" href="#step-7-optional-deploy-on-a-release-tag" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Have your submission tag deploy itself.</p>
+<p>Your submissions are release tags of the form <code class="docutils literal notranslate"><span class="pre">SWEN90007_2026_Part1A_&lt;team</span> <span class="pre">name&gt;</span></code>. A workflow that deploys when such a tag is pushed means the deployed application and the tagged code can’t drift apart.</p>
+<p>First, create a deploy hook: in the Render dashboard, open your service → <strong>Settings</strong> → <strong>Deploy Hook</strong>, and copy the URL. Then add it to GitHub under <strong>Settings → Secrets and variables → Actions → New repository secret</strong>, named <code class="docutils literal notranslate"><span class="pre">RENDER_DEPLOY_HOOK_URL</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;SWEN90007_2026_Part*&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trigger Render deploy</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Call deploy hook</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">DEPLOY_HOOK</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.RENDER_DEPLOY_HOOK_URL }}</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl -fsS -X POST &quot;$DEPLOY_HOOK&quot;</span>
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Anyone with the hook URL can deploy your service</p>
+<p>The deploy hook needs no other authentication, so treat it like a password: it belongs in GitHub Secrets and nowhere else — not in <code class="docutils literal notranslate"><span class="pre">ci.yml</span></code>, not in your Wiki, not in a screenshot in your report. Passing it through <code class="docutils literal notranslate"><span class="pre">env:</span></code> rather than interpolating it directly into the <code class="docutils literal notranslate"><span class="pre">run:</span></code> line keeps it out of the workflow logs.</p>
+</div>
+</section>
+</section>
+<section id="quick-reference">
+<h2>Quick reference<a class="headerlink" href="#quick-reference" title="Link to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Complete <code class="docutils literal notranslate"><span class="pre">ci.yml</span></code> — Java / Maven</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">concurrency</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ci-${{ github.ref }}</span>
+<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">verify</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkstyle, test &amp; package</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temurin</span>
+<span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">21</span>
+<span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B --no-transfer-progress verify</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload JAR</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-jar</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">target/*.jar</span>
+<span class="w">            </span><span class="no">!target/original-*.jar</span>
+<span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</pre></div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Additional job — React front-end</p>
+<p>Only for teams that chose React. This assumes the front-end lives in a <code class="docutils literal notranslate"><span class="pre">frontend/</span></code> directory; the <code class="docutils literal notranslate"><span class="pre">paths</span></code> filter means it runs only when front-end code actually changes, and the Java job’s <code class="docutils literal notranslate"><span class="pre">paths-ignore</span></code> can be extended with <code class="docutils literal notranslate"><span class="pre">'frontend/**'</span></code> so the two don’t trigger each other.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Front-end lint, test &amp; build</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;pull_request&#39;</span>
+<span class="w">    </span><span class="nt">defaults</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm</span>
+<span class="w">          </span><span class="nt">cache-dependency-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend/package-lock.json</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm ci</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npx eslint .</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm test -- --run</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm run build</span>
+</pre></div>
+</div>
+<p>JSP teams need nothing here — your views are part of the Maven build and are covered by <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code>.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Deploy on tag — Render</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;SWEN90007_2026_Part*&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trigger Render deploy</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Call deploy hook</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">DEPLOY_HOOK</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.RENDER_DEPLOY_HOOK_URL }}</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl -fsS -X POST &quot;$DEPLOY_HOOK&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Plugin versions</p>
+<p>The plugin versions in this workshop were current when it was written. Pin a version for every plugin — an unpinned plugin resolves differently over time and produces builds that fail for one teammate and not another — and check <a class="reference external" href="https://central.sonatype.com">Maven Central</a> for the current release when you add one.</p>
+</div>
+</section>
+<section id="expected-outcome-checklist">
+<h2>Expected outcome &amp; checklist<a class="headerlink" href="#expected-outcome-checklist" title="Link to this heading">#</a></h2>
+<p>By the end of this workshop, your team repository should have:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A <code class="docutils literal notranslate"><span class="pre">.github/workflows/ci.yml</span></code> file committed to your repo.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Code quality stage</strong> — Checkstyle runs on every push/PR and fails the build on violations.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Test stage</strong> — at least one JUnit test runs automatically.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Build stage</strong> — the deployable artefact packages successfully in a clean CI environment.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Branch protection</strong> — <code class="docutils literal notranslate"><span class="pre">main</span></code> requires passing CI checks before merge.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>A consolidated job</strong> with Maven caching, a <code class="docutils literal notranslate"><span class="pre">concurrency</span></code> group, and no duplicate <code class="docutils literal notranslate"><span class="pre">push</span></code>/<code class="docutils literal notranslate"><span class="pre">pull_request</span></code> runs.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> PRs show ✅ green checks or ❌ red crosses providing instant feedback.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <em>(Stretch goal)</em> Deployment to Render on merge to <code class="docutils literal notranslate"><span class="pre">main</span></code> or on a release tag.</p></li>
+</ul>
+<p>Record in your Wiki which of these you’ve done and why — the pipeline is part of what’s assessed in Parts 2 and 3, and you’ll be asked to walk through it at the oral.</p>
+<section id="expected-repository-structure">
+<h3>Expected repository structure<a class="headerlink" href="#expected-repository-structure" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>your-repo/
+├── .github/
+│   └── workflows/
+│       ├── ci.yml              ← your pipeline definition
+│       └── deploy.yml          ← optional, deploy on tag
+├── src/
+│   ├── main/java/              ← application code
+│   └── test/java/              ← JUnit tests
+├── frontend/                   ← React teams only
+├── checkstyle.xml              ← your agreed rule set
+├── pom.xml                     ← dependencies and plugins
+└── README.md
+</pre></div>
+</div>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<section id="official-documentation">
+<h3>Official documentation<a class="headerlink" href="#official-documentation" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GitHub Actions documentation</p></td>
+<td><p><a class="reference external" href="https://docs.github.com/en/actions">https://docs.github.com/en/actions</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Workflow syntax reference</p></td>
+<td><p><a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions">https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actions/setup-java</span></code> (including Maven caching)</p></td>
+<td><p><a class="github reference external" href="https://github.com/actions/setup-java">actions/setup-java</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GitHub Marketplace (Actions)</p></td>
+<td><p><a class="github reference external" href="https://github.com/marketplace?type=actions">marketplace</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="maven-plugins">
+<h3>Maven plugins<a class="headerlink" href="#maven-plugins" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plugin</p></th>
+<th class="head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Checkstyle</p></td>
+<td><p><a class="reference external" href="https://maven.apache.org/plugins/maven-checkstyle-plugin/">https://maven.apache.org/plugins/maven-checkstyle-plugin/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Surefire (unit tests)</p></td>
+<td><p><a class="reference external" href="https://maven.apache.org/surefire/maven-surefire-plugin/">https://maven.apache.org/surefire/maven-surefire-plugin/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Failsafe (integration tests)</p></td>
+<td><p><a class="reference external" href="https://maven.apache.org/surefire/maven-failsafe-plugin/">https://maven.apache.org/surefire/maven-failsafe-plugin/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Shade (fat JAR - optional)</p></td>
+<td><p><a class="reference external" href="https://maven.apache.org/plugins/maven-shade-plugin/">https://maven.apache.org/plugins/maven-shade-plugin/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>JaCoCo (coverage)</p></td>
+<td><p><a class="reference external" href="https://www.jacoco.org/jacoco/trunk/doc/maven.html">https://www.jacoco.org/jacoco/trunk/doc/maven.html</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="deployment-and-testing">
+<h3>Deployment and testing<a class="headerlink" href="#deployment-and-testing" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Render — deploying and auto-deploy settings</p></td>
+<td><p><a class="reference external" href="https://render.com/docs/deploys">https://render.com/docs/deploys</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Render — deploy hooks</p></td>
+<td><p><a class="reference external" href="https://render.com/docs/deploy-hooks">https://render.com/docs/deploy-hooks</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Testcontainers for Java</p></td>
+<td><p><a class="reference external" href="https://java.testcontainers.org/">https://java.testcontainers.org/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GitHub’s official starter workflows</p></td>
+<td><p><a class="github reference external" href="https://github.com/actions/starter-workflows">actions/starter-workflows</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./workshops"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-ci-cd">Why CI/CD?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-github-actions-workflow">Anatomy of a GitHub Actions workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">Key concepts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-taxonomy-what-should-your-pipeline-do">Pipeline taxonomy — what should your pipeline do?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-quality-is-the-code-clean">Code quality — “is the code clean?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-testing-does-the-code-work">Automated testing — “does the code work?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-verification-does-the-project-compile-and-package">Build verification — “does the project compile and package?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-gates-is-this-pr-safe-to-merge">Review gates — “is this PR safe to merge?”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-deployment-ship-it-automatically">Continuous deployment — “ship it automatically”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-actions-minutes-budget">Your Actions minutes budget</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-build-your-pipeline-step-by-step">Hands-on: build your pipeline step by step</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-hello-world-workflow">Step 1 — Hello World workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-code-quality-checkstyle">Step 2 — Code quality (Checkstyle)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-automated-testing">Step 3 — Automated testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-build-the-deployable-artifact">Step 4 — Build the deployable artifact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-branch-protection-pr-checks">Step 5 — Branch protection &amp; PR checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-consolidate-into-one-job">Step 6 — Consolidate into one job</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-optional-deploy-on-a-release-tag">Step 7 — (Optional) Deploy on a release tag</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">Quick reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-outcome-checklist">Expected outcome &amp; checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-repository-structure">Expected repository structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#official-documentation">Official documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maven-plugins">Maven plugins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-and-testing">Deployment and testing</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By School of Computing and Information Systems, The University of Melbourne
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

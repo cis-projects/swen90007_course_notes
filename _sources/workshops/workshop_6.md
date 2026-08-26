@@ -10,6 +10,9 @@ Specifically, it covers:
 - the anatomy of a GitHub Actions workflow
 - a taxonomy of pipeline stages — what a pipeline should actually do
 - how to build a pipeline that fits inside the subject's shared Actions minutes budget
+- where Docker fits between the Maven build and the runtime
+- how CI results can control whether Render deploys
+- how to deploy the exact commit represented by a release tag
 - a hands-on, step-by-step build of that pipeline in your own repository
 
 ```{admonition} By the end of this session
@@ -178,6 +181,72 @@ Testcontainers is excellent — it spins up a real PostgreSQL container so your 
 | Package the artifact | mvn package | Produces the WAR (or executable JAR) that your Dockerfile copies into the image Render runs. If this breaks, you cannot deploy. | 
 | Upload the artifact | actions/upload-artifact@v4 | Lets you download the exact artefact a run produced, which is invaluable when the deployed build misbehaves but your local one doesn't. |
 
+## Where Docker fits
+
+The application has two different packaging steps, and it is useful to keep them conceptually separate:
+
+```text
+source code
+    |
+    v
+Maven
+    |
+    +---- compile
+    |
+    +---- test
+    |
+    +---- package
+             |
+             v
+       WAR / executable JAR
+             |
+             v
+       Docker build
+             |
+             v
+        Docker image
+             |
+             v
+           Render
+```
+
+Maven packages the Java application. Docker packages the application together with the runtime environment and startup configuration. Render then runs the resulting service.
+
+For the standard course setup, the WAR is the Maven artifact that is copied into the Docker image. If a team instead uses an executable JAR, the same idea applies: the JAR is the Maven artifact and the Docker image is the runtime deployment unit.
+
+```{admonition} The industrial intuition
+:class: note
+Render is hiding several lower-level deployment operations that you would otherwise have to manage yourself. In a more infrastructure-heavy platform, you would configure a desired runtime state, provide the application artifact or image, and have a deployment system start new instances, perform health checks, replace old instances, and roll out a new version. Render gives you a managed service that performs those operational steps for you.
+
+You do **not** need to implement Kubernetes for this workshop. The important lesson is to understand the boundary: **GitHub Actions decides whether a version is ready; the deployment platform turns that version into running application instances.**
+```
+
+A simplified mental model is:
+
+```text
+GitHub Actions                    Render
+
+commit
+  |
+  v
+verify + package
+  |
+  v
+artifact / Docker image
+  |
+  +------ "deploy this version" ------> deployment service
+                                         |
+                                         +-- build/pull image
+                                         +-- start instances
+                                         +-- run health checks
+                                         +-- replace old version
+                                         |
+                                         v
+                                      live app
+```
+
+This is why a line such as `curl "$DEPLOY_HOOK"` can look deceptively small. The HTTP request is only the **trigger**; the deployment work happens inside the platform. Render provides deploy hooks for this purpose and records the resulting deployment in the service's deployment history. See the [Render deployment documentation](https://render.com/docs/deploys) and [Deploy Hooks](https://render.com/docs/deploy-hooks).
+
 ### Review gates — "is this PR safe to merge?"
 
 **Purpose:** Use GitHub features to prevent merging code that hasn't passed your pipeline.
@@ -203,7 +272,37 @@ You have three options, and the cheapest one is probably the right one:
 | **Render auto-deploy after CI checks pass** | None | Once you have branch protection: Render waits for your green checks, then deploys |
 | **Deploy hook called from a workflow** | A few seconds | When you need to deploy something Render can't detect on its own — most usefully, a **release tag** |
 
-The second option is worth setting up properly: it's configured on the service's Settings page in the Render dashboard, and it means a red pipeline never reaches your deployed URL. See [Render's deploy documentation](https://render.com/docs/deploys) for the setting, and [deploy hooks](https://render.com/docs/deploy-hooks) for the third option.
+The second option is worth setting up properly: it's configured on the service's Settings page in the Render dashboard, and Render waits for the new commit's CI checks to complete before triggering a deploy. In other words:
+
+```text
+push to main
+    |
+    v
+GitHub Actions
+    |
+    +-- Checkstyle
+    +-- tests
+    +-- package
+    |
+    v
+all checks pass
+    |
+    v
+Render deploys
+```
+
+This creates a useful separation of responsibilities:
+
+- **GitHub Actions** answers: "Is this version good enough to deploy?"
+- **Render** answers: "How do I turn that version into a running service?"
+
+Render documents this behaviour as **After CI Checks Pass** auto-deploy. See [Render's deploy documentation](https://render.com/docs/deploys).
+
+### Recovery and rollback — "handling deployment/application failures"
+**Purpose:** Quickly restore back to a stable working version when a failure occurs.
+
+A successful CI/CD automate the deployment as well as make failure detection, recovery, and rollback fast and repeatable. The CI/CD pipeline does not gaurantee that the applicatin will work correctly in all the time. Always keep previous stable versions identifiable using Git tags. In production environments, verifying the deployed product is essential. If the verification failes, rollback to the last stable version, fix the problem in current code, test, and redeploy should perform. 
+
 
 ## Your Actions minutes budget
 
@@ -455,7 +554,7 @@ Create a PR with a failing test. You should see the merge button blocked with a 
 
 **Goal:** Get the same coverage for a fraction of the minutes.
 
-You now have three jobs doing three checkouts, three JDK installs and three dependency resolutions. Because Checkstyle is bound to `validate`, tests run at `test`, and Shade runs at `package`, a single `mvn verify` performs all of it in order — and stops at the first failure, exactly as the separate jobs did.
+You now have three jobs doing three checkouts, three JDK installs and three dependency resolutions. Because Checkstyle is bound to `validate`, tests run at `test`, and Maven packages the application during the normal lifecycle, a single `mvn verify` performs all of it in order — and stops at the first failure, exactly as the separate jobs did.
 
 Replace the whole of `ci.yml`:
 
@@ -486,15 +585,15 @@ jobs:
           cache: maven
       - name: Verify
         run: mvn -B --no-transfer-progress verify
-      - name: Upload JAR
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-jar
-          path: |
-            target/*.jar
-            !target/original-*.jar
+          name: app-artifact
+          path: target/*.war
           retention-days: 5
 ```
+
+For teams using an executable JAR, use `target/*.jar` instead and remove the WAR-specific path.
 
 Note the trigger change: `push` now fires on `main` only, while `pull_request` covers every branch. Previously a PR from a branch in your own repository ran the pipeline twice for the same commit.
 
@@ -516,6 +615,10 @@ Your submissions are release tags of the form `SWEN90007_2026_Part1A_<team name>
 
 First, create a deploy hook: in the Render dashboard, open your service → **Settings** → **Deploy Hook**, and copy the URL. Then add it to GitHub under **Settings → Secrets and variables → Actions → New repository secret**, named `RENDER_DEPLOY_HOOK_URL`.
 
+A deploy hook can deploy a specific commit by passing the commit SHA as the `ref` query parameter. This is useful for release tags because the tag identifies an exact version rather than just asking Render to deploy whatever commit currently happens to be latest on the branch. Render documents `ref` as the mechanism for deploying a specific Git commit. See [Render Deploy Hooks](https://render.com/docs/deploy-hooks).
+
+A minimal workflow is:
+
 ```yaml
 name: Deploy
 
@@ -525,18 +628,37 @@ on:
 
 jobs:
   deploy:
-    name: Trigger Render deploy
+    name: Deploy release
     runs-on: ubuntu-latest
     steps:
-      - name: Call deploy hook
+      - name: Deploy tagged commit
         env:
           DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        run: curl -fsS -X POST "$DEPLOY_HOOK"
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          curl -fsS -X POST \
+            "${DEPLOY_HOOK}&ref=${COMMIT_SHA}"
+```
+
+The exact deploy-hook URL stored in `RENDER_DEPLOY_HOOK_URL` already contains the service-specific secret key, so the workflow only appends the `ref` parameter.
+
+```{admonition} Why deploy the exact commit?
+:class: note
+A release tag is meant to identify a specific version. Deploying that commit makes the relationship explicit:
+
+`release tag → commit SHA → Render deployment`
+
+Without this distinction, "deploy on tag" can become only a trigger for Render to deploy the latest commit on its linked branch.
 ```
 
 ```{admonition} Anyone with the hook URL can deploy your service
 :class: warning
 The deploy hook needs no other authentication, so treat it like a password: it belongs in GitHub Secrets and nowhere else — not in `ci.yml`, not in your Wiki, not in a screenshot in your report. Passing it through `env:` rather than interpolating it directly into the `run:` line keeps it out of the workflow logs.
+```
+
+```{admonition} Note about automatic deploys
+:class: caution
+When you deliberately deploy a specific commit using a Render deploy hook, Render documents that automatic deploys are disabled for the service. This is important because an automatic deploy of the newest branch commit could otherwise replace the version you intentionally selected. If you use this release-tag pattern, decide explicitly whether the service should be tag-driven or branch-driven rather than mixing both behaviours.
 ```
 
 ## Quick reference
@@ -571,21 +693,21 @@ jobs:
           cache: maven
       - name: Verify
         run: mvn -B --no-transfer-progress verify
-      - name: Upload JAR
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-jar
-          path: |
-            target/*.jar
-            !target/original-*.jar
+          name: app-artifact
+          path: target/*.war
           retention-days: 5
 ```
+
+For teams using an executable JAR, replace the artifact path with `target/*.jar`.
 ::::
 
 ::::{admonition} Additional job — React front-end
 :class: dropdown
 
-Only for teams that chose React. This assumes the front-end lives in a `frontend/` directory; the `paths` filter means it runs only when front-end code actually changes, and the Java job's `paths-ignore` can be extended with `'frontend/**'` so the two don't trigger each other.
+Only for teams that chose React. This assumes the front-end lives in a `frontend/` directory; the `paths` filter means it runs only when front-end code actually changes, and the Java job's `paths-ignore` can be extended with `'frontend/**'` so the two don't trigger each other. [ESLint](https://eslint.org) uses for the JavaScript/TypeScript code checks. 
 
 ```yaml
   frontend:
@@ -626,11 +748,16 @@ jobs:
     name: Trigger Render deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Call deploy hook
+      - name: Call deploy hook and deploy tagged commit
         env:
           DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        run: curl -fsS -X POST "$DEPLOY_HOOK"
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          curl -fsS -X POST \
+            "${DEPLOY_HOOK}&ref=${COMMIT_SHA}"
 ```
+
+This workflow asks Render to deploy the commit represented by the release tag rather than simply deploying the latest commit on the service's linked branch.
 ::::
 
 ```{admonition} Plugin versions
@@ -645,9 +772,11 @@ By the end of this workshop, your team repository should have:
 - [ ] A `.github/workflows/ci.yml` file committed to your repo.
 - [ ] **Code quality stage** — Checkstyle runs on every push/PR and fails the build on violations.
 - [ ] **Test stage** — at least one JUnit test runs automatically.
-- [ ] **Build stage** — the deployable artefact packages successfully in a clean CI environment.
+- [ ] **Build stage** — the deployable artifact packages successfully in a clean CI environment.
+- [ ] **Docker packaging understood** — the team can explain how the Maven artifact becomes the runtime image Render runs.
 - [ ] **Branch protection** — `main` requires passing CI checks before merge.
 - [ ] **A consolidated job** with Maven caching, a `concurrency` group, and no duplicate `push`/`pull_request` runs.
+- [ ] **CI-gated deployment understood** — Render can wait for CI checks to pass before deploying.
 - [ ] PRs show ✅ green checks or ❌ red crosses providing instant feedback.
 - [ ] *(Stretch goal)* Deployment to Render on merge to `main` or on a release tag.
 
@@ -665,6 +794,7 @@ your-repo/
 │   ├── main/java/              ← application code
 │   └── test/java/              ← JUnit tests
 ├── frontend/                   ← React teams only
+├── Dockerfile                  ← packages the Maven artifact into the runtime image
 ├── checkstyle.xml              ← your agreed rule set
 ├── pom.xml                     ← dependencies and plugins
 └── README.md
@@ -697,5 +827,6 @@ your-repo/
 | --- | --- |
 | Render — deploying and auto-deploy settings | <https://render.com/docs/deploys> |
 | Render — deploy hooks | <https://render.com/docs/deploy-hooks> |
+| Render — Docker deployment | <https://render.com/docs/docker> |
 | Testcontainers for Java | <https://java.testcontainers.org/> |
 | GitHub's official starter workflows | <https://github.com/actions/starter-workflows> |
