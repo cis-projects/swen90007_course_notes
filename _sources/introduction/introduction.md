@@ -50,4 +50,9 @@ These notes are a living guide. If you spot an error, or have a suggestion, plea
 
 ## Contributors
 
-A big thank you to the contributors who created and maintain these course notes — you can get in touch with them via the [project repository](https://github.com/cis-projects/swen90007_course_notes).
+- [Eduardo Oliveira](https://findanexpert.unimelb.edu.au/profile/653031-eduardo-araujo-oliveira) (subject coordinator)
+- Luke Rosa (head tutor)
+- Max Plumley (tutor)
+- Dinuka Piyadigama (tutor)
+
+A big thank you to previous lecturers (Maria Read), tutors (Khan Vo, Trina Dey) and students who also contributed a lot to this material. Team work!
