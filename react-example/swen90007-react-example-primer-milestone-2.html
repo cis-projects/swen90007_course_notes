@@ -14,50 +14,54 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'react-example/swen90007-react-example-primer-milestone-2';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -65,38 +69,30 @@
     <link rel="prev" title="Milestone 1: Deployment" href="swen90007-react-example-primer-milestone-1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -104,7 +100,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -112,10 +107,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -124,7 +168,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -139,6 +184,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../introduction/introduction.html">
   
@@ -152,21 +199,17 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -218,14 +261,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -234,14 +282,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -350,7 +398,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -364,27 +412,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -404,7 +444,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-schema-changes">Database schema changes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-changes">API changes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-json">Working with JSON</a></li>
@@ -501,8 +541,8 @@ document.write(`
 <p>We’ll also populate a the database with a little dummy data to play with, make the following changes to <code class="docutils literal notranslate"><span class="pre">load.sql</span></code>:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="p">;</span><span class="w">  </span>
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">vote</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">supporting</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">created</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w">  </span>
-<span class="w">    </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;Pepe Roni&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pepe.roni@pie.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UNVERIFIED&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">()),</span><span class="w">  </span>
-<span class="w">    </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;Barbie Queue&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;b.queue@slice.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UNVERIFIED&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">());</span><span class="w">  </span>
+<span class="w">    </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">'Pepe Roni'</span><span class="p">,</span><span class="w"> </span><span class="s1">'pepe.roni@pie.com'</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="s1">'UNVERIFIED'</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">()),</span><span class="w">  </span>
+<span class="w">    </span><span class="p">(</span><span class="n">gen_random_uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">'Barbie Queue'</span><span class="p">,</span><span class="w"> </span><span class="s1">'b.queue@slice.com'</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="s1">'UNVERIFIED'</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">());</span><span class="w">  </span>
 <span class="k">COMMIT</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -589,7 +629,7 @@ document.write(`
 <span class="w">  </span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VoteService</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Pattern</span><span class="w"> </span><span class="n">EMAIL_PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="s">&quot;^[a-zA-Z0-9.!#$%&amp;&#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Pattern</span><span class="w"> </span><span class="n">EMAIL_PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="s">"^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">  </span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">VoteRepository</span><span class="w"> </span><span class="n">repository</span><span class="p">;</span><span class="w">  </span>
 <span class="w">  </span>
@@ -598,11 +638,11 @@ document.write(`
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Vote</span><span class="w"> </span><span class="nf">submit</span><span class="p">(</span><span class="n">NewVoteRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getEmail</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ValidationException</span><span class="p">(</span>
-<span class="w">                </span><span class="s">&quot;email is required&quot;</span>
+<span class="w">                </span><span class="s">"email is required"</span>
 <span class="w">            </span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isEmailValid</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getEmail</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
 <span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ValidationException</span><span class="p">(</span>
-<span class="w">                </span><span class="s">&quot;email must be a valid email&quot;</span>
+<span class="w">                </span><span class="s">"email must be a valid email"</span>
 <span class="w">            </span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="p">}</span><span class="w">  </span>
 <span class="w">  </span>
@@ -702,7 +742,7 @@ document.write(`
 <span class="w">  </span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">            </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;org.postgresql.Driver&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">"org.postgresql.Driver"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="p">}</span><span class="w">  </span>
@@ -780,7 +820,7 @@ document.write(`
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connectionProvider</span><span class="p">.</span><span class="na">nextConnection</span><span class="p">();</span><span class="w">  </span>
 <span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">            </span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="w">  </span>
-<span class="w">                    </span><span class="s">&quot;INSERT INTO vote (id, name, email, supporting, status, created) VALUES (?, ?, ?, ?, ?, ?)&quot;</span><span class="w">  </span>
+<span class="w">                    </span><span class="s">"INSERT INTO vote (id, name, email, supporting, status, created) VALUES (?, ?, ?, ?, ?, ?)"</span><span class="w">  </span>
 <span class="w">            </span><span class="p">);</span><span class="w">  </span>
 <span class="w">            </span><span class="n">statement</span><span class="p">.</span><span class="na">setObject</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">fromString</span><span class="p">(</span><span class="n">vote</span><span class="p">.</span><span class="na">getId</span><span class="p">()));</span><span class="w">  </span>
 <span class="w">            </span><span class="n">statement</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">vote</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">  </span>
@@ -791,7 +831,7 @@ document.write(`
 <span class="w">            </span><span class="n">statement</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">    </span>
 <span class="w">  </span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;failed to insert new vote: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">()),</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"failed to insert new vote: %s"</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">()),</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">            </span><span class="n">vote</span><span class="p">.</span><span class="na">setNew</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
 <span class="w">            </span><span class="n">connectionProvider</span><span class="p">.</span><span class="na">releaseConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span><span class="w">  </span>
@@ -821,12 +861,12 @@ document.write(`
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Vote</span><span class="w"> </span><span class="nf">map</span><span class="p">(</span><span class="n">ResultSet</span><span class="w"> </span><span class="n">resultSet</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">vote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vote</span><span class="p">();</span><span class="w">  </span>
 <span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setNew</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w">  </span>
-<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">));</span><span class="w">  </span>
-<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">));</span><span class="w">  </span>
-<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">));</span><span class="w">  </span>
-<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setSupporting</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getBoolean</span><span class="p">(</span><span class="s">&quot;supporting&quot;</span><span class="p">));</span><span class="w">  </span>
-<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">Vote</span><span class="p">.</span><span class="na">Status</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">)));</span><span class="w">  </span>
-<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setCreated</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getObject</span><span class="p">(</span><span class="s">&quot;created&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">OffsetDateTime</span><span class="p">.</span><span class="na">class</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">"id"</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">"name"</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">"email"</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setSupporting</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getBoolean</span><span class="p">(</span><span class="s">"supporting"</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">Vote</span><span class="p">.</span><span class="na">Status</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">"status"</span><span class="p">)));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">vote</span><span class="p">.</span><span class="na">setCreated</span><span class="p">(</span><span class="n">resultSet</span><span class="p">.</span><span class="na">getObject</span><span class="p">(</span><span class="s">"created"</span><span class="p">,</span><span class="w"> </span><span class="n">OffsetDateTime</span><span class="p">.</span><span class="na">class</span><span class="p">));</span><span class="w">  </span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">vote</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="p">}</span>
@@ -870,14 +910,14 @@ document.write(`
 <span class="nd">@WebListener</span><span class="w">  </span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VoteContextListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ServletContextListener</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">VOTE_SERVICE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;voteService&quot;</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">MAPPER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mapper&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">VOTE_SERVICE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"voteService"</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">MAPPER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"mapper"</span><span class="p">;</span><span class="w">  </span>
 <span class="w">  </span>
 <span class="w">    </span><span class="nd">@Override</span><span class="w">  </span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">contextInitialized</span><span class="p">(</span><span class="n">ServletContextEvent</span><span class="w"> </span><span class="n">sce</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">connectionProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConnectionProvider</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;postgres.url&quot;</span><span class="p">),</span><span class="w">  </span>
-<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;postgres.username&quot;</span><span class="p">),</span><span class="w">  </span>
-<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;postgres.password&quot;</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">connectionProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConnectionProvider</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">"postgres.url"</span><span class="p">),</span><span class="w">  </span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">"postgres.username"</span><span class="p">),</span><span class="w">  </span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">"postgres.password"</span><span class="p">));</span><span class="w">  </span>
 <span class="w">        </span><span class="n">connectionProvider</span><span class="p">.</span><span class="na">init</span><span class="p">();</span><span class="w">  </span>
 <span class="w">        </span><span class="n">sce</span><span class="p">.</span><span class="na">getServletContext</span><span class="p">().</span><span class="na">setAttribute</span><span class="p">(</span><span class="n">VOTE_SERVICE</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">VoteService</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PostgresVoteRepository</span><span class="p">(</span><span class="n">connectionProvider</span><span class="p">)));</span><span class="w">  </span>
 <span class="w">  </span>
@@ -919,7 +959,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletRequest</span><span class="p">;</span><span class="w">  </span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.servlet.http.HttpServletResponse</span><span class="p">;</span><span class="w">  </span>
 <span class="w">  </span>
-<span class="nd">@WebServlet</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;verdict&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">urlPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/verdict&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"verdict"</span><span class="p">,</span><span class="w"> </span><span class="n">urlPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"/verdict"</span><span class="p">)</span><span class="w">  </span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VerdictResource</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">VoteService</span><span class="w"> </span><span class="n">voteService</span><span class="p">;</span><span class="w">  </span>
@@ -958,9 +998,9 @@ document.write(`
 <span class="kd">public</span><span class="w"> </span><span class="n">CorsConfigurationSource</span><span class="w"> </span><span class="nf">corsConfigurationSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="n">CorsConfiguration</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CorsConfiguration</span><span class="p">();</span><span class="w">  </span>
 <span class="w">    </span><span class="n">configuration</span><span class="p">.</span><span class="na">setAllowedOrigins</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PROPERTY_CORS_ORIGINS_UI</span><span class="p">)));</span><span class="w">  </span>
-<span class="w">    </span><span class="n">configuration</span><span class="p">.</span><span class="na">setAllowedMethods</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;POST&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PUT&quot;</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="n">configuration</span><span class="p">.</span><span class="na">setAllowedMethods</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="w"> </span><span class="s">"POST"</span><span class="p">,</span><span class="w"> </span><span class="s">"PUT"</span><span class="p">));</span><span class="w">  </span>
 <span class="w">    </span><span class="n">UrlBasedCorsConfigurationSource</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UrlBasedCorsConfigurationSource</span><span class="p">();</span><span class="w">  </span>
-<span class="w">    </span><span class="n">source</span><span class="p">.</span><span class="na">registerCorsConfiguration</span><span class="p">(</span><span class="s">&quot;/**&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">configuration</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">source</span><span class="p">.</span><span class="na">registerCorsConfiguration</span><span class="p">(</span><span class="s">"/**"</span><span class="p">,</span><span class="w"> </span><span class="n">configuration</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">source</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span>
 </pre></div>
@@ -1007,8 +1047,8 @@ X-Frame-Options:<span class="w"> </span>DENY
 X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 
 <span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;opposing&quot;</span>:<span class="w"> </span><span class="m">1</span>,
-<span class="w">    </span><span class="s2">&quot;supporting&quot;</span>:<span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="s2">"opposing"</span>:<span class="w"> </span><span class="m">1</span>,
+<span class="w">    </span><span class="s2">"supporting"</span>:<span class="w"> </span><span class="m">1</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -1016,11 +1056,11 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <section id="vote">
 <h4>/vote<a class="headerlink" href="#vote" title="Link to this heading">#</a></h4>
 <p>Use HTTPie to POST a new vote</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/vote<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;Testy McTestington&#39;</span><span class="w"> </span><span class="nv">email</span><span class="o">=</span><span class="s1">&#39;test@testerz.com&#39;</span><span class="w"> </span>supporting:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/vote<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s1">'Testy McTestington'</span><span class="w"> </span><span class="nv">email</span><span class="o">=</span><span class="s1">'test@testerz.com'</span><span class="w"> </span>supporting:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 <p>Notice that our error handling should work too - try to create a vote with an invalid email, it should respond with an error status and message.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/vote<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;Bizarro Testy McTestington&#39;</span><span class="w"> </span><span class="nv">email</span><span class="o">=</span><span class="s1">&#39;not-an-email&#39;</span><span class="w"> </span>supporting:<span class="o">=</span><span class="nb">true</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>:8080/react_example_api_war_exploded/vote<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s1">'Bizarro Testy McTestington'</span><span class="w"> </span><span class="nv">email</span><span class="o">=</span><span class="s1">'not-an-email'</span><span class="w"> </span>supporting:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </section>
@@ -1031,7 +1071,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>And update a vote too - make sure you replace <code class="docutils literal notranslate"><span class="pre">&lt;vote-id&gt;</span></code> with the ID of the vote created earlier.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>PUT<span class="w"> </span>:8080/react_example_api_war_exploded/manage/vote/&lt;vote-id&gt;<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;Testy McTestington&#39;</span><span class="w"> </span><span class="nv">email</span><span class="o">=</span><span class="s1">&#39;test@testerz.com&#39;</span><span class="w"> </span>supporting:<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">status</span><span class="o">=</span>REJECTED<span class="w"> </span><span class="nv">created</span><span class="o">=</span><span class="s1">&#39;2023-08-28T11:01:56.382788Z&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>http<span class="w"> </span>PUT<span class="w"> </span>:8080/react_example_api_war_exploded/manage/vote/&lt;vote-id&gt;<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s1">'Testy McTestington'</span><span class="w"> </span><span class="nv">email</span><span class="o">=</span><span class="s1">'test@testerz.com'</span><span class="w"> </span>supporting:<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">status</span><span class="o">=</span>REJECTED<span class="w"> </span><span class="nv">created</span><span class="o">=</span><span class="s1">'2023-08-28T11:01:56.382788Z'</span>
 </pre></div>
 </div>
 </section>
@@ -1043,7 +1083,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <section id="an-api-client">
 <h3>An API client<a class="headerlink" href="#an-api-client" title="Link to this heading">#</a></h3>
 <p>In the previous implementation we made fetch calls directly within our components, this is fine for simple tasks but a better approach is to delegate the complexity of dispatching calls to the API to another part of the application that can be shared across components. We’ll create <code class="docutils literal notranslate"><span class="pre">api.js</span></code> for this purpose.</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">;</span>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'application/json'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Api</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">baseUrl</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1051,7 +1091,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">getVerdict</span><span class="p">(</span><span class="nx">signal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">doCall</span><span class="p">(</span><span class="s1">&#39;/verdict&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">doCall</span><span class="p">(</span><span class="s1">'/verdict'</span><span class="p">,</span><span class="w"> </span><span class="s1">'GET'</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">);</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -1069,7 +1109,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 
 <span class="w">    </span><span class="k">async</span><span class="w"> </span><span class="nx">doCall</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">'Content-Type'</span><span class="o">:</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">Accept</span><span class="o">:</span><span class="w"> </span><span class="nx">CONTENT_TYPE_APPLICATION_JSON</span><span class="p">,</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">body</span><span class="p">;</span>
@@ -1108,9 +1148,9 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <h3>Managing state with React Contexts<a class="headerlink" href="#managing-state-with-react-contexts" title="Link to this heading">#</a></h3>
 <p>In previous milestones we implemented application state with the <code class="docutils literal notranslate"><span class="pre">useState</span></code> hook and learnt how we can use component props to deliver state to the parts of the application that require it. These tools are perfect for managing state in a local way, and should be your first port of call when designing components. However, you may come across situations where some aspect of application state must be shared across a number of relatively unrelated components. Distributing this state, with the tools we currently know, involves identifying a common parent component to manage the shared state, and have it pass the state to it’s children - who in turn may need to pass the state to their own children, until finally the state is injected into the various components that require it. If the common parent is a distant ancestor of the components that actually require the shared state, then passing the state through the entire lineage of child components becomes an incredibly cumbersome and brittle exercise. There is, thankfully, another way.</p>
 <p>React <em>Context</em> hooks provide a simple way to deliver state to parts of our application without the use of props, and thus avoid the problematic requirement that props must be passed by parent components. The API client we just implemented represents application state that we’d prefer is simply delivered to where it’s needed, it will be used by various containers that send requests to the API and marshal received data into a component hierarchy,  but also by more simple components that display dynamic data.</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createContext</span><span class="p">,</span><span class="w"> </span><span class="nx">useContext</span><span class="p">,</span><span class="w"> </span><span class="nx">useMemo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">PropType</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;prop-types&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Api</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../api&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createContext</span><span class="p">,</span><span class="w"> </span><span class="nx">useContext</span><span class="p">,</span><span class="w"> </span><span class="nx">useMemo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">PropType</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'prop-types'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Api</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'../api'</span><span class="p">;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">ApiContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createContext</span><span class="p">();</span>
 
@@ -1142,14 +1182,14 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </ol>
 <p>Great, now we have a Context that exposes the API client to any part of the application that requires it - but, how do we use it?</p>
 <p>First, we need to add the Context to our application, it should wrap any components that require access to the API client.</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./App.css&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">ApiProvider</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./contexts/ApiProvider&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">'./App.css'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ApiProvider</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./contexts/ApiProvider'</span><span class="p">;</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
-<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">"App"</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">"App-header"</span><span class="p">&gt;</span>
 <span class="w">                </span><span class="p">&lt;</span><span class="nt">ApiProvider</span><span class="p">&gt;</span>
 <span class="w">                    </span><span class="c1">// other components, for example the</span>
 <span class="w">                    </span><span class="c1">// the Verdict component below</span>
@@ -1163,8 +1203,8 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>Then consider a stripped down version of the Verdict container:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useEffect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useApi</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../contexts/ApiProvider&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useEffect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useApi</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'../contexts/ApiProvider'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Verdict</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useApi</span><span class="p">();</span>
@@ -1209,21 +1249,21 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </div>
 <p>Then let’s configure the required routing. We’ll assume that we have a number of pages already implemented as containers <code class="docutils literal notranslate"><span class="pre">Vote</span></code>, <code class="docutils literal notranslate"><span class="pre">Verdict</span></code>, <code class="docutils literal notranslate"><span class="pre">Votes</span></code> and <code class="docutils literal notranslate"><span class="pre">Home</span></code>.</p>
 <p>To keep things organised well implement our routes as a separate component</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="p">,</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./containers/Home&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Vote</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./containers/Vote&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Verdict</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./containers/Verdict&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Votes</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./containers/Votes&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="p">,</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react-router-dom'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./containers/Home'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Vote</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./containers/Vote'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Verdict</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./containers/Verdict'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Votes</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./containers/Votes'</span><span class="p">;</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">AppRoutes</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
 <span class="w">        </span><span class="p">&lt;</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
 <span class="w">            </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="p">&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;vote&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Vote</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;admin/votes&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Votes</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;verdict&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Verdict</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
-<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;*&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Home</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">"vote"</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Vote</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">"admin/votes"</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Votes</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">"verdict"</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Verdict</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">"*"</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Home</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
 <span class="w">            </span><span class="p">&lt;/</span><span class="nt">Routes</span><span class="p">&gt;</span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
 <span class="w">    </span><span class="p">);</span>
@@ -1240,15 +1280,15 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <li><p>the <code class="docutils literal notranslate"><span class="pre">path</span></code> attribute follows a particular syntax that you should spend some time understanding, note here that we provide a path with wildcard value <code class="docutils literal notranslate"><span class="pre">*</span></code>, which acts as a catch-all that directs users to the home page if they stray from the other three defined routes.</p></li>
 </ol>
 <p>Finally we need to register our routes with the application, our new App now looks like:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./App.css&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Routes</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Routes&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">ApiProvider</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./contexts/ApiProvider&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">'./App.css'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Routes</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./Routes'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ApiProvider</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./contexts/ApiProvider'</span><span class="p">;</span>
 <span class="w">  </span>
 <span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
-<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">"App"</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">header</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">"App-header"</span><span class="p">&gt;</span>
 <span class="w">                </span><span class="p">&lt;</span><span class="nt">ApiProvider</span><span class="p">&gt;</span>
 <span class="w">                    </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="w"> </span><span class="p">/&gt;</span>
 <span class="w">                </span><span class="p">&lt;/</span><span class="nt">ApiProvider</span><span class="p">&gt;</span>
@@ -1261,15 +1301,15 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>By now we should have some routes working, and if you were to provide some simple implementation for each of the <code class="docutils literal notranslate"><span class="pre">Vote</span></code>, <code class="docutils literal notranslate"><span class="pre">Votes</span></code>, <code class="docutils literal notranslate"><span class="pre">Verdict</span></code> and <code class="docutils literal notranslate"><span class="pre">Home</span></code> containers you would be able to visit each by forcefully browsing to its respective route. For some use cases we’d like the application to control the navigation for the user, for example by displaying the verdict after a user submits a vote. We can use the <code class="docutils literal notranslate"><span class="pre">useNavigation</span></code> hook for this purpose, a simple, stripped down version of a redirect from the vote page to the verdict looks like:</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useNavigate</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useNavigate</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react-router-dom'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Vote</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">navigate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useNavigate</span><span class="p">();</span>
 
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleVoteSubmitted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="w"> </span><span class="nx">voteValue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// send vote to api</span>
-<span class="w">        </span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;/verdict&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">navigate</span><span class="p">(</span><span class="s1">'/verdict'</span><span class="p">);</span>
 <span class="w">    </span><span class="p">};</span>
 
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
@@ -1283,17 +1323,17 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <h3>The <code class="docutils literal notranslate"><span class="pre">useEffect</span></code> hook<a class="headerlink" href="#the-useeffect-hook" title="Link to this heading">#</a></h3>
 <p>We’re very close to done with the functional side of our application, we have an API client, appropriately available where its needed via a Context, and some basic routing configured. The final element that requires some attention is how to fetch data from the API when a component is mounted to the DOM. In previous milestones we leant how to fetch data in response to a user action - such as clicking a button. However, for some use cases we’d prefer that data be fetched automatically - it would be ridiculous, for example, to require users that navigate to the verdict page to also click a <em>fetch votes</em> button.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">useEffect</span></code> hook is used to when we need to synchronise our component with an external system (such as by fetching data from that external system). The <code class="docutils literal notranslate"><span class="pre">useEffect</span></code> hook is triggered when the component is mounted to the DOM, or when any of its dependencies are modified. We’ll take a look at a stripped down version of the <code class="docutils literal notranslate"><span class="pre">Verdict</span></code> component to understand how it’s used in this application.</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useEffect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useApi</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../contexts/ApiProvider&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useEffect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useApi</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'../contexts/ApiProvider'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Verdict</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useApi</span><span class="p">();</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">verdict</span><span class="p">,</span><span class="w"> </span><span class="nx">setVerdict</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">({</span>
-<span class="w">        </span><span class="nx">supporting</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;?&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">opposing</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;?&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">supporting</span><span class="o">:</span><span class="w"> </span><span class="s1">'?'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">opposing</span><span class="o">:</span><span class="w"> </span><span class="s1">'?'</span><span class="p">,</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">loaded</span><span class="p">,</span><span class="w"> </span><span class="nx">setLoaded</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">setError</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">setError</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AbortController</span><span class="p">();</span>
@@ -1302,7 +1342,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 <span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="nx">setVerdict</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">getVerdict</span><span class="p">(</span><span class="nx">signal</span><span class="p">));</span>
 <span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="o">?</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;AbortError&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="o">?</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">'AbortError'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="nx">setError</span><span class="p">(</span><span class="sb">`ouch! we tried to fetch the votes but ended up fetching this error instead: </span><span class="si">${</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
@@ -1350,8 +1390,8 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>If you’ve got some experience with CSS then the code above should look familiar, it really is just simple CSS.</p>
-<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">styles</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Card.module.css&#39;</span><span class="p">;</span>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">styles</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./Card.module.css'</span><span class="p">;</span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Card</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">subtitle</span><span class="p">,</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
@@ -1418,7 +1458,7 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1446,15 +1486,17 @@ X-XSS-Protection:<span class="w"> </span><span class="m">0</span>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-schema-changes">Database schema changes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-changes">API changes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-json">Working with JSON</a></li>
@@ -1541,8 +1583,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
