@@ -33,7 +33,7 @@ You don't hand-write everything. OpenTelemetry gives you two complementary layer
 1. **The OTel Java auto-instrumentation agent.** Attached at JVM startup — no code changes — it automatically traces incoming HTTP requests and JDBC calls. You add it as a `-javaagent` when you launch your fat JAR.
 2. **A few hand-authored spans and metrics** (2–4 is plenty) around your key business transactions — for example, a span around the ticket-price calculation in Reserve Seat, or a counter for confirmed bookings. Hand-authored instrumentation is what demonstrates you understand what the agent is doing on your behalf.
 
-You then **export** your telemetry to an observability back-end where it can be queried and visualised — a free hosted tier such as **Grafana Cloud** is fine. (Larger systems put an **OTel Collector** between the services and the back-end to decouple the two — not required here, but covered in the[workshop repo](https://github.com/SWEN90007-2026/otel-workshop).)
+You then **export** your telemetry to an observability back-end where it can be queried and visualised — a free hosted tier such as **Grafana Cloud** is fine. Larger systems put an **OTel Collector** between the services and the back-end to decouple the two — not required here, but covered in the[workshop repo](https://github.com/SWEN90007-2026/otel-workshop).
 
 ::::{admonition} Starting the agent, and a hand-authored span
 Both of these are done properly, in a working Servlet app, in the
