@@ -51,5 +51,3 @@ These notes are a living guide. If you spot an error, or have a suggestion, plea
 ## Contributors
 
 A big thank you to the contributors who created and maintain these course notes — you can get in touch with them via the [project repository](https://github.com/cis-projects/swen90007_course_notes).
-
-This work was supported by the University of Melbourne Chancellery Academic – Dual Delivery Contributions grant.

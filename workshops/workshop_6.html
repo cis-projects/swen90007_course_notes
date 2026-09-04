@@ -14,54 +14,50 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'workshops/workshop_6';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,30 +65,38 @@
     <link rel="prev" title="Workshop 4" href="workshop_4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../_static/searchtools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  
-  <dialog id="pst-search-dialog">
-    
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -100,6 +104,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,59 +112,10 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
+</form></div>
   </div>
   
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -168,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -184,8 +139,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../introduction/introduction.html">
   
@@ -199,17 +152,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="SWEN90007 Software Design and Architecture Course Notes - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -261,19 +218,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -282,14 +234,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -398,7 +350,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -412,19 +364,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -444,7 +404,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-ci-cd">Why CI/CD?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The solution</a></li>
@@ -530,7 +490,7 @@
 </section>
 <section id="the-solution">
 <h3>The solution<a class="headerlink" href="#the-solution" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
 <th class="head"><p>What it means</p></th>
@@ -552,7 +512,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>There’s a direct assessment argument too. Parts 2 and 3 are assessed from a <strong>tagged release that is deployed and running</strong>, and you demonstrate your pipeline at the interactive oral. A pipeline that builds and deploys the tag for you turns “did someone remember to redeploy before the deadline?” into a question nobody has to ask.</p>
 </section>
 </section>
@@ -573,12 +532,12 @@
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span><span class="w">          </span><span class="c1"># Step 1: clone the repo</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run a command</span><span class="w">                </span><span class="c1"># Step 2: any shell command</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo "Pipeline is running!"</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Pipeline is running!&quot;</span>
 </pre></div>
 </div>
 <section id="key-concepts">
 <h3>Key concepts<a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concept</p></th>
 <th class="head"><p>Explanation</p></th>
@@ -605,7 +564,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <div class="note admonition">
 <p class="admonition-title">Every job starts from nothing</p>
 <p>A job runs on a <strong>fresh</strong> virtual machine. It has no JDK configured, no local Maven repository, and no copy of your code until you check it out. This is exactly why CI catches “works on my machine” problems — and, as the next section shows, it’s also why every extra job costs you real time.</p>
@@ -684,7 +642,7 @@
 <section id="code-quality-is-the-code-clean">
 <h3>Code quality — “is the code clean?”<a class="headerlink" href="#code-quality-is-the-code-clean" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Enforce consistent style and catch common mistakes before anyone reviews the code.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Tool</p></th>
 <th class="head"><p>What it does</p></th>
@@ -710,7 +668,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>Pick <strong>one</strong> to start with. Checkstyle is the usual choice because the rules are easy to agree on and the failures are unambiguous. SpotBugs earns its place later in the semester — it’s good at spotting the resource leaks that show up once you’re managing your own JDBC connections.</p>
 <div class="tip admonition">
 <p class="admonition-title">Bind the check to a phase</p>
@@ -720,7 +677,7 @@
 <section id="automated-testing-does-the-code-work">
 <h3>Automated testing — “does the code work?”<a class="headerlink" href="#automated-testing-does-the-code-work" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Run your test suite automatically so broken code never reaches the main branch.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Test type</p></th>
 <th class="head"><p>When to use</p></th>
@@ -742,7 +699,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>Code coverage</strong> measures what percentage of your code is exercised by tests. <a class="reference external" href="https://www.jacoco.org/jacoco/trunk/doc/maven.html">JaCoCo</a> is the standard choice: bind <code class="docutils literal notranslate"><span class="pre">prepare-agent</span></code> and <code class="docutils literal notranslate"><span class="pre">report</span></code> in your <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> and a report appears in <code class="docutils literal notranslate"><span class="pre">target/site/jacoco/</span></code> on every <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">verify</span></code>.</p>
 <div class="caution admonition">
 <p class="admonition-title">Testcontainers costs minutes</p>
@@ -752,7 +708,7 @@
 <section id="build-verification-does-the-project-compile-and-package">
 <h3>Build verification — “does the project compile and package?”<a class="headerlink" href="#build-verification-does-the-project-compile-and-package" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Make sure the project can be successfully built from a clean environment — not just on your laptop.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Task</p></th>
 <th class="head"><p>Command</p></th>
@@ -774,7 +730,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 </section>
 <section id="where-docker-fits">
@@ -822,7 +777,7 @@ verify + package
   v
 artifact / Docker image
   |
-  +------ "deploy this version" ------&gt; deployment service
+  +------ &quot;deploy this version&quot; ------&gt; deployment service
                                          |
                                          +-- build/pull image
                                          +-- start instances
@@ -837,7 +792,7 @@ artifact / Docker image
 <section id="review-gates-is-this-pr-safe-to-merge">
 <h3>Review gates — “is this PR safe to merge?”<a class="headerlink" href="#review-gates-is-this-pr-safe-to-merge" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Use GitHub features to prevent merging code that hasn’t passed your pipeline.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
 <th class="head"><p>How to set it up</p></th>
@@ -858,14 +813,13 @@ artifact / Docker image
 </tr>
 </tbody>
 </table>
-</div>
 <p>This is also where CI starts paying for itself as a <em>team</em> practice. With five people committing to one repository, a protected <code class="docutils literal notranslate"><span class="pre">main</span></code> is what stops a broken build from blocking everyone else’s work an hour before a deadline.</p>
 </section>
 <section id="continuous-deployment-ship-it-automatically">
 <h3>Continuous deployment — “ship it automatically”<a class="headerlink" href="#continuous-deployment-ship-it-automatically" title="Link to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Once CI passes, get the new version onto Render without anyone clicking anything.</p>
 <p>You have three options, and the cheapest one is probably the right one:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Approach</p></th>
 <th class="head"><p>Actions minutes</p></th>
@@ -887,7 +841,6 @@ artifact / Docker image
 </tr>
 </tbody>
 </table>
-</div>
 <p>The second option is worth setting up properly: it’s configured on the service’s Settings page in the Render dashboard, and Render waits for the new commit’s CI checks to complete before triggering a deploy. In other words:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>push to main
     |
@@ -1010,7 +963,7 @@ Render deploys
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hello CI</span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo "CI pipeline is running on branch ${{ github.ref_name }}"</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;CI pipeline is running on branch ${{ github.ref_name }}&quot;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -1118,7 +1071,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 <span class="w">      </span><span class="nt">&lt;/goals&gt;</span>
 <span class="w">      </span><span class="nt">&lt;configuration&gt;</span>
 <span class="w">        </span><span class="nt">&lt;transformers&gt;</span>
-<span class="w">          </span><span class="nt">&lt;transformer</span><span class="w"> </span><span class="na">implementation=</span><span class="s">"org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;transformer</span><span class="w"> </span><span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;mainClass&gt;</span>au.edu.unimelb.swen90007.Main<span class="nt">&lt;/mainClass&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/transformer&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/transformers&gt;</span>
@@ -1188,9 +1141,9 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'**.md'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'docs/**'</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'**.md'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'docs/**'</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
 
 <span class="nt">concurrency</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ci-${{ github.ref }}</span>
@@ -1240,7 +1193,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'SWEN90007_2026_Part*'</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;SWEN90007_2026_Part*&#39;</span><span class="p p-Indicator">]</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
@@ -1253,7 +1206,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 <span class="w">          </span><span class="nt">COMMIT_SHA</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.sha }}</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">curl -fsS -X POST \</span>
-<span class="w">            </span><span class="no">"${DEPLOY_HOOK}&amp;ref=${COMMIT_SHA}"</span>
+<span class="w">            </span><span class="no">&quot;${DEPLOY_HOOK}&amp;ref=${COMMIT_SHA}&quot;</span>
 </pre></div>
 </div>
 <p>The exact deploy-hook URL stored in <code class="docutils literal notranslate"><span class="pre">RENDER_DEPLOY_HOOK_URL</span></code> already contains the service-specific secret key, so the workflow only appends the <code class="docutils literal notranslate"><span class="pre">ref</span></code> parameter.</p>
@@ -1282,9 +1235,9 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'**.md'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'docs/**'</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'**.md'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'docs/**'</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths-ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;**.md&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span><span class="p p-Indicator">]</span>
 
 <span class="nt">concurrency</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ci-${{ github.ref }}</span>
@@ -1319,7 +1272,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Front-end lint, test &amp; build</span>
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == 'pull_request'</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;pull_request&#39;</span>
 <span class="w">    </span><span class="nt">defaults</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">run</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
@@ -1344,7 +1297,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'SWEN90007_2026_Part*'</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;SWEN90007_2026_Part*&#39;</span><span class="p p-Indicator">]</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
@@ -1357,7 +1310,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 <span class="w">          </span><span class="nt">COMMIT_SHA</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.sha }}</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">curl -fsS -X POST \</span>
-<span class="w">            </span><span class="no">"${DEPLOY_HOOK}&amp;ref=${COMMIT_SHA}"</span>
+<span class="w">            </span><span class="no">&quot;${DEPLOY_HOOK}&amp;ref=${COMMIT_SHA}&quot;</span>
 </pre></div>
 </div>
 <p>This workflow asks Render to deploy the commit represented by the release tag rather than simply deploying the latest commit on the service’s linked branch.</p>
@@ -1406,7 +1359,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 <h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <section id="official-documentation">
 <h3>Official documentation<a class="headerlink" href="#official-documentation" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Resource</p></th>
 <th class="head"><p>Link</p></th>
@@ -1427,11 +1380,10 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="maven-plugins">
 <h3>Maven plugins<a class="headerlink" href="#maven-plugins" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Plugin</p></th>
 <th class="head"><p>Link</p></th>
@@ -1455,11 +1407,10 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 <section id="deployment-and-testing">
 <h3>Deployment and testing<a class="headerlink" href="#deployment-and-testing" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Resource</p></th>
 <th class="head"><p>Link</p></th>
@@ -1483,7 +1434,6 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
 </tr>
 </tbody>
 </table>
-</div>
 </section>
 </section>
 </section>
@@ -1515,7 +1465,7 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1543,17 +1493,15 @@ You will need the Shade plugin to produce a single self-contained JAR. Everythin
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-ci-cd">Why CI/CD?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The solution</a></li>
@@ -1645,8 +1593,8 @@ By School of Computing and Information Systems, The University of Melbourne
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
