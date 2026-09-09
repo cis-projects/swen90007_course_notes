@@ -594,6 +594,14 @@ that mimics a rejection when the amount is too large.</p>
   <span class="o">-</span><span class="n">d</span> <span class="s1">'{"amount": 120.00, "bookingRef": "booking-456"}'</span>
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">"paymentRef"</span><span class="p">:</span> <span class="s2">"f9a8b7c6-..."</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ACCEPTED"</span><span class="p">,</span>
+  <span class="s2">"reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"timestamp"</span><span class="p">:</span> <span class="s2">"2026-07-19T10:16:05.000Z"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Both endpoints apply the same rule: an amount above <code class="docutils literal notranslate"><span class="pre">DECLINE_THRESHOLD</span></code> returns <code class="docutils literal notranslate"><span class="pre">REJECTED</span></code>
 with reason <code class="docutils literal notranslate"><span class="pre">AMOUNT_ABOVE_THRESHOLD</span></code>. Every response is delayed by a random amount between
 <code class="docutils literal notranslate"><span class="pre">LATENCY_MIN_MS</span></code> and <code class="docutils literal notranslate"><span class="pre">LATENCY_MAX_MS</span></code> (default: at least ~3 seconds), and with probability
