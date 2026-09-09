@@ -128,6 +128,15 @@ curl -s http://localhost:8080/payments \
   -d '{"amount": 120.00, "bookingRef": "booking-456"}'
 ```
 
+```
+{
+  "paymentRef": "f9a8b7c6-...",
+  "status": "ACCEPTED",
+  "reason": null,
+  "timestamp": "2026-07-19T10:16:05.000Z"
+}
+```
+
 Both endpoints apply the same rule: an amount above `DECLINE_THRESHOLD` returns `REJECTED`
 with reason `AMOUNT_ABOVE_THRESHOLD`. Every response is delayed by a random amount between
 `LATENCY_MIN_MS` and `LATENCY_MAX_MS` (default: at least ~3 seconds), and with probability
